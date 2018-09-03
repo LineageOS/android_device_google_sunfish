@@ -45,6 +45,9 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.euicc.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.hardware.telephony.euicc.xml
 
+# Google Assistant
+PRODUCT_PRODUCT_PROPERTIES += ro.opa.eligible_device=true
+
 # Properties
 TARGET_VENDOR_PROP := $(LOCAL_PATH)/vendor.prop
 
