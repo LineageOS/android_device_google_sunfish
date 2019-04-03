@@ -24,6 +24,12 @@ import /vendor/etc/init/hw/init.${ro.boot.hardware.platform}.power_debug.rc
 service vendor.charger /charger
     class charger
     seclabel u:r:charger:s0
+    user system
+    group system wakelock
+    file /dev/kmsg w
+    file /sys/fs/pstore/console-ramoops-0 r
+    file /sys/fs/pstore/console-ramoops r
+    file /proc/last_kmsg r
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
