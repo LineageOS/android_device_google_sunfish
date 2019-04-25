@@ -63,10 +63,6 @@ on init && property:vendor.skip.init=0
     start vendor.citadeld
     start vendor.keymaster-4-0-citadel
 
-    # Support legacy paths
-    symlink /sdcard /mnt/sdcard
-    symlink /sdcard /storage/sdcard0
-
     # Loading kernel modules in background
     start insmod_sh
 
