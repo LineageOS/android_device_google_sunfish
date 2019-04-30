@@ -18,6 +18,9 @@ set_prop(rild, vendor_radio_prop)
 hal_server_domain(rild, hal_secure_element)
 add_hwservice(rild, hal_iwlan_hwservice)
 
+#Fix no service problem
+binder_call(rild, qtidataservices_app)
+
 #Fix the avc denied for QCRILD QtiBusSocketTransport access b/131700006
 allow rild qmuxd_socket:dir create_dir_perms;
 allow rild qmuxd_socket:sock_file create_file_perms;

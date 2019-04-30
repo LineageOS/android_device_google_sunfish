@@ -21,3 +21,4 @@ get_prop(qtidataservices_app, vendor_default_prop)
 set_prop(qtidataservices_app, telephony_status_prop)
 
 binder_call(qtidataservices_app, cnd)
+binder_call(qtidataservices_app, rild)
