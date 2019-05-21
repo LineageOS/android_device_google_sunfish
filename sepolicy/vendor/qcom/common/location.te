@@ -34,14 +34,16 @@ allow location wpa_data_file:dir rw_dir_perms;
 allow location wpa_data_file:sock_file create_file_perms;
 allow location hal_wifi_supplicant_default:unix_dgram_socket sendto;
 
+# /dev/socket/wifihal
+allow location wifihal_socket:dir search;
+unix_socket_send(location, wifihal, hal_wifi_default);
+unix_socket_send(location, wifihal, hal_wifi_ext);
+
 # /dev/socket/location
 allow location location_socket:sock_file create_file_perms;
 allow location location_socket:dir w_dir_perms;
 
 allow location hal_gnss_qti:unix_dgram_socket sendto;
-
-allow location wifihal_socket:dir search;
-unix_socket_send(location, wifihal, hal_wifi_ext);
 
 get_prop(location, hwservicemanager_prop)
 binder_call(location, hwservicemanager)
