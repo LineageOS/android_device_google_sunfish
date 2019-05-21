@@ -7,6 +7,10 @@ allow hal_wifi_default location:unix_stream_socket connectto;
 allow hal_wifi_default location_socket:dir search;
 allow hal_wifi_default location_socket:sock_file write;
 allow hal_wifi_default location_data_file:{ file fifo_file } create_file_perms;
+allow hal_wifi_default location:unix_dgram_socket sendto;
+
+allow hal_wifi_default wifihal_socket:dir rw_dir_perms;
+allow hal_wifi_default wifihal_socket:sock_file create_file_perms;
 
 # Allow wifi hal to read debug info from the driver.
 r_dir_file(hal_wifi_ext, proc_wifi_dbg)
