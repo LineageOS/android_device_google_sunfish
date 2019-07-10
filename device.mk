@@ -404,6 +404,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.stagefright.omx_default_rank=512
 
+# Create input surface on the framework side
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.stagefright.c2inputsurface=-1 \
+
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl-google \
     android.hardware.camera.provider@2.4-service-google \
