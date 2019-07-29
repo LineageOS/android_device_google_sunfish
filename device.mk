@@ -291,14 +291,14 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.cne.feature=1 \
     persist.vendor.data.iwlan.enable=true \
-    persist.radio.RATE_ADAPT_ENABLE=1 \
-    persist.radio.ROTATION_ENABLE=1 \
-    persist.radio.VT_ENABLE=1 \
-    persist.radio.VT_HYBRID_ENABLE=1 \
+    persist.vendor.radio.RATE_ADAPT_ENABLE=1 \
+    persist.vendor.radio.ROTATION_ENABLE=1 \
+    persist.vendor.radio.VT_ENABLE=1 \
+    persist.vendor.radio.VT_HYBRID_ENABLE=1 \
     persist.vendor.radio.apm_sim_not_pwdn=1 \
     persist.vendor.radio.custom_ecc=1 \
     persist.vendor.radio.data_ltd_sys_ind=1 \
-    persist.radio.videopause.mode=1 \
+    persist.vendor.radio.videopause.mode=1 \
     persist.vendor.radio.multisim_switch_support=true \
     persist.vendor.radio.sib16_support=1 \
     persist.vendor.radio.data_con_rprt=true \
@@ -682,8 +682,8 @@ PRODUCT_COPY_FILES += \
 
 # Enable modem logging
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.radio.log_loc="/data/vendor/modem_dump" \
-    ro.radio.log_prefix="modem_log_"
+    ro.vendor.radio.log_loc="/data/vendor/modem_dump" \
+    ro.vendor.radio.log_prefix="modem_log_"
 
 # Enable modem logging for debug
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
