@@ -1,0 +1,10 @@
+on fs
+    wait /dev/block/platform/soc/${ro.boot.bootdevice}
+    symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+
+on init
+    setprop sys.usb.configfs 1
+    # Don't lose recovery logs- keep warm reset for coming out of recovery.
+    write /sys/module/msm_poweroff/parameters/warm_reset 1
+    # Enable thermal mitigation
+    write /sys/devices/virtual/thermal/tz-by-name/backup-charge/mode enabled
