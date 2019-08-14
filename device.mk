@@ -408,6 +408,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.stagefright.c2inputsurface=-1 \
 
+# Disable OMX
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.media.omx=0 \
+
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl-google \
     android.hardware.camera.provider@2.4-service-google \
