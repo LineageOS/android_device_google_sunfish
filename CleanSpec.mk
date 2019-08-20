@@ -87,3 +87,6 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/init/android.hardware.po
 # Remove VR permission
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/permissions/android.hardware.vr.headtracking.xml)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/permissions/android.hardware.vr.high_performance.xml)
+
+# Remove obsolete android.hardware.boot@1.0-impl-wrapper.recovery.so
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/recovery/root/system/lib64/hw/android.hardware.boot@1.0-impl-wrapper.recovery.so)
