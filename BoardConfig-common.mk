@@ -32,7 +32,6 @@ TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a9
 
-BUILD_BROKEN_ENG_DEBUG_TAGS := true
 BUILD_BROKEN_DUP_RULES := true
 
 TARGET_BOARD_COMMON_PATH := device/google/sunfish/sm7150
@@ -199,10 +198,6 @@ TARGET_HAS_WIDE_COLOR_DISPLAY := false
 TARGET_USES_DISPLAY_RENDER_INTENTS := true
 TARGET_USES_COLOR_METADATA := true
 TARGET_USES_DRM_PP := true
-
-# Misc
-TARGET_USES_HARDWARE_QCOM_BOOTCTRL := true
-
 
 # Vendor Interface Manifest
 DEVICE_MANIFEST_FILE := device/google/sunfish/manifest.xml
