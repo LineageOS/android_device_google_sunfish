@@ -1,0 +1,3 @@
+# used for /dsp files
+type adsprpcd_file, file_type, mlstrustedobject, vendor_file_type;
+

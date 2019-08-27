@@ -1,0 +1,10 @@
+###################################
+# adsp files
+#
+/dsp(/.*)?                                                          u:object_r:adsprpcd_file:s0
+
+###################################
+# persist files
+#
+/persist                                                            u:object_r:persist_default_file:s0
+
