@@ -90,3 +90,7 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/permissions/android.hard
 
 # Remove obsolete android.hardware.boot@1.0-impl-wrapper.recovery.so
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/recovery/root/system/lib64/hw/android.hardware.boot@1.0-impl-wrapper.recovery.so)
+
+# Move android.hidl.base@1.0.so to system_ext
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib/android.hidl.base@1.0.so)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib64/android.hidl.base@1.0.so)
