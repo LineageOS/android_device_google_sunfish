@@ -245,6 +245,6 @@ BOARD_PREBUILT_DTBIMAGE_DIR := device/google/sunfish-kernel
 endif
 
 # Testing related defines
-BOARD_PERFSETUP_SCRIPT := platform_testing/scripts/perf-setup/s5-setup.sh
+#BOARD_PERFSETUP_SCRIPT := platform_testing/scripts/perf-setup/s5-setup.sh
 
 -include vendor/google_devices/sunfish/proprietary/BoardConfigVendor.mk
