@@ -19,6 +19,10 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- When true use the linux /dev/input/event subsystem to detect the switch changes
+         on the headphone/microphone jack. When false use the older uevent framework. -->
+    <bool name="config_useDevInputEventForAudioJack">true</bool>
+
     <!-- Flag indicating whether the we should enable the automatic brightness in Settings.
          Software implementation will be used if config_hardware_auto_brightness_available is not set -->
     <bool name="config_automatic_brightness_available">true</bool>
@@ -68,6 +72,9 @@
 
     <!-- Set to true to add links to Cell Broadcast app from Settings and MMS app. -->
     <bool name="config_cellBroadcastAppLinks">true</bool>
+
+    <!-- reference volume index for music stream to limit headphone volume and display warning -->
+    <integer name="config_safe_media_volume_index">7</integer>
 
     <!--  Whether Multiuser UI should be shown -->
     <bool name="config_enableMultiUserUI">true</bool>
@@ -255,6 +262,9 @@
 
     <!-- Use ERI text for network name on CDMA LTE -->
         <bool name="config_LTE_eri_for_network_name">false</bool>
+
+    <!-- True if Unprocessed audio source supports the required frequency range and level -->
+    <bool name="config_supportAudioSourceUnprocessed">true</bool>
 
     <!-- An array of device capabilities defined by GSMA SGP.22 v2.0, and their corresponding major
          version. -->
