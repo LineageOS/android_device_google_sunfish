@@ -643,7 +643,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # default usb oem functions
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
   PRODUCT_PROPERTY_OVERRIDES += \
-      persist.vendor.usb.usbradio.config=diag,diag_mdm,qdss,qdss_mdm,serial_cdev,dpl_gsi,rmnet_gsi
+      persist.vendor.usb.usbradio.config=diag,serial_cdev,rmnet_gsi,dpl_gsi,qdss
 endif
 
 # Early phase offset configuration for SurfaceFlinger (b/75985430)
