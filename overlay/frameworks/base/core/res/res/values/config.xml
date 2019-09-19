@@ -176,6 +176,23 @@
     radio is unable to find any MCC information to infer wifi country code from -->
     <bool translatable="false" name="config_wifi_revert_country_code_on_cellular_loss">false</bool>
 
+    <!-- Array indicating wifi fatal firmware alert error code list from driver -->
+    <integer-array translatable="false" name="config_wifi_fatal_firmware_alert_error_code_list">
+        <item>1</item>      <!-- WLAN_LOG_REASON_ROAM_FAIL -->
+        <item>256</item>    <!-- DATA_STALL_LOG_NONE -->
+        <item>257</item>    <!-- DATA_STALL_LOG_FW_VDEV_PAUSE -->
+        <item>258</item>    <!-- DATA_STALL_LOG_HWSCHED_CMD_FILTER -->
+        <item>259</item>    <!-- DATA_STALL_LOG_HWSCHED_CMD_FLUSH -->
+        <item>260</item>    <!-- DATA_STALL_LOG_FW_RX_REFILL_FAILED -->
+        <item>261</item>    <!-- DATA_STALL_LOG_FW_RX_FCS_LEN_ERROR -->
+        <item>262</item>    <!-- DATA_STALL_LOG_FW_WDOG_ERRORS -->
+        <item>263</item>    <!-- DATA_STALL_LOG_BB_WDOG_ERROR -->
+        <item>264</item>    <!-- DATA_STALL_LOG_POST_TIM_NO_TXRX_ERROR -->
+        <item>512</item>    <!-- DATA_STALL_LOG_HOST_STA_TX_TIMEOUT -->
+        <item>513</item>    <!-- DATA_STALL_LOG_HOST_SOFTAP_TX_TIMEOUT -->
+        <item>514</item>    <!-- DATA_STALL_LOG_NUD_FAILURE -->
+    </integer-array>
+
     <!-- Boolean indicating whether or not wifi should turn off when emergency call is made -->
     <bool translatable="false" name="config_wifi_turn_off_during_emergency_call">true</bool>
 
@@ -292,11 +309,27 @@
     <integer translatable="false" name="config_wifi_framework_wifi_score_bad_rssi_threshold_5GHz">-80</integer>
     <integer translatable="false" name="config_wifi_framework_wifi_score_bad_rssi_threshold_24GHz">-83</integer>
 
+    <string name="config_wlan_data_service_package">vendor.qti.iwlan</string>
+    <string name="config_wlan_network_service_package">vendor.qti.iwlan</string>
+    <string name="config_qualified_networks_service_package">vendor.qti.iwlan</string>
+
     <!-- Enables or disables haptic effect when the text insertion/selection handle is moved
           manually by the user. Off by default, since the expected haptic feedback may not be
           available on some devices. -->
     <bool name="config_enableHapticTextHandle">true</bool>
     <!-- Enable Zram writeback feature to allow unused pages in zram be written to flash. -->
     <bool name="config_zramWriteback">true</bool>
+
+    <!-- True if the firmware supports connected MAC randomization -->
+    <bool name="config_wifi_connected_mac_randomization_supported">true</bool>
+
+    <!-- True if the firmware supports p2p MAC randomization -->
+    <bool name="config_wifi_p2p_mac_randomization_supported">true</bool>
+
+    <!-- True if the firmware supports Wi-Fi link probing -->
+    <bool name="config_wifi_link_probing_supported">true</bool>
+
+    <!-- Integer delay in milliseconds before set wlan interface up during watchdog recovery -->
+    <integer name="config_wifi_framework_recovery_timeout_delay">3000</integer>
 
 </resources>
