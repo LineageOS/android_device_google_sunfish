@@ -1,0 +1,4 @@
+type init_citadel, domain;
+type init_citadel_exec, exec_type, vendor_file_type, file_type;
+type citadel_updater_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(init_citadel)

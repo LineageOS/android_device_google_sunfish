@@ -1,0 +1,7 @@
+android.hardware.citadel.ICitadeld      u:object_r:citadeld_service:s0
+rlsservice                              u:object_r:rls_service:s0
+airbrush_faceauth                       u:object_r:airbrush_faceauth_service:s0
+airbrush_tpu                            u:object_r:airbrush_tpu_service:s0
+power.stats-vendor                      u:object_r:power_stats_service:s0
+media.ecoservice                        u:object_r:eco_service:s0
+
