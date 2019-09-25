@@ -1,0 +1,168 @@
+genfscon debugfs /f2fs                                u:object_r:debugfs_f2fs:s0
+genfscon debugfs /ufshcd0                             u:object_r:debugfs_ufs:s0
+genfscon proc /sys/kernel/sched_boost                 u:object_r:proc_sysctl_schedboost:s0
+genfscon sysfs /devices/soc0                          u:object_r:sysfs_soc:s0
+genfscon sysfs /devices/platform/soc/1d84000.ufshc/slowio_read_cnt           u:object_r:sysfs_scsi_devices_0000:s0
+genfscon sysfs /devices/platform/soc/1d84000.ufshc/slowio_write_cnt          u:object_r:sysfs_scsi_devices_0000:s0
+genfscon sysfs /devices/platform/soc/1d84000.ufshc/slowio_unmap_cnt          u:object_r:sysfs_scsi_devices_0000:s0
+genfscon sysfs /devices/platform/soc/1d84000.ufshc/slowio_sync_cnt           u:object_r:sysfs_scsi_devices_0000:s0
+genfscon sysfs /devices/platform/soc/1d84000.ufshc/manual_gc                 u:object_r:sysfs_scsi_devices_0000:s0
+genfscon proc /sys/vm/swappiness		      u:object_r:proc_swappiness:s0
+genfscon proc /fs/f2fs                                u:object_r:proc_f2fs:s0
+genfscon proc /irq                                    u:object_r:proc_irq:s0
+genfscon sysfs /bus/iio/devices                       u:object_r:sysfs_iio_devices:s0
+
+# Touch
+genfscon sysfs /devices/platform/soc/890000.spi/spi_master/spi1/spi1.0		u:object_r:sysfs_touch:s0
+genfscon proc  /fts/driver_test                                                 u:object_r:proc_touch:s0
+
+# PowerHal
+genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp                      u:object_r:sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/2c00000.qcom,kgsl-3d0                      u:object_r:sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,gpubw                             u:object_r:sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,gpubw/devfreq                     u:object_r:sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,cpu-cpu-llcc-bw                   u:object_r:sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,cpu-cpu-llcc-bw/devfreq           u:object_r:sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,cpu-llcc-ddr-bw                   u:object_r:sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,cpu-llcc-ddr-bw/devfreq           u:object_r:sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,cpu0-cpu-l3-lat                   u:object_r:sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,cpu4-cpu-l3-lat                   u:object_r:sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,cpu0-cpu-l3-lat/devfreq           u:object_r:sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,cpu4-cpu-l3-lat/devfreq           u:object_r:sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/1d84000.ufshc/clkgate_enable               u:object_r:sysfs_scsi_devices_0000:s0
+genfscon sysfs /devices/platform/soc/1d84000.ufshc/hibern8_on_idle_enable       u:object_r:sysfs_scsi_devices_0000:s0
+genfscon debugfs /sched_features                                                u:object_r:debugfs_sched_features:s0
+
+# PowerStatsHal
+genfscon sysfs /power/system_sleep/stats           u:object_r:sysfs_power_stats:s0
+genfscon sysfs /power/rpmh_stats/master_stats      u:object_r:sysfs_power_stats:s0
+genfscon sysfs /kernel/wlan/power_stats            u:object_r:sysfs_power_stats:s0
+genfscon sysfs /devices/platform/soc/soc:abc-sm/state_stats
+u:object_r:sysfs_power_stats:s0
+genfscon sysfs /devices/platform/soc/880000.i2c/i2c-1/1-0010/iio:device3
+u:object_r:sysfs_power_stats:s0
+genfscon sysfs /devices/platform/soc/880000.i2c/i2c-1/1-0011/iio:device3
+u:object_r:sysfs_power_stats:s0
+genfscon sysfs /devices/platform/soc/a84000.i2c/i2c-2/2-0010/iio:device4
+u:object_r:sysfs_power_stats:s0
+genfscon sysfs /devices/platform/soc/89c000.i2c/i2c-2/2-0011/iio:device3
+u:object_r:sysfs_power_stats:s0
+genfscon sysfs /devices/platform/soc/a84000.i2c/i2c-3/3-0010/iio:device4
+u:object_r:sysfs_power_stats:s0
+genfscon sysfs /devices/platform/soc/a84000.i2c/i2c-2/2-0008/power_stats
+u:object_r:sysfs_power_stats:s0
+genfscon sysfs /devices/platform/soc/a84000.i2c/i2c-3/3-0008/power_stats
+u:object_r:sysfs_power_stats:s0
+
+# Not used by PowerStatsHal
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pm8150@0:vadc@3100/iio:device0
+u:object_r:sysfs_power_stats_ignore:s0
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pm8150b@2:vadc@3100/iio:device1
+u:object_r:sysfs_power_stats_ignore:s0
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-04/c440000.qcom,spmi:qcom,pm8150l@4:vadc@3100/iio:device2
+u:object_r:sysfs_power_stats_ignore:s0
+
+# Display
+genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display-primary/backlight                          u:object_r:sysfs_leds:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display-primary/backlight/panel0-backlight/vr_mode u:object_r:sysfs_lights:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display-primary/panel_info                         u:object_r:sysfs_display:s0
+
+# PMIC
+genfscon debugfs /regmap/spmi0-05/address                                       u:object_r:debugfs_pmic:s0
+genfscon debugfs /regmap/spmi0-05/count                                         u:object_r:debugfs_pmic:s0
+genfscon debugfs /regmap/spmi0-05/data                                          u:object_r:debugfs_pmic:s0
+
+# Vibrator
+# EVT 1.0 and older
+genfscon sysfs /devices/platform/soc/c94000.i2c/i2c-3/3-0043                    u:object_r:sysfs_vibrator:s0
+# EVT 1.1 and newer
+genfscon sysfs /devices/platform/soc/c94000.i2c/i2c-4/4-0043                    u:object_r:sysfs_vibrator:s0
+
+# Camera
+genfscon sysfs /devices/platform/soc/ac4a000.qcom,cci                           u:object_r:sysfs_camera:s0
+genfscon sysfs /devices/platform/soc/ac4b000.qcom,cci                           u:object_r:sysfs_camera:s0
+
+# Device config (device build)
+genfscon sysfs /firmware/devicetree/base/chosen/cdt/cdb2/devcfg                 u:object_r:sysfs_devcfg:s0
+
+# eSIM status
+genfscon sysfs /firmware/devicetree/base/chosen/cdt/cdb2/esim                   u:object_r:sysfs_esim:s0
+
+# Battery
+genfscon sysfs /devices/platform/soc/soc:google,battery/power_supply/battery    u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /devices/platform/soc/880000.i2c/i2c-1/1-0036/power_supply/maxfg u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /devices/platform/soc/89c000.i2c/i2c-2/2-0036/power_supply/maxfg u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /devices/platform/soc/880000.i2c/i2c-1/1-0061                    u:object_r:sysfs_wlc:s0
+genfscon sysfs /devices/platform/soc/880000.i2c/i2c-1/1-0061/power_supply       u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /devices/platform/soc/880000.i2c/i2c-1/1-0061/power_supply/wireless    u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pm8150b@2:google,bms/power_supply/charger u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pm8150b@2:qcom,usb-pdphy@1700/usbpd0/power_supply u:object_r:sysfs_batteryinfo:s0
+genfscon debugfs /regmap/1-0036/                                                u:object_r:debugfs_batteryinfo:s0
+genfscon debugfs /regmap/1-000b/                                                u:object_r:debugfs_batteryinfo:s0
+genfscon debugfs /regmap/2-0036/                                                u:object_r:debugfs_batteryinfo:s0
+genfscon debugfs /regmap/2-000b/                                                u:object_r:debugfs_batteryinfo:s0
+genfscon debugfs /logbuffer/ssoc                                                u:object_r:debugfs_batteryinfo:s0
+genfscon debugfs /logbuffer/batt_ce                                             u:object_r:debugfs_batteryinfo:s0
+genfscon debugfs /logbuffer/wireless                                            u:object_r:debugfs_batteryinfo:s0
+genfscon debugfs /google_charger                                                u:object_r:debugfs_batteryinfo:s0
+genfscon debugfs /google_battery                                                u:object_r:debugfs_batteryinfo:s0
+
+# Pixelstats
+genfscon sysfs /devices/virtual/misc/msm_cirrus_playback/resistance_left_right    u:object_r:sysfs_pixelstats:s0
+genfscon sysfs /devices/platform/soc/soc:google,overheat_mitigation               u:object_r:sysfs_pixelstats:s0
+genfscon sysfs /devices/platform/soc/a8c000.spi/spi_master/spi4/spi4.0/iaxxx-dev/iaxxx_misc/codec_state      u:object_r:sysfs_pixelstats:s0
+genfscon sysfs /devices/platform/soc/a8c000.spi/spi_master/spi4/spi4.0/iaxxx-dev/iaxxx_misc/wdsp_stat        u:object_r:sysfs_pixelstats:s0
+genfscon sysfs /devices/platform/soc/a8c000.spi/spi_master/spi5/spi5.0/iaxxx-dev/iaxxx_misc/codec_state      u:object_r:sysfs_pixelstats:s0
+genfscon sysfs /devices/platform/soc/a8c000.spi/spi_master/spi5/spi5.0/iaxxx-dev/iaxxx_misc/wdsp_stat        u:object_r:sysfs_pixelstats:s0
+
+# Audio Dsp for HardwareInfo
+genfscon sysfs /devices/platform/soc/a8c000.spi/spi_master/spi4/spi4.0/iaxxx-dev/iaxxx_misc/hwinfo_part_number      u:object_r:sysfs_audio:s0
+genfscon sysfs /devices/platform/soc/a8c000.spi/spi_master/spi5/spi5.0/iaxxx-dev/iaxxx_misc/hwinfo_part_number      u:object_r:sysfs_audio:s0
+
+# Knowles framework info
+genfscon sysfs /devices/platform/soc/a8c000.spi/spi_master/spi5/spi5.0/iaxxx/fw_version      u:object_r:sysfs_knowles_info:s0
+genfscon sysfs /devices/platform/soc/a8c000.spi/spi_master/spi5/spi5.0/iaxxx/host_version    u:object_r:sysfs_knowles_info:s0
+genfscon sysfs /devices/platform/soc/a8c000.spi/spi_master/spi5/spi5.0/iaxxx/package_version u:object_r:sysfs_knowles_info:s0
+genfscon sysfs /devices/platform/soc/a8c000.spi/spi_master/spi5/spi5.0/iaxxx/plugin_version  u:object_r:sysfs_knowles_info:s0
+
+# init_citadel might need to read this
+genfscon sysfs /firmware/devicetree/base/qcom,board-id                     u:object_r:sysfs_msm_boardid:s0
+
+# USB
+genfscon debugfs /tcpm/usbpd0                         u:object_r:debugfs_usb:s0
+genfscon debugfs /logbuffer/usbpd                     u:object_r:debugfs_usb:s0
+genfscon debugfs /logbuffer/smblib                    u:object_r:debugfs_usb:s0
+genfscon debugfs /logbuffer/pps			      u:object_r:debugfs_usb:s0
+
+# Airbrush
+genfscon sysfs /devices/platform/soc/soc:abc-sm                            u:object_r:sysfs_airbrush:s0
+genfscon sysfs /devices/platform/soc/c84000.i2c/i2c-4/4-0066           u:object_r:sysfs_airbrush_dumpstate:s0
+genfscon sysfs /devices/platform/soc/c84000.i2c/i2c-5/5-0066           u:object_r:sysfs_airbrush_dumpstate:s0
+genfscon debugfs /faceauth                                                 u:object_r:debugfs_airbrush:s0
+genfscon debugfs /airbrush                                                 u:object_r:debugfs_airbrush:s0
+
+# Dumpstate hal
+genfscon debugfs /dma_buf/bufinfo                     u:object_r:debugfs_dma_buf:s0
+genfscon debugfs /dma_buf/dmaprocs                    u:object_r:debugfs_dma_buf:s0
+
+# Power
+genfscon debugfs /clk/debug_suspend                   u:object_r:debugfs_clk:s0
+
+# ramoops
+genfscon sysfs /devices/virtual/ramoops/pstore/aes_key                          u:object_r:sysfs_pstore:s0
+genfscon sysfs /devices/virtual/ramoops/pstore/aes_key_iv                       u:object_r:sysfs_pstore:s0
+genfscon sysfs /devices/virtual/ramoops/pstore/aes_key_tag                      u:object_r:sysfs_pstore:s0
+genfscon sysfs /devices/virtual/ramoops/pstore/use_alt                          u:object_r:sysfs_pstore:s0
+
+# pmic
+genfscon debugfs /pmic-votable                        u:object_r:debugfs_pmic:s0
+
+# USB contaminant detection
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pm8150b@2:qcom,qpnp-smb5/power_supply/usb/moisture_detected            u:object_r:sysfs_contaminant:s0
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pm8150b@2:qcom,qpnp-smb5/power_supply/usb/moisture_detection_enabled   u:object_r:sysfs_contaminant:s0
+
+# Bootloader
+genfscon proc /bldrlog                                u:object_r:proc_bldrlog:s0
+
+# Fingerprint
+genfscon sysfs /devices/platform/soc/soc:fp_fpc1020                               u:object_r:sysfs_fingerprint:s0
