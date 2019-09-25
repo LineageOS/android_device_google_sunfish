@@ -1,0 +1,6 @@
+type hal_pixelstats_hwservice, hwservice_manager_type;
+type hal_airbrush_hwservice, hwservice_manager_type;
+type hal_darwinn_hwservice, hwservice_manager_type;
+type hal_radioext_hwservice, hwservice_manager_type;
+type hal_wifi_ext_hwservice, hwservice_manager_type;
+type hal_wlc_hwservice, hwservice_manager_type;
