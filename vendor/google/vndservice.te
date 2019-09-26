@@ -1,0 +1,6 @@
+type citadeld_service,             vndservice_manager_type;
+type rls_service,                  vndservice_manager_type;
+type power_stats_service,          vndservice_manager_type;
+type airbrush_faceauth_service,    vndservice_manager_type;
+type airbrush_tpu_service,         vndservice_manager_type;
+type eco_service,                  vndservice_manager_type;

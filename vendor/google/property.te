@@ -1,0 +1,11 @@
+type vendor_thermal_prop, property_type;
+type power_prop, property_type;
+type vendor_tcpdump_log_prop, property_type;
+type vendor_faceauth_prop, property_type;
+type vendor_build_type_prop, property_type;
+type vendor_aware_available_prop, property_type;
+type vendor_modem_prop, property_type;
+type camera_ro_prop, property_type;
+type vendor_ramoops_prop, property_type;
+type ecoservice_prop, property_type;
+type vendor_shutdown_prop, property_type;
