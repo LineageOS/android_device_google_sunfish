@@ -505,16 +505,10 @@ service sensors.qti /vendor/bin/sensors.qti
     # register QMI services
     capabilities NET_BIND_SERVICE
 
-service vendor.sscrpcd  /vendor/bin/sscrpcd sensorspd
-    class core
-    user system
-    group system
-
 service vendor.adsprpcd /vendor/bin/adsprpcd
    class main
-   user root
+   user system
    group media
-   setenv ADSP_LIBRARY_PATH /vendor/dsp;/vendor/lib/rfsa/adsp;/system/lib/rfsa/adsp
 
 service vendor.adsprpcd_audiopd /vendor/bin/adsprpcd audiopd
    class main
@@ -523,11 +517,6 @@ service vendor.adsprpcd_audiopd /vendor/bin/adsprpcd audiopd
 
 service vendor.cdsprpcd /vendor/bin/cdsprpcd
    class main
-   user system
-   group system
-
-service vendor.lowi /vendor/bin/sscrpcd
-   class core
    user system
    group system
 
