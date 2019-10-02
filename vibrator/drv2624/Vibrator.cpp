@@ -53,8 +53,57 @@ static constexpr char WAVEFORM_DOUBLE_CLICK_EFFECT_SEQ[] = "3 0";
 // Use effect #4 in the waveform library for HEAVY_CLICK effect
 static constexpr char WAVEFORM_HEAVY_CLICK_EFFECT_SEQ[] = "4 0";
 
+// UT team design those target G values
+static constexpr std::array<float, 5> EFFECT_TARGET_G = {0.175, 0.325, 0.37, 0.475, 0.6};
+static constexpr std::array<float, 3> STEADY_TARGET_G = {1.38, 1.145, 0.905};
+
 static std::uint32_t freqPeriodFormula(std::uint32_t in) {
     return 1000000000 / (24615 * in);
+}
+
+static std::uint32_t convertLevelsToOdClamp(float voltageLevel, uint32_t lraPeriod) {
+    float odClamp;
+
+    odClamp = voltageLevel /
+              ((21.32 / 1000.0) *
+               sqrt(1.0 - (static_cast<float>(freqPeriodFormula(lraPeriod)) * 8.0 / 10000.0)));
+
+    return round(odClamp);
+}
+
+static float convertTargetGToVlevels(std::array<float, 4> inputCoeffs, float targetG) {
+    // implement cubic equation to get voltage levels
+    float AA = 0.0f, BB = 0.0f, CC = 0.0f, Delta = 0.0f;
+    float Y1 = 0.0f, Y2 = 0.0f;
+    float T = 0.0f, sita = 0.0f;
+
+    AA = inputCoeffs[1] * inputCoeffs[1] - 3.0 * inputCoeffs[0] * inputCoeffs[2];
+    BB = inputCoeffs[1] * inputCoeffs[2] - 9.0 * inputCoeffs[0] * (inputCoeffs[3] - targetG);
+    CC = inputCoeffs[2] * inputCoeffs[2] - 3.0 * inputCoeffs[1] * (inputCoeffs[3] - targetG);
+
+    Delta = BB * BB - 4.0 * AA * CC;
+    if (Delta < 0) {
+        T = (2 * AA * inputCoeffs[1] - 3 * inputCoeffs[0] * BB) / (2 * AA * sqrt(AA));
+        sita = acos(T);
+        return (-inputCoeffs[1] + sqrt(AA) * (cos(sita / 3) - sqrt(3.0) * sin(sita / 3))) /
+               (3 * inputCoeffs[0]);
+    }
+
+    Y1 = AA * inputCoeffs[1] + 3.0 * inputCoeffs[0] * (-BB + pow(Delta, 1.0 / 2.0)) / 2.0;
+    Y2 = AA * inputCoeffs[1] + 3.0 * inputCoeffs[0] * (-BB - pow(Delta, 1.0 / 2.0)) / 2.0;
+
+    if ((Y1 < 0) && (Y2 > 0)) {
+        return (-inputCoeffs[1] + pow(-Y1, 1.0 / 3.0) - pow(Y2, 1.0 / 3.0)) /
+               (3.0 * inputCoeffs[0]);
+    } else if ((Y1 > 0) && (Y2 < 0)) {
+        return (-inputCoeffs[1] - pow(Y1, 1.0 / 3.0) + pow(-Y2, 1.0 / 3.0)) /
+               (3.0 * inputCoeffs[0]);
+    } else if ((Y1 < 0) && (Y2 < 0)) {
+        return (-inputCoeffs[1] + pow(-Y1, 1.0 / 3.0) + pow(-Y2, 1.0 / 3.0)) /
+               (3.0 * inputCoeffs[0]);
+    } else {
+        return (-inputCoeffs[1] - pow(Y1, 1.0 / 3.0) - pow(Y2, 1.0 / 3.0)) / (3.0 * inputCoeffs[0]);
+    }
 }
 
 using utils::toUnderlying;
@@ -65,8 +114,10 @@ using EffectStrength = ::android::hardware::vibrator::V1_0::EffectStrength;
 Vibrator::Vibrator(std::unique_ptr<HwApi> hwapi, std::unique_ptr<HwCal> hwcal)
     : mHwApi(std::move(hwapi)), mHwCal(std::move(hwcal)) {
     std::string autocal;
-    uint32_t lraPeriod;
-    bool dynamicConfig;
+    uint32_t lraPeriod = 0;
+    bool dynamicConfig = false;
+    bool hasEffectCoeffs = false;
+    std::array<float, 4> effectCoeffs = {};
 
     if (!mHwApi->setState(true)) {
         ALOGE("Failed to set state (%d): %s", errno, strerror(errno));
@@ -81,21 +132,40 @@ Vibrator::Vibrator(std::unique_ptr<HwApi> hwapi, std::unique_ptr<HwCal> hwcal)
     mHwCal->getDynamicConfig(&dynamicConfig);
 
     if (dynamicConfig) {
-        uint32_t longFreqencyShift;
-        uint32_t shortVoltageMax, longVoltageMax;
+        uint8_t i = 0;
+        float tempVolLevel = 0.0f;
+        float tempAmpMax = 0.0f;
+        uint32_t longFreqencyShift = 0;
+        uint32_t shortVoltageMax = 0, longVoltageMax = 0;
+        uint32_t shape = 0;
 
         mHwCal->getLongFrequencyShift(&longFreqencyShift);
         mHwCal->getShortVoltageMax(&shortVoltageMax);
         mHwCal->getLongVoltageMax(&longVoltageMax);
 
+        hasEffectCoeffs = mHwCal->getEffectCoeffs(&effectCoeffs);
+        for (i = 0; i < 5; i++) {
+            if (hasEffectCoeffs) {
+                tempVolLevel = convertTargetGToVlevels(effectCoeffs, EFFECT_TARGET_G[i]);
+                mEffectTargetOdClamp[i] = convertLevelsToOdClamp(tempVolLevel, lraPeriod);
+            } else {
+                mEffectTargetOdClamp[i] = shortVoltageMax;
+            }
+        }
+        mHwCal->getEffectShape(&shape);
         mEffectConfig.reset(new VibrationConfig({
-            .shape = WaveShape::SINE,
-            .odClamp = shortVoltageMax,
+            .shape = (shape == UINT32_MAX) ? WaveShape::SINE : static_cast<WaveShape>(shape),
+            .odClamp = &mEffectTargetOdClamp[0],
             .olLraPeriod = lraPeriod,
         }));
+
+        mSteadyTargetOdClamp = mHwCal->getSteadyAmpMax(&tempAmpMax)
+                                   ? round((STEADY_TARGET_G[0] / tempAmpMax) * longVoltageMax)
+                                   : longVoltageMax;
+        mHwCal->getSteadyShape(&shape);
         mSteadyConfig.reset(new VibrationConfig({
-            .shape = WaveShape::SQUARE,
-            .odClamp = longVoltageMax,
+            .shape = (shape == UINT32_MAX) ? WaveShape::SQUARE : static_cast<WaveShape>(shape),
+            .odClamp = &mSteadyTargetOdClamp,
             // 1. Change long lra period to frequency
             // 2. Get frequency': subtract the frequency shift from the frequency
             // 3. Get final long lra period after put the frequency' to formula
@@ -118,7 +188,8 @@ Vibrator::Vibrator(std::unique_ptr<HwApi> hwapi, std::unique_ptr<HwCal> hwcal)
 }
 
 Return<Status> Vibrator::on(uint32_t timeoutMs, const char mode[],
-                            const std::unique_ptr<VibrationConfig> &config) {
+                            const std::unique_ptr<VibrationConfig> &config,
+                            const int8_t volOffset) {
     LoopControl loopMode = LoopControl::OPEN;
 
     // Open-loop mode is used for short click for over-drive
@@ -136,7 +207,7 @@ Return<Status> Vibrator::on(uint32_t timeoutMs, const char mode[],
     mHwApi->setMode(mode);
     if (config != nullptr) {
         mHwApi->setLraWaveShape(toUnderlying(config->shape));
-        mHwApi->setOdClamp(config->odClamp);
+        mHwApi->setOdClamp(config->odClamp[volOffset]);
         mHwApi->setOlLraPeriod(config->olLraPeriod);
     }
 
@@ -151,7 +222,7 @@ Return<Status> Vibrator::on(uint32_t timeoutMs, const char mode[],
 // Methods from ::android::hardware::vibrator::V1_2::IVibrator follow.
 Return<Status> Vibrator::on(uint32_t timeoutMs) {
     ATRACE_NAME("Vibrator::on");
-    return on(timeoutMs, RTP_MODE, mSteadyConfig);
+    return on(timeoutMs, RTP_MODE, mSteadyConfig, 0);
 }
 
 Return<Status> Vibrator::off() {
@@ -214,12 +285,15 @@ Return<void> Vibrator::debug(const hidl_handle &handle,
     dprintf(fd, "  Close Loop Thresh: %" PRIu32 "\n", mCloseLoopThreshold);
     if (mSteadyConfig) {
         dprintf(fd, "  Steady Shape: %" PRIu32 "\n", mSteadyConfig->shape);
-        dprintf(fd, "  Steady OD Clamp: %" PRIu32 "\n", mSteadyConfig->odClamp);
+        dprintf(fd, "  Steady OD Clamp: %" PRIu32 "\n", mSteadyConfig->odClamp[0]);
         dprintf(fd, "  Steady OL LRA Period: %" PRIu32 "\n", mSteadyConfig->olLraPeriod);
     }
     if (mEffectConfig) {
         dprintf(fd, "  Effect Shape: %" PRIu32 "\n", mEffectConfig->shape);
-        dprintf(fd, "  Effect OD Clamp: %" PRIu32 "\n", mEffectConfig->odClamp);
+        dprintf(fd,
+                "  Effect OD Clamp: %" PRIu32 " %" PRIu32 " %" PRIu32 " %" PRIu32 " %" PRIu32 "\n",
+                mEffectConfig->odClamp[0], mEffectConfig->odClamp[1], mEffectConfig->odClamp[2],
+                mEffectConfig->odClamp[3], mEffectConfig->odClamp[4]);
         dprintf(fd, "  Effect OL LRA Period: %" PRIu32 "\n", mEffectConfig->olLraPeriod);
     }
     dprintf(fd, "  Click Duration: %" PRIu32 "\n", mClickDuration);
@@ -237,22 +311,6 @@ Return<void> Vibrator::debug(const hidl_handle &handle,
 
     fsync(fd);
     return Void();
-}
-
-static uint8_t convertEffectStrength(EffectStrength strength) {
-    uint8_t scale;
-
-    switch (strength) {
-        case EffectStrength::LIGHT:
-            scale = 2;  // 50%
-            break;
-        case EffectStrength::MEDIUM:
-        case EffectStrength::STRONG:
-            scale = 0;  // 100%
-            break;
-    }
-
-    return scale;
 }
 
 Return<void> Vibrator::perform(V1_0::Effect effect, EffectStrength strength, perform_cb _hidl_cb) {
@@ -292,6 +350,22 @@ Return<void> Vibrator::performWrapper(T effect, EffectStrength strength, perform
 Return<void> Vibrator::performEffect(Effect effect, EffectStrength strength, perform_cb _hidl_cb) {
     Status status = Status::OK;
     uint32_t timeMS;
+    int8_t volOffset;
+
+    switch (strength) {
+        case EffectStrength::LIGHT:
+            volOffset = 0;
+            break;
+        case EffectStrength::MEDIUM:
+            volOffset = 1;
+            break;
+        case EffectStrength::STRONG:
+            volOffset = 1;
+            break;
+        default:
+            status = Status::UNSUPPORTED_OPERATION;
+            break;
+    }
 
     switch (effect) {
         case Effect::TEXTURE_TICK:
@@ -301,25 +375,28 @@ Return<void> Vibrator::performEffect(Effect effect, EffectStrength strength, per
         case Effect::CLICK:
             mHwApi->setSequencer(WAVEFORM_CLICK_EFFECT_SEQ);
             timeMS = mClickDuration;
+            volOffset += CLICK;
             break;
         case Effect::DOUBLE_CLICK:
             mHwApi->setSequencer(WAVEFORM_DOUBLE_CLICK_EFFECT_SEQ);
             timeMS = mDoubleClickDuration;
+            volOffset += CLICK;
             break;
         case Effect::TICK:
             mHwApi->setSequencer(WAVEFORM_TICK_EFFECT_SEQ);
             timeMS = mTickDuration;
+            volOffset += TICK;
             break;
         case Effect::HEAVY_CLICK:
             mHwApi->setSequencer(WAVEFORM_HEAVY_CLICK_EFFECT_SEQ);
             timeMS = mHeavyClickDuration;
+            volOffset += HEAVY_CLICK;
             break;
         default:
             _hidl_cb(Status::UNSUPPORTED_OPERATION, 0);
             return Void();
     }
-    mHwApi->setScale(convertEffectStrength(strength));
-    on(timeMS, WAVEFORM_MODE, mEffectConfig);
+    on(timeMS, WAVEFORM_MODE, mEffectConfig, volOffset);
     _hidl_cb(status, timeMS);
     return Void();
 }
