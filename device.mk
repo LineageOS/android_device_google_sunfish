@@ -570,7 +570,7 @@ PRODUCT_PACKAGES += \
     android.hardware.dumpstate@1.0-service.sunfish
 
 # Citadel
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     citadeld \
     citadel_updater \
     android.hardware.authsecret@1.0-service.citadel \
@@ -580,7 +580,7 @@ PRODUCT_PACKAGES += \
     wait_for_strongbox
 
 # Citadel debug stuff
-PRODUCT_PACKAGES_DEBUG += \
+#PRODUCT_PACKAGES_DEBUG += \
     test_citadel
 
 # Storage: for factory reset protection feature
