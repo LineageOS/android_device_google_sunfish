@@ -23,15 +23,14 @@
 #include <android/hardware/usb/gadget/1.0/IUsbGadget.h>
 #include <hidl/MQDescriptor.h>
 #include <hidl/Status.h>
-#include <pixelusb/UsbGadgetCommon.h>
+#include <string>
 #include <sys/epoll.h>
 #include <sys/eventfd.h>
+#include <thread>
 #include <utils/Log.h>
 #include <chrono>
 #include <condition_variable>
 #include <mutex>
-#include <string>
-#include <thread>
 
 namespace android {
 namespace hardware {
@@ -51,38 +50,47 @@ using ::android::hardware::hidl_string;
 using ::android::hardware::hidl_vec;
 using ::android::hardware::Return;
 using ::android::hardware::Void;
-using ::android::hardware::google::pixel::usb::addAdb;
-using ::android::hardware::google::pixel::usb::addEpollFd;
-using ::android::hardware::google::pixel::usb::getVendorFunctions;
-using ::android::hardware::google::pixel::usb::kDebug;
-using ::android::hardware::google::pixel::usb::kDisconnectWaitUs;
-using ::android::hardware::google::pixel::usb::linkFunction;
-using ::android::hardware::google::pixel::usb::MonitorFfs;
-using ::android::hardware::google::pixel::usb::resetGadget;
-using ::android::hardware::google::pixel::usb::setVidPid;
-using ::android::hardware::google::pixel::usb::unlinkFunctions;
+using ::std::chrono::steady_clock;
+using ::std::lock_guard;
+using ::std::move;
+using ::std::mutex;
 using ::std::string;
-
-constexpr char kGadgetName[] = "a600000.dwc3";
-static MonitorFfs monitorFfs(kGadgetName);
+using ::std::thread;
+using ::std::unique_ptr;
+using ::std::vector;
+using namespace std::chrono;
+using namespace std::chrono_literals;
 
 struct UsbGadget : public IUsbGadget {
-    UsbGadget();
+  UsbGadget();
+  unique_fd mInotifyFd;
+  unique_fd mEventFd;
+  unique_fd mEpollFd;
 
-    // Makes sure that only one request is processed at a time.
-    std::mutex mLockSetCurrentFunction;
-    uint64_t mCurrentUsbFunctions;
-    bool mCurrentUsbFunctionsApplied;
+  unique_ptr<thread> mMonitor;
+  volatile bool mMonitorCreated;
+  vector<string> mEndpointList;
+  // protects the CV.
+  std::mutex mLock;
+  std::condition_variable mCv;
 
-    Return<void> setCurrentUsbFunctions(uint64_t functions, const sp<IUsbGadgetCallback> &callback,
-                                        uint64_t timeout) override;
+  // Makes sure that only one request is processed at a time.
+  std::mutex mLockSetCurrentFunction;
+  uint64_t mCurrentUsbFunctions;
+  bool mCurrentUsbFunctionsApplied;
 
-    Return<void> getCurrentUsbFunctions(const sp<IUsbGadgetCallback> &callback) override;
+  Return<void> setCurrentUsbFunctions(uint64_t functions,
+                                      const sp<IUsbGadgetCallback>& callback,
+                                      uint64_t timeout) override;
+
+  Return<void> getCurrentUsbFunctions(
+      const sp<IUsbGadgetCallback>& callback) override;
 
   private:
-    Status tearDownGadget();
-    Status setupFunctions(uint64_t functions, const sp<IUsbGadgetCallback> &callback,
-                          uint64_t timeout);
+  Status tearDownGadget();
+  Status setupFunctions(uint64_t functions,
+                        const sp<IUsbGadgetCallback>& callback,
+                        uint64_t timeout);
 };
 
 }  // namespace implementation
