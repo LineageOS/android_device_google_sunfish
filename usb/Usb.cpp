@@ -17,6 +17,7 @@
 #define LOG_TAG "android.hardware.usb@1.2-service.sunfish"
 
 #include <android-base/logging.h>
+#include <android-base/properties.h>
 #include <assert.h>
 #include <dirent.h>
 #include <pthread.h>
@@ -34,6 +35,8 @@
 #include <utils/StrongPointer.h>
 
 #include "Usb.h"
+
+using android::base::GetProperty;
 
 namespace android {
 namespace hardware {
@@ -129,7 +132,10 @@ Status queryMoistureDetectionStatus(hidl_vec<PortStatus> *currentPortStatus_1_2)
 
 Return<void> Usb::enableContaminantPresenceDetection(const hidl_string & /*portName*/,
                                                      bool enable) {
-    writeFile(kEnabledPath, enable ? "1" : "0");
+    std::string status = GetProperty("init.svc.console", "");
+    if (status != "running")
+        writeFile(kEnabledPath, enable ? "1" : "0");
+
     hidl_vec<PortStatus> currentPortStatus_1_2;
 
     queryVersionHelper(this, &currentPortStatus_1_2);
