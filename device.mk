@@ -17,6 +17,7 @@
 LOCAL_PATH := device/google/sunfish
 
 PRODUCT_VENDOR_MOVE_ENABLED := true
+TARGET_BOARD_PLATFORM := sm6150
 
 PRODUCT_SOONG_NAMESPACES += \
     device/google/sunfish \
@@ -282,13 +283,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.snapshot_enabled=0 \
     persist.vendor.radio.snapshot_timer=0
-
-PRODUCT_PACKAGES += \
-    hwcomposer.sm6150 \
-    android.hardware.graphics.composer@2.3-service-sm7150 \
-    gralloc.sm6150 \
-    android.hardware.graphics.mapper@3.0-impl-qti-display \
-    vendor.qti.hardware.display.allocator-service
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \
@@ -756,3 +750,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+
+-include hardware/qcom/sm7150/display/config/display-product.mk
+-include vendor/qcom/sm7150/proprietary/display/config/display-product-proprietary.mk
+-include vendor/qcom/sm7150/proprietary/commonsys-intf/data/data_commonsys-intf_system_product.mk
+-include vendor/qcom/sm7150/proprietary/commonsys-intf/data/data_commonsys-intf_vendor_product.mk
+# Security
+-include vendor/qcom/sm7150/proprietary/securemsm/config/keymaster_vendor_proprietary_board.mk
+-include vendor/qcom/sm7150/proprietary/securemsm/config/keymaster_vendor_proprietary_product.mk
