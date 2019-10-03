@@ -57,6 +57,7 @@
 /(vendor|system/vendor)/bin/hw/android\.hardware\.bluetooth@1\.0-service-qti  u:object_r:hal_bluetooth_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.display\.color@1\.0-service            u:object_r:hal_display_color_default_exec:s0
 /vendor/bin/hw/vendor\.qti\.hardware\.mlshal@1\.0-service                          u:object_r:hal_mirrorlink_qti_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.qti\.hardware\.perf@2\.0-service            u:object_r:hal_perf_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.qti\.hardware\.qdutils_disp@1\.0-service-qti u:object_r:hal_qdutils_disp_qti_exec:s0
 /(vendor|system/vendor)/bin/sscrpcd                                 u:object_r:sensors_exec:s0
 /(vendor|system/vendor)/bin/loc_launcher        u:object_r:location_exec:s0
