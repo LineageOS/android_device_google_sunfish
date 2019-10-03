@@ -389,6 +389,8 @@ static V1_0::Status validateAndSetVidPid(uint64_t functions) {
         ret = setVidPid("0x05C6", "0x9091");
       } else if (vendorFunctions == "diag,serial_cdev") {
         ret = setVidPid("0x05C6", "0x901F");
+      } else if (vendorFunctions == "diag,serial_cdev,rmnet_gsi,dpl_gsi,qdss") {
+        ret = setVidPid("0x05C6", "0x90DB");
       } else {
         if (!(vendorFunctions == "user" || vendorFunctions == ""))
           ALOGE("Invalid vendorFunctions set: %s", vendorFunctions.c_str());
