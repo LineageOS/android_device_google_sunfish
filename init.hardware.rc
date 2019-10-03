@@ -60,8 +60,8 @@ on init && property:vendor.skip.init=0
     start vendor.qseecomd
     start keymaster-4-0
 
-    start vendor.citadeld
-    start vendor.keymaster-4-0-citadel
+    #start vendor.citadeld
+    #start vendor.keymaster-4-0-citadel
 
     # Support legacy paths
     symlink /sdcard /mnt/sdcard
@@ -163,12 +163,12 @@ on post-fs
 
 on late-fs
     # Start services for bootanim
-    start color_init
-    wait_for_prop vendor.display.native_display_primaries_ready 1
-    setprop ro.surface_flinger.display_primary_red ${vendor.display.primary_red}
-    setprop ro.surface_flinger.display_primary_green ${vendor.display.primary_green}
-    setprop ro.surface_flinger.display_primary_blue ${vendor.display.primary_blue}
-    setprop ro.surface_flinger.display_primary_white ${vendor.display.primary_white}
+    #start color_init
+    #wait_for_prop vendor.display.native_display_primaries_ready 1
+    #setprop ro.surface_flinger.display_primary_red ${vendor.display.primary_red}
+    #setprop ro.surface_flinger.display_primary_green ${vendor.display.primary_green}
+    #setprop ro.surface_flinger.display_primary_blue ${vendor.display.primary_blue}
+    #setprop ro.surface_flinger.display_primary_white ${vendor.display.primary_white}
     start surfaceflinger
     start bootanim
     start vendor.hwcomposer-2-3
@@ -176,7 +176,7 @@ on late-fs
     start vendor.qti.hardware.display.allocator
 
     # Wait for keymaster HALs (TEE and StrongBox)
-    exec_start wait_for_strongbox
+    #exec_start wait_for_strongbox
 
 
     # Mount RW partitions which need run fsck
