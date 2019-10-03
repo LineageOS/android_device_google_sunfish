@@ -49,6 +49,8 @@ volatile bool destroyThread;
 
 constexpr char kEnabledPath[] = "/sys/class/power_supply/usb/moisture_detection_enabled";
 constexpr char kDetectedPath[] = "/sys/class/power_supply/usb/moisture_detected";
+constexpr char kConsole[] = "init.svc.console";
+constexpr char kDisableContatminantDetection[] = "vendor.usb.contaminantdisable";
 
 void queryVersionHelper(android::hardware::usb::V1_2::implementation::Usb *usb,
                         hidl_vec<PortStatus> *currentPortStatus_1_2);
@@ -132,8 +134,12 @@ Status queryMoistureDetectionStatus(hidl_vec<PortStatus> *currentPortStatus_1_2)
 
 Return<void> Usb::enableContaminantPresenceDetection(const hidl_string & /*portName*/,
                                                      bool enable) {
-    std::string status = GetProperty("init.svc.console", "");
-    if (status != "running")
+
+    std::string status = GetProperty(kConsole, "");
+    std::string disable = GetProperty(kDisableContatminantDetection, "");
+
+
+    if (status != "running" && disable != "true")
         writeFile(kEnabledPath, enable ? "1" : "0");
 
     hidl_vec<PortStatus> currentPortStatus_1_2;
