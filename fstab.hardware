@@ -1,9 +1,7 @@
 # Android fstab file.
 
 #<src>                                                  <mnt_point>            <type>  <mnt_flags and options>                              <fs_mgr_flags>
-system                                                  /system                ext4    ro,barrier=1                                         wait,slotselect,avb=vbmeta_system,logical,first_stage_mount
-vendor                                                  /vendor                ext4    ro,barrier=1                                         wait,slotselect,avb=vbmeta,logical,first_stage_mount
-product                                                 /product               ext4    ro,barrier=1                                         wait,slotselect,avb,logical,first_stage_mount
+/dev/block/bootdevice/by-name/system                    /                      ext4    ro,barrier=1,discard                                 wait,slotselect,avb
 /dev/block/by-name/metadata                             /metadata              ext4    noatime,nosuid,nodev,discard,sync                    wait,formattable,first_stage_mount
 /dev/block/bootdevice/by-name/modem                     /vendor/firmware_mnt   vfat    ro,shortname=lower,uid=0,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0 wait,slotselect
 /dev/block/bootdevice/by-name/misc                      /misc                  emmc    defaults                                             defaults
