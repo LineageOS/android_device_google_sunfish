@@ -20,9 +20,7 @@ cc_defaults {
     shared_libs: [
         "libhidlbase",
         "libcutils",
-        "libhidltransport",
         "liblog",
-        "libhwbinder",
         "libutils",
         "libhardware",
         "android.hardware.vibrator@1.0",
