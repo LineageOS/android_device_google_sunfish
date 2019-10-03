@@ -24,7 +24,6 @@
 #include <healthd/healthd.h>
 #include <hidl/HidlTransportSupport.h>
 #include <pixelhealth/BatteryMetricsLogger.h>
-#include <pixelhealth/CycleCountBackupRestore.h>
 #include <pixelhealth/DeviceHealth.h>
 #include <pixelhealth/LowBatteryShutdownMetrics.h>
 
@@ -39,21 +38,16 @@ using android::hardware::health::V2_0::DiskStats;
 using android::hardware::health::V2_0::StorageAttribute;
 using android::hardware::health::V2_0::StorageInfo;
 using hardware::google::pixel::health::BatteryMetricsLogger;
-using hardware::google::pixel::health::CycleCountBackupRestore;
 using hardware::google::pixel::health::DeviceHealth;
 using hardware::google::pixel::health::LowBatteryShutdownMetrics;
 
-#define FG_DIR "/sys/class/power_supply/maxfg"
-constexpr char kBatteryResistance[] {FG_DIR "/resistance"};
-constexpr char kBatteryOCV[] {FG_DIR "/voltage_ocv"};
-constexpr char kVoltageAvg[] {FG_DIR "/voltage_avg"};
-constexpr char kCycleCountsBins[] {FG_DIR "/cycle_counts_bins"};
-constexpr char kGaugeSerial[] {FG_DIR "/serial_number"};
+#define FG_DIR "/sys/class/power_supply"
+constexpr char kBatteryResistance[] {FG_DIR "/bms/resistance"};
+constexpr char kBatteryOCV[] {FG_DIR "/bms/voltage_ocv"};
+constexpr char kVoltageAvg[] {FG_DIR "/battery/voltage_now"};
 
 static BatteryMetricsLogger battMetricsLogger(kBatteryResistance, kBatteryOCV);
 static LowBatteryShutdownMetrics shutdownMetrics(kVoltageAvg);
-static CycleCountBackupRestore ccBackupRestoreMAX(
-    10, kCycleCountsBins, "/persist/battery/max_cycle_counts_bins", kGaugeSerial);
 static DeviceHealth deviceHealth;
 
 #define UFS_DIR "/sys/devices/platform/soc/1d84000.ufshc"
@@ -99,14 +93,12 @@ void fill_ufs_storage_attribute(StorageAttribute *attr) {
 
 void healthd_board_init(struct healthd_config *hc) {
   hc->ignorePowerSupplyNames.push_back(android::String8(kTCPMPSYName));
-  ccBackupRestoreMAX.Restore();
 }
 
 int healthd_board_battery_update(struct android::BatteryProperties *props) {
   deviceHealth.update(props);
   battMetricsLogger.logBatteryProperties(props);
   shutdownMetrics.logShutdownVoltage(props);
-  ccBackupRestoreMAX.Backup(props->batteryLevel);
   return 0;
 }
 
