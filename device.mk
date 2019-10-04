@@ -573,7 +573,7 @@ PRODUCT_PACKAGES += \
 #
 CITADEL_LAZY_PSK_SYNC := false
 
-#PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
     citadeld \
     citadel_updater \
     android.hardware.authsecret@1.0-service.citadel \
@@ -583,7 +583,7 @@ CITADEL_LAZY_PSK_SYNC := false
     wait_for_strongbox
 
 # Citadel debug stuff
-#PRODUCT_PACKAGES_DEBUG += \
+PRODUCT_PACKAGES_DEBUG += \
     test_citadel
 
 # Storage: for factory reset protection feature
