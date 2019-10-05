@@ -148,7 +148,7 @@ type mpss_rfs_data_file, data_file_type, file_type;
 type rfs_tombstone_data_file, data_file_type, file_type;
 type sysfs_msm_wlan, sysfs_type, fs_type;
 type sysfs_scsi_devices_0000, sysfs_type, fs_type;
-type debugfs_sched_features, debugfs_type, fs_type;
+type proc_sched_energy_aware, proc_type, fs_type;
 type debugfs_wlan, debugfs_type, fs_type;
 type debugfs_ipc, debugfs_type, fs_type;
 type debugfs_icnss, debugfs_type, fs_type;
