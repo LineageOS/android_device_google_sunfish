@@ -17,6 +17,7 @@
 LOCAL_PATH := device/google/sunfish
 
 PRODUCT_VENDOR_MOVE_ENABLED := true
+TARGET_BOARD_PLATFORM := sm6150
 
 PRODUCT_SOONG_NAMESPACES += \
     device/google/sunfish \
@@ -248,11 +249,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.managebuffer.enable=1
 
-# Lets the vendor library that Google Camera HWL is enabled
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.camera.google_hwl.enabled=true \
-    persist.camera.google_hwl.name=libgooglecamerahwl_impl.so
-
 # OEM Unlock reporting
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.oem_unlock_supported=1
@@ -282,13 +278,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.snapshot_enabled=0 \
     persist.vendor.radio.snapshot_timer=0
-
-PRODUCT_PACKAGES += \
-    hwcomposer.sm6150 \
-    android.hardware.graphics.composer@2.3-service-sm7150 \
-    gralloc.sm6150 \
-    android.hardware.graphics.mapper@3.0-impl-qti-display \
-    vendor.qti.hardware.display.allocator-service
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \
@@ -351,7 +340,7 @@ PRODUCT_PACKAGES += \
     android.hardware.usb@1.2-service.sunfish
 
 PRODUCT_PACKAGES += \
-    android.hardware.health@2.0-service.sunfish
+    android.hardware.health@2.0-service
 
 # Storage health HAL
 PRODUCT_PACKAGES += \
@@ -372,8 +361,8 @@ PRODUCT_PACKAGES += \
     vendor.qti.media.c2@1.0-service \
 
 PRODUCT_PACKAGES += \
-    android.hardware.camera.provider@2.4-impl-google \
-    android.hardware.camera.provider@2.4-service-google \
+    android.hardware.camera.provider@2.4-impl \
+    android.hardware.camera.provider@2.4-service_64 \
     camera.sm6150 \
     libgooglecamerahal \
     libgooglecamerahwl_impl \
@@ -566,6 +555,17 @@ PRODUCT_PACKAGES += \
     android.hardware.dumpstate@1.0-service.sunfish
 
 # Citadel
+#
+# Set CITADEL_LAZY_PSK_SYNC to true on projects with faceauth, otherwise false.
+#
+#      EVT devices left the factory without being provisioned,
+#      and thus the shared authtoken key is yet to be established.
+#      Since faceauth HAT enforcement fails without the preshared
+#      authtoken, auto-sync it in the field for userdebug/eng.
+#      Please refer to b/135295587 for more detail.
+#
+CITADEL_LAZY_PSK_SYNC := false
+
 PRODUCT_PACKAGES += \
     citadeld \
     citadel_updater \
@@ -641,7 +641,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # default usb oem functions
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
   PRODUCT_PROPERTY_OVERRIDES += \
-      persist.vendor.usb.usbradio.config=diag,diag_mdm,qdss,qdss_mdm,serial_cdev,dpl_gsi,rmnet_gsi
+      persist.vendor.usb.usbradio.config=diag,serial_cdev,rmnet_gsi,dpl_gsi,qdss
 endif
 
 # Early phase offset configuration for SurfaceFlinger (b/75985430)
@@ -752,3 +752,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+
+-include hardware/qcom/sm7150/display/config/display-product.mk
+-include vendor/qcom/sm7150/proprietary/display/config/display-product-proprietary.mk
+-include vendor/qcom/sm7150/proprietary/commonsys-intf/data/data_commonsys-intf_system_product.mk
+-include vendor/qcom/sm7150/proprietary/commonsys-intf/data/data_commonsys-intf_vendor_product.mk
+# Security
+-include vendor/qcom/sm7150/proprietary/securemsm/config/keymaster_vendor_proprietary_board.mk
+-include vendor/qcom/sm7150/proprietary/securemsm/config/keymaster_vendor_proprietary_product.mk
