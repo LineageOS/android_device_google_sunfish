@@ -42,7 +42,6 @@ time_daemon sysfs_ssr file 128869480
 time_daemon unlabeled dir 135646017
 ueventd ueventd capability 132595817
 untrusted_app_27 camera_ro_prop file 134899434
-vendor_misc_writer sysfs_dt_firmware_android dir 134122603
 vendor_pd_mapper kmsg_device chr_file 129744410
 vendor_pd_mapper sysfs_esoc dir 129744410
 vendor_pd_mapper sysfs_msm_subsys dir 129744410
