@@ -97,6 +97,11 @@ int32_t writeFile(const std::string &filename, const std::string &contents) {
 Status queryMoistureDetectionStatus(hidl_vec<PortStatus> *currentPortStatus_1_2) {
     std::string enabled, status;
 
+    if (currentPortStatus_1_2 == NULL || currentPortStatus_1_2->size() == 0) {
+        ALOGE("currentPortStatus_1_2 is not available");
+        return Status::ERROR;
+    }
+
     (*currentPortStatus_1_2)[0].supportedContaminantProtectionModes = 0;
     (*currentPortStatus_1_2)[0].supportedContaminantProtectionModes |=
         ContaminantProtectionMode::FORCE_SINK;
@@ -564,7 +569,8 @@ void queryVersionHelper(android::hardware::usb::V1_2::implementation::Usb *usb,
     if (usb->mCallback_1_0 != NULL) {
         if (callback_V1_2 != NULL) {
             status = getPortStatusHelper(currentPortStatus_1_2, HALVersion::V1_2);
-            queryMoistureDetectionStatus(currentPortStatus_1_2);
+            if (status == Status::SUCCESS)
+                queryMoistureDetectionStatus(currentPortStatus_1_2);
         } else if (callback_V1_1 != NULL) {
             status = getPortStatusHelper(currentPortStatus_1_2, HALVersion::V1_1);
             currentPortStatus_1_1.resize(currentPortStatus_1_2->size());
