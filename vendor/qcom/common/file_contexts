@@ -22,7 +22,6 @@
 /(vendor|system/vendor)/bin/ims_rtp_daemon      u:object_r:hal_imsrtp_exec:s0
 /(vendor|system/vendor)/bin/netmgrd             u:object_r:netmgrd_exec:s0
 /(vendor|system/vendor)/bin/port-bridge         u:object_r:port-bridge_exec:s0
-/(vendor|system/vendor)/bin/sensors.qcom        u:object_r:sensors_exec:s0
 /(vendor|system/vendor)/bin/sensors.qti         u:object_r:sensors_exec:s0
 /(vendor|system/vendor)/bin/test_diag           u:object_r:diag_exec:s0
 /(vendor|system/vendor)/bin/thermal-engine      u:object_r:thermal-engine_exec:s0
