@@ -42,13 +42,12 @@
     <bool name="config_nightDisplayAvailable">true</bool>
 
     <!-- Boolean indicating whether display white balance is supported. -->
-    <bool name="config_displayWhiteBalanceAvailable">true</bool>
+    <bool name="config_displayWhiteBalanceAvailable">false</bool>
 
     <!-- List supported color modes. -->
     <integer-array name="config_availableColorModes">
         <item>0</item> <!-- COLOR_MODE_NATURAL -->
         <item>1</item> <!-- COLOR_MODE_BOOSTED -->
-        <item>3</item> <!-- COLOR_MODE_AUTOMATIC -->
     </integer-array>
 
     <!-- Color mode to use when accessibility transforms are enabled. This color mode must be
