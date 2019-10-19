@@ -266,7 +266,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <version>2.4</version>
         <interface>
             <name>ICameraProvider</name>
-            <instance>legacy/0</instance>
+            <instance>internal/0</instance>
         </interface>
     </hal>
     <!-- gatekeeper -->
