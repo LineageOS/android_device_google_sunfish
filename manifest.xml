@@ -596,4 +596,13 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="hidl">
+        <name>android.hardware.oemlock</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IOemLock</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
 </manifest>
