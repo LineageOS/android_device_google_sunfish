@@ -384,6 +384,15 @@ static void DumpVibrator(int fd) {
     }
 }
 
+static void DumpPower(int fd) {
+    RunCommandToFd(fd, "Power Stats Times", {"/vendor/bin/sh", "-c",
+                   "echo -n \"Boot: \" && /vendor/bin/uptime -s && "
+                   "echo -n \"Now: \" && date"});
+    DumpFileToFd(fd, "Sleep Stats", "/sys/power/system_sleep/stats");
+    DumpFileToFd(fd, "Power Management Stats", "/sys/power/rpmh_stats/master_stats");
+    DumpFileToFd(fd, "WLAN Power Stats", "/sys/kernel/wlan/power_stats");
+}
+
 // Methods from ::android::hardware::dumpstate::V1_0::IDumpstateDevice follow.
 Return<void> DumpstateDevice::dumpstateBoard(const hidl_handle& handle) {
     // Exit when dump is completed since this is a lazy HAL.
@@ -412,9 +421,9 @@ Return<void> DumpstateDevice::dumpstateBoard(const hidl_handle& handle) {
     DumpUFS(fd);
 
     DumpFileToFd(fd, "INTERRUPTS", "/proc/interrupts");
-    DumpFileToFd(fd, "Sleep Stats", "/sys/power/system_sleep/stats");
-    DumpFileToFd(fd, "Power Management Stats", "/sys/power/rpmh_stats/master_stats");
-    DumpFileToFd(fd, "WLAN Power Stats", "/sys/kernel/wlan/power_stats");
+
+    DumpPower(fd);
+
     DumpFileToFd(fd, "LL-Stats", "/d/wlan0/ll_stats");
     DumpFileToFd(fd, "WLAN Connect Info", "/d/wlan0/connect_info");
     DumpFileToFd(fd, "WLAN Offload Info", "/d/wlan0/offload_info");
