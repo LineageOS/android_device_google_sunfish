@@ -1,0 +1,10 @@
+# These are the permissions required to use the boot_control HAL implemented
+# here: hardware/qcom/bootctrl/boot_control.c
+
+# Getting and setting GPT attributes for the bootloader iterates over all the
+# partition names in the block_device directory /dev/block/.../by-name
+allow hal_bootctl_default block_device:dir r_dir_perms;
+
+# Edit the attributes stored in the GPT.
+allow hal_bootctl_default boot_block_device:blk_file rw_file_perms;
+allow hal_bootctl_default gpt_block_device:blk_file rw_file_perms;
