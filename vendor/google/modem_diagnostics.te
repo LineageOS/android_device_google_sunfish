@@ -1,0 +1,2 @@
+type modem_diagnostic_app, domain;
+type modem_diagnostic_app_tmpfs, file_type;

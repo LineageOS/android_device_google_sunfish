@@ -1,0 +1,12 @@
+type abc_tpu_device, dev_type;
+type airbrush_device, dev_type, mlstrustedobject;
+type airbrush_sm_device, dev_type, mlstrustedobject;
+type citadel_device, dev_type;
+type faceauth_device, dev_type;
+type ipu_device, dev_type, mlstrustedobject;
+type ramoops_device, dev_type;
+type maxfg_device, dev_type;
+type rls_device, dev_type;
+type laser_device, dev_type;
+type pwrstats_device, dev_type;
+type dp_block_device, dev_type;
