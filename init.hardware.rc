@@ -163,12 +163,12 @@ on post-fs
 
 on late-fs
     # Start services for bootanim
-    start color_init
-    wait_for_prop vendor.display.native_display_primaries_ready 1
-    setprop ro.surface_flinger.display_primary_red ${vendor.display.primary_red}
-    setprop ro.surface_flinger.display_primary_green ${vendor.display.primary_green}
-    setprop ro.surface_flinger.display_primary_blue ${vendor.display.primary_blue}
-    setprop ro.surface_flinger.display_primary_white ${vendor.display.primary_white}
+    #start color_init
+    #wait_for_prop vendor.display.native_display_primaries_ready 1
+    #setprop ro.surface_flinger.display_primary_red ${vendor.display.primary_red}
+    #setprop ro.surface_flinger.display_primary_green ${vendor.display.primary_green}
+    #setprop ro.surface_flinger.display_primary_blue ${vendor.display.primary_blue}
+    #setprop ro.surface_flinger.display_primary_white ${vendor.display.primary_white}
     start surfaceflinger
     start bootanim
     start vendor.hwcomposer-2-3
@@ -176,7 +176,7 @@ on late-fs
     start vendor.qti.hardware.display.allocator
 
     # Wait for keymaster HALs (TEE and StrongBox)
-    exec_start wait_for_strongbox
+    #exec_start wait_for_strongbox
 
 
     # Mount RW partitions which need run fsck
@@ -505,29 +505,23 @@ service sensors.qti /vendor/bin/sensors.qti
     # register QMI services
     capabilities NET_BIND_SERVICE
 
-service vendor.sscrpcd  /vendor/bin/sscrpcd sensorspd
-    class core
-    user system
-    group system
-
 service vendor.adsprpcd /vendor/bin/adsprpcd
    class main
-   user root
+   user system
    group media
-   setenv ADSP_LIBRARY_PATH /vendor/dsp;/vendor/lib/rfsa/adsp;/system/lib/rfsa/adsp
 
 service vendor.adsprpcd_audiopd /vendor/bin/adsprpcd audiopd
    class main
    user media
    group media
 
-service vendor.cdsprpcd /vendor/bin/cdsprpcd
+service vendor.adsprpcd_sensorspd /vendor/bin/adsprpcd sensorspd
    class main
    user system
    group system
 
-service vendor.lowi /vendor/bin/sscrpcd
-   class core
+service vendor.cdsprpcd /vendor/bin/cdsprpcd
+   class main
    user system
    group system
 
@@ -562,13 +556,13 @@ service cnd /vendor/bin/cnd
    user system
    group system wifi inet radio wakelock net_admin
 
-service vendor.chre /vendor/bin/chre
-    class late_start
-    user system
-    group system wakelock
-    capabilities BLOCK_SUSPEND
-    socket chre seqpacket 0660 root system
-    shutdown critical
+# service vendor.chre /vendor/bin/chre
+#     class late_start
+#     user system
+#     group system wakelock
+#     capabilities BLOCK_SUSPEND
+#     socket chre seqpacket 0660 root system
+#     shutdown critical
 
 service wait_for_strongbox /vendor/bin/hw/wait_for_strongbox
     user root
@@ -631,7 +625,7 @@ on property:persist.vendor.sys.ssr.enable_ramdumps=1
     mkdir /data/vendor/ramdump 771 root system
     mkdir /data/vendor/ssrdump 771 root system
     mkdir /data/vendor/ssrlog  771 root system
-    start vendor.ss_ramdump
+#    start vendor.ss_ramdump
 
 on property:persist.vendor.sys.ssr.enable_ramdumps=0
     write /sys/module/subsystem_restart/parameters/enable_ramdumps 0

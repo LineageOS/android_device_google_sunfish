@@ -17,6 +17,7 @@
 #define LOG_TAG "android.hardware.usb@1.2-service.sunfish"
 
 #include <android-base/logging.h>
+#include <android-base/properties.h>
 #include <assert.h>
 #include <dirent.h>
 #include <pthread.h>
@@ -35,6 +36,8 @@
 
 #include "Usb.h"
 
+using android::base::GetProperty;
+
 namespace android {
 namespace hardware {
 namespace usb {
@@ -46,6 +49,8 @@ volatile bool destroyThread;
 
 constexpr char kEnabledPath[] = "/sys/class/power_supply/usb/moisture_detection_enabled";
 constexpr char kDetectedPath[] = "/sys/class/power_supply/usb/moisture_detected";
+constexpr char kConsole[] = "init.svc.console";
+constexpr char kDisableContatminantDetection[] = "vendor.usb.contaminantdisable";
 
 void queryVersionHelper(android::hardware::usb::V1_2::implementation::Usb *usb,
                         hidl_vec<PortStatus> *currentPortStatus_1_2);
@@ -92,6 +97,11 @@ int32_t writeFile(const std::string &filename, const std::string &contents) {
 Status queryMoistureDetectionStatus(hidl_vec<PortStatus> *currentPortStatus_1_2) {
     std::string enabled, status;
 
+    if (currentPortStatus_1_2 == NULL || currentPortStatus_1_2->size() == 0) {
+        ALOGE("currentPortStatus_1_2 is not available");
+        return Status::ERROR;
+    }
+
     (*currentPortStatus_1_2)[0].supportedContaminantProtectionModes = 0;
     (*currentPortStatus_1_2)[0].supportedContaminantProtectionModes |=
         ContaminantProtectionMode::FORCE_SINK;
@@ -129,7 +139,14 @@ Status queryMoistureDetectionStatus(hidl_vec<PortStatus> *currentPortStatus_1_2)
 
 Return<void> Usb::enableContaminantPresenceDetection(const hidl_string & /*portName*/,
                                                      bool enable) {
-    writeFile(kEnabledPath, enable ? "1" : "0");
+
+    std::string status = GetProperty(kConsole, "");
+    std::string disable = GetProperty(kDisableContatminantDetection, "");
+
+
+    if (status != "running" && disable != "true")
+        writeFile(kEnabledPath, enable ? "1" : "0");
+
     hidl_vec<PortStatus> currentPortStatus_1_2;
 
     queryVersionHelper(this, &currentPortStatus_1_2);
@@ -552,7 +569,8 @@ void queryVersionHelper(android::hardware::usb::V1_2::implementation::Usb *usb,
     if (usb->mCallback_1_0 != NULL) {
         if (callback_V1_2 != NULL) {
             status = getPortStatusHelper(currentPortStatus_1_2, HALVersion::V1_2);
-            queryMoistureDetectionStatus(currentPortStatus_1_2);
+            if (status == Status::SUCCESS)
+                queryMoistureDetectionStatus(currentPortStatus_1_2);
         } else if (callback_V1_1 != NULL) {
             status = getPortStatusHelper(currentPortStatus_1_2, HALVersion::V1_1);
             currentPortStatus_1_1.resize(currentPortStatus_1_2->size());

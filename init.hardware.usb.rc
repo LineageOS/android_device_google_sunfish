@@ -58,6 +58,9 @@ on early-boot
 on property:init.svc.console=running
     write /sys/class/power_supply/usb/moisture_detection_enabled 0
 
+on property:vendor.usb.contaminantdisable=true
+    write /sys/class/power_supply/usb/moisture_detection_enabled 0
+
 on boot
     setprop sys.usb.configfs 2
 

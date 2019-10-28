@@ -17,6 +17,7 @@
 LOCAL_PATH := device/google/sunfish
 
 PRODUCT_VENDOR_MOVE_ENABLED := true
+TARGET_BOARD_PLATFORM := sm6150
 
 PRODUCT_SOONG_NAMESPACES += \
     device/google/sunfish \
@@ -28,6 +29,25 @@ PRODUCT_SOONG_NAMESPACES += \
     vendor/google/camera \
     vendor/qcom/sm7150 \
     vendor/google/interfaces
+
+# Single vendor RIL/Telephony/data with SM8150
+DEVICE_USES_SM8150_QCRIL_TELEPHONY := true
+
+ifeq ($(DEVICE_USES_SM8150_QCRIL_TELEPHONY), true)
+  PRODUCT_SOONG_NAMESPACES += \
+      vendor/qcom/sm8150/codeaurora/telephony/ims \
+      vendor/qcom/sm8150/proprietary/qcril-data-hal/qdp \
+      vendor/qcom/sm8150/proprietary/qcril-data-hal/util \
+      vendor/qcom/sm8150/proprietary/qcril-data-hal/datamodule \
+      vendor/qcom/sm8150/proprietary/qcril-hal
+else
+  $(warning DEVICE_USES_SM8150_QCRIL_TELEPHONY is disabled)
+
+  PRODUCT_SOONG_NAMESPACES += \
+      vendor/qcom/sm7150/codeaurora/commonsys/telephony/ims \
+      vendor/qcom/sm7150/proprietary/qcril-data-hal \
+      vendor/qcom/sm7150/proprietary/qcril-hal
+endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
     keyguard.no_require_sim=true
@@ -75,7 +95,6 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel \
-    $(LOCAL_PATH)/fstab.hardware:$(TARGET_COPY_OUT_RECOVERY)/root/first_stage_ramdisk/fstab.$(PRODUCT_PLATFORM) \
     $(LOCAL_PATH)/fstab.hardware:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.$(PRODUCT_PLATFORM) \
     $(LOCAL_PATH)/fstab.persist:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.persist \
     $(LOCAL_PATH)/init.hardware.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(PRODUCT_PLATFORM).rc \
@@ -256,11 +275,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.managebuffer.enable=1
 
-# Lets the vendor library that Google Camera HWL is enabled
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.camera.google_hwl.enabled=true \
-    persist.camera.google_hwl.name=libgooglecamerahwl_impl.so
-
 # OEM Unlock reporting
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.oem_unlock_supported=1
@@ -290,13 +304,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.snapshot_enabled=0 \
     persist.vendor.radio.snapshot_timer=0
-
-PRODUCT_PACKAGES += \
-    hwcomposer.sm6150 \
-    android.hardware.graphics.composer@2.3-service-sm7150 \
-    gralloc.sm6150 \
-    android.hardware.graphics.mapper@3.0-impl-qti-display \
-    vendor.qti.hardware.display.allocator-service
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \
@@ -359,7 +366,7 @@ PRODUCT_PACKAGES += \
     android.hardware.usb@1.2-service.sunfish
 
 PRODUCT_PACKAGES += \
-    android.hardware.health@2.0-service.sunfish
+    android.hardware.health@2.0-service
 
 # Storage health HAL
 PRODUCT_PACKAGES += \
@@ -380,8 +387,8 @@ PRODUCT_PACKAGES += \
     vendor.qti.media.c2@1.0-service \
 
 PRODUCT_PACKAGES += \
-    android.hardware.camera.provider@2.4-impl-google \
-    android.hardware.camera.provider@2.4-service-google \
+    android.hardware.camera.provider@2.4-impl \
+    android.hardware.camera.provider@2.4-service_64 \
     camera.sm6150 \
     libgooglecamerahal \
     libgooglecamerahwl_impl \
@@ -577,6 +584,17 @@ PRODUCT_PACKAGES += \
     android.hardware.dumpstate@1.0-service.sunfish
 
 # Citadel
+#
+# Set CITADEL_LAZY_PSK_SYNC to true on projects with faceauth, otherwise false.
+#
+#      EVT devices left the factory without being provisioned,
+#      and thus the shared authtoken key is yet to be established.
+#      Since faceauth HAT enforcement fails without the preshared
+#      authtoken, auto-sync it in the field for userdebug/eng.
+#      Please refer to b/135295587 for more detail.
+#
+CITADEL_LAZY_PSK_SYNC := false
+
 PRODUCT_PACKAGES += \
     citadeld \
     citadel_updater \
@@ -617,11 +635,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.default_cdma_sub=0
 
-# Set display color mode to Adaptive by default
+# Set display color mode to Boosted by default
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.sf.color_saturation=1.0 \
-    persist.sys.sf.native_mode=2 \
-    persist.sys.sf.color_mode=9
+    persist.sys.sf.color_saturation=1.1 \
+    persist.sys.sf.native_mode=0 \
+    persist.sys.sf.color_mode=0
 
 # Keymaster configuration
 PRODUCT_COPY_FILES += \
@@ -652,7 +670,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # default usb oem functions
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
   PRODUCT_PROPERTY_OVERRIDES += \
-      persist.vendor.usb.usbradio.config=diag,diag_mdm,qdss,qdss_mdm,serial_cdev,dpl_gsi,rmnet_gsi
+      persist.vendor.usb.usbradio.config=diag
 endif
 
 # Early phase offset configuration for SurfaceFlinger (b/75985430)
@@ -706,8 +724,6 @@ PRODUCT_COPY_FILES += \
 # Reliability reporting
 PRODUCT_PACKAGES += \
     pixelstats-vendor
-
-PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # fastbootd
 PRODUCT_PACKAGES += \
@@ -765,3 +781,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+
+-include hardware/qcom/sm7150/display/config/display-product.mk
+-include vendor/qcom/sm7150/proprietary/display/config/display-product-proprietary.mk
+-include vendor/qcom/sm7150/proprietary/commonsys-intf/data/data_commonsys-intf_system_product.mk
+-include vendor/qcom/sm7150/proprietary/commonsys-intf/data/data_commonsys-intf_vendor_product.mk
+# Security
+-include vendor/qcom/sm7150/proprietary/securemsm/config/keymaster_vendor_proprietary_board.mk
+-include vendor/qcom/sm7150/proprietary/securemsm/config/keymaster_vendor_proprietary_product.mk
