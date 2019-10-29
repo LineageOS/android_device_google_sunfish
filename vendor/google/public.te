@@ -951,7 +951,6 @@ dontaudit qrtr self:qipcrtr_socket { bind getattr read write };
 dontaudit qrtr self:qipcrtr_socket create;
 dontaudit qtidataservices_app activity_service:service_manager find;
 dontaudit qtidataservices_app adbd:unix_stream_socket connectto;
-dontaudit qtidataservices_app ashmemd:binder call;
 dontaudit qtidataservices_app binder_device:chr_file { ioctl map open read write };
 dontaudit qtidataservices_app binder_device:chr_file { read write };
 dontaudit qtidataservices_app cnd:binder { call transfer };
