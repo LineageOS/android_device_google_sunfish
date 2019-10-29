@@ -1,0 +1,5 @@
+binder_call(radio, hal_rcsservice)
+
+allow radio hal_imsrcsd_hwservice:hwservice_manager find;
+
+get_prop(radio, vendor_radio_prop)
