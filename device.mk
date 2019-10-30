@@ -22,6 +22,7 @@ TARGET_BOARD_PLATFORM := sm6150
 PRODUCT_SOONG_NAMESPACES += \
     device/google/sunfish \
     hardware/google/av \
+    hardware/google/camera \
     hardware/google/interfaces \
     hardware/google/pixel \
     hardware/qcom/sm7150 \
@@ -384,7 +385,6 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service_64 \
     camera.sm6150 \
-    libgooglecamerahal \
     libgooglecamerahwl_impl \
     libqomx_core \
     libmmjpeg_interface \
@@ -392,11 +392,9 @@ PRODUCT_PACKAGES += \
     libcameradepthcalibrator
 
 # Google Camera HAL test libraries in debug builds
-ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES_DEBUG += \
     libgoogle_camera_hal_proprietary_tests \
-    libgoogle_camera_hal_tests
-endif
+    libgoogle_camera_hal_tests.vendor
 
 PRODUCT_PACKAGES += \
     sensors.$(PRODUCT_HARDWARE) \
