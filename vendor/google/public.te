@@ -406,18 +406,6 @@ dontaudit hal_display_color_default hwservicemanager_prop:file { getattr map ope
 dontaudit hal_display_color_default vndbinder_device:chr_file { ioctl map open read write };
 dontaudit hal_display_color_default vndbinder_device:chr_file { ioctl map open write };
 dontaudit hal_display_color_default vndbinder_device:chr_file read;
-dontaudit hal_drm_clearkey hal_drm_hwservice:hwservice_manager add;
-dontaudit hal_drm_clearkey hidl_base_hwservice:hwservice_manager add;
-dontaudit hal_drm_clearkey hwservicemanager:binder { call transfer };
-dontaudit hal_drm_clearkey hwservicemanager_prop:file { getattr map open };
-dontaudit hal_drm_clearkey hwservicemanager_prop:file { getattr map open read };
-dontaudit hal_drm_clearkey hwservicemanager_prop:file read;
-dontaudit hal_drm_widevine hal_drm_hwservice:hwservice_manager add;
-dontaudit hal_drm_widevine hidl_base_hwservice:hwservice_manager add;
-dontaudit hal_drm_widevine hwservicemanager:binder { call transfer };
-dontaudit hal_drm_widevine hwservicemanager_prop:file { getattr map open };
-dontaudit hal_drm_widevine hwservicemanager_prop:file { getattr map open read };
-dontaudit hal_drm_widevine hwservicemanager_prop:file read;
 dontaudit hal_fingerprint_default default_android_hwservice:hwservice_manager add;
 dontaudit hal_fingerprint_default sysfs_camera:dir search;
 dontaudit hal_fingerprint_default sysfs_camera:file { open read };
