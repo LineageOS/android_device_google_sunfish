@@ -4,6 +4,9 @@ com.qualcomm.qti.qcril.qcrilhook::IQtiOemHook                           u:object
 vendor.qti.hardware.data.iwlan::IIWlan                                  u:object_r:hal_iwlan_hwservice:s0
 com.qualcomm.qti.uceservice::IUceService                                u:object_r:hal_imsrcsd_hwservice:s0
 com.qualcomm.qti.imscmservice::IImsCmService                            u:object_r:hal_imsrcsd_hwservice:s0
+com.fingerprints.extension::IFingerprintEngineering                     u:object_r:hal_fingerprint_hwservice:s0
+com.fingerprints.extension::IFingerprintSensorTest                      u:object_r:hal_fingerprint_hwservice:s0
+com.fingerprints.extension::IFingerprintNavigation                      u:object_r:hal_fingerprint_hwservice:s0
 vendor.display.color::IDisplayColor                                     u:object_r:hal_display_color_hwservice:s0
 vendor.display.config::IDisplayConfig                                   u:object_r:hal_display_config_hwservice:s0
 vendor.display.postproc::IDisplayPostproc                               u:object_r:hal_display_postproc_hwservice:s0
