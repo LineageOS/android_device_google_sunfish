@@ -288,6 +288,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.hdrplus.disable=true
 
+# Disable hdrnet
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.camera.hdrnet.enable=0
+
 # OEM Unlock reporting
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.oem_unlock_supported=1
