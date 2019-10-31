@@ -10,6 +10,9 @@ genfscon sysfs /devices/platform/soc/62400000.qcom,lpass/subsys0/restart_level u
 genfscon sysfs /devices/platform/soc/soc:qcom,ipa_fws/subsys5                  u:object_r:sysfs_msm_subsys:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,ipa_fws/subsys5/name             u:object_r:sysfs_ssr:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,ipa_fws/subsys5/restart_level    u:object_r:sysfs_ssr_writable:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,kgsl-hyp/subsys6                 u:object_r:sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,kgsl-hyp/subsys6/name            u:object_r:sysfs_ssr:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,kgsl-hyp/subsys6/restart_level   u:object_r:sysfs_ssr_writable:s0
 genfscon sysfs /devices/platform/soc/aae0000.qcom,venus/subsys3                u:object_r:sysfs_msm_subsys:s0
 genfscon sysfs /devices/platform/soc/aae0000.qcom,venus/subsys3/name           u:object_r:sysfs_ssr:s0
 genfscon sysfs /devices/platform/soc/aae0000.qcom,venus/subsys3/restart_level  u:object_r:sysfs_ssr_writable:s0
