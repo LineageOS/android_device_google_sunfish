@@ -556,13 +556,13 @@ service cnd /vendor/bin/cnd
    user system
    group system wifi inet radio wakelock net_admin
 
-# service vendor.chre /vendor/bin/chre
-#     class late_start
-#     user system
-#     group system wakelock
-#     capabilities BLOCK_SUSPEND
-#     socket chre seqpacket 0660 root system
-#     shutdown critical
+service vendor.chre /vendor/bin/chre
+    class late_start
+    user system
+    group system wakelock
+    capabilities BLOCK_SUSPEND
+    socket chre seqpacket 0660 root system
+    shutdown critical
 
 service wait_for_strongbox /vendor/bin/hw/wait_for_strongbox
     user root
@@ -625,7 +625,7 @@ on property:persist.vendor.sys.ssr.enable_ramdumps=1
     mkdir /data/vendor/ramdump 771 root system
     mkdir /data/vendor/ssrdump 771 root system
     mkdir /data/vendor/ssrlog  771 root system
-#    start vendor.ss_ramdump
+    start vendor.ss_ramdump
 
 on property:persist.vendor.sys.ssr.enable_ramdumps=0
     write /sys/module/subsystem_restart/parameters/enable_ramdumps 0
