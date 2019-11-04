@@ -286,10 +286,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.google_hwl.enabled=true \
     persist.camera.google_hwl.name=libgooglecamerahwl_impl.so
 
-# Disable HAL HDR+ since no easel hardware
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.camera.hdrplus.disable=true
-
 # OEM Unlock reporting
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.oem_unlock_supported=1
