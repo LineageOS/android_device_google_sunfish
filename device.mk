@@ -49,6 +49,8 @@ else
       vendor/qcom/sm7150/proprietary/qcril-hal
 endif
 
+DEVICE_USES_SM8150_DIAG_HAL := true
+
 PRODUCT_PROPERTY_OVERRIDES += \
     keyguard.no_require_sim=true
 
