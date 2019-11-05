@@ -63,9 +63,8 @@ genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-04/c440000.q
 u:object_r:sysfs_power_stats_ignore:s0
 
 # Display
-genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display-primary/backlight                          u:object_r:sysfs_leds:s0
-genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display-primary/backlight/panel0-backlight/vr_mode u:object_r:sysfs_lights:s0
-genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display-primary/panel_info                         u:object_r:sysfs_display:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display/backlight                                  u:object_r:sysfs_leds:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display/panel_info                                 u:object_r:sysfs_display:s0
 
 # PMIC
 genfscon debugfs /regmap/spmi0-05/address                                       u:object_r:debugfs_pmic:s0
