@@ -299,6 +299,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.rcs.supported=1 \
     vendor.rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so \
     ro.hardware.keystore_desede=true \
+    ro.telephony.iwlan_operation_mode=legacy \
 
 # Disable snapshot timer
 PRODUCT_PROPERTY_OVERRIDES += \
