@@ -654,13 +654,6 @@ on property:init.svc.vendor.hwcomposer-2-3=stopped
 on property:init.svc.vendor.hwcomposer-2-3=running
     start ppd
 
-on property:wlan.driver.status=ok
-    # Get the wlan driver/fw version
-    start vendor.wlan_sh
-
-    # Change permission for dumpstate
-    chmod 444 /sys/kernel/wlan/power_stats
-
 service insmod_sh /vendor/bin/init.insmod.sh /vendor/etc/init.insmod.${ro.hardware}.cfg
     class main
     user root
@@ -698,13 +691,6 @@ service bugreport /system/bin/dumpstate -d -p -B -z \
     disabled
     oneshot
     keycodes 114 115 116
-
-service vendor.wlan_sh /vendor/bin/init.qcom.wlan.sh
-    class main
-    user root
-    group root
-    disabled
-    oneshot
 
 # DSDS feature
 # Enable 2nd qcrild when the property set to dsds
