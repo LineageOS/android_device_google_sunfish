@@ -1,3 +1,13 @@
 type hal_radioext_default, domain;
 type hal_radioext_default_exec, exec_type, vendor_file_type, file_type;
+hal_server_domain(hal_radioext_default, hal_telephony)
 init_daemon_domain(hal_radioext_default)
+
+add_hwservice(hal_radioext_default, hal_radioext_hwservice)
+allow hal_radioext_default self:qipcrtr_socket create_socket_perms_no_ioctl;
+
+userdebug_or_eng(`
+  allow hal_radioext_default vendor_radio_data_file:dir create_dir_perms;
+  allow hal_radioext_default vendor_radio_data_file:file create_file_perms;
+')
+
