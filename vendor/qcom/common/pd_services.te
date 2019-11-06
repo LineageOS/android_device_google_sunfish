@@ -1,3 +1,6 @@
 type vendor_pd_mapper, domain;
+
 type vendor_pd_mapper_exec, exec_type, vendor_file_type, file_type;
 init_daemon_domain(vendor_pd_mapper);
+
+allow vendor_pd_mapper self:qipcrtr_socket create_socket_perms_no_ioctl;
