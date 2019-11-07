@@ -265,6 +265,8 @@ on early-boot
 
     mkdir /data/vendor/sensors 0770
     chown system system /data/vendor/sensors
+    mkdir /data/vendor/sensors/log 0770
+    chown system system /data/vendor/sensors/log
 
     chmod 770 /mnt/vendor/persist/audio
     chmod 660 /mnt/vendor/persist/audio/audio.cal
