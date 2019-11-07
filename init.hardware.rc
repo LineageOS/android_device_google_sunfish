@@ -119,6 +119,8 @@ on init && property:vendor.skip.init=0
 
 on late-init
     setprop vendor.thermal.config thermal_info_config.json
+    chown system system /sys/devices/virtual/thermal/tz-by-name/skin-therm-monitor/trip_point_0_temp
+    chown system system /sys/devices/virtual/thermal/tz-by-name/skin-therm-monitor/trip_point_0_hyst
 
 on fs
     mount_all /vendor/etc/fstab.${ro.boot.hardware.platform} --early
