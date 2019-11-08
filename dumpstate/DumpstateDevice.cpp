@@ -179,6 +179,8 @@ static void *dumpModemThread(void *data)
         const std::string extendedLogDir = "/data/vendor/radio/extended_logs";
         const std::vector <std::string> rilAndNetmgrLogs
             {
+                "/data/vendor/radio/haldebug_ril0",
+                "/data/vendor/radio/haldebug_ril1",
                 "/data/vendor/radio/ril_log0",
                 "/data/vendor/radio/ril_log0_old",
                 "/data/vendor/radio/ril_log1",
