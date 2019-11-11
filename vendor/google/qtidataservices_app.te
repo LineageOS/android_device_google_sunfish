@@ -1,0 +1,5 @@
+dontaudit qtidataservices_app activity_service:service_manager find;
+dontaudit qtidataservices_app location_service:service_manager find;
+dontaudit qtidataservices_app registry_service:service_manager find;
+dontaudit qtidataservices_app vendor_default_prop:file { getattr map open read };
+dontaudit qtidataservices_app wifi_service:service_manager find;

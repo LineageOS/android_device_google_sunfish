@@ -1,0 +1,10 @@
+dontaudit hardware_info_app activity_service:service_manager find;
+dontaudit hardware_info_app binder_device:chr_file { ioctl read write };
+dontaudit hardware_info_app system_file:file getattr;
+dontaudit hardware_info_app tmpfs:file { execute map read write };
+dontaudit hardware_info_app zygote_exec:file { execute read };
+dontaudit hardware_info_app zygote:fd use;
+dontaudit lmkd hardware_info_app:file write;
+dontaudit system_server hardware_info_app:binder call;
+dontaudit system_server hardware_info_app:process sigkill;
+dontaudit zygote hardware_info_app:process dyntransition;

@@ -1,0 +1,4 @@
+dontaudit chre ion_device:chr_file { ioctl open read };
+dontaudit chre qdsp_device:chr_file { ioctl open read };
+dontaudit hal_contexthub_default chre:unix_stream_socket connectto;
+dontaudit pixelstats_vendor chre:unix_stream_socket connectto;

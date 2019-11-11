@@ -1,0 +1,7 @@
+dontaudit hal_power_default debugfs_sched_features:file { open write };
+dontaudit hal_power_default latency_device:chr_file { open write };
+dontaudit hal_power_default power_prop:file { getattr map open read };
+dontaudit hal_power_default sysfs_devices_system_cpu:file write;
+dontaudit hal_power_default sysfs:file { open write };
+dontaudit hal_power_default sysfs_msm_subsys:dir search;
+dontaudit hal_power_default sysfs_msm_subsys:file { open read write };

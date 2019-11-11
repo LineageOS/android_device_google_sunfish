@@ -1,0 +1,2 @@
+dontaudit hal_sensors_default sensors_vendor_data_file:dir search;
+dontaudit hal_sensors_default mnt_vendor_file:dir search;

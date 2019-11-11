@@ -1,0 +1,3 @@
+dontaudit hal_bluetooth_default hal_bluetooth_sar_hwservice:hwservice_manager { add find };
+dontaudit hal_bluetooth_default self:qipcrtr_socket create;
+dontaudit hal_bluetooth_default vendor_bluetooth_prop:file { getattr map open read };

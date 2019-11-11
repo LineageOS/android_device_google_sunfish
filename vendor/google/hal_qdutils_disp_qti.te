@@ -1,0 +1,6 @@
+dontaudit hal_qdutils_disp_qti hal_qdutils_disp_hwservice:hwservice_manager add;
+dontaudit hal_qdutils_disp_qti hidl_base_hwservice:hwservice_manager add;
+dontaudit hal_qdutils_disp_qti hwservicemanager:binder { call transfer };
+dontaudit hal_qdutils_disp_qti hwservicemanager_prop:file { getattr map open read };
+dontaudit hal_qdutils_disp_qti vndbinder_device:chr_file { ioctl map open read write };
+dontaudit hal_qdutils_disp_qti binder_device:chr_file { read write };

@@ -1,0 +1,10 @@
+dontaudit qlogd diag_device:chr_file { ioctl open read write };
+dontaudit qlogd mnt_user_file:dir search;
+dontaudit qlogd property_socket:sock_file write;
+dontaudit qlogd storage_file:lnk_file read;
+dontaudit qlogd vendor_modem_diag_prop:file { getattr map open read };
+dontaudit qlogd vendor_modem_diag_prop:property_service set;
+dontaudit qlogd vendor_radio_data_file:dir { add_name open read search setattr write };
+dontaudit qlogd vendor_radio_data_file:file { append create getattr open read setattr write };
+dontaudit qlogd init:unix_stream_socket connectto;
+
