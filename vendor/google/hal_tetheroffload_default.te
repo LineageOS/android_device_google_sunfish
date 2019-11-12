@@ -1,0 +1,5 @@
+dontaudit hal_tetheroffload_default ipa_dev:chr_file { ioctl open read write };
+dontaudit hal_tetheroffload_default ipa_vendor_data_file:dir { add_name search write };
+dontaudit hal_tetheroffload_default ipa_vendor_data_file:file { create lock open read write };
+dontaudit hal_tetheroffload_default self:netlink_route_socket { bind create getopt nlmsg_read read setopt write };
+dontaudit hal_tetheroffload_default self:udp_socket { create ioctl };

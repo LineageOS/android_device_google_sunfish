@@ -1,1 +1,9 @@
 type ramdump_app, domain;
+dontaudit ramdump_app activity_service:service_manager find;
+dontaudit ramdump_app binder_device:chr_file { ioctl read write };
+dontaudit ramdump_app device_policy_service:service_manager find;
+dontaudit ramdump_app system_file:file getattr;
+dontaudit ramdump_app tmpfs:file { execute map read write };
+dontaudit system_server ramdump_app:binder call;
+dontaudit system_server ramdump_app:process { getpgid setsched sigkill };
+dontaudit zygote ramdump_app:process dyntransition;

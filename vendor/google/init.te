@@ -1,2 +1,9 @@
 allow init firmware_file:dir mounton;
 allow init firmware_file:filesystem { getattr mount relabelfrom };
+dontaudit init boot_block_device:lnk_file relabelto;
+dontaudit init custom_ab_block_device:lnk_file relabelto;
+dontaudit init kernel:system module_request;
+dontaudit init socket_device:sock_file { create setattr };
+dontaudit init sysfs:file { open setattr write };
+dontaudit init tmpfs:lnk_file create;
+

@@ -1,0 +1,2 @@
+dontaudit kernel unencrypted_data_file:file read;
+dontaudit vendor_init kernel:system module_request;

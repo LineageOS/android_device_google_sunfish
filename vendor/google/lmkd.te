@@ -1,0 +1,3 @@
+dontaudit lmkd logger_app:file write;
+dontaudit lmkd modem_diagnostic_app:file write;
+dontaudit lmkd ramdump_app:file write;

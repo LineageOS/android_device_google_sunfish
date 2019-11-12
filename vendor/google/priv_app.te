@@ -1,0 +1,1 @@
+dontaudit priv_app vendor_display_prop:file read;
