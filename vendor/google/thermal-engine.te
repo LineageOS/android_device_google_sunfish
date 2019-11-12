@@ -1,0 +1,10 @@
+dontaudit thermal-engine ion_device:chr_file { ioctl open read };
+dontaudit thermal-engine sysfs:dir { open read };
+dontaudit thermal-engine sysfs_esoc:dir { open read search };
+dontaudit thermal-engine sysfs:file { getattr open read };
+dontaudit thermal-engine sysfs_leds:dir search;
+dontaudit thermal-engine sysfs_msm_subsys:dir { open read search };
+dontaudit thermal-engine sysfs_soc:dir search;
+dontaudit thermal-engine sysfs_soc:file { getattr open read };
+dontaudit thermal-engine sysfs_ssr:file { open read };
+dontaudit thermal-engine socket_device:dir write;
