@@ -1,0 +1,6 @@
+dontaudit port-bridge at_device:chr_file { ioctl open read write };
+dontaudit port-bridge sysfs_esoc:dir { open read search };
+dontaudit port-bridge sysfs_msm_subsys:dir { open read search };
+dontaudit port-bridge sysfs_soc:dir search;
+dontaudit port-bridge sysfs_soc:file { getattr open read };
+dontaudit port-bridge sysfs_ssr:file { open read };

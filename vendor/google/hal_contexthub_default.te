@@ -1,0 +1,1 @@
+dontaudit hal_contexthub_default chre_socket:sock_file write;

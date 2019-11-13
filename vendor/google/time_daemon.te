@@ -1,0 +1,9 @@
+dontaudit time_daemon rtc_device:chr_file { ioctl open read };
+dontaudit time_daemon self:capability { dac_read_search sys_time };
+dontaudit time_daemon self:qipcrtr_socket { create getattr read write };
+dontaudit time_daemon sysfs_esoc:dir { open read search };
+dontaudit time_daemon sysfs_msm_subsys:dir { open read search };
+dontaudit time_daemon sysfs_soc:dir search;
+dontaudit time_daemon sysfs_soc:file { getattr open read };
+dontaudit time_daemon sysfs_ssr:file { open read };
+dontaudit time_daemon self:capability dac_override;

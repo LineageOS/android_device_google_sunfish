@@ -1,0 +1,4 @@
+dontaudit hal_neuralnetworks_default hal_neuralnetworks_hwservice:hwservice_manager add;
+dontaudit hal_neuralnetworks_default hidl_base_hwservice:hwservice_manager add;
+dontaudit hal_neuralnetworks_default hwservicemanager:binder { call transfer };
+dontaudit hal_neuralnetworks_default hwservicemanager_prop:file { getattr map open read };
