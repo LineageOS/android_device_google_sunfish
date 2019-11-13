@@ -1,0 +1,8 @@
+dontaudit vendor_subsystem_ramdump device:dir { open read };
+dontaudit vendor_subsystem_ramdump ramdump_device:chr_file { open read };
+dontaudit vendor_subsystem_ramdump ramdump_vendor_data_file:dir { getattr open read };
+dontaudit vendor_subsystem_ramdump sysfs_esoc:dir { open read search };
+dontaudit vendor_subsystem_ramdump sysfs:file { open read };
+dontaudit vendor_subsystem_ramdump sysfs_msm_subsys:dir { open read search };
+dontaudit vendor_subsystem_ramdump sysfs_msm_subsys:file getattr;
+dontaudit vendor_subsystem_ramdump sysfs_ssr:file { open read };

@@ -17,3 +17,5 @@ allow init-insmod-sh proc_modules:file r_file_perms;
 
 allow init-insmod-sh debugfs_ipc:dir search;
 allow init-insmod-sh debugfs_wlan:dir search;
+dontaudit init-insmod-sh self:process execmem;
+dontaudit init-insmod-sh self:capability sys_admin;

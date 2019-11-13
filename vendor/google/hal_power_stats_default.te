@@ -1,0 +1,10 @@
+
+vndbinder_use(hal_power_stats)
+add_service(hal_power_stats_server, power_stats_service)
+
+binder_call(hal_power_stats, citadeld)
+dontaudit hal_power_stats_default debugfs_wlan:dir search;
+dontaudit hal_power_stats_default exported_wifi_prop:file { getattr map open read };
+dontaudit hal_power_stats_default sysfs:file { getattr open read };
+dontaudit hal_power_stats_default sysfs_iio_devices:dir { open read search };
+dontaudit hal_power_stats_default sysfs_power_stats:file { getattr open read };

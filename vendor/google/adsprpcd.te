@@ -1,0 +1,6 @@
+dontaudit adsprpcd ion_device:chr_file { ioctl open read };
+dontaudit adsprpcd mnt_vendor_file:dir { open read };
+dontaudit adsprpcd persist_file:lnk_file read;
+dontaudit adsprpcd qdsp_device:chr_file { ioctl open read };
+dontaudit adsprpcd sysfs_soc:dir search;
+dontaudit adsprpcd sysfs_soc:file { getattr open read };

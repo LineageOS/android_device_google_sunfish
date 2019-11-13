@@ -22,3 +22,4 @@ userdebug_or_eng(`
 # Allow wifi hal to access wlan debugfs directories
 allow hal_wifi_ext debugfs_wlan:dir r_dir_perms;
 ')
+dontaudit hal_wifi_ext location_socket:dir search;
