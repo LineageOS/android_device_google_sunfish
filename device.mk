@@ -268,6 +268,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.managebuffer.enable=1
 
+# camera google face detection
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.camera.googfd.enable=1
+
+# Lets the vendor library that Google Camera HWL is enabled
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.camera.google_hwl.enabled=true \
+    persist.camera.google_hwl.name=libgooglecamerahwl_impl.so
+
 # OEM Unlock reporting
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.oem_unlock_supported=1
@@ -381,8 +390,8 @@ PRODUCT_PACKAGES += \
     vendor.qti.media.c2@1.0-service \
 
 PRODUCT_PACKAGES += \
-    android.hardware.camera.provider@2.4-impl \
-    android.hardware.camera.provider@2.4-service_64 \
+    android.hardware.camera.provider@2.4-impl-google \
+    android.hardware.camera.provider@2.4-service-google \
     camera.sm6150 \
     libgooglecamerahal \
     libgooglecamerahwl_impl \
