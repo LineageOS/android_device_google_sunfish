@@ -13,7 +13,12 @@ allow vendor_per_mgr self:qipcrtr_socket create_socket_perms_no_ioctl;
 allow vendor_per_mgr modem_ssr_device:chr_file r_file_perms;
 add_service(vendor_per_mgr, vendor_per_mgr_service)
 
-allow vendor_per_mgr debugfs_ipc:dir search;
 allow vendor_per_mgr sysfs_msm_subsys:dir r_dir_perms;
 allow vendor_per_mgr sysfs_ssr:file r_file_perms;
 allow vendor_per_mgr sysfs_esoc:dir r_dir_perms;
+
+userdebug_or_eng(`
+  allow vendor_per_mgr debugfs_ipc:dir search;
+')
+
+dontaudit vendor_per_mgr debugfs_ipc:dir search;
