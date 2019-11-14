@@ -1,6 +1,0 @@
-dontaudit hal_bootctl_default custom_ab_block_device:blk_file getattr;
-dontaudit hal_bootctl_default dp_block_device:blk_file getattr;
-dontaudit hal_bootctl_default modem_block_device:blk_file getattr;
-dontaudit hal_bootctl_default system_block_device:blk_file getattr;
-dontaudit hal_bootctl_default xbl_block_device:blk_file { ioctl open read write };
-dontaudit hal_bootctl_default tmpfs:lnk_file read;
