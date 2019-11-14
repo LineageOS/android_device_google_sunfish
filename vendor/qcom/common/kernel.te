@@ -1,10 +1,13 @@
 # For diag over socket
 userdebug_or_eng(`
   allow kernel self:qipcrtr_socket create;
+  allow kernel debugfs_wlan:dir search;
+  allow kernel debugfs_ipc:dir search;
 ')
 
-allow kernel debugfs_wlan:dir search;
-allow kernel debugfs_ipc:dir search;
+dontaudit kernel self:qipcrtr_socket create;
+dontaudit kernel debugfs_wlan:dir search;
+dontaudit kernel debugfs_ipc:dir search;
 
 # TODO(b/132393658): remove redundant log during selinux setup
 dontaudit kernel self:capability sys_admin;
