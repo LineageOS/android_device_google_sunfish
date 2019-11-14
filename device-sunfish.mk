@@ -49,7 +49,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/rt5514/rt5514_dsp_fw1.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/rt5514_dsp_fw1.bin \
     $(LOCAL_PATH)/audio/rt5514/rt5514_dsp_fw2.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/rt5514_dsp_fw2.bin \
     $(LOCAL_PATH)/audio/rt5514/rt5514_dsp_fw3.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/rt5514_dsp_fw3.bin \
-    $(LOCAL_PATH)/audio/rt5514/rt5514_dsp_fw4.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/rt5514_dsp_fw4.bin
+    $(LOCAL_PATH)/audio/rt5514/rt5514_dsp_fw4.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/rt5514_dsp_fw4.bin \
+    $(LOCAL_PATH)/audio/rt5514/rt5514p_dsp_fw1.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/rt5514p_dsp_fw1.bin \
+    $(LOCAL_PATH)/audio/rt5514/rt5514p_dsp_fw2.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/rt5514p_dsp_fw2.bin \
+    $(LOCAL_PATH)/audio/rt5514/rt5514p_dsp_fw3.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/rt5514p_dsp_fw3.bin \
+    $(LOCAL_PATH)/audio/rt5514/rt5514p_dsp_fw4.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/rt5514p_dsp_fw4.bin
 
 # CS35L41 SPEAKER AMP
 PRODUCT_COPY_FILES += \
