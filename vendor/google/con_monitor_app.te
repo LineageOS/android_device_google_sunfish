@@ -1,6 +1,0 @@
-dontaudit con_monitor_app activity_service:service_manager find;
-dontaudit con_monitor_app system_file:file getattr;
-dontaudit con_monitor_app tmpfs:file write;
-dontaudit lmkd con_monitor_app:file write;
-dontaudit system_server con_monitor_app:process sigkill;
-dontaudit zygote con_monitor_app:process { dyntransition setpgid };

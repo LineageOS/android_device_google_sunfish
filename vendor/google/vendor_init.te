@@ -4,6 +4,7 @@ get_prop(vendor_init, public_vendor_default_prop)
 set_prop(vendor_init, vendor_audio_prop)
 set_prop(vendor_init, vendor_thermal_prop)
 set_prop(vendor_init, vendor_display_prop)
+
 dontaudit vendor_init camera_prop:property_service set;
 dontaudit vendor_init cnd_vendor_prop:property_service set;
 dontaudit vendor_init debugfs_clk:file write;
@@ -23,4 +24,3 @@ dontaudit vendor_init vendor_modem_diag_prop:file { getattr map open read };
 dontaudit vendor_init vendor_modem_diag_prop:property_service set;
 dontaudit vendor_init vendor_radio_prop:property_service set;
 dontaudit vendor_init vendor_ssr_prop:property_service set;
-dontaudit vendor_init tmpfs:dir write;
