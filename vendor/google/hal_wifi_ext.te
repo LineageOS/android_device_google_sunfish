@@ -11,6 +11,7 @@ add_hwservice(hal_wifi_ext, hal_wifi_ext_hwservice);
 allow hal_wifi_ext location:unix_stream_socket connectto;
 
 # write to files owned by location daemon
+allow hal_wifi_ext location_socket:dir search;
 allow hal_wifi_ext location_socket:sock_file write;
 
 # Write wlan driver/fw version into property
@@ -22,4 +23,3 @@ userdebug_or_eng(`
 # Allow wifi hal to access wlan debugfs directories
 allow hal_wifi_ext debugfs_wlan:dir r_dir_perms;
 ')
-dontaudit hal_wifi_ext location_socket:dir search;
