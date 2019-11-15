@@ -1,3 +1,10 @@
+dontaudit hal_camera_default camera_prop:file read;
+dontaudit hal_camera_default gpu_device:chr_file { ioctl map open read write };
+dontaudit hal_camera_default hal_configstore_ISurfaceFlingerConfigs:hwservice_manager find;
+dontaudit hal_camera_default hal_configstore_default:binder call;
+dontaudit hal_camera_default persist_file:lnk_file read;
+dontaudit hal_camera_default self:capability sys_nice;
+dontaudit hal_camera_default vndservicemanager:binder call;
 dontaudit hal_camera_default self:qipcrtr_socket create;
 dontaudit hal_camera_default apexd_prop:file { getattr map open };
 dontaudit hal_camera_default audio_prop:file { getattr map open };
