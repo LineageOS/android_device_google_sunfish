@@ -10,6 +10,7 @@ type battery_data_device, dev_type;
 type qdsp_device, dev_type, mlstrustedobject;
 type dsp_device, dev_type;
 type xdsp_device, dev_type;
+type hvdcp_device, dev_type;
 type device_latency, dev_type;
 type  fm_radio_device, dev_type;
 type modem_efs_partition_device, dev_type;
