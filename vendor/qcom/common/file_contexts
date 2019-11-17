@@ -2,6 +2,7 @@
 # System files
 #
 /(vendor|system/vendor)/bin/PktRspTest          u:object_r:diag_exec:s0
+/(vendor|system/vendor)/bin/hvdcp_opti          u:object_r:hvdcp_exec:s0
 /(vendor|system/vendor)/bin/cnd                 u:object_r:cnd_exec:s0
 /(vendor|system/vendor)/bin/diag_callback_client                u:object_r:diag_exec:s0
 /(vendor|system/vendor)/bin/diag_dci_sample                     u:object_r:diag_exec:s0
@@ -29,6 +30,7 @@
 /(vendor|system/vendor)/bin/time_daemon         u:object_r:time_daemon_exec:s0
 /(vendor|system/vendor)/bin/rmt_storage         u:object_r:rmt_storage_exec:s0
 /(vendor|system/vendor)/bin/tftp_server         u:object_r:rfs_access_exec:s0
+/(vendor|system/vendor)/bin/hvdcp               u:object_r:hvdcp_exec:s0
 /(vendor|system/vendor)/bin/qseecomd            u:object_r:tee_exec:s0
 /(vendor|system/vendor)/bin/spdaemon            u:object_r:spdaemon_exec:s0
 /(vendor|system/vendor)/bin/sec_nvm             u:object_r:sec_nvm_exec:s0
@@ -110,6 +112,7 @@
 /mnt/vendor/persist/bms(/.*)?                                                  u:object_r:persist_bms_file:s0
 /mnt/vendor/persist/secnvm(/.*)?                                               u:object_r:persist_secnvm_file:s0
 /mnt/vendor/persist/FTM_AP(/.*)?                                               u:object_r:vendor_persist_mmi_file:s0
+/mnt/vendor/persist/hvdcp_opti(/.*)?                                           u:object_r:persist_hvdcp_file:s0
 /mnt/vendor/persist/audio(/.*)?                                                u:object_r:persist_audio_file:s0
 
 ###################################

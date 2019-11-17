@@ -15,7 +15,12 @@ allow init-insmod-sh vendor_toolbox_exec:file rx_file_perms;
 # modprobe need proc_modules
 allow init-insmod-sh proc_modules:file r_file_perms;
 
-allow init-insmod-sh debugfs_ipc:dir search;
-allow init-insmod-sh debugfs_wlan:dir search;
+userdebug_or_eng(`
+  allow init-insmod-sh debugfs_ipc:dir search;
+  allow init-insmod-sh debugfs_wlan:dir search;
+')
+
+dontaudit init-insmod-sh debugfs_ipc:dir search;
+dontaudit init-insmod-sh debugfs_wlan:dir search;
 dontaudit init-insmod-sh self:process execmem;
 dontaudit init-insmod-sh self:capability sys_admin;
