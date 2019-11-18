@@ -1,4 +1,0 @@
-dontaudit hal_tui_comm_qti hal_tui_comm_hwservice:hwservice_manager add;
-dontaudit hal_tui_comm_qti hidl_base_hwservice:hwservice_manager add;
-dontaudit hal_tui_comm_qti hwservicemanager:binder { call transfer };
-dontaudit hal_tui_comm_qti hwservicemanager_prop:file { getattr map open read };
