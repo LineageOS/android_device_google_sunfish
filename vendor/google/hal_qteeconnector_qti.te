@@ -1,4 +1,0 @@
-dontaudit hal_qteeconnector_qti hal_qteeconnector_hwservice:hwservice_manager { add find };
-dontaudit hal_qteeconnector_qti hidl_base_hwservice:hwservice_manager add;
-dontaudit hal_qteeconnector_qti hwservicemanager:binder { call transfer };
-dontaudit hal_qteeconnector_qti hwservicemanager_prop:file { getattr map open read };
