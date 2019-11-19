@@ -638,6 +638,7 @@ service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
     #   group wifi inet keystore
     interface android.hardware.wifi.supplicant@1.0::ISupplicant default
     interface android.hardware.wifi.supplicant@1.1::ISupplicant default
+    interface android.hardware.wifi.supplicant@1.2::ISupplicant default
     class main
     socket wpa_wlan0 dgram 660 wifi wifi
     disabled
@@ -648,13 +649,6 @@ on property:init.svc.vendor.hwcomposer-2-3=stopped
 
 on property:init.svc.vendor.hwcomposer-2-3=running
     start ppd
-
-on property:wlan.driver.status=ok
-    # Get the wlan driver/fw version
-    start vendor.wlan_sh
-
-    # Change permission for dumpstate
-    chmod 444 /sys/kernel/wlan/power_stats
 
 service insmod_sh /vendor/bin/init.insmod.sh /vendor/etc/init.insmod.${ro.hardware}.cfg
     class main
@@ -693,13 +687,6 @@ service bugreport /system/bin/dumpstate -d -p -B -z \
     disabled
     oneshot
     keycodes 114 115 116
-
-service vendor.wlan_sh /vendor/bin/init.qcom.wlan.sh
-    class main
-    user root
-    group root
-    disabled
-    oneshot
 
 # DSDS feature
 # Enable 2nd qcrild when the property set to dsds
