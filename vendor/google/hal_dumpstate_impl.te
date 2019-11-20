@@ -12,3 +12,16 @@ dontaudit hal_dumpstate_impl proc_bldrlog:file r_file_perms;
 # Display sysfs interface
 allow hal_dumpstate_impl sysfs_display:dir r_dir_perms;
 allow hal_dumpstate_impl sysfs_display:file r_file_perms;
+
+# Execute dump scripts from vendor partition
+allow hal_dumpstate_impl vendor_shell_exec:file rx_file_perms;
+allow hal_dumpstate_impl vendor_toolbox_exec:file rx_file_perms;
+
+# For dma_buf/ion dump
+allow hal_dumpstate_impl debugfs_dma_buf:file r_file_perms;
+
+# Access to thermal debug data
+r_dir_file(hal_dumpstate_impl, sysfs_thermal)
+
+# Access to files for dumping
+allow hal_dumpstate_impl sysfs:dir r_dir_perms;
