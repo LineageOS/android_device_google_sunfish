@@ -272,3 +272,5 @@ endif
 #BOARD_PERFSETUP_SCRIPT := platform_testing/scripts/perf-setup/s5-setup.sh
 
 -include vendor/google_devices/sunfish/proprietary/BoardConfigVendor.mk
+
+include device/google/sunfish/BoardConfigLineage.mk
