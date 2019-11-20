@@ -205,23 +205,6 @@ void DumpstateDevice::dumpModem(int fd, int fdModem)
                 modemLogAllDir.c_str());
         RunCommandToFd(fd, "Dump IPA log", {"/vendor/bin/sh", "-c", cmd});
 
-        // Dump esoc-mdm log
-        snprintf(cmd, sizeof(cmd),
-                "cat /sys/kernel/debug/ipc_logging/esoc-mdm/log > %s/esoc-mdm_log.txt",
-                modemLogAllDir.c_str());
-        RunCommandToFd(fd, "ESOC-MDM LOG", {"/vendor/bin/sh", "-c", cmd});
-
-        // Dump pcie0 log
-        snprintf(cmd, sizeof(cmd),
-                "cat /sys/kernel/debug/ipc_logging/pcie0-long/log > %s/pcie0-long_log.txt",
-                modemLogAllDir.c_str());
-        RunCommandToFd(fd, "PCIE0-LONG LOG", {"/vendor/bin/sh", "-c", cmd});
-
-        snprintf(cmd, sizeof(cmd),
-                "cat /sys/kernel/debug/ipc_logging/pcie0-short/log > %s/pcie0-short_log.txt",
-                modemLogAllDir.c_str());
-        RunCommandToFd(fd, "PCIE0-SHORT LOG", {"/vendor/bin/sh", "-c", cmd});
-
         dumpLogs(fd, extendedLogDir, modemLogAllDir, 100, EXTENDED_LOG_PREFIX);
         android::base::SetProperty(MODEM_EFS_DUMP_PROPERTY, "false");
     }
@@ -413,6 +396,7 @@ Return<void> DumpstateDevice::dumpstateBoard(const hidl_handle& handle) {
         return Void();
     }
 
+    RunCommandToFd(fd, "Notify modem", {"/vendor/bin/modem_svc", "-s"}, CommandOptions::WithTimeout(1).Build());
     RunCommandToFd(fd, "VENDOR PROPERTIES", {"/vendor/bin/getprop"});
     DumpFileToFd(fd, "SoC serial number", "/sys/devices/soc0/serial_number");
     DumpFileToFd(fd, "CPU present", "/sys/devices/system/cpu/present");
