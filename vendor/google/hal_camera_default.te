@@ -126,7 +126,6 @@ dontaudit hal_camera_default vendor_bluetooth_prop:file { getattr map open };
 dontaudit hal_camera_default vendor_build_type_prop:file { getattr map open };
 dontaudit hal_camera_default vendor_cnss_diag_prop:file { getattr map open };
 dontaudit hal_camera_default vendor_device_prop:file { getattr map open };
-dontaudit hal_camera_default vendor_disable_spu_prop:file { getattr map open };
 dontaudit hal_camera_default vendor_display_prop:file { getattr map open };
 dontaudit hal_camera_default vendor_faceauth_prop:file { getattr map open };
 dontaudit hal_camera_default vendor_modem_diag_prop:file { getattr map open };
