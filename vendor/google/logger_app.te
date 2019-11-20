@@ -1,8 +1,16 @@
 type logger_app, domain;
-dontaudit logger_app activity_service:service_manager find;
-dontaudit logger_app binder_device:chr_file ioctl;
-dontaudit logger_app system_file:file getattr;
-dontaudit logger_app tmpfs:file { execute map read write };
-dontaudit logger_app usb_service:service_manager find;
-dontaudit system_server logger_app:binder call;
-dontaudit zygote logger_app:process { dyntransition setpgid };
+
+userdebug_or_eng(`
+  app_domain(logger_app)
+  net_domain(logger_app)
+
+  allow logger_app app_api_service:service_manager find;
+
+  allow logger_app vendor_radio_data_file:file create_file_perms;
+  allow logger_app vendor_radio_data_file:dir create_dir_perms;
+
+  allow logger_app cnss_vendor_data_file:dir create_dir_perms;
+  allow logger_app cnss_vendor_data_file:file create_file_perms;
+
+  set_prop(logger_app, vendor_cnss_diag_prop)
+')
