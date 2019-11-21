@@ -257,7 +257,7 @@ void DumpstateDevice::dumpModem(int fd, int fdModem)
 }
 
 static void DumpTouch(int fd) {
-    const char touch_spi_path[] = "/sys/class/spi_master/spi1/spi1.0";
+    const char touch_spi_path[] = "/sys/bus/i2c/drivers/fts/1-0049";
     char cmd[256];
 
     snprintf(cmd, sizeof(cmd), "%s/appid", touch_spi_path);
