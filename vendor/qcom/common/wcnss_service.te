@@ -12,6 +12,13 @@ allow wcnss_service self:netlink_generic_socket create_socket_perms_no_ioctl;
 binder_call(wcnss_service, vendor_per_mgr)
 allow wcnss_service vendor_per_mgr_service:service_manager find;
 
+# pkt logging for cnss_diag
+userdebug_or_eng(`
+  r_dir_file(wcnss_service, proc_wifi_dbg)
+  allow wcnss_service cnss_vendor_data_file:dir create_dir_perms;
+  allow wcnss_service cnss_vendor_data_file:file create_file_perms;
+')
+
 # files in /sys
 r_dir_file(wcnss_service, sysfs_msm_subsys)
 r_dir_file(wcnss_service, sysfs_soc)
