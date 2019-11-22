@@ -1,9 +1,0 @@
-dontaudit modem_diagnostic_app activity_service:service_manager find;
-dontaudit modem_diagnostic_app binder_device:chr_file ioctl;
-dontaudit modem_diagnostic_app resourcecache_data_file:file { map open read };
-dontaudit modem_diagnostic_app system_file:file getattr;
-dontaudit modem_diagnostic_app tmpfs:file { map read write };
-dontaudit modem_diagnostic_app user_profile_data_file:dir search;
-dontaudit modem_diagnostic_app user_profile_data_file:file getattr;
-dontaudit system_server modem_diagnostic_app:process { getpgid sigkill };
-dontaudit zygote modem_diagnostic_app:process dyntransition;
