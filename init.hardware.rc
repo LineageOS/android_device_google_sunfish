@@ -443,8 +443,9 @@ on property:sys.boot_completed=1
     chmod 644 /sys/kernel/debug/ufshcd0/stats/req_stats
 
     # HardwareInfo needs to be able to read display info
-    chmod 444 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/panel_info/panel0/serial_number
-    chmod 444 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/panel_info/panel0/panel_vendor_name
+    chmod 444 /sys/devices/platform/soc/soc:qcom,dsi-display/panel_info/panel0/serial_number
+    chmod 444 /sys/devices/platform/soc/soc:qcom,dsi-display/panel_info/panel0/panel_vendor_name
+    chmod 444 /sys/devices/platform/soc/soc:qcom,dsi-display/panel_info/panel0/panel_extinfo
 
     # Maxim FG dump for dumpstate
     chown system system /sys/kernel/debug/regmap/1-0036/registers
