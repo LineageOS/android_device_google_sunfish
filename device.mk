@@ -569,7 +569,7 @@ endif
 
 # Subsystem silent restart
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.sys.ssr.restart_level=modem,SDXPRAIRIE,adsp,slpi
+    persist.vendor.sys.ssr.restart_level=modem,adsp,slpi
 
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 # Sensor debug flag
