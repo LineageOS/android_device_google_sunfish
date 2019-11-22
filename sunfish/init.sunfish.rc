@@ -17,7 +17,7 @@
 import /vendor/etc/init/hw/init.${ro.boot.hardware.platform}.rc
 
 on property:vendor.all.modules.ready=1
-    chown system system /sys/class/spi_master/spi1/spi1.0/stm_fts_cmd
+    chown system system /sys/bus/i2c/drivers/fts/1-0049/stm_fts_cmd
 
 service vendor.mdm_helper /vendor/bin/mdm_helper
     class core
