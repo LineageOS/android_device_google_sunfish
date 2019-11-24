@@ -10,6 +10,8 @@ allow hal_bootctl_default boot_block_device:blk_file rw_file_perms;
 allow hal_bootctl_default gpt_block_device:blk_file rw_file_perms;
 allow hal_bootctl_default custom_ab_block_device:blk_file getattr;
 allow hal_bootctl_default modem_block_device:blk_file getattr;
+allow hal_bootctl_default dp_block_device:blk_file getattr;
+allow hal_bootctl_default system_block_device:blk_file getattr;
 
 # Write to the XBL devices.
 allow hal_bootctl_default xbl_block_device:blk_file rw_file_perms;

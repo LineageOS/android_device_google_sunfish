@@ -1,2 +1,0 @@
-dontaudit hal_memtrack_default sysfs_kgsl_proc:dir search;
-dontaudit hal_memtrack_default sysfs_kgsl_proc:file { getattr open read };
