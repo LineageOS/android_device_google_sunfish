@@ -52,6 +52,7 @@
 /vendor/bin/color_init                                                                u:object_r:color_init_exec:s0
 /vendor/bin/init\.ramoops\.sh                                                         u:object_r:ramoops_exec:s0
 /vendor/bin/modem_svc                                                                 u:object_r:modem_svc_exec:s0
+/vendor/bin/thermal_logd                                                              u:object_r:init-thermal-logging-sh_exec:s0
 /vendor/bin/ramoops                                                                   u:object_r:ramoops_exec:s0
 /vendor/bin/ramdump                                                                   u:object_r:ramdump_exec:s0
 /vendor/bin/rlsservice                                                                u:object_r:rlsservice_exec:s0
