@@ -159,7 +159,8 @@ void DumpstateDevice::dumpModem(int fd, int fdModem)
                 "/data/vendor/radio/metrics_data",
                 "/data/vendor/ssrlog/ssr_log.txt",
                 "/data/vendor/ssrlog/ssr_log_old.txt",
-                "/data/vendor/rfs/mpss/modem_efs"
+                "/data/vendor/rfs/mpss/modem_efs",
+                "/sys/kernel/debug/ipa/ipa_statistics_msg"
             };
 
         bool smlogEnabled = android::base::GetBoolProperty(MODEM_LOGGING_SWITCH, false) && !access("/vendor/bin/smlog_dump", X_OK);
@@ -240,7 +241,7 @@ void DumpstateDevice::dumpModem(int fd, int fdModem)
 }
 
 static void DumpTouch(int fd) {
-    const char touch_spi_path[] = "/sys/class/spi_master/spi1/spi1.0";
+    const char touch_spi_path[] = "/sys/bus/i2c/drivers/fts/1-0049";
     char cmd[256];
 
     snprintf(cmd, sizeof(cmd), "%s/appid", touch_spi_path);
@@ -305,6 +306,12 @@ static void DumpTouch(int fd) {
                         "echo 33 12 > /proc/fts/driver_test && "
                         "cat /proc/fts/driver_test"});
     }
+}
+
+static void DumpDisplay(int fd) {
+    DumpFileToFd(fd, "PANEL VENDOR NAME", "/sys/class/panel_info/panel0/panel_vendor_name");
+    DumpFileToFd(fd, "PANEL SN", "/sys/class/panel_info/panel0/serial_number");
+    DumpFileToFd(fd, "PANEL EXTRA INFO", "/sys/class/panel_info/panel0/panel_extinfo");
 }
 
 static void DumpSensorLog(int fd) {
@@ -402,6 +409,7 @@ Return<void> DumpstateDevice::dumpstateBoard(const hidl_handle& handle) {
     DumpFileToFd(fd, "CPU present", "/sys/devices/system/cpu/present");
     DumpFileToFd(fd, "CPU online", "/sys/devices/system/cpu/online");
     DumpTouch(fd);
+    DumpDisplay(fd);
 
     DumpF2FS(fd);
     DumpUFS(fd);
