@@ -57,8 +57,6 @@ vendor.debug.ramdump.                           u:object_r:vendor_ramdump_prop:s
 vendor.ims.                                     u:object_r:qcom_ims_prop:s0
 vendor.peripheral.                              u:object_r:vendor_per_mgr_state_prop:s0
 vendor.sys.listeners.registered                 u:object_r:vendor_tee_listener_prop:s0
-# Disable SPU
-vendor.gatekeeper.disable_spu                   u:object_r:vendor_disable_spu_prop:s0
 vendor.usb.                                     u:object_r:vendor_usb_prop:s0
 vendor.wlan.driver.version                      u:object_r:vendor_wifi_version:s0
 vendor.wlan.firmware.version                    u:object_r:vendor_wifi_version:s0
