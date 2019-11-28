@@ -699,6 +699,9 @@ service bugreport /system/bin/dumpstate -d -p -B -z \
     oneshot
     keycodes 114 115 116
 
+on property:ro.boot.hardware.dsds=1
+    setprop persist.radio.multisim.config dsds
+
 # DSDS feature
 # Enable 2nd qcrild when the property set to dsds
 on property:persist.radio.multisim.config=dsds
