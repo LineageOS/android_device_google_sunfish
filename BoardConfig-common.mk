@@ -85,7 +85,9 @@ TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_RECOVERY_UI_LIB := \
     librecovery_ui_sunfish \
     libnos_citadel_for_recovery \
-    libnos_for_recovery
+    libnos_for_recovery \
+    libbootloader_message \
+    libfstab
 
 # Enable chain partition for system.
 BOARD_AVB_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
