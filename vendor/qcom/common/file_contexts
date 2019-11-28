@@ -78,6 +78,7 @@
 /(vendor|system/vendor)/bin/hw/vendor\.qti\.hardware\.tui_comm@1\.0-service-qti u:object_r:hal_tui_comm_qti_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.qti\.hardware\.sensorscalibrate@1\.0-service u:object_r:hal_sensorscalibrate_qti_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.qti\.media\.c2@1\.0-service u:object_r:mediacodec_exec:s0
+/(vendor|system/vendor)/bin/qti                 u:object_r:qti_exec:s0
 
 # dev socket nodes
 /dev/socket/chre                                u:object_r:chre_socket:s0
