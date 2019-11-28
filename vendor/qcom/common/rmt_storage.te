@@ -5,10 +5,10 @@ init_daemon_domain(rmt_storage)
 wakelock_use(rmt_storage)
 
 r_dir_file(rmt_storage, sysfs_uio)
-# TODO(b/143445340): move setting uid, gid to userdebug only
-allow rmt_storage self:capability { setgid setuid setpcap };
-allow rmt_storage kmsg_device:chr_file w_file_perms;
 
+set_prop(rmt_storage, vendor_modem_prop)
+
+allow rmt_storage kmsg_device:chr_file w_file_perms;
 allow rmt_storage modem_block_device:blk_file rw_file_perms;
 allow rmt_storage uio_device:chr_file rw_file_perms;
 allow rmt_storage block_device:dir search;
