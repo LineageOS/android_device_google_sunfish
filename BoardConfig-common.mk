@@ -77,6 +77,7 @@ AB_OTA_PARTITIONS += \
      vbmeta \
      dtbo \
      product \
+     system_ext \
      vbmeta_system
 
 # Partitions (listed in the file) to be wiped under recovery.
@@ -88,7 +89,7 @@ TARGET_RECOVERY_UI_LIB := \
     libfstab
 
 # Enable chain partition for system.
-BOARD_AVB_VBMETA_SYSTEM := system
+BOARD_AVB_VBMETA_SYSTEM := system system_ext
 BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
 BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA2048
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
@@ -229,7 +230,8 @@ BOARD_SUPER_PARTITION_GROUPS := google_dynamic_partitions
 BOARD_GOOGLE_DYNAMIC_PARTITIONS_PARTITION_LIST := \
     system \
     vendor \
-    product
+    product \
+    system_ext
 
 #BOARD_GOOGLE_DYNAMIC_PARTITIONS_SIZE is set to BOARD_SUPER_PARTITION_SIZE / 2 - 4MB
 BOARD_GOOGLE_DYNAMIC_PARTITIONS_SIZE := 4873781248
