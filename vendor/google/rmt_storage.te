@@ -1,3 +1,0 @@
-dontaudit rmt_storage sysfs_ssr:file { open read };
-dontaudit rmt_storage vendor_modem_prop:file { getattr map open read };
-dontaudit rmt_storage property_socket:sock_file write;
