@@ -14,13 +14,18 @@
  * limitations under the License.
  */
 
+#include <stdint.h>
+#include <string.h>
+
+#include <string>
+#include <vector>
+
 #include <android-base/endian.h>
 #include <android-base/logging.h>
-
 #include <app_nugget.h>
-#include <nos/debug.h>
+#include <bootloader_message/bootloader_message.h>
 #include <nos/NuggetClient.h>
-
+#include <nos/debug.h>
 #include <recovery_ui/device.h>
 #include <recovery_ui/screen_ui.h>
 
@@ -57,6 +62,20 @@ bool WipeTitanM() {
     return true;
 }
 
+// Wipes the boot theme flag as part of data wipe.
+bool WipeBootThemeFlag() {
+    // Must be consistent with the one in init.hardware.rc (10-byte `theme-dark`).
+    const std::string wipe_str(10, '\x00');
+    constexpr size_t kThemeFlagOffsetInVendorSpace = 0;
+    if (std::string err; !WriteMiscPartitionVendorSpace(wipe_str.data(), wipe_str.size(),
+                                                        kThemeFlagOffsetInVendorSpace, &err)) {
+        LOG(ERROR) << "Failed to write wipe string: " << err;
+        return false;
+    }
+    LOG(INFO) << "Theme flag wiped successfully";
+    return true;
+}
+
 } // namespace
 
 class SunfishDevice : public ::Device
@@ -72,6 +91,10 @@ public:
 
         ui->Print("Wiping Titan M...\n");
         if (!WipeTitanM()) {
+            totalSuccess = false;
+        }
+
+        if (!WipeBootThemeFlag()) {
             totalSuccess = false;
         }
 
