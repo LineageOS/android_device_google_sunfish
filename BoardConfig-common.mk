@@ -76,7 +76,8 @@ AB_OTA_PARTITIONS += \
      system \
      vbmeta \
      dtbo \
-     product
+     product \
+     vbmeta_system
 
 # Partitions (listed in the file) to be wiped under recovery.
 TARGET_RECOVERY_WIPE := device/google/sunfish/recovery.wipe
