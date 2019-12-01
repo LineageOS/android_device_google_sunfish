@@ -48,6 +48,7 @@ BOARD_KERNEL_CMDLINE += usbcore.autosuspend=7
 BOARD_KERNEL_CMDLINE += loop.max_part=7
 BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=a600000.dwc3 swiotlb=1
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive # STOPSHIP
+BOARD_KERNEL_CMDLINE += androidboot.boot_devices=soc/1d84000.ufshc
 
 #BOARD_KERNEL_CMDLINE += video=vfb:640x400,bpp=32,memsize=3072000 service_locator.enable=1 earlycon=msm_geni_serial,0x880000
 
@@ -66,7 +67,6 @@ BOARD_DTBOIMG_PARTITION_SIZE := 8388608
 
 TARGET_NO_KERNEL := false
 BOARD_USES_RECOVERY_AS_BOOT := true
-BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 BOARD_USES_METADATA_PARTITION := true
 
 AB_OTA_UPDATER := true
@@ -76,7 +76,8 @@ AB_OTA_PARTITIONS += \
      system \
      vbmeta \
      dtbo \
-     product
+     product \
+     vbmeta_system
 
 # Partitions (listed in the file) to be wiped under recovery.
 TARGET_RECOVERY_WIPE := device/google/sunfish/recovery.wipe
@@ -88,22 +89,17 @@ TARGET_RECOVERY_UI_LIB := \
     libnos_for_recovery
 
 # Enable chain partition for system.
-BOARD_AVB_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
-BOARD_AVB_SYSTEM_ALGORITHM := SHA256_RSA2048
-BOARD_AVB_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
-BOARD_AVB_SYSTEM_ROLLBACK_INDEX_LOCATION := 1
+BOARD_AVB_VBMETA_SYSTEM := system
+BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
+BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA2048
+BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
+BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1
 
 # product.img
-BOARD_PRODUCTIMAGE_PARTITION_SIZE := 2147483648
 BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
 
 # system_ext.img
 BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := ext4
-
-# system.img
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3221225472
-BOARD_SYSTEMIMAGE_JOURNAL_SIZE := 0
-BOARD_SYSTEMIMAGE_EXTFS_INODE_COUNT := 4096
 
 # userdata.img
 TARGET_USERIMAGES_USE_F2FS := true
@@ -231,6 +227,20 @@ else
 BOARD_VENDOR_KERNEL_MODULES += \
     $(wildcard device/google/sunfish-kernel/*.ko)
 endif
+
+# dynamic partition
+BOARD_SUPER_PARTITION_SIZE := 9755951104
+BOARD_SUPER_PARTITION_GROUPS := google_dynamic_partitions
+BOARD_GOOGLE_DYNAMIC_PARTITIONS_PARTITION_LIST := \
+    system \
+    vendor \
+    product
+
+#BOARD_GOOGLE_DYNAMIC_PARTITIONS_SIZE is set to BOARD_SUPER_PARTITION_SIZE / 2 - 4MB
+BOARD_GOOGLE_DYNAMIC_PARTITIONS_SIZE := 4873781248
+
+# Set error limit to BOARD_SUPER_PARTITON_SIZE - 500MB
+BOARD_SUPER_PARTITION_ERROR_LIMIT := 9231663104
 
 # DTB
 ifeq (,$(filter-out sunfish_kasan, $(TARGET_PRODUCT)))
