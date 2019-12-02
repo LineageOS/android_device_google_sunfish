@@ -132,9 +132,6 @@ void DumpstateDevice::dumpModem(int fd, int fdModem)
     if (!PropertiesHelper::IsUserBuild()) {
         char cmd[256] = { 0 };
 
-        RunCommandToFd(fd, "MODEM RFS INFO", {"/vendor/bin/find /data/vendor/rfs/mpss/OEMFI/"}, CommandOptions::WithTimeout(2).Build());
-        RunCommandToFd(fd, "MODEM DIAG SYSTEM PROPERTIES", {"/vendor/bin/getprop | grep vendor.sys.modem.diag"}, CommandOptions::WithTimeout(2).Build());
-
         android::base::SetProperty(MODEM_EFS_DUMP_PROPERTY, "true");
 
         const std::string diagLogDir = "/data/vendor/radio/diag_logs/logs";
