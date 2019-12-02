@@ -269,6 +269,7 @@
 /data/vendor/netmgr(/.*)?              u:object_r:netmgrd_data_file:s0
 /data/vendor/modem_fdr(/.*)?           u:object_r:modem_fdr_file:s0
 /data/vendor/mediadrm(/.*)?            u:object_r:mediadrm_vendor_data_file:s0
+/data/vendor/nnhal(/.*)?               u:object_r:hal_neuralnetworks_data_file:s0
 /data/vendor/ramdump(/.*)?             u:object_r:ramdump_vendor_data_file:s0
 /data/vendor/ssrdump(/.*)?             u:object_r:ramdump_vendor_data_file:s0
 /data/vendor/ssrlog(/.*)?              u:object_r:ssr_log_file:s0
