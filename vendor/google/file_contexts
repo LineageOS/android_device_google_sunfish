@@ -10,12 +10,8 @@
 /dev/faceauth                                                                         u:object_r:faceauth_device:s0
 /dev/ipu                                                                              u:object_r:ipu_device:s0
 /dev/maxfg_history                                                                    u:object_r:maxfg_device:s0
-/dev/vd6281                                                                           u:object_r:rls_device:s0
-/dev/sensor_tunnel                                                                    u:object_r:rls_device:s0
 /dev/st54j_se                                                                         u:object_r:secure_element_device:s0
 /dev/subsys_faceauth                                                                  u:object_r:faceauth_device:s0
-/dev/lm36011_flood                                                                    u:object_r:laser_device:s0
-/dev/lm36011_dot                                                                      u:object_r:laser_device:s0
 /dev/iaxxx-module-celldrv                                                             u:object_r:pwrstats_device:s0
 
 # system binaries
@@ -55,7 +51,6 @@
 /vendor/bin/thermal_logd                                                              u:object_r:init-thermal-logging-sh_exec:s0
 /vendor/bin/ramoops                                                                   u:object_r:ramoops_exec:s0
 /vendor/bin/ramdump                                                                   u:object_r:ramdump_exec:s0
-/vendor/bin/rlsservice                                                                u:object_r:rlsservice_exec:s0
 /vendor/bin/init\.radio\.sh                                                           u:object_r:init_radio_exec:s0
 /vendor/bin/hw/vendor\.google\.wifi_ext@1\.0-service-vendor                           u:object_r:hal_wifi_ext_exec:s0
 /vendor/bin/hw/vendor\.google\.wifi_ext@1\.0-service-vendor-lazy                      u:object_r:hal_wifi_ext_exec:s0
@@ -83,7 +78,6 @@
 /data/vendor_ce/[0-9]+/ramoops(/.*)?                                                  u:object_r:ramoops_vendor_data_file:s0
 /data/vendor/ese(/.*)?                                                                u:object_r:ese_vendor_data_file:s0
 /data/vendor/hal_neuralnetworks_darwinn/hal_camera(/.*)?                              u:object_r:hal_neuralnetworks_darwinn_hal_camera_data_file:s0
-/data/vendor/camera_calibration(/.*)?                                                 u:object_r:camera_calibration_vendor_data_file:s0
 /data/vendor/face(/.*)?                                                               u:object_r:face_vendor_data_file:s0
 
 # dev socket node

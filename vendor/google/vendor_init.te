@@ -6,12 +6,12 @@ set_prop(vendor_init, vendor_thermal_prop)
 set_prop(vendor_init, vendor_display_prop)
 set_prop(vendor_init, vendor_build_type_prop)
 set_prop(vendor_init, vendor_ssr_prop)
+set_prop(vendor_init, camera_prop)
 
 userdebug_or_eng(`
   set_prop(vendor_init, logpersistd_logging_prop)
 ')
 
-dontaudit vendor_init camera_prop:property_service set;
 dontaudit vendor_init cnd_vendor_prop:property_service set;
 dontaudit vendor_init debugfs_clk:file write;
 dontaudit vendor_init debugfs:file write;
