@@ -13,23 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#ifndef ANDROID_HARDWARE_VIBRATOR_UTILS_H
-#define ANDROID_HARDWARE_VIBRATOR_UTILS_H
+#ifndef ANDROID_HARDWARE_VIBRATOR_TEST_UTILS_H
+#define ANDROID_HARDWARE_VIBRATOR_TEST_UTILS_H
 
-template <typename T>
-class Is_Iterable {
-  private:
-    template <typename U>
-    static std::true_type test(typename U::iterator *u);
+#include <cmath>
 
-    template <typename U>
-    static std::false_type test(U *u);
+#include "types.h"
 
-  public:
-    static const bool value = decltype(test<T>(0))::value;
-};
+static inline int32_t amplitudeToRtpInput(EffectAmplitude amplitude) {
+    return std::round((amplitude - 1) / 254.0 * 127);
+}
 
-template <typename T, bool B>
-using Enable_If_Iterable = std::enable_if_t<Is_Iterable<T>::value == B>;
-
-#endif  // ANDROID_HARDWARE_VIBRATOR_UTILS_H
+#endif  // ANDROID_HARDWARE_VIBRATOR_TEST_UTILS_H
