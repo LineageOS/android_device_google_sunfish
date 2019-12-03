@@ -2,6 +2,7 @@ vndbinder_use(hal_graphics_composer_default)
 allow hal_graphics_composer_default fwk_sensor_hwservice:hwservice_manager find;
 allow hal_graphics_composer_default qdisplay_service:service_manager { add find };
 allow hal_graphics_composer_default self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
+hal_client_domain(hal_graphics_composer_default, hal_graphics_allocator);
 
 #allow composer to register display config
 add_hwservice(hal_graphics_composer_default, hal_display_config_hwservice);
