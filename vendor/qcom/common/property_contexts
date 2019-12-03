@@ -77,3 +77,7 @@ vendor.media.ecoservice.log.                    u:object_r:ecoservice_prop:s0
 persist.vendor.data.netmgr.log_to_file          u:object_r:vendor_default_prop:s0
 persist.vendor.ims.                             u:object_r:qcom_ims_prop:s0
 persist.vendor.qti.telephony.vt_cam_interface   u:object_r:public_vendor_default_prop:s0
+
+# hvdcp_opti prop
+persist.vendor.hvdcp_opti.start                 u:object_r:vendor_hvdcp_opti_prop:s0
+persist.vendor.hvdcp_opti.version               u:object_r:vendor_hvdcp_opti_prop:s0

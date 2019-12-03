@@ -7,6 +7,7 @@ set_prop(vendor_init, vendor_display_prop)
 set_prop(vendor_init, vendor_build_type_prop)
 set_prop(vendor_init, vendor_ssr_prop)
 set_prop(vendor_init, camera_prop)
+set_prop(vendor_init, vendor_hvdcp_opti_prop)
 
 userdebug_or_eng(`
   set_prop(vendor_init, logpersistd_logging_prop)
