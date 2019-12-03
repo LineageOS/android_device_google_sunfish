@@ -117,6 +117,17 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>default</instance>
         </interface>
     </hal>
+    <!-- video Codec2 hal -->
+    <hal format="hidl">
+        <name>android.hardware.media.c2</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IComponentStore</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <!-- /video Codec2 hal -->
     <!-- video omx hal -->
     <hal format="hidl">
         <name>android.hardware.media.omx</name>
