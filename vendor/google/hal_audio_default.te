@@ -1,4 +1,0 @@
-userdebug_or_eng(`
-  allow hal_audio_default debugfs_ipc:dir search;
-')
-dontaudit hal_audio_default debugfs_ipc:dir search;
