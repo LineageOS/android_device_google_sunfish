@@ -41,7 +41,7 @@
         </interface>
     </hal>
     <hal format="hidl" optional="true">
-        <name>hardware.google.media.c2</name>
+        <name>android.hardware.media.c2</name>
         <version>1.0</version>
         <interface>
             <name>IComponentStore</name>
