@@ -1,1 +1,8 @@
 type factory_ota_app, domain, coredomain;
+
+userdebug_or_eng(`
+  permissive surfaceflinger;
+  permissive zygote;
+  permissive factory_ota_app;
+  permissive system_server;
+')

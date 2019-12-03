@@ -11,8 +11,6 @@ type sysfs_display, sysfs_type, fs_type;
 type sysfs_touch, sysfs_type, fs_type;
 type sysfs_power_stats, sysfs_type, fs_type;
 type sysfs_power_stats_ignore, sysfs_type, fs_type;
-type sysfs_camera, sysfs_type, fs_type;
-type sysfs_devcfg, sysfs_type, fs_type;
 type sysfs_msm_boardid, fs_type, sysfs_type;
 type sysfs_iio_devices, fs_type, sysfs_type;
 type sysfs_pixelstats, fs_type, sysfs_type;
@@ -35,7 +33,6 @@ type sysfs_airbrush_dumpstate, sysfs_type, fs_type;
 type debugfs_pmic, debugfs_type, fs_type;
 type sysfs_contaminant, sysfs_type, fs_type;
 type hal_neuralnetworks_darwinn_hal_camera_data_file, file_type, data_file_type;
-type camera_calibration_vendor_data_file, file_type, data_file_type;
 type sysfs_knowles_info, fs_type, sysfs_type;
 type sysfs_fingerprint, sysfs_type, fs_type;
 
