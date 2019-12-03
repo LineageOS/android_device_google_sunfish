@@ -18,7 +18,7 @@ genfscon proc  /fts/driver_test                                                 
 
 # PowerHal
 genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp                      u:object_r:sysfs_msm_subsys:s0
-genfscon sysfs /devices/platform/soc/2c00000.qcom,kgsl-3d0                      u:object_r:sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/5000000.qcom,kgsl-3d0                      u:object_r:sysfs_msm_subsys:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,gpubw                             u:object_r:sysfs_msm_subsys:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,gpubw/devfreq                     u:object_r:sysfs_msm_subsys:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,cpu-cpu-llcc-bw                   u:object_r:sysfs_msm_subsys:s0
@@ -161,4 +161,6 @@ genfscon sysfs /devices/platform/soc/soc:fp_fpc1020                             
 
 # Thermal
 genfscon sysfs /devices/virtual/thermal                                           u:object_r:sysfs_thermal:s0
-
+genfscon sysfs /class/thermal							  u:object_r:sysfs_thermal:s0
+genfscon sysfs /devices/platform/soc/18321000.qcom,cpucc/18321000.qcom,cpucc:qcom,limits-dcvs@18350800  u:object_r:sysfs_thermal:s0
+genfscon sysfs /devices/platform/soc/18321000.qcom,cpucc/18321000.qcom,cpucc:qcom,limits-dcvs@18358800  u:object_r:sysfs_thermal:s0
