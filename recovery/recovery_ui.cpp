@@ -22,6 +22,7 @@
 
 #include <android-base/endian.h>
 #include <android-base/logging.h>
+#include <android-base/strings.h>
 #include <app_nugget.h>
 #include <bootloader_message/bootloader_message.h>
 #include <nos/NuggetClient.h>
@@ -76,6 +77,52 @@ bool WipeBootThemeFlag() {
     return true;
 }
 
+bool GetReason(std::string* reason) {
+    bootloader_message boot = {};
+    std::string err;
+    bool ret = false;
+    if (!read_bootloader_message(&boot, &err)) {
+        LOG(ERROR) << err;
+        return ret;
+    }
+
+    std::vector<std::string> args;
+    boot.recovery[sizeof(boot.recovery) - 1] = '\0';  // Ensure termination
+    std::string boot_recovery(boot.recovery);
+    std::vector<std::string> tokens = android::base::Split(boot_recovery, "\n");
+    if (!tokens.empty() && tokens[0] == "recovery") {
+        for (auto it = tokens.begin() + 1; it != tokens.end(); it++) {
+            // Skip empty and '\0'-filled tokens.
+            if (!it->empty() && (*it)[0] != '\0') args.push_back(std::move(*it));
+        }
+        LOG(INFO) << "Got " << args.size() << " arguments from boot message";
+    } else if (boot.recovery[0] != 0) {
+        LOG(ERROR) << "Bad boot message: \"" << boot_recovery << "\"";
+        return ret;
+    }
+
+    for (const auto& arg : args) {
+        if (android::base::StartsWith(arg, "--reason=")) {
+            *reason = arg.substr(strlen("--reason="));
+            LOG(INFO) << "reason is " << *reason;
+            ret = true;
+            break;
+        }
+    }
+    return ret;
+}
+
+bool ProvisionSilentOtaFlag() {
+    const std::string sota_str("enable-sota");
+    constexpr size_t kSotaFlagOffsetInVendorSpace = 32;
+    if (std::string err; !WriteMiscPartitionVendorSpace(sota_str.data(), sota_str.size(),
+                                                        kSotaFlagOffsetInVendorSpace, &err)) {
+        LOG(ERROR) << "Failed to write SOTA string: " << err;
+        return false;
+    }
+    LOG(INFO) << "Provision SOTA flag successfully";
+    return true;
+}
 } // namespace
 
 class SunfishDevice : public ::Device
@@ -99,6 +146,15 @@ public:
         }
 
         // Extendable to wipe other components
+
+        // Additional behavior along with wiping data...
+        std::string reason;
+        if (GetReason(&reason) && android::base::StartsWith(reason, "enable-sota")) {
+            ui->Print("Enabling Silent OTA...\n");
+            if (!ProvisionSilentOtaFlag()) {
+                totalSuccess = false;
+            }
+        }
 
         return totalSuccess;
     }
