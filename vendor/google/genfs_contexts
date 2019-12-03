@@ -77,13 +77,6 @@ genfscon sysfs /devices/platform/soc/c94000.i2c/i2c-3/3-0043                    
 # EVT 1.1 and newer
 genfscon sysfs /devices/platform/soc/c94000.i2c/i2c-4/4-0043                    u:object_r:sysfs_vibrator:s0
 
-# Camera
-genfscon sysfs /devices/platform/soc/ac4a000.qcom,cci                           u:object_r:sysfs_camera:s0
-genfscon sysfs /devices/platform/soc/ac4b000.qcom,cci                           u:object_r:sysfs_camera:s0
-
-# Device config (device build)
-genfscon sysfs /firmware/devicetree/base/chosen/cdt/cdb2/devcfg                 u:object_r:sysfs_devcfg:s0
-
 # eSIM status
 genfscon sysfs /firmware/devicetree/base/chosen/cdt/cdb2/esim                   u:object_r:sysfs_esim:s0
 
