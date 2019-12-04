@@ -19,3 +19,9 @@ user=_app seinfo=platform name=com.qualcomm.qti.services.secureui* domain=secure
 
 #Needed for time service apk
 user=_app seinfo=platform name=com.qualcomm.timeservice domain=timeservice_app type=app_data_file
+
+# Use a custom domain for GoogleCamera, to allow for Hexagon DSP / Easel access
+user=_app seinfo=google name=com.google.android.GoogleCamera domain=google_camera_app type=app_data_file levelFrom=all
+
+# Also allow GoogleCameraNext, the dogfood beta version, the same access as GoogleCamera
+user=_app seinfo=googlepulse name=com.google.android.apps.googlecamera.fishfood domain=google_camera_app type=app_data_file levelFrom=all
