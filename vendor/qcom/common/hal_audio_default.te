@@ -8,5 +8,18 @@ userdebug_or_eng(`
 
 r_dir_file(hal_audio_default, sysfs_soc);
 
-# For getting audio property
+# read-only permission to obtain the calibration data
+r_dir_file(hal_audio_default, persist_audio_file);
+allow hal_audio_default mnt_vendor_file:dir search;
+allow hal_audio_default persist_file:lnk_file read;
+allow hal_audio_default persist_file:dir search;
+
+allow hal_audio_default audio_vendor_data_file:dir rw_dir_perms;
+allow hal_audio_default audio_vendor_data_file:file create_file_perms;
+allow hal_audio_default debugfs_ipc:dir r_dir_perms;
+
+#Allow hal audio to use Binder IPC
+vndbinder_use(hal_audio);
+
+# For audio properties
 get_prop(hal_audio_default, vendor_audio_prop);
