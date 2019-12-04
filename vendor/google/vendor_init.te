@@ -8,21 +8,20 @@ set_prop(vendor_init, vendor_build_type_prop)
 set_prop(vendor_init, vendor_ssr_prop)
 set_prop(vendor_init, camera_prop)
 
+#radio related
+allow vendor_init ipa_dev:chr_file w_file_perms;
+set_prop(vendor_init, cnd_vendor_prop)
+set_prop(vendor_init, vendor_modem_diag_prop)
+set_prop(vendor_init, vendor_radio_prop)
+
 userdebug_or_eng(`
   set_prop(vendor_init, logpersistd_logging_prop)
 ')
 
-dontaudit vendor_init cnd_vendor_prop:property_service set;
 dontaudit vendor_init debugfs_clk:file write;
 dontaudit vendor_init debugfs:file write;
 dontaudit vendor_init debugfs_sched_features:file write;
-dontaudit vendor_init default_prop:property_service set;
-dontaudit vendor_init ipa_dev:chr_file { open write };
 dontaudit vendor_init power_prop:property_service set;
 dontaudit vendor_init proc_swappiness:file write;
-dontaudit vendor_init radio_prop:property_service set;
 dontaudit vendor_init system_data_file:dir setattr;
 dontaudit vendor_init vendor_bluetooth_prop:property_service set;
-dontaudit vendor_init vendor_modem_diag_prop:file { getattr map open read };
-dontaudit vendor_init vendor_modem_diag_prop:property_service set;
-dontaudit vendor_init vendor_radio_prop:property_service set;
