@@ -1,1 +1,2 @@
-dontaudit sensors mnt_vendor_file:dir search;
+# Allow to getprop persist.vendor.sys.modem.diag.mdlog
+get_prop(sensors, vendor_modem_diag_prop)
