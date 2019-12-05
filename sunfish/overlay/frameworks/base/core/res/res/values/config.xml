@@ -43,6 +43,11 @@
     <!-- Type of the ambient tap sensor. Empty if ambient tap is not supported. -->
     <string name="config_dozeTapSensorType" translatable="false">com.google.sensor.single_touch</string>
 
+    <!-- MMS user agent string -->
+    <string name="config_mms_user_agent" translatable="false">g025j</string>
+    <!-- MMS user agent profile url -->
+    <string name="config_mms_user_agent_profile_url" translatable="false">http://www.gstatic.com/android/sms/G025J.xml</string>
+
     <!-- Array of light sensor LUX values to define our levels for auto backlight brightness support.
          The N entries of this array define N  1 zones as follows:
 
