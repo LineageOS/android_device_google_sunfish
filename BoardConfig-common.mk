@@ -84,9 +84,8 @@ TARGET_RECOVERY_WIPE := device/google/sunfish/recovery.wipe
 TARGET_RECOVERY_FSTAB := device/google/sunfish/fstab.hardware
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_RECOVERY_UI_LIB := \
-    librecovery_ui_sunfish \
-    libnos_citadel_for_recovery \
-    libnos_for_recovery
+    librecovery_ui_pixel \
+    libfstab
 
 # Enable chain partition for system.
 BOARD_AVB_VBMETA_SYSTEM := system system_ext
