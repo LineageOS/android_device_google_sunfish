@@ -284,6 +284,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.google_hwl.enabled=true \
     persist.camera.google_hwl.name=libgooglecamerahwl_impl.so
 
+# camera common HWL
+CAMERA_COMMON_HWL := true
+
 # OEM Unlock reporting
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.oem_unlock_supported=1
