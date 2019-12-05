@@ -421,7 +421,7 @@
 
     <!-- CS35L41 config -->
     <!-- QCT SEC TDM settings -->
-    <ctl name="SEC_TDM_RX_0 Channels" value="Four" />
+    <ctl name="SEC_TDM_RX_0 Channels" value="Two" />
     <ctl name="SEC_TDM_TX_0 Channels" value="Four" />
     <ctl name="SEC_TDM_RX_0 Format" value="S32_LE" />
     <ctl name="SEC_TDM_TX_0 Format" value="S32_LE" />
