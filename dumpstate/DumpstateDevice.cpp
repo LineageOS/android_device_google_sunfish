@@ -31,9 +31,9 @@
 
 #include "DumpstateUtil.h"
 
-#define MODEM_LOG_PREFIX_PROPERTY "ro.radio.log_prefix"
-#define MODEM_LOG_LOC_PROPERTY "ro.radio.log_loc"
-#define MODEM_LOGGING_SWITCH "persist.radio.smlog_switch"
+#define MODEM_LOG_PREFIX_PROPERTY "ro.vendor.radio.log_prefix"
+#define MODEM_LOG_LOC_PROPERTY "ro.vendor.radio.log_loc"
+#define MODEM_LOGGING_SWITCH "persist.vendor.radio.smlog_switch"
 
 #define DIAG_MDLOG_PERSIST_PROPERTY "persist.vendor.sys.modem.diag.mdlog"
 #define DIAG_MDLOG_PROPERTY "vendor.sys.modem.diag.mdlog"
