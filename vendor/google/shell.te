@@ -1,0 +1,1 @@
+allow shell vendor_hvdcp_opti_prop:file { getattr map open read };

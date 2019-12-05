@@ -63,3 +63,4 @@ type vendor_wifi_version, property_type;
 type vendor_cnss_diag_prop, property_type;
 type vendor_modem_diag_prop, property_type;
 type vendor_ramdump_prop, property_type;
+type vendor_hvdcp_opti_prop, property_type;
