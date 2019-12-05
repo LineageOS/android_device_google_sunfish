@@ -1817,7 +1817,14 @@
     <path name="dmic-endfire">
         <ctl name="ADC1 Capture Volume" id="0" value="45"/>
         <ctl name="ADC2 Capture Volume" id="0" value="45"/>
+        <ctl name="TERT TDM TX Channel Offset" id="0" value="8" />
+        <ctl name="TERT TDM TX Channel Offset" id="1" value="0" />
         <ctl name="TERT_TDM_TX_0 Channels" value="Two"/>
+        <ctl name="TERT_TDM_TX_0 Format" value="S24_LE" />
+        <ctl name="Sto1 ADC MIXL DMIC Switch" value="1" />
+        <ctl name="Sto2 ADC MIXL DMIC Switch" value="1" />
+        <ctl name="Stereo1 DMIC Mux" value="DMIC1" />
+        <ctl name="Stereo2 DMIC Mux" value="DMIC2" />
     </path>
 
     <path name="handset">
@@ -1934,7 +1941,7 @@
     </path>
 
     <path name="handset-mic">
-        <ctl name="ADC1 Capture Volume" id="0" value="43"/>
+        <ctl name="ADC1 Capture Volume" id="0" value="23"/>
         <ctl name="TERT_TDM_TX_0 Channels" value="One"/>
         <ctl name="Stereo1 DMIC Mux" value="DMIC1" />
     </path>
@@ -2102,6 +2109,7 @@
 
     <path name="voice-rec-mic">
         <path name="handset-mic" />
+        <ctl name="ADC1 Capture Volume" id="0" value="52"/>
     </path>
 
     <path name="camcorder-mic">
@@ -2173,7 +2181,14 @@
     <path name="handset-dmic-endfire">
         <ctl name="ADC1 Capture Volume" id="0" value="45"/>
         <ctl name="ADC2 Capture Volume" id="0" value="45"/>
+        <ctl name="TERT TDM TX Channel Offset" id="0" value="8" />
+        <ctl name="TERT TDM TX Channel Offset" id="1" value="0" />
         <ctl name="TERT_TDM_TX_0 Channels" value="Two"/>
+        <ctl name="TERT_TDM_TX_0 Format" value="S24_LE" />
+        <ctl name="Sto1 ADC MIXL DMIC Switch" value="1" />
+        <ctl name="Sto2 ADC MIXL DMIC Switch" value="1" />
+        <ctl name="Stereo1 DMIC Mux" value="DMIC1" />
+        <ctl name="Stereo2 DMIC Mux" value="DMIC2" />
     </path>
 
     <path name="speaker-dmic-endfire">
@@ -2191,6 +2206,8 @@
 
     <path name="handset-stereo-dmic-ef">
         <path name="handset-dmic-endfire" />
+        <ctl name="ADC1 Capture Volume" id="0" value="50"/>
+        <ctl name="ADC2 Capture Volume" id="0" value="50"/>
     </path>
 
     <path name="speaker-stereo-dmic-ef">
@@ -2211,6 +2228,7 @@
 
     <!-- Wait for HW confirm -->
     <path name="hearing-aid-mic">
+        <path name="voice-dmic-ef" />
     </path>
 
     <!-- VR Dual-MIC 1st D:22 dB -->
@@ -2370,6 +2388,8 @@
 
     <path name="unprocessed-stereo-mic">
         <path name="voice-rec-dmic-ef" />
+        <ctl name="ADC1 Capture Volume" id="0" value="30"/>
+        <ctl name="ADC2 Capture Volume" id="0" value="30"/>
     </path>
 
     <path name="unprocessed-three-mic">
