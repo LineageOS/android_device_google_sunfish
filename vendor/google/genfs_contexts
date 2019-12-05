@@ -164,3 +164,6 @@ genfscon sysfs /devices/virtual/thermal                                         
 genfscon sysfs /class/thermal							  u:object_r:sysfs_thermal:s0
 genfscon sysfs /devices/platform/soc/18321000.qcom,cpucc/18321000.qcom,cpucc:qcom,limits-dcvs@18350800  u:object_r:sysfs_thermal:s0
 genfscon sysfs /devices/platform/soc/18321000.qcom,cpucc/18321000.qcom,cpucc:qcom,limits-dcvs@18358800  u:object_r:sysfs_thermal:s0
+
+# Dumpstats IPA statistics
+genfscon debugfs /ipa/ipa_statistics_msg                  u:object_r:debugfs_ipa:s0

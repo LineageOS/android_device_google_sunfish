@@ -38,3 +38,6 @@ type sysfs_fingerprint, sysfs_type, fs_type;
 
 # Dumpstates bootloader logs
 type proc_bldrlog, fs_type, proc_type;
+
+# Dumpstats IPA statistics
+type debugfs_ipa, debugfs_type, fs_type;
