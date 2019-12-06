@@ -14,6 +14,7 @@ userdebug_or_eng(`
 ')
 
 allow hal_sensors_default persist_file:dir search;
+allow hal_sensors_default mnt_vendor_file:dir search;
 
 allow hal_sensors_default sysfs_ssr:file r_file_perms;
 

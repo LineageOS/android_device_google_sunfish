@@ -1,0 +1,2 @@
+allow netutils_wrapper netmgrd:fd use;
+allow netutils_wrapper netmgrd:fifo_file rw_file_perms;
