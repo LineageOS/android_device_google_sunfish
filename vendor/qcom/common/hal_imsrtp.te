@@ -13,11 +13,14 @@ unix_socket_connect(hal_imsrtp, ims, ims)
 get_prop(hal_imsrtp, hwservicemanager_prop)
 get_prop(hal_imsrtp, qcom_ims_prop)
 
+allow hal_imsrtp ion_device:chr_file r_file_perms;
 allow hal_imsrtp self:qipcrtr_socket create_socket_perms_no_ioctl;
 allow hal_imsrtp sysfs_ssr:file r_file_perms;
 allow hal_imsrtp sysfs_timestamp_switch:file r_file_perms;
 
+# TODO(b/144661633): check if these rules are needed or not
 r_dir_file(hal_imsrtp, sysfs_esoc)
+r_dir_file(hal_imsrtp, sysfs_soc)
 r_dir_file(hal_imsrtp, sysfs_msm_subsys)
 
 userdebug_or_eng(`
