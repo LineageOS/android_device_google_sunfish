@@ -39,19 +39,7 @@ genfscon sysfs /power/rpmh_stats/master_stats      u:object_r:sysfs_power_stats:
 genfscon sysfs /kernel/wlan/power_stats            u:object_r:sysfs_power_stats:s0
 genfscon sysfs /devices/platform/soc/soc:abc-sm/state_stats
 u:object_r:sysfs_power_stats:s0
-genfscon sysfs /devices/platform/soc/880000.i2c/i2c-1/1-0010/iio:device3
-u:object_r:sysfs_power_stats:s0
-genfscon sysfs /devices/platform/soc/880000.i2c/i2c-1/1-0011/iio:device3
-u:object_r:sysfs_power_stats:s0
-genfscon sysfs /devices/platform/soc/a84000.i2c/i2c-2/2-0010/iio:device4
-u:object_r:sysfs_power_stats:s0
-genfscon sysfs /devices/platform/soc/89c000.i2c/i2c-2/2-0011/iio:device3
-u:object_r:sysfs_power_stats:s0
-genfscon sysfs /devices/platform/soc/a84000.i2c/i2c-3/3-0010/iio:device4
-u:object_r:sysfs_power_stats:s0
-genfscon sysfs /devices/platform/soc/a84000.i2c/i2c-2/2-0008/power_stats
-u:object_r:sysfs_power_stats:s0
-genfscon sysfs /devices/platform/soc/a84000.i2c/i2c-3/3-0008/power_stats
+genfscon sysfs /devices/platform/soc/a8c000.i2c/i2c-2/2-0010/iio:device2
 u:object_r:sysfs_power_stats:s0
 
 # Not used by PowerStatsHal
@@ -82,17 +70,10 @@ genfscon sysfs /firmware/devicetree/base/chosen/cdt/cdb2/esim                   
 
 # Battery
 genfscon sysfs /devices/platform/soc/soc:google,battery/power_supply/battery    u:object_r:sysfs_batteryinfo:s0
-genfscon sysfs /devices/platform/soc/880000.i2c/i2c-1/1-0036/power_supply/maxfg u:object_r:sysfs_batteryinfo:s0
-genfscon sysfs /devices/platform/soc/89c000.i2c/i2c-2/2-0036/power_supply/maxfg u:object_r:sysfs_batteryinfo:s0
-genfscon sysfs /devices/platform/soc/880000.i2c/i2c-1/1-0061                    u:object_r:sysfs_wlc:s0
-genfscon sysfs /devices/platform/soc/880000.i2c/i2c-1/1-0061/power_supply       u:object_r:sysfs_batteryinfo:s0
-genfscon sysfs /devices/platform/soc/880000.i2c/i2c-1/1-0061/power_supply/wireless    u:object_r:sysfs_batteryinfo:s0
-genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pm8150b@2:google,bms/power_supply/charger u:object_r:sysfs_batteryinfo:s0
-genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pm8150b@2:qcom,usb-pdphy@1700/usbpd0/power_supply u:object_r:sysfs_batteryinfo:s0
-genfscon debugfs /regmap/1-0036/                                                u:object_r:debugfs_batteryinfo:s0
-genfscon debugfs /regmap/1-000b/                                                u:object_r:debugfs_batteryinfo:s0
-genfscon debugfs /regmap/2-0036/                                                u:object_r:debugfs_batteryinfo:s0
-genfscon debugfs /regmap/2-000b/                                                u:object_r:debugfs_batteryinfo:s0
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pm6150@0:qpnp,qg/power_supply                     u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pm6150@0:qcom,qpnp-smb5/power_supply              u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pm6150@0:qcom,usb-pdphy@1700/usbpd0/power_supply  u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /class/qcom-battery                                              u:object_r:sysfs_batteryinfo:s0
 genfscon debugfs /logbuffer/ssoc                                                u:object_r:debugfs_batteryinfo:s0
 genfscon debugfs /logbuffer/batt_ce                                             u:object_r:debugfs_batteryinfo:s0
 genfscon debugfs /logbuffer/wireless                                            u:object_r:debugfs_batteryinfo:s0
@@ -164,3 +145,6 @@ genfscon sysfs /devices/virtual/thermal                                         
 genfscon sysfs /class/thermal							  u:object_r:sysfs_thermal:s0
 genfscon sysfs /devices/platform/soc/18321000.qcom,cpucc/18321000.qcom,cpucc:qcom,limits-dcvs@18350800  u:object_r:sysfs_thermal:s0
 genfscon sysfs /devices/platform/soc/18321000.qcom,cpucc/18321000.qcom,cpucc:qcom,limits-dcvs@18358800  u:object_r:sysfs_thermal:s0
+
+# Dumpstats IPA statistics
+genfscon debugfs /ipa/ipa_statistics_msg                  u:object_r:debugfs_ipa:s0
