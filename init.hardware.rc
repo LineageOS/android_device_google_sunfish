@@ -19,6 +19,7 @@ import /vendor/etc/init/hw/init.${ro.boot.hardware.platform}.diag.rc
 import /vendor/etc/init/hw/init.${ro.boot.hardware.platform}.logging.rc
 import /vendor/etc/init/hw/init.${ro.boot.hardware.platform}.mpssrfs.rc
 import /vendor/etc/init/hw/init.${ro.boot.hardware.platform}.power.rc
+import /vendor/etc/init/hw/init.${ro.boot.hardware.platform}.power_debug.rc
 
 service vendor.charger /system/bin/charger
     class charger
@@ -108,9 +109,6 @@ on init && property:vendor.skip.init=0
     chown system system /dev/cpuset/camera-daemon
     chown system system /dev/cpuset/camera-daemon/tasks
     chmod 0664 /dev/cpuset/camera-daemon/tasks
-
-    # Enable suspend clock reporting
-    write /sys/kernel/debug/clk/debug_suspend 1
 
 on late-init
     setprop vendor.thermal.config thermal_info_config.json
