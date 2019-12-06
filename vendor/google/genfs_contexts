@@ -39,19 +39,7 @@ genfscon sysfs /power/rpmh_stats/master_stats      u:object_r:sysfs_power_stats:
 genfscon sysfs /kernel/wlan/power_stats            u:object_r:sysfs_power_stats:s0
 genfscon sysfs /devices/platform/soc/soc:abc-sm/state_stats
 u:object_r:sysfs_power_stats:s0
-genfscon sysfs /devices/platform/soc/880000.i2c/i2c-1/1-0010/iio:device3
-u:object_r:sysfs_power_stats:s0
-genfscon sysfs /devices/platform/soc/880000.i2c/i2c-1/1-0011/iio:device3
-u:object_r:sysfs_power_stats:s0
-genfscon sysfs /devices/platform/soc/a84000.i2c/i2c-2/2-0010/iio:device4
-u:object_r:sysfs_power_stats:s0
-genfscon sysfs /devices/platform/soc/89c000.i2c/i2c-2/2-0011/iio:device3
-u:object_r:sysfs_power_stats:s0
-genfscon sysfs /devices/platform/soc/a84000.i2c/i2c-3/3-0010/iio:device4
-u:object_r:sysfs_power_stats:s0
-genfscon sysfs /devices/platform/soc/a84000.i2c/i2c-2/2-0008/power_stats
-u:object_r:sysfs_power_stats:s0
-genfscon sysfs /devices/platform/soc/a84000.i2c/i2c-3/3-0008/power_stats
+genfscon sysfs /devices/platform/soc/a8c000.i2c/i2c-2/2-0010/iio:device2
 u:object_r:sysfs_power_stats:s0
 
 # Not used by PowerStatsHal
