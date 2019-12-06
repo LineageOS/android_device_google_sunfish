@@ -19,3 +19,4 @@ genfscon sysfs /devices/platform/soc/aae0000.qcom,venus/subsys3/restart_level  u
 genfscon sysfs /devices/platform/soc/8300000.qcom,turing/subsys1               u:object_r:sysfs_msm_subsys:s0
 genfscon sysfs /devices/platform/soc/8300000.qcom,turing/subsys1/name          u:object_r:sysfs_ssr:s0
 genfscon sysfs /devices/platform/soc/8300000.qcom,turing/subsys1/restart_level u:object_r:sysfs_ssr_writable:s0
+genfscon sysfs /devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:    u:object_r:sysfs_scsi_devices_0000:s0
