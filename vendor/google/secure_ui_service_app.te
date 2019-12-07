@@ -1,1 +1,1 @@
-dontaudit secure_ui_service_app activity_service:service_manager find;
+allow secure_ui_service_app activity_service:service_manager find;
