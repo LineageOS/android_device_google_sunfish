@@ -1,4 +1,6 @@
 binder_call(radio, hal_rcsservice)
+binder_call(radio, hal_imsrtp)
+allow radio hal_imsrtp_hwservice:hwservice_manager find;
 
 allow radio hal_imsrcsd_hwservice:hwservice_manager find;
 

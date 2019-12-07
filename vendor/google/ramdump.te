@@ -1,3 +1,24 @@
 type ramdump_exec, exec_type, vendor_file_type, file_type;
-  type ramdump, domain;
+type ramdump, domain;
+
+userdebug_or_eng(`
   init_daemon_domain(ramdump)
+
+  set_prop(ramdump, vendor_ramdump_prop)
+  get_prop(ramdump, public_vendor_default_prop)
+
+  # f2fs set pin file requires sys_admin
+  allow ramdump self:capability { sys_admin sys_rawio };
+
+  allow ramdump ramdump_vendor_data_file:dir create_dir_perms;
+  allow ramdump ramdump_vendor_data_file:file create_file_perms;
+  allow ramdump proc_cmdline:file r_file_perms;
+
+  allow ramdump block_device:dir search;
+  allow ramdump misc_block_device:blk_file rw_file_perms;
+  allow ramdump userdata_block_device:blk_file rw_file_perms;
+
+  dontaudit ramdump metadata_file:dir search;
+
+  r_dir_file(ramdump, sysfs_type)
+')

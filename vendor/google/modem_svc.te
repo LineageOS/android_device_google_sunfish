@@ -18,6 +18,6 @@ userdebug_or_eng(`
   allow modem_svc shell_data_file:file write;
 ')
 
-dontaudit modem_svc sysfs_msm_subsys:dir read;
-dontaudit modem_svc sysfs_esoc:dir read;
-dontaudit modem_svc sysfs_ssr:dir read;
+dontaudit modem_svc sysfs_msm_subsys:dir r_dir_perms;
+dontaudit modem_svc sysfs_esoc:dir r_dir_perms;
+dontaudit modem_svc sysfs_ssr:dir r_dir_perms;
