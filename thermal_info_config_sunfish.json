@@ -219,6 +219,31 @@
             "VrThreshold":"NAN",
             "Multiplier":0.001,
             "Monitor":true
+        },
+	{
+            "Name":"usbc-therm-monitor",
+            "Type":"USB_PORT",
+            "HotThreshold":[
+                "NAN",
+                "NAN",
+                "NAN",
+                "NAN",
+                "NAN",
+                "70.0",
+                "NAN"
+            ],
+            "HotHysteresis":[
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                5.0,
+                0.0
+            ],
+            "VrThreshold":"NAN",
+            "Multiplier":0.001,
+            "Monitor":true
         }
     ],
     "CoolingDevices":[
