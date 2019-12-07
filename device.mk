@@ -124,6 +124,8 @@ ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
       $(LOCAL_PATH)/init.hardware.chamber.rc.userdebug:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.$(PRODUCT_PLATFORM).chamber.rc
   PRODUCT_COPY_FILES += \
       $(LOCAL_PATH)/init.hardware.ipa.rc.userdebug:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.$(PRODUCT_PLATFORM).ipa.rc
+  PRODUCT_COPY_FILES += \
+      $(LOCAL_PATH)/init.hardware.power_debug.rc.userdebug:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.$(PRODUCT_PLATFORM).power_debug.rc
 else
   PRODUCT_COPY_FILES += \
       $(LOCAL_PATH)/init.hardware.diag.rc.user:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(PRODUCT_PLATFORM).diag.rc
@@ -794,6 +796,10 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 # Oslo feature flag
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.vendor.aware_available=true
+
+# Setup Wizard gesture settings
+PRODUCT_PRODUCT_PROPERTIES += \
+    setupwizard.enable_assist_gesture_training=false
 
 QTI_TELEPHONY_UTILS := qti-telephony-utils
 QTI_TELEPHONY_UTILS += qti_telephony_utils.xml
