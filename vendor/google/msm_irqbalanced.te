@@ -1,5 +1,0 @@
-dontaudit msm_irqbalanced proc_interrupts:file { getattr open read };
-dontaudit msm_irqbalanced proc_irq:dir search;
-dontaudit msm_irqbalanced proc_irq:file { getattr open read write };
-dontaudit msm_irqbalanced proc_stat:file { getattr open read };
-dontaudit msm_irqbalanced sysfs_devices_system_cpu:file write;
