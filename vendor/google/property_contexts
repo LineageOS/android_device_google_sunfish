@@ -72,3 +72,12 @@ vendor.ramoops.                                 u:object_r:vendor_ramoops_prop:s
 
 # FP HAL kpi
 vendor.fpc_kpi                                  u:object_r:vendor_default_prop:s0
+
+# Haptics HAL properties
+ro.vibrator.hal.config.dynamic                  u:object_r:vendor_vibrator_prop:s0
+ro.vibrator.hal.click.duration                  u:object_r:vendor_vibrator_prop:s0
+ro.vibrator.hal.tick.duration                   u:object_r:vendor_vibrator_prop:s0
+ro.vibrator.hal.heavyclick.duration             u:object_r:vendor_vibrator_prop:s0
+ro.vibrator.hal.long.voltage                    u:object_r:vendor_vibrator_prop:s0
+ro.vibrator.hal.long.frequency.shift            u:object_r:vendor_vibrator_prop:s0
+ro.vibrator.hal.steady.shape                    u:object_r:vendor_vibrator_prop:s0
