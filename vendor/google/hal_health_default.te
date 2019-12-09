@@ -1,1 +1,2 @@
-dontaudit hal_health_default sysfs:file { getattr open read };
+binder_call(hal_health_default, hal_gnss_qti)
+
