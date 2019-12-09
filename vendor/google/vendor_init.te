@@ -24,7 +24,7 @@ userdebug_or_eng(`
 ')
 
 dontaudit vendor_init debugfs:file write;
-dontaudit vendor_init debugfs_sched_features:file write;
+allow vendor_init proc_sched_energy_aware:file w_file_perms;
 dontaudit vendor_init power_prop:property_service set;
 dontaudit vendor_init proc_swappiness:file write;
 dontaudit vendor_init system_data_file:dir setattr;
