@@ -13,19 +13,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-cc_defaults {
-    name: "PixelVibratorDefaults",
-    defaults: ["hidl_defaults"],
-    relative_install_path: "hw",
+cc_test {
+    name: "VibratorHalDrv2624TestSuite",
+    defaults: ["VibratorHalDrv2624TestDefaults"],
+    srcs: [
+        "test-hwapi.cpp",
+        "test-hwcal.cpp",
+        "test-vibrator.cpp",
+    ],
     static_libs: [
-        "PixelVibratorCommon",
+        "libc++fs",
+        "libgmock",
     ],
     shared_libs: [
         "libbase",
-        "libhidlbase",
-        "libcutils",
-        "liblog",
-        "libutils",
-        "libhardware",
     ],
 }

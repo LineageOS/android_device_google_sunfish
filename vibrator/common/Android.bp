@@ -13,19 +13,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-cc_defaults {
-    name: "PixelVibratorDefaults",
-    defaults: ["hidl_defaults"],
-    relative_install_path: "hw",
-    static_libs: [
-        "PixelVibratorCommon",
+cc_library {
+    name: "PixelVibratorCommon",
+    srcs: [
+        "HardwareBase.cpp",
     ],
     shared_libs: [
         "libbase",
-        "libhidlbase",
         "libcutils",
         "liblog",
         "libutils",
-        "libhardware",
     ],
+    cflags: [
+        "-DATRACE_TAG=(ATRACE_TAG_VIBRATOR | ATRACE_TAG_HAL)",
+        "-DLOG_TAG=\"android.hardware.vibrator@1.x-common\"",
+    ],
+    export_include_dirs: ["."],
+    vendor_available: true,
 }
