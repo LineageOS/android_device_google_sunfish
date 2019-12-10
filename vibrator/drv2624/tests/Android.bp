@@ -14,7 +14,7 @@
 // limitations under the License.
 
 cc_test {
-    name: "VibratorHalDrv2624TestSuite",
+    name: "VibratorHalDrv2624TestSuiteSunfish",
     defaults: ["VibratorHalDrv2624TestDefaults"],
     srcs: [
         "test-hwapi.cpp",

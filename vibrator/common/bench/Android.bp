@@ -14,7 +14,7 @@
 // limitations under the License.
 
 cc_benchmark {
-    name: "VibratorHalIntegrationBenchmark",
+    name: "VibratorHalIntegrationBenchmarkSunfish",
     defaults: ["hidl_defaults"],
     srcs: [
         "benchmark.cpp",
