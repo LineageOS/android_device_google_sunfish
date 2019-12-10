@@ -1,3 +1,1 @@
-dontaudit hal_gnss_qti hal_health_default:binder { call transfer };
 dontaudit hal_gnss_qti hal_health_hwservice:hwservice_manager find;
-dontaudit hal_health_default hal_gnss_qti:binder call;
