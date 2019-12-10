@@ -23,3 +23,5 @@ allow hal_gnss_qti location_socket:dir rw_dir_perms;
 allow hal_gnss_qti location:unix_dgram_socket sendto;
 
 allow hal_gnss_qti self:qipcrtr_socket create_socket_perms_no_ioctl;
+
+binder_call(hal_gnss_qti, hal_health_default)
