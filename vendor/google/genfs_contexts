@@ -31,7 +31,7 @@ genfscon sysfs /devices/platform/soc/soc:qcom,cpu0-cpu-l3-lat/devfreq           
 genfscon sysfs /devices/platform/soc/soc:qcom,cpu4-cpu-l3-lat/devfreq           u:object_r:sysfs_msm_subsys:s0
 genfscon sysfs /devices/platform/soc/1d84000.ufshc/clkgate_enable               u:object_r:sysfs_scsi_devices_0000:s0
 genfscon sysfs /devices/platform/soc/1d84000.ufshc/hibern8_on_idle_enable       u:object_r:sysfs_scsi_devices_0000:s0
-genfscon debugfs /sched_features                                                u:object_r:debugfs_sched_features:s0
+genfscon proc /sys/kernel/sched_energy_aware                                    u:object_r:proc_sched_energy_aware:s0
 
 # PowerStatsHal
 genfscon sysfs /power/system_sleep/stats           u:object_r:sysfs_power_stats:s0
@@ -60,10 +60,7 @@ genfscon debugfs /regmap/spmi0-05/count                                         
 genfscon debugfs /regmap/spmi0-05/data                                          u:object_r:debugfs_pmic:s0
 
 # Vibrator
-# EVT 1.0 and older
-genfscon sysfs /devices/platform/soc/c94000.i2c/i2c-3/3-0043                    u:object_r:sysfs_vibrator:s0
-# EVT 1.1 and newer
-genfscon sysfs /devices/platform/soc/c94000.i2c/i2c-4/4-0043                    u:object_r:sysfs_vibrator:s0
+genfscon sysfs /devices/platform/soc/a8c000.i2c/i2c-2/2-005a                    u:object_r:sysfs_vibrator:s0
 
 # eSIM status
 genfscon sysfs /firmware/devicetree/base/chosen/cdt/cdb2/esim                   u:object_r:sysfs_esim:s0
