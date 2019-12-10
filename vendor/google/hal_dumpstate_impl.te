@@ -42,6 +42,19 @@ allow hal_dumpstate_impl sysfs_scsi_devices_0000:file r_file_perms;
 userdebug_or_eng(`
   allow hal_dumpstate_impl debugfs_ipa:file r_file_perms;
 ')
+
+# dump Battery/Charger/Guage
+allow hal_dumpstate_impl debugfs_batteryinfo:dir r_dir_perms;
+allow hal_dumpstate_impl debugfs_batteryinfo:file r_file_perms;
+allow hal_dumpstate_impl debugfs_pmic:dir r_dir_perms;
+allow hal_dumpstate_impl debugfs_pmic:file r_file_perms;
+allow hal_dumpstate_impl debugfs_usb:dir r_dir_perms;
+allow hal_dumpstate_impl debugfs_usb:file r_file_perms;
+
+# dump power supply stats
+allow hal_dumpstate_impl sysfs_batteryinfo:dir r_dir_perms;
+allow hal_dumpstate_impl sysfs_batteryinfo:file r_file_perms;
+
 dontaudit hal_dumpstate_impl debugfs_ipa:file r_file_perms;
 
 # Allow to read pixel-trace trace file
