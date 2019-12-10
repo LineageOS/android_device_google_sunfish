@@ -148,6 +148,7 @@
     <ctl name="SEC_TDM_RX_0 Audio Mixer MultiMedia14" value="0" />
     <ctl name="SEC_TDM_RX_0 Audio Mixer MultiMedia15" value="0" />
     <ctl name="SEC_TDM_RX_0 Audio Mixer MultiMedia16" value="0" />
+    <ctl name="Instance ID Support" value="1"/>
 
     <!-- HFP start -->
     <ctl name="HFP_SLIM7_UL_HL Switch" value="0" />
