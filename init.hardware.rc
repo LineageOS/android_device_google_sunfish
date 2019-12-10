@@ -245,6 +245,11 @@ on zygote-start
     mkdir /dev/socket/location/mq 0770 gps gps
     mkdir /dev/socket/location/xtra 0770 gps gps
 
+    # Create directory for audio delta files
+    mkdir /data/vendor/audio 0770 audio audio
+    mkdir /data/vendor/audio/acdbdata 0770 media audio
+    mkdir /data/vendor/audio/acdbdata/delta 0770 media audio
+
 on early-boot
     # Set up sensors-related directories and permissions
     chmod 775 /mnt/vendor/persist/sensors
