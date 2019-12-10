@@ -21,25 +21,20 @@
 class MockApi : public ::android::hardware::vibrator::V1_3::implementation::Vibrator::HwApi {
   public:
     MOCK_METHOD0(destructor, void());
-    MOCK_METHOD1(setF0, bool(uint32_t value));
-    MOCK_METHOD1(setRedc, bool(uint32_t value));
-    MOCK_METHOD1(setQ, bool(uint32_t value));
+    MOCK_METHOD1(setAutocal, bool(std::string value));
+    MOCK_METHOD1(setOlLraPeriod, bool(uint32_t value));
     MOCK_METHOD1(setActivate, bool(bool value));
     MOCK_METHOD1(setDuration, bool(uint32_t value));
-    MOCK_METHOD1(getEffectDuration, bool(uint32_t *value));
-    MOCK_METHOD1(setEffectIndex, bool(uint32_t value));
-    MOCK_METHOD1(setEffectQueue, bool(std::string value));
-    MOCK_METHOD0(hasEffectScale, bool());
-    MOCK_METHOD1(setEffectScale, bool(uint32_t value));
-    MOCK_METHOD1(setGlobalScale, bool(uint32_t value));
     MOCK_METHOD1(setState, bool(bool value));
-    MOCK_METHOD0(hasAspEnable, bool());
-    MOCK_METHOD1(getAspEnable, bool(bool *value));
-    MOCK_METHOD1(setAspEnable, bool(bool value));
-    MOCK_METHOD1(setGpioFallIndex, bool(uint32_t value));
-    MOCK_METHOD1(setGpioFallScale, bool(uint32_t value));
-    MOCK_METHOD1(setGpioRiseIndex, bool(uint32_t value));
-    MOCK_METHOD1(setGpioRiseScale, bool(uint32_t value));
+    MOCK_METHOD0(hasRtpInput, bool());
+    MOCK_METHOD1(setRtpInput, bool(int8_t value));
+    MOCK_METHOD1(setMode, bool(std::string value));
+    MOCK_METHOD1(setSequencer, bool(std::string value));
+    MOCK_METHOD1(setScale, bool(uint8_t value));
+    MOCK_METHOD1(setCtrlLoop, bool(bool value));
+    MOCK_METHOD1(setLpTriggerEffect, bool(uint32_t value));
+    MOCK_METHOD1(setLraWaveShape, bool(uint32_t value));
+    MOCK_METHOD1(setOdClamp, bool(uint32_t value));
     MOCK_METHOD1(debug, void(int fd));
 
     ~MockApi() override { destructor(); };
@@ -48,13 +43,22 @@ class MockApi : public ::android::hardware::vibrator::V1_3::implementation::Vibr
 class MockCal : public ::android::hardware::vibrator::V1_3::implementation::Vibrator::HwCal {
   public:
     MOCK_METHOD0(destructor, void());
-    MOCK_METHOD1(getF0, bool(uint32_t *value));
-    MOCK_METHOD1(getRedc, bool(uint32_t *value));
-    MOCK_METHOD1(getQ, bool(uint32_t *value));
-    MOCK_METHOD1(getVolLevels, bool(std::array<uint32_t, 6> *value));
+    MOCK_METHOD1(getAutocal, bool(std::string &value));  // NOLINT
+    MOCK_METHOD1(getLraPeriod, bool(uint32_t *value));
+    MOCK_METHOD1(getCloseLoopThreshold, bool(uint32_t *value));
+    MOCK_METHOD1(getDynamicConfig, bool(bool *value));
+    MOCK_METHOD1(getLongFrequencyShift, bool(uint32_t *value));
+    MOCK_METHOD1(getShortVoltageMax, bool(uint32_t *value));
+    MOCK_METHOD1(getLongVoltageMax, bool(uint32_t *value));
+    MOCK_METHOD1(getClickDuration, bool(uint32_t *value));
+    MOCK_METHOD1(getTickDuration, bool(uint32_t *value));
+    MOCK_METHOD1(getDoubleClickDuration, bool(uint32_t *value));
+    MOCK_METHOD1(getHeavyClickDuration, bool(uint32_t *value));
     MOCK_METHOD1(debug, void(int fd));
 
     ~MockCal() override { destructor(); };
+    // b/132668253: Workaround gMock Compilation Issue
+    bool getAutocal(std::string *value) { return getAutocal(*value); }
 };
 
 #endif  // ANDROID_HARDWARE_VIBRATOR_TEST_MOCKS_H

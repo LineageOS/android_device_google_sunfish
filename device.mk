@@ -459,6 +459,20 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.3-service.sunfish \
 
+# DRV2624 Haptics Waveform
+PRODUCT_COPY_FILES += \
+    device/google/sunfish/vibrator/drv2624/drv2624.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/drv2624.bin
+
+# Vibrator HAL
+PRODUCT_PRODUCT_PROPERTIES +=\
+    ro.vibrator.hal.config.dynamic=1 \
+    ro.vibrator.hal.click.duration=8 \
+    ro.vibrator.hal.tick.duration=8 \
+    ro.vibrator.hal.heavyclick.duration=8 \
+    ro.vibrator.hal.long.voltage=161 \
+    ro.vibrator.hal.long.frequency.shift=0 \
+    ro.vibrator.hal.steady.shape=1
+
 # Thermal HAL
 PRODUCT_PACKAGES += \
     android.hardware.thermal@2.0-service.pixel \

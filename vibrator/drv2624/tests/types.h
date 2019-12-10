@@ -13,10 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+#ifndef ANDROID_HARDWARE_VIBRATOR_TEST_TYPES_H
+#define ANDROID_HARDWARE_VIBRATOR_TEST_TYPES_H
 
-#include <gmock/gmock.h>
+#include <android/hardware/vibrator/1.3/IVibrator.h>
 
-int main(int argc, char **argv) {
-    ::testing::InitGoogleMock(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+using EffectAmplitude = uint8_t;
+using EffectDuration = uint32_t;
+using EffectSequence = std::tuple<std::string, uint8_t>;
+using EffectTuple = std::tuple<::android::hardware::vibrator::V1_3::Effect,
+                               ::android::hardware::vibrator::V1_0::EffectStrength>;
+
+#endif  // ANDROID_HARDWARE_VIBRATOR_TEST_TYPES_H
