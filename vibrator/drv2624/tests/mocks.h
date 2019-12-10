@@ -45,6 +45,8 @@ class MockCal : public ::android::hardware::vibrator::V1_3::implementation::Vibr
     MOCK_METHOD0(destructor, void());
     MOCK_METHOD1(getAutocal, bool(std::string &value));  // NOLINT
     MOCK_METHOD1(getLraPeriod, bool(uint32_t *value));
+    MOCK_METHOD1(getEffectCoeffs, bool(std::array<float, 4> *value));
+    MOCK_METHOD1(getSteadyAmpMax, bool(float *value));
     MOCK_METHOD1(getCloseLoopThreshold, bool(uint32_t *value));
     MOCK_METHOD1(getDynamicConfig, bool(bool *value));
     MOCK_METHOD1(getLongFrequencyShift, bool(uint32_t *value));
@@ -54,6 +56,8 @@ class MockCal : public ::android::hardware::vibrator::V1_3::implementation::Vibr
     MOCK_METHOD1(getTickDuration, bool(uint32_t *value));
     MOCK_METHOD1(getDoubleClickDuration, bool(uint32_t *value));
     MOCK_METHOD1(getHeavyClickDuration, bool(uint32_t *value));
+    MOCK_METHOD1(getEffectShape, bool(uint32_t *value));
+    MOCK_METHOD1(getSteadyShape, bool(uint32_t *value));
     MOCK_METHOD1(debug, void(int fd));
 
     ~MockCal() override { destructor(); };

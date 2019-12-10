@@ -93,6 +93,8 @@ class HwCal : public Vibrator::HwCal, private HwCalBase {
   private:
     static constexpr char AUTOCAL_CONFIG[] = "autocal";
     static constexpr char LRA_PERIOD_CONFIG[] = "lra_period";
+    static constexpr char EFFECT_COEFF_CONFIG[] = "haptic_coefficient";
+    static constexpr char STEADY_AMP_MAX_CONFIG[] = "vibration_amp_max";
 
     static constexpr uint32_t WAVEFORM_CLICK_EFFECT_MS = 6;
     static constexpr uint32_t WAVEFORM_TICK_EFFECT_MS = 2;
@@ -113,6 +115,18 @@ class HwCal : public Vibrator::HwCal, private HwCalBase {
         }
         *value = DEFAULT_LRA_PERIOD;
         return true;
+    }
+    bool getEffectCoeffs(std::array<float, 4> *value) override {
+        if (getPersist(EFFECT_COEFF_CONFIG, value)) {
+            return true;
+        }
+        return false;
+    }
+    bool getSteadyAmpMax(float *value) override {
+        if (getPersist(STEADY_AMP_MAX_CONFIG, value)) {
+            return true;
+        }
+        return false;
     }
     bool getCloseLoopThreshold(uint32_t *value) override {
         return getProperty("closeloop.threshold", value, UINT32_MAX);
@@ -142,6 +156,12 @@ class HwCal : public Vibrator::HwCal, private HwCalBase {
     }
     bool getHeavyClickDuration(uint32_t *value) override {
         return getProperty("heavyclick.duration", value, WAVEFORM_HEAVY_CLICK_EFFECT_MS);
+    }
+    bool getEffectShape(uint32_t *value) override {
+        return getProperty("effect.shape", value, UINT32_MAX);
+    }
+    bool getSteadyShape(uint32_t *value) override {
+        return getProperty("steady.shape", value, UINT32_MAX);
     }
     void debug(int fd) override { HwCalBase::debug(fd); }
 };
