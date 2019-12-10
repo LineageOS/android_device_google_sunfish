@@ -93,6 +93,10 @@ class Vibrator : public IVibrator {
         virtual bool getAutocal(std::string *value) = 0;
         // Obtains the open-loop LRA frequency to be used.
         virtual bool getLraPeriod(uint32_t *value) = 0;
+        // Obtains the effect coeffs to calculate the target voltage
+        virtual bool getEffectCoeffs(std::array<float, 4> *value) = 0;
+        // Obtain the max steady G value
+        virtual bool getSteadyAmpMax(float *value) = 0;
         // Obtains threshold in ms, above which close-loop should be used.
         virtual bool getCloseLoopThreshold(uint32_t *value) = 0;
         // Obtains dynamic/static configuration choice.
@@ -111,6 +115,10 @@ class Vibrator : public IVibrator {
         virtual bool getDoubleClickDuration(uint32_t *value) = 0;
         // Obtains the duration for the heavy-click effect
         virtual bool getHeavyClickDuration(uint32_t *value) = 0;
+        // Obtains the wave shape for effect haptics
+        virtual bool getEffectShape(uint32_t *value) = 0;
+        // Obtains the wave shape for steady vibration
+        virtual bool getSteadyShape(uint32_t *value) = 0;
         // Emit diagnostic information to the given file.
         virtual void debug(int fd) = 0;
     };
@@ -128,8 +136,15 @@ class Vibrator : public IVibrator {
 
     struct VibrationConfig {
         WaveShape shape;
-        uint32_t odClamp;
+        uint32_t *odClamp;
         uint32_t olLraPeriod;
+    };
+
+    enum OdClampOffset : uint32_t {
+        TEXTURE_TICK,
+        TICK,
+        CLICK,
+        HEAVY_CLICK,
     };
 
   public:
@@ -160,7 +175,7 @@ class Vibrator : public IVibrator {
 
   private:
     Return<Status> on(uint32_t timeoutMs, const char mode[],
-                      const std::unique_ptr<VibrationConfig> &config);
+                      const std::unique_ptr<VibrationConfig> &config, const int8_t volOffset);
     template <typename T>
     Return<void> performWrapper(T effect, EffectStrength strength, perform_cb _hidl_cb);
     Return<void> performEffect(Effect effect, EffectStrength strength, perform_cb _hidl_cb);
@@ -173,6 +188,8 @@ class Vibrator : public IVibrator {
     uint32_t mTickDuration;
     uint32_t mDoubleClickDuration;
     uint32_t mHeavyClickDuration;
+    std::array<uint32_t, 5> mEffectTargetOdClamp;
+    uint32_t mSteadyTargetOdClamp;
 };
 
 }  // namespace implementation
