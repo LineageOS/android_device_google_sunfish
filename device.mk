@@ -818,10 +818,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.vendor.aware_available=true
 
-# Setup Wizard gesture settings
-PRODUCT_PRODUCT_PROPERTIES += \
-    setupwizard.enable_assist_gesture_training=false
-
 QTI_TELEPHONY_UTILS := qti-telephony-utils
 QTI_TELEPHONY_UTILS += qti_telephony_utils.xml
 PRODUCT_PACKAGES += $(QTI_TELEPHONY_UTILS)
