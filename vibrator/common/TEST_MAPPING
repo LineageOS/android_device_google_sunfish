@@ -1,0 +1,13 @@
+{
+  "postsubmit": [
+    {
+      "name": "VibratorHalIntegrationBenchmark"
+    },
+    {
+      "name": "VibratorHalIntegrationBenchmark",
+      "keywords": [
+        "primary-device"
+      ]
+    }
+  ]
+}
