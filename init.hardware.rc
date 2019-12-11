@@ -245,6 +245,11 @@ on zygote-start
     mkdir /dev/socket/location/mq 0770 gps gps
     mkdir /dev/socket/location/xtra 0770 gps gps
 
+    # Create directory for audio delta files
+    mkdir /data/vendor/audio 0770 audio audio
+    mkdir /data/vendor/audio/acdbdata 0770 media audio
+    mkdir /data/vendor/audio/acdbdata/delta 0770 media audio
+
 on early-boot
     # Set up sensors-related directories and permissions
     chmod 775 /mnt/vendor/persist/sensors
@@ -269,9 +274,9 @@ on early-boot
 
     # Set up haptics-related directories and permissions
     chmod 770 /mnt/vendor/persist/haptics
-    chmod 440 /mnt/vendor/persist/haptics/cs40l25a.cal
+    chmod 440 /mnt/vendor/persist/haptics/drv2624.cal
     chown system system /mnt/vendor/persist/haptics
-    chown system system /mnt/vendor/persist/haptics/cs40l25a.cal
+    chown system system /mnt/vendor/persist/haptics/drv2624.cal
 
     # Set up touch directories and permissions
     chmod 770 /mnt/vendor/persist/touch
@@ -292,30 +297,17 @@ on early-boot
     wait_for_prop vendor.all.devices.ready 1
 
     # Permission for Vibrator
-    chown system system /sys/class/leds/vibrator/device/asp_enable
-    chown system system /sys/class/leds/vibrator/device/comp_enable
-    chown system system /sys/class/leds/vibrator/device/cp_dig_scale
-    chown system system /sys/class/leds/vibrator/device/cp_trigger_duration
-    chown system system /sys/class/leds/vibrator/device/cp_trigger_index
-    chown system system /sys/class/leds/vibrator/device/cp_trigger_q_sub
-    chown system system /sys/class/leds/vibrator/device/cp_trigger_queue
-    chown system system /sys/class/leds/vibrator/device/dig_scale
-    chown system system /sys/class/leds/vibrator/device/exc_enable
-    chown system system /sys/class/leds/vibrator/device/f0_stored
-    chown system system /sys/class/leds/vibrator/device/fw_rev
-    chown system system /sys/class/leds/vibrator/device/gpio1_fall_dig_scale
-    chown system system /sys/class/leds/vibrator/device/gpio1_fall_index
-    chown system system /sys/class/leds/vibrator/device/gpio1_rise_dig_scale
-    chown system system /sys/class/leds/vibrator/device/gpio1_rise_index
-    chown system system /sys/class/leds/vibrator/device/heartbeat
-    chown system system /sys/class/leds/vibrator/device/hw_reset
-    chown system system /sys/class/leds/vibrator/device/num_waves
-    chown system system /sys/class/leds/vibrator/device/q_stored
-    chown system system /sys/class/leds/vibrator/device/redc_comp_enable
-    chown system system /sys/class/leds/vibrator/device/redc_stored
-    chown system system /sys/class/leds/vibrator/device/standby_timeout
-    chown system system /sys/class/leds/vibrator/device/vbatt_max
-    chown system system /sys/class/leds/vibrator/device/vbatt_min
+    chown system system /sys/class/leds/vibrator/device/mode
+    chown system system /sys/class/leds/vibrator/device/od_clamp
+    chown system system /sys/class/leds/vibrator/device/rtp_input
+    chown system system /sys/class/leds/vibrator/device/scale
+    chown system system /sys/class/leds/vibrator/device/set_sequencer
+    chown system system /sys/class/leds/vibrator/device/autocal_result
+    chown system system /sys/class/leds/vibrator/device/ctrl_loop
+    chown system system /sys/class/leds/vibrator/device/ol_lra_period
+    chown system system /sys/class/leds/vibrator/device/autocal
+    chown system system /sys/class/leds/vibrator/device/lp_trigger_effect
+    chown system system /sys/class/leds/vibrator/device/lra_wave_shape
 
     # Permission for Rainbow sensor
     chown system system /sys/devices/platform/soc/ac4b000.qcom,cci/ac4b000.qcom,cci:st,rainbow@20/rainbow_enable

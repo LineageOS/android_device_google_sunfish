@@ -309,6 +309,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so \
     ro.hardware.keystore_desede=true \
     ro.telephony.iwlan_operation_mode=legacy \
+    persist.vendor.radio.procedure_bytes=SKIP \
 
 # Disable snapshot timer
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -412,6 +413,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.omx=0 \
 
+# Enable ECO service
+QC2_HAVE_ECO_SERVICE := true
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.qc2.venc.avgqp.enable=1
+
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl-google \
     android.hardware.camera.provider@2.4-service-google \
@@ -451,6 +458,20 @@ PRODUCT_PACKAGES += \
 # Vibrator HAL
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.3-service.sunfish \
+
+# DRV2624 Haptics Waveform
+PRODUCT_COPY_FILES += \
+    device/google/sunfish/vibrator/drv2624/drv2624.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/drv2624.bin
+
+# Vibrator HAL
+PRODUCT_PRODUCT_PROPERTIES +=\
+    ro.vibrator.hal.config.dynamic=1 \
+    ro.vibrator.hal.click.duration=8 \
+    ro.vibrator.hal.tick.duration=8 \
+    ro.vibrator.hal.heavyclick.duration=8 \
+    ro.vibrator.hal.long.voltage=161 \
+    ro.vibrator.hal.long.frequency.shift=0 \
+    ro.vibrator.hal.steady.shape=1
 
 # Thermal HAL
 PRODUCT_PACKAGES += \

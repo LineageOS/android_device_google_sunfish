@@ -13,19 +13,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-cc_defaults {
-    name: "PixelVibratorDefaults",
-    defaults: ["hidl_defaults"],
-    relative_install_path: "hw",
+cc_benchmark {
+    name: "VibratorHalDrv2624BenchmarkSunfish",
+    defaults: ["VibratorHalDrv2624TestDefaults"],
+    srcs: [
+        "benchmark.cpp",
+    ],
     static_libs: [
-        "PixelVibratorCommon",
+        "libc++fs",
     ],
     shared_libs: [
         "libbase",
-        "libhidlbase",
-        "libcutils",
-        "liblog",
-        "libutils",
-        "libhardware",
     ],
+    // TODO(b/135767253): Remove when fixed.
+    test_suites: ["device-tests"],
+    // TODO(b/142024316): Remove when fixed.
+    require_root: true,
 }

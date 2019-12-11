@@ -13,8 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#define LOG_TAG "android.hardware.vibrator@1.3-service.sunfish"
 
+#include <android/hardware/vibrator/1.3/IVibrator.h>
 #include <hidl/HidlSupport.h>
 #include <hidl/HidlTransportSupport.h>
 #include <utils/Errors.h>
@@ -23,15 +23,24 @@
 #include "Hardware.h"
 #include "Vibrator.h"
 
+using android::OK;
+using android::sp;
+using android::status_t;
+using android::UNKNOWN_ERROR;
 using android::hardware::configureRpcThreadpool;
 using android::hardware::joinRpcThreadpool;
 using android::hardware::vibrator::V1_3::implementation::HwApi;
 using android::hardware::vibrator::V1_3::implementation::HwCal;
 using android::hardware::vibrator::V1_3::implementation::Vibrator;
-using namespace android;
 
 status_t registerVibratorService() {
-    sp<Vibrator> vibrator = new Vibrator(std::make_unique<HwApi>(), std::make_unique<HwCal>());
+    auto hwapi = HwApi::Create();
+
+    if (!hwapi) {
+        return UNKNOWN_ERROR;
+    }
+
+    sp<Vibrator> vibrator = new Vibrator(std::move(hwapi), std::make_unique<HwCal>());
 
     return vibrator->registerAsService();
 }
