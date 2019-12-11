@@ -68,6 +68,12 @@ user: AID_SYSTEM
 group: AID_SYSTEM
 caps: NET_BIND_SERVICE BLOCK_SUSPEND NET_ADMIN
 
+[vendor/bin/hw/android.hardware.health@2.0-service.sunfish]
+mode: 0755
+user: AID_SYSTEM
+group: AID_SYSTEM
+caps: WAKE_ALARM
+
 [vendor/bin/loc_launcher]
 mode: 0755
 user:  AID_GPS
