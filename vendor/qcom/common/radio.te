@@ -5,3 +5,4 @@ allow radio hal_imsrtp_hwservice:hwservice_manager find;
 allow radio hal_imsrcsd_hwservice:hwservice_manager find;
 
 get_prop(radio, vendor_radio_prop)
+get_prop(radio, public_vendor_default_prop)
