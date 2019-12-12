@@ -569,11 +569,6 @@ service wait_for_strongbox /vendor/bin/hw/wait_for_strongbox
 on property:vendor.ims.DATA_DAEMON_STATUS=1
     restart vendor.ims_rtp_daemon
 
-service time_daemon /vendor/bin/time_daemon
-   class core
-   user root
-   group root
-
 service vendor.qrtr-ns /vendor/bin/qrtr-ns -f
    class core
    user vendor_qrtr
