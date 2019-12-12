@@ -92,3 +92,9 @@ persist.data.mode=concurrent
 
 # Disable RescueParty / rescue mode
 persist.sys.disable_rescue=true
+
+# System props to enable Bluetooth Quality Report (BQR) feature
+# BQR event mask configuration
+persist.bluetooth.bqr.event_mask=14
+# BQR minimum report interval configuration
+persist.bluetooth.bqr.min_interval_ms=500
