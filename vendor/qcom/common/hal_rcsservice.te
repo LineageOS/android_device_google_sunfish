@@ -21,16 +21,16 @@ allow hal_rcsservice self: { socket qipcrtr_socket } create_socket_perms_no_ioct
 unix_socket_connect(hal_rcsservice, ims, ims)
 
 # imsrcsd to bind with UceShimService.apk
-#binder_call(hal_rcsservice, dataservice_app)
+binder_call(hal_rcsservice, dataservice_app)
 
 binder_call(hal_rcsservice, radio)
 
 # imsrcsd needs read/write access to devpts
-#allow hal_rcsservice devpts:chr_file rw_file_perms;
+allow hal_rcsservice devpts:chr_file rw_file_perms;
 
 # allow imsrcsd capabilities
-#wakelock_use(hal_rcsservice)
-#allow hal_rcsservice self:capability net_bind_service;
+wakelock_use(hal_rcsservice)
+allow hal_rcsservice self:capability net_bind_service;
 
 #diag
 userdebug_or_eng(`
@@ -38,13 +38,11 @@ userdebug_or_eng(`
     allow hal_rcsservice diag_device:chr_file rw_file_perms;
 ')
 
-#set_prop(hal_rcsservice, ctl_vendor_imsrcsservice_prop)
+set_prop(hal_rcsservice, ctl_vendor_imsrcsservice_prop)
 
-# TODO(b/144661633): check if these rules are needed or not
+# TODO(b/144661633): Check with QCOM if these rules below are needed or not
 r_dir_file(hal_rcsservice, sysfs_soc)
 r_dir_file(hal_rcsservice, sysfs_ssr)
-
-#r_dir_file(hal_rcsservice, sysfs_esoc)
-#r_dir_file(hal_rcsservice, sysfs_msm_subsys)
-allow hal_rcsservice sysfs_esoc:dir r_dir_perms;
-allow hal_rcsservice sysfs_msm_subsys:dir r_dir_perms;
+r_dir_file(hal_rcsservice, sysfs_esoc)
+r_dir_file(hal_rcsservice, sysfs_msm_subsys)
+allow hal_rcsservice sysfs_data:file r_file_perms;
