@@ -1,1 +1,0 @@
-dontaudit crash_dump self:capability sys_admin;
