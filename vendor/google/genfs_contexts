@@ -129,8 +129,8 @@ genfscon sysfs /devices/virtual/ramoops/pstore/use_alt                          
 genfscon debugfs /pmic-votable                        u:object_r:debugfs_pmic:s0
 
 # USB contaminant detection
-genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pm8150b@2:qcom,qpnp-smb5/power_supply/usb/moisture_detected            u:object_r:sysfs_contaminant:s0
-genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pm8150b@2:qcom,qpnp-smb5/power_supply/usb/moisture_detection_enabled   u:object_r:sysfs_contaminant:s0
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pm6150@0:qcom,qpnp-smb5/power_supply/usb/moisture_detected            u:object_r:sysfs_contaminant:s0
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pm6150@0:qcom,qpnp-smb5/power_supply/usb/moisture_detection_enabled   u:object_r:sysfs_contaminant:s0
 
 # Bootloader
 genfscon proc /bldrlog                                u:object_r:proc_bldrlog:s0

@@ -3,6 +3,7 @@ app_domain(dataservice_app)
 net_domain(dataservice_app)
 
 add_service(dataservice_app, cne_service)
+add_service(dataservice_app, uce_service)
 
 allow dataservice_app app_api_service:service_manager find;
 
