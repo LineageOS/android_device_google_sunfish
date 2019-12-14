@@ -194,7 +194,6 @@ on post-fs-data
     mkdir /tombstones/wcnss 0771 system system
     mkdir /tombstones/dsps 0771 system system
     mkdir /data/vendor/hbtp 0750 system system
-    mkdir /data/misc/seemp 0700 system system
     mkdir /data/vendor/tloc 0700 system drmrpc
     mkdir /data/vendor/nnhal 0700 system system
     mkdir /data/vendor/time 0770 system system
@@ -568,11 +567,6 @@ service wait_for_strongbox /vendor/bin/hw/wait_for_strongbox
 
 on property:vendor.ims.DATA_DAEMON_STATUS=1
     restart vendor.ims_rtp_daemon
-
-service time_daemon /vendor/bin/time_daemon
-   class core
-   user root
-   group root
 
 service vendor.qrtr-ns /vendor/bin/qrtr-ns -f
    class core
