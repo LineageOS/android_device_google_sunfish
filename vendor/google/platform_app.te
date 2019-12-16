@@ -1,3 +1,1 @@
-dontaudit platform_app hidl_base_hwservice:hwservice_manager add;
-dontaudit platform_app vnd_atcmdfwd_hwservice:hwservice_manager add;
 dontaudit platform_app vendor_display_prop:file read;
