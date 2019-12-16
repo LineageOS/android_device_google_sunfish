@@ -1,2 +1,2 @@
-dontaudit hal_nfc_default vendor_modem_prop:file { getattr map open read };
-dontaudit hal_nfc_default vendor_modem_prop:property_service set;
+set_prop(hal_nfc_default, vendor_modem_prop)
+
