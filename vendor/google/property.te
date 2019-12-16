@@ -1,7 +1,6 @@
 type vendor_thermal_prop, property_type;
 type power_prop, property_type;
 type vendor_tcpdump_log_prop, property_type;
-type vendor_faceauth_prop, property_type;
 type vendor_build_type_prop, property_type;
 type vendor_aware_available_prop, property_type;
 type vendor_modem_prop, property_type;
