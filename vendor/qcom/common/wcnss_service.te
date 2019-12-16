@@ -24,3 +24,6 @@ r_dir_file(wcnss_service, sysfs_msm_subsys)
 r_dir_file(wcnss_service, sysfs_soc)
 r_dir_file(wcnss_service, sysfs_ssr)
 r_dir_file(wcnss_service, sysfs_esoc)
+
+# Not enable cnss_cli in S5
+dontaudit wcnss_service kernel:system module_request;
