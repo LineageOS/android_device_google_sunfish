@@ -7,8 +7,6 @@ genfscon sysfs /devices/virtual/kgsl/kgsl/proc                                  
 genfscon sysfs /devices/platform/soc/0.qcom,rmtfs_sharedmem                                                                            u:object_r:sysfs_rmtfs:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,kgsl-hyp                                                                                 u:object_r:sysfs_msm_subsys:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,spss_utils                                                                               u:object_r:sysfs_spss:s0
-genfscon sysfs /devices/platform/soc/soc:qcom,faceauth_fws                                                                             u:object_r:sysfs_faceauth:s0
-genfscon sysfs /devices/platform/soc/soc:qcom,faceauth_fws_b                                                                           u:object_r:sysfs_faceauth:s0
 genfscon sysfs /bus/esoc                                                                                                               u:object_r:sysfs_esoc:s0
 genfscon sysfs /bus/msm_subsys                                                                                                         u:object_r:sysfs_msm_subsys:s0
 genfscon debugfs /wlan                                                                                                                 u:object_r:debugfs_wlan:s0
