@@ -36,23 +36,6 @@ vendor.tcpdump.log.ondemand                     u:object_r:vendor_tcpdump_log_pr
 vendor.tcpdump.log.alwayson                     u:object_r:vendor_tcpdump_log_prop:s0
 vendor.tcpdump.output.dir                       u:object_r:vendor_tcpdump_log_prop:s0
 
-#face HAL
-vendor.faceauth.debug                           u:object_r:vendor_faceauth_prop:s0
-vendor.faceauth.debug_entries                   u:object_r:vendor_faceauth_prop:s0
-vendor.faceauth.fake_camera_path                u:object_r:vendor_faceauth_prop:s0
-vendor.faceauth.smudge_ux_threshold             u:object_r:vendor_faceauth_prop:s0
-vendor.faceauth.trace                           u:object_r:vendor_faceauth_prop:s0
-vendor.faceauth.use_fake_camera                 u:object_r:vendor_faceauth_prop:s0
-vendor.faceauth.use_secure_camera               u:object_r:vendor_faceauth_prop:s0
-
-persist.vendor.faceauth.use_disk_cache              u:object_r:vendor_faceauth_prop:s0
-persist.vendor.faceauth.require_calibration         u:object_r:vendor_faceauth_prop:s0
-persist.vendor.faceauth.run_autocal                 u:object_r:vendor_faceauth_prop:s0
-persist.vendor.faceauth.run_autocal_on_success      u:object_r:vendor_faceauth_prop:s0
-persist.vendor.faceauth.split_autocal               u:object_r:vendor_faceauth_prop:s0
-persist.vendor.faceauth.pose_bucket_stages          u:object_r:vendor_faceauth_prop:s0
-persist.vendor.faceauth.selection_tuning_frames     u:object_r:vendor_faceauth_prop:s0
-
 persist.vendor.shutdown.                        u:object_r:vendor_shutdown_prop:s0
 
 # Google camera hal read only props
