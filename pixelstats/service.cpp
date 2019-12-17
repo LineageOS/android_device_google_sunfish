@@ -34,7 +34,7 @@ const struct SysfsCollector::SysfsPaths sysfs_paths = {
     .SlowioWriteCntPath = UFSHC_PATH(slowio_write_cnt),
     .SlowioUnmapCntPath = UFSHC_PATH(slowio_unmap_cnt),
     .SlowioSyncCntPath = UFSHC_PATH(slowio_sync_cnt),
-    .CycleCountBinsPath = "/sys/class/power_supply/maxfg/cycle_counts_bins",
+    .CycleCountBinsPath = "/sys/class/power_supply/battery/cycle_counts",
     .ImpedancePath = "/sys/class/misc/msm_cirrus_playback/resistance_left_right",
     .CodecPath = "",  // b/117976641
 };
