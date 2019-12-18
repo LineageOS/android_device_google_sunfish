@@ -285,6 +285,6 @@
 
 # cnss_diag files
 /data/vendor/wifi/cnss_diag(/.*)?               u:object_r:cnss_vendor_data_file:s0
-/data/vendor/wifi/iotap_ps.bin                  u:object_r:cnss_vendor_data_file:s0
+/data/vendor/wifi/iotap_ps\.bin                 u:object_r:cnss_vendor_data_file:s0
 
 /data/vendor/connectivity(/.*)?                 u:object_r:cnd_data_file:s0
