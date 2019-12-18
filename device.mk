@@ -76,6 +76,9 @@ $(call inherit-product, $(LOCAL_PATH)/utils.mk)
 # Installs gsi keys into ramdisk, to boot a GSI with verified boot.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
+# Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
+
 ifeq ($(wildcard vendor/google_devices/sunfish/proprietary/device-vendor-sunfish.mk),)
     BUILD_WITHOUT_VENDOR := true
 endif
@@ -382,7 +385,7 @@ PRODUCT_PACKAGES += \
     android.hardware.usb@1.2-service.sunfish
 
 PRODUCT_PACKAGES += \
-    android.hardware.health@2.0-service
+    android.hardware.health@2.0-service.sunfish
 
 # Storage health HAL
 PRODUCT_PACKAGES += \

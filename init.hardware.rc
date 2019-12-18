@@ -24,6 +24,13 @@ import /vendor/etc/init/hw/init.${ro.boot.hardware.platform}.power_debug.rc
 service vendor.charger /charger
     class charger
     seclabel u:r:charger:s0
+    user system
+    group system wakelock input
+    capabilities SYS_BOOT
+    file /dev/kmsg w
+    file /sys/fs/pstore/console-ramoops-0 r
+    file /sys/fs/pstore/console-ramoops r
+    file /proc/last_kmsg r
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
@@ -369,34 +376,23 @@ service init-radio-sh /vendor/bin/init.radio.sh
     group root radio
     oneshot
 
-on charger
+on property:init.svc.vendor.charger=running
     stop vendor.qseecomd
     stop keymaster-4-0
+
     setprop sys.usb.configfs 1
+    setprop vendor.setup.power 1
 
-    # Enable UFS powersaving
-    write /sys/devices/platform/soc/${ro.boot.bootdevice}/clkgate_enable 1
-    write /sys/devices/platform/soc/${ro.boot.bootdevice}/hibern8_on_idle_enable 1
-
-    # Enable EAS
-    write /sys/kernel/debug/sched_features ENERGY_AWARE
-
-    # Enable powersaving
-    write /sys/module/lpm_levels/parameters/sleep_disabled 0
+    # keep one LITTLE and one big
+    write /sys/devices/system/cpu/cpu1/online 0
+    write /sys/devices/system/cpu/cpu2/online 0
+    write /sys/devices/system/cpu/cpu3/online 0
+    write /sys/devices/system/cpu/cpu5/online 0
+    write /sys/devices/system/cpu/cpu6/online 0
+    write /sys/devices/system/cpu/cpu7/online 0
 
 on property:sys.boot_completed=1
-    # Enable EAS
-    write /sys/kernel/debug/sched_features ENERGY_AWARE
-
-    # No sleep till proto!
-    exec - system system -- svc power stayon true
-
-    # Enable UFS powersaving
-    write /sys/devices/platform/soc/${ro.boot.bootdevice}/clkgate_enable 1
-    write /sys/devices/platform/soc/${ro.boot.bootdevice}/hibern8_on_idle_enable 1
-
-    # Enable powersaving
-    write /sys/module/lpm_levels/parameters/sleep_disabled 0
+    setprop vendor.setup.power 1
 
     # F2FS tuning: issue discard commands up to 128MB
     write /sys/block/dm-7/queue/discard_max_bytes 134217728
@@ -610,13 +606,14 @@ service vendor.ssr_setup /vendor/bin/ssr_setup
 on property:persist.vendor.sys.ssr.restart_level=*
     start vendor.ssr_setup
 
-on property:persist.vendor.sys.ssr.enable_ramdumps=1
+on property:persist.vendor.sys.ssr.enable_ramdumps=1 && property:ro.boot.mode!=charger
     write /sys/module/subsystem_restart/parameters/enable_ramdumps 1
     mkdir /data/vendor/wifidump 771 root system
     mkdir /data/vendor/ramdump 771 root system
     mkdir /data/vendor/ssrdump 771 root system
     mkdir /data/vendor/ssrlog  771 root system
     start vendor.ss_ramdump
+    start vendor.crash_event_logger
 
 on property:persist.vendor.sys.ssr.enable_ramdumps=0
     write /sys/module/subsystem_restart/parameters/enable_ramdumps 0
