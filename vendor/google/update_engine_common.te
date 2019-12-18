@@ -1,0 +1,4 @@
+allow update_engine_common custom_ab_block_device:blk_file rw_file_perms;
+allow update_engine_common firmware_file:filesystem getattr;
+allow update_engine_common metadata_file:dir search;
+allow update_engine_common modem_block_device:blk_file rw_file_perms;
