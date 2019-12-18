@@ -6,5 +6,6 @@ allow init_qti_chg_policy self:capability chown;
 allow init_qti_chg_policy vendor_toolbox_exec:file rx_file_perms;
 allow init_qti_chg_policy sysfs_batteryinfo:file create_file_perms;
 allow init_qti_chg_policy sysfs_batteryinfo:dir r_dir_perms;
+allow init_qti_chg_policy sysfs_contaminant:file create_file_perms;
 
 set_prop(init_qti_chg_policy, vendor_hvdcp_opti_prop)
