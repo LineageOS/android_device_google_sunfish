@@ -1,2 +1,1 @@
 dontaudit mediacodec hal_capabilityconfigstore_qti_hwservice:hwservice_manager find;
-dontaudit mediacodec vendor_display_prop:file { getattr map open read };
