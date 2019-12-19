@@ -203,5 +203,35 @@
     <item name="video">25</item>
     <!-- Additional power used when audio is playing -->
     <item name="audio">75</item>
+
+    <!-- Cellular modem related values.-->
+    <item name="modem.controller.sleep">0</item>
+    <item name="modem.controller.idle">128</item>
+    <item name="modem.controller.rx">111</item>
+    <array name="modem.controller.tx"> <!-- Strength 0 to 4 -->
+        <value>118</value>
+        <value>163</value>
+        <value>225</value>
+        <value>277</value>
+        <value>363</value>
+    </array>
+    <item name="modem.controller.voltage">3700</item>
+
+    <!-- GPS related values.-->
+    <array name="gps.signalqualitybased"> <!-- Strength 0 to 1 -->
+        <value>34</value>
+        <value>6</value>
+    </array>
+    <item name="gps.voltage">3700</item>
+
+    <!-- Idle Receive current for wifi radio in mA.-->
+    <item name="wifi.controller.idle">95</item>
+    <!-- Rx current for wifi radio in mA.-->
+    <item name="wifi.controller.rx">138</item>
+    <!-- Tx current for wifi radio in mA-->
+    <item name="wifi.controller.tx">387</item>
+    <!-- Operating volatage for wifi radio in mV.-->
+    <item name="wifi.controller.voltage">3700</item>
+
 </device>
 
