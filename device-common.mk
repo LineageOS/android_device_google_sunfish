@@ -67,4 +67,5 @@ PRODUCT_COPY_FILES += \
 
 # Write flags to the vendor space in /misc partition.
 PRODUCT_PACKAGES += \
-    misc_writer
+    misc_writer \
+    dmabuf_dump
