@@ -106,3 +106,6 @@ on property:persist.bluetooth.btsnoopenable=false
 
 on property:vendor.usb.config=*
    start usbd
+
+on property:persist.vendor.verbose_logging_enabled=*
+   setprop persist.vendor.sys.modem.diag.mdlog ${persist.vendor.verbose_logging_enabled}
