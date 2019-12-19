@@ -453,6 +453,10 @@ on property:sys.boot_completed=1
     write /sys/kernel/debug/tracing/instances/pixel-trace/buffer_size_kb 64
     write /sys/kernel/debug/tracing/instances/pixel-trace/events/mm_event/enable 1
 
+    # Permission for bootloader logs
+    chown root log /proc/bldrlog
+    chmod 0444 /proc/bldrlog
+
 service vendor.per_mgr /vendor/bin/pm-service
     class core
     user system
