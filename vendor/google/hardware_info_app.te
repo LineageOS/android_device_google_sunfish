@@ -19,8 +19,8 @@ allow hardware_info_app sysfs_batteryinfo:dir search;
 allow hardware_info_app sysfs_batteryinfo:file r_file_perms;
 
 # putStorage
-dontaudit hardware_info_app sysfs_scsi_devices_0000:dir search;
-dontaudit hardware_info_app sysfs_scsi_devices_0000:file r_file_perms;
+allow hardware_info_app sysfs_scsi_devices_0000:dir search;
+allow hardware_info_app sysfs_scsi_devices_0000:file r_file_perms;
 
 # putApplicationProcessor
 dontaudit hardware_info_app sysfs_soc:dir search;
