@@ -1839,12 +1839,12 @@
     </path>
 
     <path name="speaker-mono">
-        <ctl name="Main AMP Enable Switch" value="1"/>
+        <ctl name="Main AMP Enable Switch" value="0"/>
         <ctl name="R Main AMP Enable Switch" value="1"/>
     </path>
 
     <path name="speaker-mono-2">
-        <ctl name="Main AMP Enable Switch" value="1"/>
+        <ctl name="Main AMP Enable Switch" value="0"/>
         <ctl name="R Main AMP Enable Switch" value="1"/>
     </path>
 

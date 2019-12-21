@@ -331,4 +331,6 @@
         <item>450.0</item>
     </array>
 
+    <!-- Whether or not wcg mode should be enabled on this device -->
+    <bool name="config_enableWcgMode">true</bool>
 </resources>
