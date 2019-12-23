@@ -90,3 +90,6 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/permissions/android.hard
 
 # Remove obsolete android.hardware.boot@1.0-impl-wrapper.recovery.so
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/recovery/root/system/lib64/hw/android.hardware.boot@1.0-impl-wrapper.recovery.so)
+
+# Remove Face permission
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/permissions/android.hardware.biometrics.face.xml)
