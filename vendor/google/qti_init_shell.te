@@ -1,4 +1,0 @@
-set_prop(qti_init_shell, public_vendor_system_prop)
-allow qti_init_shell vendor_toolbox_exec:file execute_no_trans;
-
-dontaudit qti_init_shell self:capability kill;

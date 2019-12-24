@@ -4,4 +4,3 @@ allow init boot_block_device:lnk_file relabelto;
 allow init custom_ab_block_device:lnk_file relabelto;
 
 dontaudit init kernel:system module_request;
-dontaudit init sysfs:file { open setattr write };
