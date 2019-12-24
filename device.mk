@@ -19,6 +19,8 @@ LOCAL_PATH := device/google/sunfish
 PRODUCT_VENDOR_MOVE_ENABLED := true
 TARGET_BOARD_PLATFORM := sm6150
 
+PRODUCT_CHECK_ELF_FILES := true
+
 PRODUCT_SOONG_NAMESPACES += \
     device/google/sunfish \
     hardware/google/av \
