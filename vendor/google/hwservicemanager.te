@@ -1,2 +1,0 @@
-dontaudit hwservicemanager pixelstats_vendor:binder transfer;
-dontaudit pixelstats_vendor hwservicemanager:binder call;

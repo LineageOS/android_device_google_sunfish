@@ -1,0 +1,2 @@
+dontaudit hal_secure_element_default property_socket:sock_file write;
+dontaudit hal_secure_element_default vendor_modem_prop:file read;
