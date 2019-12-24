@@ -1,1 +1,0 @@
-dontaudit hal_gnss_qti hal_health_hwservice:hwservice_manager find;
