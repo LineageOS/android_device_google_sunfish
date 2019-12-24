@@ -1,0 +1,1 @@
+dontaudit system_server sysfs:file read;

@@ -1,0 +1,2 @@
+dontaudit vendor_pd_mapper sysfs_esoc:dir search;
+dontaudit vendor_pd_mapper sysfs_msm_subsys:dir search;
