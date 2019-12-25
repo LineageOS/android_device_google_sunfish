@@ -71,12 +71,15 @@ userdebug_or_eng(`
   allow hal_dumpstate_impl modem_dump_file:file create_file_perms;
   allow hal_dumpstate_impl vendor_radio_data_file:dir r_dir_perms;
   allow hal_dumpstate_impl vendor_radio_data_file:file r_file_perms;
+  allow hal_dumpstate_impl tcpdump_vendor_data_file:dir create_dir_perms;
+  allow hal_dumpstate_impl tcpdump_vendor_data_file:file create_file_perms;
   allow hal_dumpstate_impl ssr_log_file:dir search;
   allow hal_dumpstate_impl ssr_log_file:file r_file_perms;
   allow hal_dumpstate_impl mpss_rfs_data_file:dir r_dir_perms;
   allow hal_dumpstate_impl mpss_rfs_data_file:file r_file_perms;
 
   set_prop(hal_dumpstate_impl, vendor_modem_diag_prop)
+  set_prop(hal_dumpstate_impl, vendor_tcpdump_log_prop)
 ')
 
 # Access to modem stat
@@ -89,9 +92,12 @@ dontaudit hal_dumpstate_impl modem_dump_file:dir create_dir_perms;
 dontaudit hal_dumpstate_impl modem_dump_file:file create_file_perms;
 dontaudit hal_dumpstate_impl vendor_radio_data_file:dir r_dir_perms;
 dontaudit hal_dumpstate_impl vendor_radio_data_file:file r_file_perms;
+dontaudit hal_dumpstate_impl tcpdump_vendor_data_file:dir create_dir_perms;
+dontaudit hal_dumpstate_impl tcpdump_vendor_data_file:file create_file_perms;
 dontaudit hal_dumpstate_impl ssr_log_file:dir search;
 dontaudit hal_dumpstate_impl ssr_log_file:file r_file_perms;
 dontaudit hal_dumpstate_impl mpss_rfs_data_file:dir r_dir_perms;
 dontaudit hal_dumpstate_impl mpss_rfs_data_file:file r_file_perms;
 dontaudit hal_dumpstate_impl vendor_modem_diag_prop:file r_file_perms;
+dontaudit hal_dumpstate_impl vendor_tcpdump_log_prop:file r_file_perms;
 dontaudit hal_dumpstate_impl debugfs_pmic:file rw_file_perms;
