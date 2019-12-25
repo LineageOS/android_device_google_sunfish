@@ -1,3 +1,0 @@
-dontaudit tee self:capability sys_rawio;
-dontaudit tee sysfs_wake_lock:file append;
-dontaudit tee self:capability sys_admin;

@@ -5,4 +5,3 @@ allow init custom_ab_block_device:lnk_file relabelto;
 allow init tmpfs:lnk_file create;
 
 dontaudit init kernel:system module_request;
-dontaudit init sysfs:file { open setattr write };

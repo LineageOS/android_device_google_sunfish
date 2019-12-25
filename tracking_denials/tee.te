@@ -1,0 +1,2 @@
+dontaudit tee self:capability sys_admin;
+dontaudit tee sysfs_wake_lock:file append;

@@ -1,4 +1,0 @@
-dontaudit ueventd public_vendor_default_prop:file { getattr map open read };
-dontaudit ueventd metadata_file:dir search;
-dontaudit ueventd self:capability sys_admin;
-dontaudit ueventd tmpfs:lnk_file read;

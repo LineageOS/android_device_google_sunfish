@@ -21,6 +21,7 @@ allow vendor_init ipa_dev:chr_file w_file_perms;
 set_prop(vendor_init, cnd_vendor_prop)
 set_prop(vendor_init, vendor_modem_diag_prop)
 set_prop(vendor_init, vendor_radio_prop)
+set_prop(vendor_init, power_prop)
 
 userdebug_or_eng(`
   set_prop(vendor_init, logpersistd_logging_prop)
@@ -28,6 +29,5 @@ userdebug_or_eng(`
 
 dontaudit vendor_init debugfs:file write;
 allow vendor_init proc_sched_energy_aware:file w_file_perms;
-dontaudit vendor_init power_prop:property_service set;
 dontaudit vendor_init proc_swappiness:file write;
 dontaudit vendor_init system_data_file:dir setattr;

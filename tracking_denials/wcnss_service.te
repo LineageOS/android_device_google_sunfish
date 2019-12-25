@@ -1,0 +1,1 @@
+dontaudit wcnss_service vendor_data_file:file read;
