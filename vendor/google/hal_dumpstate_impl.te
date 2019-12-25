@@ -85,6 +85,12 @@ allow hal_dumpstate_impl modem_stat_data_file:file r_file_perms;
 
 get_prop(hal_dumpstate_impl, vendor_radio_prop)
 
+# Allow to access wlan debug info by dumpstate
+allow hal_dumpstate_impl debugfs_wlan:dir r_dir_perms;
+allow hal_dumpstate_impl debugfs_wlan:file r_file_perms;
+allow hal_dumpstate_impl sysfs_msm_wlan:dir r_dir_perms;
+allow hal_dumpstate_impl sysfs_power_stats:file r_file_perms;
+
 dontaudit hal_dumpstate_impl modem_dump_file:dir create_dir_perms;
 dontaudit hal_dumpstate_impl modem_dump_file:file create_file_perms;
 dontaudit hal_dumpstate_impl vendor_radio_data_file:dir r_dir_perms;
