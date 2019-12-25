@@ -1,0 +1,1 @@
+dontaudit hal_power_default cgroup:file read;
