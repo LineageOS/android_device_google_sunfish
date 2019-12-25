@@ -1,0 +1,2 @@
+dontaudit netd self:capability sys_admin;
+dontaudit netd system_file:dir write;

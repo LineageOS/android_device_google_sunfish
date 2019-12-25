@@ -1,0 +1,2 @@
+dontaudit hal_power_stats_default debugfs_wlan:dir search;
+dontaudit hal_power_stats_default sysfs:file read;
