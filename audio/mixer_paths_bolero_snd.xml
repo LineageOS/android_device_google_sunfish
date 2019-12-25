@@ -1571,7 +1571,7 @@
     </path>
 
     <path name="voicemmode2-call">
-        <ctl name="SEC_TDM_RX_0 Voice Mixer VoiceMMode2" value="1" />
+        <ctl name="SEC_TDM_RX_0_Voice Mixer VoiceMMode2" value="1" />
         <ctl name="VoiceMMode2_Tx Mixer TERT_TDM_TX_0_MMode2" value="1" />
     </path>
 
@@ -1581,12 +1581,12 @@
     </path>
 
     <path name="voicemmode2-call handset">
-        <ctl name="SEC_TDM_RX_0 Voice Mixer VoiceMMode2" value="1" />
+        <ctl name="SEC_TDM_RX_0_Voice Mixer VoiceMMode2" value="1" />
         <ctl name="VoiceMMode2_Tx Mixer TERT_TDM_TX_0_MMode2" value="1" />
     </path>
 
     <path name="voicemmode2-call speaker">
-        <ctl name="SEC_TDM_RX_0 Voice Mixer VoiceMMode2" value="1" />
+        <ctl name="SEC_TDM_RX_0_Voice Mixer VoiceMMode2" value="1" />
         <ctl name="VoiceMMode2_Tx Mixer TERT_TDM_TX_0_MMode2" value="1" />
     </path>
 
