@@ -18,6 +18,7 @@
 
 #include "DumpstateDevice.h"
 
+#include <android-base/file.h>
 #include <android-base/properties.h>
 #include <android-base/unique_fd.h>
 #include <cutils/properties.h>
@@ -310,6 +311,30 @@ static void DumpDisplay(int fd) {
     DumpFileToFd(fd, "PANEL VENDOR NAME", "/sys/class/panel_info/panel0/panel_vendor_name");
     DumpFileToFd(fd, "PANEL SN", "/sys/class/panel_info/panel0/serial_number");
     DumpFileToFd(fd, "PANEL EXTRA INFO", "/sys/class/panel_info/panel0/panel_extinfo");
+
+    const std::string pmic_regmap_path = "/sys/kernel/debug/regmap/spmi0-05";
+    using android::base::WriteStringToFile;
+
+    if (WriteStringToFile("0x80", pmic_regmap_path + "/count", true) &&
+            WriteStringToFile("0xE000", pmic_regmap_path + "/address", true)) {
+        DumpFileToFd(fd, "OLEDB Register Dump", pmic_regmap_path + "/data");
+    } else {
+        dprintf(fd, "Unable to print OLEDB Register Dump\n");
+    }
+
+    if (WriteStringToFile("0x80", pmic_regmap_path + "/count", true) &&
+            WriteStringToFile("0xDE00", pmic_regmap_path + "/address", true)) {
+        DumpFileToFd(fd, "ELVDD Register Dump", pmic_regmap_path + "/data");
+    } else {
+       dprintf(fd, "Unable to print ELVDD Register Dump\n");
+    }
+
+    if (WriteStringToFile("0x60", pmic_regmap_path + "/count", true) &&
+            WriteStringToFile("0xDC00", pmic_regmap_path + "/address", true)) {
+        DumpFileToFd(fd, "ELVSS Register Dump", pmic_regmap_path + "/data");
+    } else {
+        dprintf(fd, "Unable to print ELVSS Register Dump\n");
+    }
 }
 
 static void DumpSensorLog(int fd) {
