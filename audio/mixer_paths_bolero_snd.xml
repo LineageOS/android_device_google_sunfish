@@ -1556,7 +1556,7 @@
     </path>
 
     <path name="voicemmode1-call voice-tty-hco-handset">
-        <ctl name="TERT_TDM_RX_0_Voice Mixer VoiceMMode1" value="1"/>
+        <ctl name="SEC_TDM_RX_0_Voice Mixer VoiceMMode1" value="1"/>
         <ctl name="VoiceMMode1_Tx Mixer TX_CDC_DMA_TX_3_MMode1" value="1"/>
     </path>
 
@@ -1726,6 +1726,10 @@
     <path name="audio-playback-voip speaker-and-usb-headphones">
         <path name="audio-playback-voip usb-headphones"/>
         <path name="audio-playback-voip speaker"/>
+    </path>
+
+    <path name="audio-playback-voip voice-tty-hco-handset">
+        <ctl name="SEC_TDM_RX_0 Audio Mixer MultiMedia10" value="1" />
     </path>
 
     <!-- VoIP Tx settings -->
@@ -2013,10 +2017,14 @@
 
     <path name="voice-handset">
         <path name="handset" />
+        <ctl name="AMP PCM Gain" value="6.5"/>
+        <ctl name="PCM Source'" value="ASP"/>
     </path>
 
     <path name="voice-handset-tmus">
         <path name="handset" />
+        <ctl name="AMP PCM Gain" value="6.5"/>
+        <ctl name="PCM Source'" value="ASP"/>
     </path>
 
     <path name="voice-handset-hdk">
@@ -2030,6 +2038,8 @@
     <!-- Phone RCV HAC RX -->
     <path name="voice-hac-handset">
         <path name="handset"/>
+        <ctl name="AMP PCM Gain" value="6.5"/>
+        <ctl name="PCM Source'" value="ASP"/>
     </path>
 
     <path name="voice-speaker">
@@ -2356,9 +2366,8 @@
 
     <path name="voice-tty-hco-handset">
         <ctl name="TTY Mode" value="HCO" />
-        <path name="handset" />
+        <path name="voice-speaker" />
     </path>
-
 
     <path name="voice-tty-hco-handset-hdk">
         <ctl name="TTY Mode" value="HCO" />
@@ -2376,7 +2385,7 @@
     </path>
 
     <path name="voice-tty-vco-handset-mic">
-        <path name="dmic3" />
+        <path name="voice-speaker-dmic-ef" />
     </path>
 
     <path name="unprocessed-handset-mic">

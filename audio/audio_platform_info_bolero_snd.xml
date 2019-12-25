@@ -72,6 +72,10 @@
         <device name="SND_DEVICE_IN_UNPROCESSED_THREE_MIC" acdb_id="145"/>
         <device name="SND_DEVICE_IN_UNPROCESSED_QUAD_MIC" acdb_id="146"/>
         <device name="SND_DEVICE_IN_UNPROCESSED_HEADSET_MIC" acdb_id="147"/>
+        <device name="SND_DEVICE_IN_VOICE_TTY_VCO_HANDSET_MIC" acdb_id="19"/>
+        <device name="SND_DEVICE_OUT_VOICE_HEADPHONES" acdb_id="45"/>
+        <device name="SND_DEVICE_OUT_VOICE_HEADSET" acdb_id="45"/>
+        <device name="SND_DEVICE_IN_VOICE_HEADSET_MIC" acdb_id="44"/>
     </acdb_ids>
 
     <module_ids>
