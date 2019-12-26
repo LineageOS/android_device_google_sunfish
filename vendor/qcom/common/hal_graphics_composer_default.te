@@ -1,5 +1,6 @@
 vndbinder_use(hal_graphics_composer_default)
 allow hal_graphics_composer_default fwk_sensor_hwservice:hwservice_manager find;
+binder_call(hal_graphics_composer, sensor_service_server)
 allow hal_graphics_composer_default qdisplay_service:service_manager { add find };
 allow hal_graphics_composer_default self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
 hal_client_domain(hal_graphics_composer_default, hal_graphics_allocator);
