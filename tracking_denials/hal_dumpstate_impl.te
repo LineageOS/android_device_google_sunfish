@@ -6,4 +6,3 @@ dontaudit hal_dumpstate_impl display_vendor_data_file:dir search;
 dontaudit hal_dumpstate_impl netmgrd_data_file:dir search;
 dontaudit hal_dumpstate_impl sysfs_esim:file read;
 dontaudit hal_dumpstate_impl sysfs_leds:dir search;
-dontaudit hal_dumpstate_impl vendor_tcpdump_log_prop:file read;
