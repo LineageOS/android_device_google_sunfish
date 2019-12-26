@@ -2,6 +2,5 @@ dontaudit hal_dumpstate_impl citadel_updater_exec:file execute_no_trans;
 dontaudit hal_dumpstate_impl debugfs_ipc:dir search;
 dontaudit hal_dumpstate_impl debugfs_tzdbg:dir search;
 dontaudit hal_dumpstate_impl display_vendor_data_file:dir search;
-dontaudit hal_dumpstate_impl netmgrd_data_file:dir search;
 dontaudit hal_dumpstate_impl sysfs_esim:file read;
 dontaudit hal_dumpstate_impl sysfs_leds:dir search;
