@@ -198,7 +198,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.raw.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.raw.xml\
     frameworks/native/data/etc/android.hardware.bluetooth.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth.xml \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml \
-    frameworks/native/data/etc/android.hardware.biometrics.face.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.biometrics.face.xml\
     frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/native/data/etc/android.hardware.sensor.compass.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.compass.xml \
     frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.gyroscope.xml \
@@ -278,7 +277,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.display.paneltype=2 \
     ro.vendor.display.sensortype=2 \
     vendor.display.foss.config=1 \
-    vendor.display.foss.config_path=/vendor/etc/FOSSConfig.xml
+    vendor.display.foss.config_path=/vendor/etc/FOSSConfig.xml \
+    vendor.display.qdcm.mode_combine=1
 
 # camera hal buffer management
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -706,11 +706,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.default_cdma_sub=0
 
-# Set display color mode to Boosted by default
+# Set display color mode to Adaptive by default
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.sf.color_saturation=1.1 \
-    persist.sys.sf.native_mode=0 \
-    persist.sys.sf.color_mode=0
+    persist.sys.sf.color_saturation=1.0 \
+    persist.sys.sf.native_mode=2 \
+    persist.sys.sf.color_mode=9
 
 # Keymaster configuration
 PRODUCT_COPY_FILES += \
