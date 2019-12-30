@@ -565,7 +565,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <fqname>@1.2::IDevice/qti-default</fqname>
         <fqname>@1.2::IDevice/qti-dsp</fqname>
         <fqname>@1.2::IDevice/qti-gpu</fqname>
-        <fqname>@1.2::IDevice/qti-hta</fqname>
     </hal>
     <!-- keymaster -->
     <hal format="hidl">
