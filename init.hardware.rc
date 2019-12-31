@@ -391,6 +391,10 @@ on property:init.svc.vendor.charger=running
     write /sys/devices/system/cpu/cpu5/online 0
     write /sys/devices/system/cpu/cpu7/online 0
 
+    # FIXME: b/146195067
+    # hold a wakelock to avoid device hang in charger mode
+    write /sys/power/wake_lock "charger"
+
 on property:sys.boot_completed=1
     setprop vendor.setup.power 1
 
