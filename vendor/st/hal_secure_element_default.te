@@ -1,0 +1,6 @@
+allow hal_secure_element_default secure_element_device:chr_file rw_file_perms;
+allow hal_secure_element_default ese_vendor_data_file:dir create_dir_perms;
+allow hal_secure_element_default ese_vendor_data_file:file create_file_perms;
+allow hal_secure_element_default debugfs_ipc:dir search;
+set_prop(hal_secure_element_default, vendor_secure_element_prop)
+get_prop(hal_secure_element_default, vendor_modem_prop)
