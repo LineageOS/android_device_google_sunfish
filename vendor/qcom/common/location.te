@@ -41,6 +41,8 @@ allow location location_socket:dir w_dir_perms;
 allow location hal_gnss_qti:unix_dgram_socket sendto;
 
 get_prop(location, hwservicemanager_prop)
+allow location hwservicemanager:binder call;
+allow location hal_cacert_hwservice:hwservice_manager find;
 
 userdebug_or_eng(`
   allow location diag_device:chr_file rw_file_perms;
