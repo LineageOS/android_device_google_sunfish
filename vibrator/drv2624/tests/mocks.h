@@ -35,6 +35,7 @@ class MockApi : public ::android::hardware::vibrator::V1_3::implementation::Vibr
     MOCK_METHOD1(setLpTriggerEffect, bool(uint32_t value));
     MOCK_METHOD1(setLraWaveShape, bool(uint32_t value));
     MOCK_METHOD1(setOdClamp, bool(uint32_t value));
+    MOCK_METHOD1(getUsbTemp, bool(int32_t *value));
     MOCK_METHOD1(debug, void(int fd));
 
     ~MockApi() override { destructor(); };

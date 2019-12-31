@@ -68,6 +68,8 @@ class HwApiBase {
   protected:
     template <typename T>
     void open(const std::string &name, T *stream);
+    template <typename T>
+    void openFull(const std::string &name, T *stream);
     bool has(const std::ios &stream);
     template <typename T>
     bool get(T *value, std::istream *stream);
@@ -91,6 +93,12 @@ template <typename T>
 void HwApiBase::open(const std::string &name, T *stream) {
     mNames[stream] = name;
     utils::openNoCreate(mPathPrefix + name, stream);
+}
+
+template <typename T>
+void HwApiBase::openFull(const std::string &name, T *stream) {
+    mNames[stream] = name;
+    utils::openNoCreate(name, stream);
 }
 
 template <typename T>
