@@ -24,3 +24,7 @@ hal_client_domain(hal_graphics_composer_default, hal_light);
 allow hal_graphics_composer_default oemfs:dir r_dir_perms;
 
 get_prop(hal_graphics_composer_default, vendor_display_prop)
+
+# Allow r/w to data partition for writeback dumps
+allow hal_graphics_composer_default display_vendor_data_file:dir create_dir_perms;
+allow hal_graphics_composer_default display_vendor_data_file:file create_file_perms;
