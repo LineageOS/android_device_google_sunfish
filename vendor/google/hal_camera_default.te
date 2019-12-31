@@ -50,5 +50,8 @@ hal_client_domain(hal_camera_default, hal_thermal)
 # For camera hal to access Hexagon DSP
 allow hal_camera_default qdsp_device:chr_file r_file_perms;
 
+# For camera hal to talk with NNAPI service
+hal_client_domain(hal_camera_default, hal_neuralnetworks)
+
 # For camera hal to control priority of current process
 allow hal_camera_default self:capability sys_nice;
