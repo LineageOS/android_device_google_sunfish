@@ -614,7 +614,7 @@ service vendor.ssr_setup /vendor/bin/ssr_setup
 on property:persist.vendor.sys.ssr.restart_level=*
     start vendor.ssr_setup
 
-on property:persist.vendor.sys.ssr.enable_ramdumps=1 && property:ro.boot.mode!=charger
+on post-fs-data && property:persist.vendor.sys.ssr.enable_ramdumps=1 && property:vendor.skip.init=0
     write /sys/module/subsystem_restart/parameters/enable_ramdumps 1
     mkdir /data/vendor/wifidump 771 root system
     mkdir /data/vendor/ramdump 771 root system
