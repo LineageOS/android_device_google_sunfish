@@ -1822,8 +1822,6 @@
     <path name="dmic-endfire">
         <ctl name="ADC1 Capture Volume" id="0" value="45"/>
         <ctl name="ADC2 Capture Volume" id="0" value="45"/>
-        <ctl name="TERT TDM TX Channel Offset" id="0" value="8" />
-        <ctl name="TERT TDM TX Channel Offset" id="1" value="0" />
         <ctl name="TERT_TDM_TX_0 Channels" value="Two"/>
         <ctl name="TERT_TDM_TX_0 Format" value="S24_LE" />
         <ctl name="Sto1 ADC MIXL DMIC Switch" value="1" />
