@@ -1,0 +1,6 @@
+# dev nodes
+/dev/st54j_se                                                                         u:object_r:secure_element_device:s0
+
+# data files
+/data/vendor/ese(/.*)?                                                                u:object_r:ese_vendor_data_file:s0
+
