@@ -22,6 +22,23 @@ include device/google/sunfish/device.mk
 # Set Vendor SPL to match platform
 VENDOR_SECURITY_PATCH = $(PLATFORM_SECURITY_PATCH)
 
+# Enable AAudio MMAP/NOIRQ data path.
+# 1 is AAUDIO_POLICY_NEVER  means only use Legacy path.
+# 2 is AAUDIO_POLICY_AUTO   means try MMAP then fallback to Legacy path.
+# 3 is AAUDIO_POLICY_ALWAYS means only use MMAP path.
+PRODUCT_PROPERTY_OVERRIDES += aaudio.mmap_policy=2
+# 1 is AAUDIO_POLICY_NEVER  means only use SHARED mode
+# 2 is AAUDIO_POLICY_AUTO   means try EXCLUSIVE then fallback to SHARED mode.
+# 3 is AAUDIO_POLICY_ALWAYS means only use EXCLUSIVE mode.
+PRODUCT_PROPERTY_OVERRIDES += aaudio.mmap_exclusive_policy=2
+
+# Increase the apparent size of a hardware burst from 1 msec to 2 msec.
+# A "burst" is the number of frames processed at one time.
+# That is an increase from 48 to 96 frames at 48000 Hz.
+# The DSP will still be bursting at 48 frames but AAudio will think the burst is 96 frames.
+# A low number, like 48, might increase power consumption or stress the system.
+PRODUCT_PROPERTY_OVERRIDES += aaudio.hw_burst_min_usec=2000
+
 # A2DP offload enabled for compilation
 AUDIO_FEATURE_ENABLED_A2DP_OFFLOAD := true
 
