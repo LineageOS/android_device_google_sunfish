@@ -6,7 +6,6 @@
 /dev/citadel0                                                                         u:object_r:citadel_device:s0
 /dev/ipu                                                                              u:object_r:ipu_device:s0
 /dev/maxfg_history                                                                    u:object_r:maxfg_device:s0
-/dev/st54j_se                                                                         u:object_r:secure_element_device:s0
 /dev/iaxxx-module-celldrv                                                             u:object_r:pwrstats_device:s0
 /dev/qg                                                                               u:object_r:qg_device:s0
 /dev/qg_battery                                                                       u:object_r:qg_device:s0
@@ -64,7 +63,6 @@
 /data/vendor/modem_dump(/.*)?                                                         u:object_r:modem_dump_file:s0
 /data/vendor/tcpdump_logger(/.*)?                                                     u:object_r:tcpdump_vendor_data_file:s0
 /data/vendor_ce/[0-9]+/ramoops(/.*)?                                                  u:object_r:ramoops_vendor_data_file:s0
-/data/vendor/ese(/.*)?                                                                u:object_r:ese_vendor_data_file:s0
 /data/vendor/hal_neuralnetworks_darwinn/hal_camera(/.*)?                              u:object_r:hal_neuralnetworks_darwinn_hal_camera_data_file:s0
 
 # dev socket node
