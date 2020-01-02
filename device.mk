@@ -250,6 +250,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.feature.usb_offload.enable=true \
     vendor.audio.feature.audiozoom.enable=true \
     vendor.audio.feature.snd_mon.enable=true \
+    vendor.audio.capture.enforce_legacy_copp_sr=true \
+    vendor.audio.offload.buffer.size.kb=256 \
+    persist.vendor.audio_hal.dsp_bit_width_enforce_mode=24 \
 
 # MaxxAudio effect and add rotation monitor
 PRODUCT_PROPERTY_OVERRIDES += \
