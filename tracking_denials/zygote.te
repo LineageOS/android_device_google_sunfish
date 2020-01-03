@@ -1,3 +1,2 @@
 dontaudit zygote cbrs_setup_app:process dyntransition;
 dontaudit zygote con_monitor_app:process dyntransition;
-dontaudit zygote timeservice_app:process dyntransition;
