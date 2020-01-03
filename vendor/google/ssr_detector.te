@@ -1,1 +1,3 @@
 type ssr_detector_app, domain;
+
+get_prop(ssr_detector_app, vendor_wifi_version)
