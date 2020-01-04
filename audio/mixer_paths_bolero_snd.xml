@@ -1820,8 +1820,8 @@
     </path>
 
     <path name="dmic-endfire">
-        <ctl name="ADC1 Capture Volume" id="0" value="45"/>
-        <ctl name="ADC2 Capture Volume" id="0" value="45"/>
+        <ctl name="ADC1 Capture Volume" id="0" value="53"/>
+        <ctl name="ADC2 Capture Volume" id="0" value="53"/>
         <ctl name="TERT_TDM_TX_0 Channels" value="Two"/>
         <ctl name="TERT_TDM_TX_0 Format" value="S24_LE" />
         <ctl name="Sto1 ADC MIXL DMIC Switch" value="1" />
@@ -2016,13 +2016,13 @@
     <path name="voice-handset">
         <path name="handset" />
         <ctl name="AMP PCM Gain" value="6.5"/>
-        <ctl name="PCM Source'" value="ASP"/>
+        <ctl name="PCM Source" value="ASP"/>
     </path>
 
     <path name="voice-handset-tmus">
         <path name="handset" />
         <ctl name="AMP PCM Gain" value="6.5"/>
-        <ctl name="PCM Source'" value="ASP"/>
+        <ctl name="PCM Source" value="ASP"/>
     </path>
 
     <path name="voice-handset-hdk">
@@ -2037,7 +2037,7 @@
     <path name="voice-hac-handset">
         <path name="handset"/>
         <ctl name="AMP PCM Gain" value="6.5"/>
-        <ctl name="PCM Source'" value="ASP"/>
+        <ctl name="PCM Source" value="ASP"/>
     </path>
 
     <path name="voice-speaker">
@@ -2066,6 +2066,8 @@
 
     <path name="voice-headphones">
         <path name="headphones" />
+    <ctl name="RX_RX0 Digital Volume" value="83" />
+    <ctl name="RX_RX1 Digital Volume" value="83" />
     </path>
 
     <path name="voice-line">
@@ -2074,6 +2076,7 @@
 
     <path name="voice-headset-mic">
         <path name="headset-mic" />
+        <ctl name="TX_DEC0 Volume" value="73" />
     </path>
 
     <path name="speaker-and-headphones">
@@ -2345,11 +2348,20 @@
 
     <path name="tty-headphones">
         <ctl name="RX_MACRO RX0 MUX" value="AIF1_PB" />
+        <ctl name="RX_MACRO RX1 MUX" value="AIF1_PB" />
+        <ctl name="RX_CDC_DMA_RX_0 Channels" value="Two" />
         <ctl name="RX INT0_1 MIX1 INP0" value="RX0" />
+        <ctl name="RX INT1_1 MIX1 INP0" value="RX1" />
         <ctl name="RX INT0 DEM MUX" value="CLSH_DSM_OUT" />
+        <ctl name="RX INT1 DEM MUX" value="CLSH_DSM_OUT" />
         <ctl name="RX_COMP1 Switch" value="1" />
+        <ctl name="RX_COMP2 Switch" value="1" />
         <ctl name="HPHL_COMP Switch" value="1" />
+        <ctl name="HPHR_COMP Switch" value="1" />
         <ctl name="HPHL_RDAC Switch" value="1" />
+        <ctl name="HPHR_RDAC Switch" value="1" />
+        <ctl name="RX_RX0 Digital Volume" value="79" />
+        <ctl name="RX_RX1 Digital Volume" value="79" />
     </path>
 
     <path name="voice-tty-full-headphones">
@@ -2374,8 +2386,8 @@
 
     <path name="voice-tty-full-headset-mic">
         <path name="amic2" />
-        <ctl name="ADC2 Volume" value="0" />
-        <ctl name="TX_DEC0 Volume" value="84" />
+        <ctl name="ADC2 Volume" value="12" />
+        <ctl name="TX_DEC0 Volume" value="88" />
     </path>
 
     <path name="voice-tty-hco-headset-mic">
