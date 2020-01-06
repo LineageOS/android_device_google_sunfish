@@ -19,7 +19,6 @@ allow hal_imsrtp self:qipcrtr_socket create_socket_perms_no_ioctl;
 allow hal_imsrtp sysfs_ssr:file r_file_perms;
 allow hal_imsrtp sysfs_timestamp_switch:file r_file_perms;
 
-# TODO(b/144661633): Check with QCOM if these rules below related to sysfs are needed or not
 r_dir_file(hal_imsrtp, sysfs_esoc)
 r_dir_file(hal_imsrtp, sysfs_soc)
 r_dir_file(hal_imsrtp, sysfs_msm_subsys)
