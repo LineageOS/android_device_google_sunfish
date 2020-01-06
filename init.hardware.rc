@@ -21,6 +21,10 @@ import /vendor/etc/init/hw/init.${ro.boot.hardware.platform}.mpssrfs.rc
 import /vendor/etc/init/hw/init.${ro.boot.hardware.platform}.power.rc
 import /vendor/etc/init/hw/init.${ro.boot.hardware.platform}.power_debug.rc
 
+# If boot mode is sota then set factory ota mode property
+on property:ro.boot.mode=sota
+    setprop ro.boot.sota enabled
+
 service vendor.charger /charger
     class charger
     seclabel u:r:charger:s0
@@ -754,3 +758,15 @@ on property:persist.sys.theme=1
 
 on property:persist.sys.theme=0
     start vendor.theme_clear
+
+# Write the enable sota magic (`enable-sota`, or 0x656e61626c652d736f7461 in hex string) to /misc
+# partition. Offset 32 in vendor space is effectively offset 2048 in /misc partition.
+service vendor.enable_sota /vendor/bin/misc_writer --vendor-space-offset 32 --hex-string 0x656e61626c652d736f7461
+    disabled
+    oneshot
+
+# Set enable sota flag
+on property:persist.vendor.factoryota.enable_sota=triggered
+    exec_start vendor.enable_sota
+    setprop persist.vendor.factoryota.enable_sota completed
+
