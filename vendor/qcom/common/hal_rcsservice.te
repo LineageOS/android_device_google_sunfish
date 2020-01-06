@@ -40,7 +40,6 @@ userdebug_or_eng(`
 
 set_prop(hal_rcsservice, ctl_vendor_imsrcsservice_prop)
 
-# TODO(b/144661633): Check with QCOM if these rules below are needed or not
 r_dir_file(hal_rcsservice, sysfs_soc)
 r_dir_file(hal_rcsservice, sysfs_ssr)
 r_dir_file(hal_rcsservice, sysfs_esoc)
