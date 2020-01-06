@@ -1,2 +1,2 @@
+# b/146843519
 dontaudit netd self:capability sys_admin;
-dontaudit netd system_file:dir write;
