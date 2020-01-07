@@ -260,6 +260,10 @@ on zygote-start
     mkdir /dev/socket/location/mq 0770 gps gps
     mkdir /dev/socket/location/xtra 0770 gps gps
 
+    #Create directories for wifihal services
+    mkdir /dev/socket/wifihal 0770 wifi wifi
+    chmod 2770 /dev/socket/wifihal
+
     # Create directory for audio delta files
     mkdir /data/vendor/audio 0770 audio audio
     mkdir /data/vendor/audio/acdbdata 0770 media audio
