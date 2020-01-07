@@ -30,7 +30,6 @@ userdebug_or_eng(`
 dontaudit vendor_init debugfs:file write;
 allow vendor_init proc_sched_energy_aware:file w_file_perms;
 allow vendor_init proc_swappiness:file w_file_perms;
-dontaudit vendor_init system_data_file:dir setattr;
 
 allow vendor_init self:global_capability2_class_set block_suspend;
 allow vendor_init sysfs_wake_lock:file rw_file_perms;
