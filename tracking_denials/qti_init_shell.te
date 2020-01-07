@@ -1,1 +1,0 @@
-dontaudit qti_init_shell self:capability kill;
