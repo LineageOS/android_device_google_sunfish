@@ -1,2 +1,2 @@
+# b/146111064
 dontaudit kernel system_data_file:file read;
-dontaudit surfaceflinger kernel:system module_request;
