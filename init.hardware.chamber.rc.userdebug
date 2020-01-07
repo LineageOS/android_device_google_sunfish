@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2018 The Android Open-Source Project
+# Copyright (C) 2020 The Android Open-Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -35,10 +35,7 @@ on property:persist.vendor.disable.thermal.control=0
   write /sys/module/overheat_mitigation/parameters/enable 1
 
 on property:persist.vendor.disable.usb.overheat.mitigation=1
-  write /sys/devices/virtual/thermal/tz-by-name/usbc-therm-adc/mode disabled
-  write /sys/devices/virtual/thermal/tz-by-name/usbc-therm-monitor/mode disabled
+  write /sys/module/overheat_mitigation/parameters/enable 0
 
 on property:persist.vendor.disable.usb.overheat.mitigation=0
-  write /sys/devices/virtual/thermal/tz-by-name/usbc-therm-adc/mode enabled
-  write /sys/devices/virtual/thermal/tz-by-name/usbc-therm-monitor/mode enabled
   write /sys/module/overheat_mitigation/parameters/enable 1
