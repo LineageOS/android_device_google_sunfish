@@ -1,7 +1,38 @@
 type factory_ota_app, domain, coredomain;
 
 app_domain(factory_ota_app)
+net_domain(factory_ota_app)
+
+# Write to /data/ota_package for OTA packages.
+# Factory OTA client will download OTA image into ota_package folder and unzip it.
+# Than Update engine could use it to execute OTA process.
+# So Factory OTA client need read / write and create file access right for this folder
+allow factory_ota_app ota_package_file:dir rw_dir_perms;
+allow factory_ota_app ota_package_file:file create_file_perms;
+
+# Properties
+# For read system property ro.* or persist.*
+get_prop(factory_ota_app, factory_ota_prop);
+# For write system property persist.*
+set_prop(factory_ota_app, exported_system_prop);
 
 # Services
 # For get access WiFi manager service
 allow factory_ota_app app_api_service:service_manager find;
+# Allow Factory OTA to call Update Engine
+binder_call(factory_ota_app, update_engine)
+# Allow Update Engine to call the Factory OTA callback
+binder_call(update_engine, factory_ota_app)
+#For access update engine function
+allow factory_ota_app update_engine_service:service_manager find;
+#For disable NFC wake up device feature
+allow factory_ota_app nfc_service:service_manager find;
+#For get device IMEI
+allow factory_ota_app radio_service:service_manager find;
+
+# b/133124196 For suppress the GPU service seploicy error log which Factory OTA does not need it.
+dontaudit factory_ota_app gpu_service:service_manager find;
+
+# b/146033807 For suppress more GPU and vendor_display_prop sepolicy error log.
+dontaudit factory_ota_app gpuservice:binder call;
+dontaudit factory_ota_app vendor_display_prop:file read;
