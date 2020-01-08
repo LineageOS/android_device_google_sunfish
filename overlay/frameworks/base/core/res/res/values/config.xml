@@ -50,6 +50,10 @@
 
     <!-- Enable Night display, which requires HWC 2.0. -->
     <bool name="config_nightDisplayAvailable">true</bool>
+  
+    <!-- Default color temperature, in Kelvin, to tint the screen when night display is
+         activated. -->
+    <integer name="config_nightDisplayColorTemperatureDefault">3339</integer>
 
     <!-- Boolean indicating whether display white balance is supported. -->
     <bool name="config_displayWhiteBalanceAvailable">false</bool>
