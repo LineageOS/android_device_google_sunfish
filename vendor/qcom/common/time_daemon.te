@@ -19,3 +19,6 @@ allow time_daemon time_data_file:dir rw_dir_perms;
 allow time_daemon time_data_file:file create_file_perms;
 
 allow time_daemon self:capability sys_time;
+
+# b/68864350
+dontaudit time_daemon unlabeled:dir search;
