@@ -13,7 +13,7 @@ genfscon proc /irq                                    u:object_r:proc_irq:s0
 genfscon sysfs /bus/iio/devices                       u:object_r:sysfs_iio_devices:s0
 
 # Touch
-genfscon sysfs /devices/platform/soc/890000.spi/spi_master/spi1/spi1.0		u:object_r:sysfs_touch:s0
+genfscon sysfs /devices/platform/soc/a84000.i2c/i2c-1/1-0049			u:object_r:sysfs_touch:s0
 genfscon proc  /fts/driver_test                                                 u:object_r:proc_touch:s0
 
 # PowerHal
