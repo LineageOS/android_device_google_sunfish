@@ -2,14 +2,10 @@ type hardware_info_app, domain;
 
 app_domain(hardware_info_app)
 
-## Seploicy requset by HardwareInfoService
-allow hardware_info_app activity_service:service_manager find;
-
 ##
-## Seploicy requset by libhwinfo.jar
+## Sepolicy requseted by libhwinfo.jar and HardwareInfoService
 ##
-# android.os.Build.getSerial
-allow hardware_info_app device_identifiers_service:service_manager find;
+allow hardware_info_app app_api_service:service_manager find;
 
 # putStorageHealthInfo
 dontaudit hardware_info_app sysfs:file r_file_perms;

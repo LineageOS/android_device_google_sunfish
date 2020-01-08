@@ -4,6 +4,3 @@ dontaudit hal_dumpstate_impl sysfs_esim:file read;
 
 # b/146848189
 dontaudit hal_dumpstate_impl display_vendor_data_file:dir search;
-
-# b/146848183
-dontaudit hal_dumpstate_impl sysfs_leds:dir search;
