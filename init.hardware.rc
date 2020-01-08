@@ -41,7 +41,7 @@ on early-init
     chmod 0755 /sys/kernel/debug
 
     # Disable EAS
-    write /sys/kernel/debug/sched_features NO_ENERGY_AWARE
+    write /proc/sys/kernel/sched_energy_aware 0
     mount_all /vendor/etc/fstab.persist --early
 
 # Disable VDSO on JAWS boards.
@@ -263,6 +263,10 @@ on zygote-start
     mkdir /dev/socket/location 0770 gps gps
     mkdir /dev/socket/location/mq 0770 gps gps
     mkdir /dev/socket/location/xtra 0770 gps gps
+
+    #Create directories for wifihal services
+    mkdir /dev/socket/wifihal 0770 wifi wifi
+    chmod 2770 /dev/socket/wifihal
 
     # Create directory for audio delta files
     mkdir /data/vendor/audio 0770 audio audio
