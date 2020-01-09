@@ -371,6 +371,7 @@ Return<void> Vibrator::performEffect(Effect effect, EffectStrength strength, per
         case Effect::TEXTURE_TICK:
             mHwApi->setSequencer(WAVEFORM_TICK_EFFECT_SEQ);
             timeMS = mTickDuration;
+            volOffset = TEXTURE_TICK;
             break;
         case Effect::CLICK:
             mHwApi->setSequencer(WAVEFORM_CLICK_EFFECT_SEQ);
