@@ -1977,6 +1977,8 @@
         <ctl name="RX INT1 DEM MUX" value="CLSH_DSM_OUT" />
         <ctl name="RX_HPH_PWR_MODE" value="LOHIFI" />
         <ctl name="RX HPH Mode" value="CLS_H_LOHIFI" />
+        <ctl name="RX_RX0 Digital Volume" value="74" />
+        <ctl name="RX_RX1 Digital Volume" value="74" />
         <ctl name="RX_COMP1 Switch" value="1" />
         <ctl name="RX_COMP2 Switch" value="1" />
         <ctl name="HPHL_COMP Switch" value="1" />
@@ -2066,8 +2068,8 @@
 
     <path name="voice-headphones">
         <path name="headphones" />
-    <ctl name="RX_RX0 Digital Volume" value="83" />
-    <ctl name="RX_RX1 Digital Volume" value="83" />
+    <ctl name="RX_RX0 Digital Volume" value="81" />
+    <ctl name="RX_RX1 Digital Volume" value="81" />
     </path>
 
     <path name="voice-line">
@@ -2076,7 +2078,7 @@
 
     <path name="voice-headset-mic">
         <path name="headset-mic" />
-        <ctl name="TX_DEC0 Volume" value="73" />
+        <ctl name="TX_DEC0 Volume" value="78" />
     </path>
 
     <path name="speaker-and-headphones">
