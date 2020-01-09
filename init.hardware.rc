@@ -193,6 +193,22 @@ on late-fs
 
     # Required for time_daemon
     mkdir /mnt/vendor/persist/time 0770 system system
+    chown system system /mnt/vendor/persist/time/ats_1
+    chown system system /mnt/vendor/persist/time/ats_2
+    chown system system /mnt/vendor/persist/time/ats_3
+    chown system system /mnt/vendor/persist/time/ats_4
+    chown system system /mnt/vendor/persist/time/ats_5
+    chown system system /mnt/vendor/persist/time/ats_6
+    chown system system /mnt/vendor/persist/time/ats_7
+    chown system system /mnt/vendor/persist/time/ats_8
+    chown system system /mnt/vendor/persist/time/ats_9
+    chown system system /mnt/vendor/persist/time/ats_10
+    chown system system /mnt/vendor/persist/time/ats_11
+    chown system system /mnt/vendor/persist/time/ats_12
+    chown system system /mnt/vendor/persist/time/ats_13
+    chown system system /mnt/vendor/persist/time/ats_14
+    chown system system /mnt/vendor/persist/time/ats_15
+    chown system system /mnt/vendor/persist/time/ats_16
 
     # Start time daemon early so that the system time can be set early
     start time_daemon
