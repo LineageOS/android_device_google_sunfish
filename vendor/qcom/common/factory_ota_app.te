@@ -30,9 +30,5 @@ allow factory_ota_app nfc_service:service_manager find;
 #For get device IMEI
 allow factory_ota_app radio_service:service_manager find;
 
-# b/133124196 For suppress the GPU service seploicy error log which Factory OTA does not need it.
-dontaudit factory_ota_app gpu_service:service_manager find;
-
-# b/146033807 For suppress more GPU and vendor_display_prop sepolicy error log.
+# b/146033807 For suppress GPU error log.
 dontaudit factory_ota_app gpuservice:binder call;
-dontaudit factory_ota_app vendor_display_prop:file read;
