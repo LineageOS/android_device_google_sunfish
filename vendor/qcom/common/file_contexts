@@ -208,6 +208,7 @@
 
 /(vendor|system/vendor)/bin/grep                                    u:object_r:vendor_toolbox_exec:s0
 /(vendor|system/vendor)/bin/awk                                     u:object_r:vendor_toolbox_exec:s0
+/(vendor|system/vendor)/bin/cp                                      u:object_r:vendor_toolbox_exec:s0
 ##################################
 #vendor toolbox
 #
