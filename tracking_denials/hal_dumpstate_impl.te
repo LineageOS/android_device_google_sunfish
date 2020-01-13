@@ -1,6 +1,2 @@
-# b/146847670
-dontaudit hal_dumpstate_impl debugfs_ipc:dir search;
-dontaudit hal_dumpstate_impl sysfs_esim:file read;
-
 # b/146848189
 dontaudit hal_dumpstate_impl display_vendor_data_file:dir search;
