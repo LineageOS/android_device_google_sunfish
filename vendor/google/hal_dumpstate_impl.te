@@ -13,6 +13,11 @@ dontaudit hal_dumpstate_impl proc_bldrlog:file r_file_perms;
 allow hal_dumpstate_impl sysfs_display:dir r_dir_perms;
 allow hal_dumpstate_impl sysfs_display:file r_file_perms;
 
+# Touch sysfs interface
+allow hal_dumpstate_impl sysfs_touch:dir r_dir_perms;
+allow hal_dumpstate_impl sysfs_touch:file rw_file_perms;
+allow hal_dumpstate_impl proc_touch:file rw_file_perms;
+
 # Execute dump scripts from vendor partition
 allow hal_dumpstate_impl vendor_shell_exec:file rx_file_perms;
 allow hal_dumpstate_impl vendor_toolbox_exec:file rx_file_perms;
