@@ -268,6 +268,12 @@ static void DumpTouch(int fd) {
                  "echo 15 00 > %s/stm_fts_cmd && cat %s/stm_fts_cmd",
                  touch_spi_path, touch_spi_path);
         RunCommandToFd(fd, "Self Raw", {"/vendor/bin/sh", "-c", cmd});
+
+	// ITO raw data
+	snprintf(cmd, sizeof(cmd),
+                 "echo 01 > %s/stm_fts_cmd && cat %s/stm_fts_cmd",
+                 touch_spi_path, touch_spi_path);
+        RunCommandToFd(fd, "ITO Raw", {"/vendor/bin/sh", "-c", cmd});
     }
 
     if (!access("/proc/fts/driver_test", R_OK)) {
@@ -302,6 +308,10 @@ static void DumpTouch(int fd) {
         RunCommandToFd(fd, "Self Compensation",
                        {"/vendor/bin/sh", "-c",
                         "echo 33 12 > /proc/fts/driver_test && "
+                        "cat /proc/fts/driver_test"});
+	RunCommandToFd(fd, "Golden MS Raw",
+                       {"/vendor/bin/sh", "-c",
+                        "echo 34 > /proc/fts/driver_test && "
                         "cat /proc/fts/driver_test"});
     }
 }
