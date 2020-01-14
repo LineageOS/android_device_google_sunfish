@@ -1,0 +1,5 @@
+userdebug_or_eng(`
+  # Allow vendor_init to write to /proc/sysrq-trigger on userdebug and eng builds
+  allow vendor_init proc_sysrq:file w_file_perms;
+')
+
