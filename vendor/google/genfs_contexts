@@ -13,7 +13,7 @@ genfscon proc /irq                                    u:object_r:proc_irq:s0
 genfscon sysfs /bus/iio/devices                       u:object_r:sysfs_iio_devices:s0
 
 # Touch
-genfscon sysfs /devices/platform/soc/890000.spi/spi_master/spi1/spi1.0		u:object_r:sysfs_touch:s0
+genfscon sysfs /devices/platform/soc/a84000.i2c/i2c-1/1-0049			u:object_r:sysfs_touch:s0
 genfscon proc  /fts/driver_test                                                 u:object_r:proc_touch:s0
 
 # PowerHal
@@ -73,22 +73,16 @@ genfscon debugfs /google_charger                                                
 genfscon debugfs /google_battery                                                u:object_r:debugfs_batteryinfo:s0
 
 # Pixelstats
-genfscon sysfs /devices/virtual/misc/msm_cirrus_playback/resistance_left_right    u:object_r:sysfs_pixelstats:s0
 genfscon sysfs /devices/platform/soc/soc:google,overheat_mitigation               u:object_r:sysfs_pixelstats:s0
-genfscon sysfs /devices/platform/soc/a8c000.spi/spi_master/spi4/spi4.0/iaxxx-dev/iaxxx_misc/codec_state      u:object_r:sysfs_pixelstats:s0
-genfscon sysfs /devices/platform/soc/a8c000.spi/spi_master/spi4/spi4.0/iaxxx-dev/iaxxx_misc/wdsp_stat        u:object_r:sysfs_pixelstats:s0
-genfscon sysfs /devices/platform/soc/a8c000.spi/spi_master/spi5/spi5.0/iaxxx-dev/iaxxx_misc/codec_state      u:object_r:sysfs_pixelstats:s0
-genfscon sysfs /devices/platform/soc/a8c000.spi/spi_master/spi5/spi5.0/iaxxx-dev/iaxxx_misc/wdsp_stat        u:object_r:sysfs_pixelstats:s0
+
+genfscon sysfs /devices/platform/codec_detect/resistance_left_right    u:object_r:sysfs_pixelstats:s0
+genfscon sysfs /devices/platform/codec_detect/codec_state              u:object_r:sysfs_pixelstats:s0
+genfscon sysfs /devices/platform/codec_detect/wdsp_stat                u:object_r:sysfs_pixelstats:s0
+genfscon sysfs /devices/platform/codec_detect/headset_codec_state      u:object_r:sysfs_pixelstats:s0
+
 
 # Audio Dsp for HardwareInfo
-genfscon sysfs /devices/platform/soc/a8c000.spi/spi_master/spi4/spi4.0/iaxxx-dev/iaxxx_misc/hwinfo_part_number      u:object_r:sysfs_audio:s0
-genfscon sysfs /devices/platform/soc/a8c000.spi/spi_master/spi5/spi5.0/iaxxx-dev/iaxxx_misc/hwinfo_part_number      u:object_r:sysfs_audio:s0
-
-# Knowles framework info
-genfscon sysfs /devices/platform/soc/a8c000.spi/spi_master/spi5/spi5.0/iaxxx/fw_version      u:object_r:sysfs_knowles_info:s0
-genfscon sysfs /devices/platform/soc/a8c000.spi/spi_master/spi5/spi5.0/iaxxx/host_version    u:object_r:sysfs_knowles_info:s0
-genfscon sysfs /devices/platform/soc/a8c000.spi/spi_master/spi5/spi5.0/iaxxx/package_version u:object_r:sysfs_knowles_info:s0
-genfscon sysfs /devices/platform/soc/a8c000.spi/spi_master/spi5/spi5.0/iaxxx/plugin_version  u:object_r:sysfs_knowles_info:s0
+genfscon sysfs /devices/platform/codec_detect/hwinfo_part_number      u:object_r:sysfs_audio:s0
 
 # init_citadel might need to read this
 genfscon sysfs /firmware/devicetree/base/qcom,board-id                     u:object_r:sysfs_msm_boardid:s0
