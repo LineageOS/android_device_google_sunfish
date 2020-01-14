@@ -6,3 +6,7 @@ allow init tmpfs:lnk_file create;
 
 allow init sysfs_scsi_devices_0000:file w_file_perms;
 
+# b/144264879 Thermal mitigation in recovery mode
+recovery_only(`
+  allow init sysfs_thermal:file rw_file_perms;
+')
