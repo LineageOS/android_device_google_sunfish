@@ -288,6 +288,7 @@
         <device name="SND_DEVICE_IN_UNPROCESSED_HEADSET_MIC" backend="headset-mic" interface="TX_CDC_DMA_TX_3"/>
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER_AND_VOICE_HEADPHONES" backend="speaker-and-headphones" interface="SEC_TDM_RX_0-and-RX_CDC_DMA_RX_0"/>
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER_AND_VOICE_ANC_HEADSET" backend="speaker-and-headphones" interface="SEC_TDM_RX_0-and-RX_CDC_DMA_RX_0"/>
+        <device name="SND_DEVICE_IN_VOICE_HEARING_AID" backend="handset-mic" interface="TERT_TDM_TX_0"/>
     </backend_names>
     <!-- below values are for ref purpose to OEM, doesn't contain actual hardware info on MTP -->
     <microphone_characteristics>
