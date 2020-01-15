@@ -477,9 +477,9 @@ PRODUCT_COPY_FILES += \
 # Vibrator HAL
 PRODUCT_PRODUCT_PROPERTIES +=\
     ro.vibrator.hal.config.dynamic=1 \
-    ro.vibrator.hal.click.duration=8 \
-    ro.vibrator.hal.tick.duration=8 \
-    ro.vibrator.hal.heavyclick.duration=8 \
+    ro.vibrator.hal.click.duration=6 \
+    ro.vibrator.hal.tick.duration=6 \
+    ro.vibrator.hal.heavyclick.duration=6 \
     ro.vibrator.hal.long.voltage=161 \
     ro.vibrator.hal.long.frequency.shift=0 \
     ro.vibrator.hal.steady.shape=1
