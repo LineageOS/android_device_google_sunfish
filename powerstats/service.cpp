@@ -46,6 +46,7 @@ using android::hardware::power::stats::V1_0::implementation::PowerStats;
 
 // Pixel specific
 using android::hardware::google::pixel::powerstats::AidlStateResidencyDataProvider;
+using android::hardware::google::pixel::powerstats::generateGenericStateResidencyConfigs;
 using android::hardware::google::pixel::powerstats::GenericStateResidencyDataProvider;
 using android::hardware::google::pixel::powerstats::PowerEntityConfig;
 using android::hardware::google::pixel::powerstats::StateResidencyConfig;
@@ -93,27 +94,25 @@ int main(int /* argc */, char ** /* argv */) {
     service->addStateResidencyDataProvider(rpmSdp);
 
     // Add SoC power entity
-    std::vector<StateResidencyConfig> socStateResidencyConfigs = {
-        {.name = "AOSD",
-         .header = "RPM Mode:aosd",
-         .entryCountSupported = true,
-         .entryCountPrefix = "count:",
-         .totalTimeSupported = true,
-         .totalTimePrefix = "actual last sleep(msec):",
-         .lastEntrySupported = false},
-        {.name = "CXSD",
-         .header = "RPM Mode:cxsd",
-         .entryCountSupported = true,
-         .entryCountPrefix = "count:",
-         .totalTimeSupported = true,
-         .totalTimePrefix = "actual last sleep(msec):",
-         .lastEntrySupported = false}};
+    StateResidencyConfig socStateConfig = {
+        .entryCountSupported = true,
+        .entryCountPrefix = "count:",
+        .totalTimeSupported = true,
+        .totalTimePrefix = "actual last sleep(msec):",
+        .lastEntrySupported = false
+    };
+    std::vector<std::pair<std::string, std::string>> socStateHeaders = {
+        std::make_pair("AOSD", "RPM Mode:aosd"),
+        std::make_pair("CXSD", "RPM Mode:cxsd"),
+        std::make_pair("DDR", "RPM Mode:ddr"),
+    };
 
     sp<GenericStateResidencyDataProvider> socSdp =
         new GenericStateResidencyDataProvider("/sys/power/system_sleep/stats");
 
     uint32_t socId = service->addPowerEntity("SoC", PowerEntityType::POWER_DOMAIN);
-    socSdp->addEntity(socId, PowerEntityConfig(socStateResidencyConfigs));
+    socSdp->addEntity(socId,
+        PowerEntityConfig(generateGenericStateResidencyConfigs(socStateConfig, socStateHeaders)));
 
     service->addStateResidencyDataProvider(socSdp);
 
