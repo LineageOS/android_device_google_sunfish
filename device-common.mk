@@ -90,3 +90,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     misc_writer \
     dmabuf_dump
+
+# Set the default property of tcpdump_logger on userdebug/eng ROM.
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+    PRODUCT_PROPERTY_OVERRIDES += \
+        persist.vendor.tcpdump.log.alwayson=false \
+        persist.vendor.tcpdump.log.br_num=5
+endif
