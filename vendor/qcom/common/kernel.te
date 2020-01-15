@@ -5,6 +5,9 @@ userdebug_or_eng(`
   allow kernel debugfs_ipc:dir search;
 ')
 
+allow kernel debugfs_pmic:dir create_dir_perms;
+allow kernel debugfs_pmic:file create_file_perms;
+
 dontaudit kernel self:qipcrtr_socket create;
 dontaudit kernel debugfs_wlan:dir search;
 dontaudit kernel debugfs_ipc:dir search;
