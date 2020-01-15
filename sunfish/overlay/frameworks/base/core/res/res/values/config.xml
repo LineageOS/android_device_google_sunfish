@@ -170,7 +170,7 @@
 
     <!-- Display cutout configuration -->
     <string translatable="false" name="config_mainBuiltInDisplayCutout">
-      <!-- The holepunch dimensions are this:
+      <!-- The hole punch dimensions are this:
       M 41,83 a 42,42 0 1,0 84,0 a 42,42 0 1,0 -84,0
       but using a radius 43 circle for now to see the antialiasing.
       -->
@@ -187,10 +187,12 @@
         @left
     </string>
 
+    <!-- Radius of the software rounded corners. -->
+    <dimen name="rounded_corner_radius">135px</dimen>
 
     <!-- Height of the status bar -->
-    <dimen name="status_bar_height_portrait">129px</dimen>
+    <dimen name="status_bar_height_portrait">136px</dimen>
     <!-- Height of area above QQS where battery/time go (equal to status bar) -->
-    <dimen name="quick_qs_offset_height">129px</dimen>
+    <dimen name="quick_qs_offset_height">136px</dimen>
 
 </resources>
