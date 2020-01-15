@@ -2406,6 +2406,7 @@
 
     <path name="unprocessed-mic">
         <path name="unprocessed-handset-mic" />
+        <ctl name="ADC1 Capture Volume" id="0" value="30"/>
     </path>
 
     <path name="unprocessed-stereo-mic">
