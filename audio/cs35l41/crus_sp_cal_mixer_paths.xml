@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Copyright (c) 2018-2020, The Linux Foundation. All rights reserved.    -->
+<!--                                                                        -->
+<!-- Redistribution and use in source and binary forms, with or without     -->
+<!-- modification, are permitted provided that the following conditions are -->
+<!-- met:                                                                   -->
+<!--     * Redistributions of source code must retain the above copyright   -->
+<!--       notice, this list of conditions and the following disclaimer.    -->
+<!--     * Redistributions in binary form must reproduce the above          -->
+<!--       copyright notice, this list of conditions and the following      -->
+<!--       disclaimer in the documentation and/or other materials provided  -->
+<!--       with the distribution.                                           -->
+<!--     * Neither the name of The Linux Foundation nor the names of its    -->
+<!--       contributors may be used to endorse or promote products derived  -->
+<!--       from this software without specific prior written permission.    -->
+<!--                                                                        -->
+<!-- THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED           -->
+<!-- WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF   -->
+<!-- MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT -->
+<!-- ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS -->
+<!-- BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR -->
+<!-- CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF   -->
+<!-- SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR        -->
+<!-- BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,  -->
+<!-- OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN -->
+<!-- IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                          -->
+<mixer>
+    <!-- Initial Values -->
+    <!-- Preload Stage -->
+    <ctl name="Main AMP Enable Switch" value="0" />
+    <ctl name="DSP1 Preload Switch" value="0" />
+    <ctl name="R Main AMP Enable Switch" value="0" />
+    <ctl name="R DSP1 Preload Switch" value="0" />
+    <!-- Clock-trigger Stage -->
+    <ctl name="SEC_TDM_RX_0 Audio Mixer MultiMedia1" value="0" />
+
+    <!-- Preparation Stage -->
+    <path name="crus-switch-fw-prepare">
+        <ctl name="DRE DRE Switch" value="1" />
+        <ctl name="VBSTMON Output Switch" value="1" />
+        <ctl name="DSP Booted" value="0" />
+        <ctl name="R DRE DRE Switch" value="1" />
+        <ctl name="R VBSTMON Output Switch" value="1" />
+        <ctl name="R DSP Booted" value="0" />
+
+        <path name="~crus-fw-preload" />
+    </path>
+
+    <!-- Preload Stage -->
+    <path name="crus-fw-preload">
+        <ctl name="DSP1 Preload Switch" value="1" />
+        <ctl name="R DSP1 Preload Switch" value="1" />
+        <ctl name="Main AMP Enable Switch" value="0" />
+        <ctl name="R Main AMP Enable Switch" value="0" />
+    </path>
+
+    <!-- Firmware-switching Stage -->
+    <path name="crus-switch-fw-Calibration">
+        <ctl name="PCM Source" value="DSP" />
+        <ctl name="DSP1 Firmware" value="Calibration" />
+        <ctl name="R PCM Source" value="DSP" />
+        <ctl name="R DSP1 Firmware" value="Calibration" />
+    </path>
+
+    <path name="crus-switch-fw-Diagnostic">
+        <ctl name="PCM Source" value="DSP" />
+        <ctl name="DSP1 Firmware" value="Diagnostic" />
+        <ctl name="R PCM Source" value="DSP" />
+        <ctl name="R DSP1 Firmware" value="Diagnostic" />
+    </path>
+
+    <path name="crus-switch-fw-Protection">
+        <ctl name="PCM Source" value="DSP" />
+        <ctl name="DSP1 Firmware" value="Protection" />
+        <ctl name="R PCM Source" value="DSP" />
+        <ctl name="R DSP1 Firmware" value="Protection" />
+    </path>
+
+    <!-- DSP-initialization Stage -->
+    <path name="crus-dsp-pre-calibration-amp1">
+        <ctl name="DSP1 Calibration cd CAL_AMBIENT" value="25" endian="be" />
+        <ctl name="Main AMP Enable Switch" value="1" />
+    </path>
+
+    <path name="crus-dsp-pre-calibration-amp2">
+        <ctl name="R DSP1 Calibration cd CAL_AMBIENT" value="25" endian="be" />
+        <ctl name="R Main AMP Enable Switch" value="1" />
+    </path>
+
+    <path name="crus-dsp-pre-calibration">
+        <path name="crus-dsp-pre-calibration-amp1" />
+        <path name="crus-dsp-pre-calibration-amp2" />
+    </path>
+
+    <path name="crus-dsp-pre-diagnostic-amp1">
+        <ctl name="DSP1 Diagnostic cd CAL_AMBIENT" value="25" endian="be" />
+        <ctl name="Main AMP Enable Switch" value="1" />
+    </path>
+
+    <path name="crus-dsp-pre-diagnostic-amp2">
+        <ctl name="R DSP1 Diagnostic cd CAL_AMBIENT" value="25" endian="be" />
+        <ctl name="R Main AMP Enable Switch" value="1" />
+    </path>
+
+    <path name="crus-dsp-pre-diagnostic">
+        <path name="crus-dsp-pre-diagnostic-amp1" />
+        <path name="crus-dsp-pre-diagnostic-amp2" />
+    </path>
+
+    <path name="crus-dsp-pre-protection">
+        <ctl name="Main AMP Enable Switch" value="1" />
+        <ctl name="R Main AMP Enable Switch" value="1" />
+    </path>
+
+    <!-- Clock-trigger Stage -->
+    <path name="platform-controls">
+        <ctl name="SEC_TDM_RX_0 Audio Mixer MultiMedia1" value="1" />
+    </path>
+
+    <!-- Post loaded firmware -->
+    <path name="crus-dsp-post-loading-fw">
+        <ctl name="Main AMP Enable Switch" value="0" />
+        <ctl name="R Main AMP Enable Switch" value="0" />
+    </path>
+
+    <!-- Value & Information Fetch Stage -->
+    <path name="platform-values">
+        <ctl name="SEC_TDM_RX_0 Format" />
+        <ctl name="SEC_TDM_TX_0 Format" />
+        <ctl name="SEC_TDM_RX_0 Channels" />
+        <ctl name="SEC_TDM_TX_0 Channels" />
+        <ctl name="SEC_TDM_RX_0 SampleRate" />
+        <ctl name="SEC_TDM_TX_0 SampleRate" />
+        <ctl name="SEC_TDM_RX_0 Audio Mixer MultiMedia1" />
+    </path>
+
+    <path name="cs35l41-values">
+        <ctl name="DRE DRE Switch" />
+        <ctl name="R DRE DRE Switch" />
+        <ctl name="VBSTMON Output Switch" />
+        <ctl name="R VBSTMON Output Switch" />
+        <ctl name="AMP PCM Gain" />
+        <ctl name="R AMP PCM Gain" />
+        <ctl name="Digital PCM Volume" />
+        <ctl name="R Digital PCM Volume" />
+        <ctl name="PCM Source" />
+        <ctl name="R PCM Source" />
+        <ctl name="DSP Booted" />
+        <ctl name="R DSP Booted" />
+        <ctl name="Main AMP Enable Switch" />
+        <ctl name="R Main AMP Enable Switch" />
+        <ctl name="DSP1 Preload Switch" />
+        <ctl name="R DSP1 Preload Switch" />
+        <ctl name="DSP1 Firmware" />
+        <ctl name="R DSP1 Firmware" />
+    </path>
+
+
+    <!-- Note that the order of controls does matter because
+         it should be matched to the structure defined in
+         sp_cal_common.h -->
+    <!--
+        struct calibration_data {
+            unsigned int cal_r;
+            unsigned int cal_status;
+            unsigned int cal_checksum;
+            unsigned int cal_ambient;
+            unsigned int amp_pcm_gain;
+            unsigned int digital_pcm_gain;
+        };
+    -->
+    <path name="cs35l41-dsp-amp1-calibration-values">
+        <ctl name="DSP1 Calibration cd CAL_R" />
+        <ctl name="DSP1 Calibration cd CAL_STATUS" />
+        <ctl name="DSP1 Calibration cd CAL_CHECKSUM" />
+        <ctl name="DSP1 Calibration cd CAL_AMBIENT" />
+        <ctl name="AMP PCM Gain" />
+        <ctl name="Digital PCM Volume" />
+
+        <!-- Only for debug print -->
+        <ctl name="DSP1 Calibration cd CAL_SET_STATUS" />
+    </path>
+
+    <path name="cs35l41-dsp-amp2-calibration-values">
+        <ctl name="R DSP1 Calibration cd CAL_R" />
+        <ctl name="R DSP1 Calibration cd CAL_STATUS" />
+        <ctl name="R DSP1 Calibration cd CAL_CHECKSUM" />
+        <ctl name="R DSP1 Calibration cd CAL_AMBIENT" />
+        <ctl name="R AMP PCM Gain" />
+        <ctl name="R Digital PCM Volume" />
+
+        <!-- Only for debug print -->
+        <ctl name="R DSP1 Calibration cd CAL_SET_STATUS" />
+    </path>
+
+    <!--
+        struct diagnostic_data {
+            struct calibration_data calibration_data;
+            unsigned int z_low_diff;
+            unsigned int diag_f0;
+            unsigned int diag_f0_status;
+        };
+    -->
+    <path name="cs35l41-dsp-amp1-diagnostic-values">
+        <!-- struct calibration_data START -->
+        <ctl name="DSP1 Diagnostic cd CAL_R" />
+        <ctl name="DSP1 Diagnostic cd CAL_STATUS" />
+        <ctl name="DSP1 Diagnostic cd CAL_CHECKSUM" />
+        <ctl name="DSP1 Diagnostic cd CAL_AMBIENT" />
+        <ctl name="AMP PCM Gain" />
+        <ctl name="Digital PCM Volume" />
+        <!-- struct calibration_data END -->
+        <ctl name="DSP1 Diagnostic cd DIAG_Z_LOW_DIFF" />
+        <ctl name="DSP1 Diagnostic cd DIAG_F0" />
+        <ctl name="DSP1 Diagnostic cd DIAG_F0_STATUS" />
+
+        <!-- Only for debug print -->
+        <ctl name="DSP1 Diagnostic cd CAL_SET_STATUS" />
+    </path>
+
+    <path name="cs35l41-dsp-amp2-diagnostic-values">
+        <!-- struct calibration_data START -->
+        <ctl name="R DSP1 Diagnostic cd CAL_R" />
+        <ctl name="R DSP1 Diagnostic cd CAL_STATUS" />
+        <ctl name="R DSP1 Diagnostic cd CAL_CHECKSUM" />
+        <ctl name="R DSP1 Diagnostic cd CAL_AMBIENT" />
+        <ctl name="R AMP PCM Gain" />
+        <ctl name="R Digital PCM Volume" />
+        <!-- struct calibration_data END -->
+        <ctl name="R DSP1 Diagnostic cd DIAG_Z_LOW_DIFF" />
+        <ctl name="R DSP1 Diagnostic cd DIAG_F0" />
+        <ctl name="R DSP1 Diagnostic cd DIAG_F0_STATUS" />
+
+        <!-- Only for debug print -->
+        <ctl name="R DSP1 Diagnostic cd CAL_SET_STATUS" />
+    </path>
+
+    <path name="cs35l41-dsp-amp1-protection-values">
+        <!-- struct calibration_data START -->
+        <ctl name="DSP1 Protection cd CAL_R" />
+        <ctl name="DSP1 Protection cd CAL_STATUS" />
+        <ctl name="DSP1 Protection cd CAL_CHECKSUM" />
+        <ctl name="DSP1 Protection cd CAL_AMBIENT" />
+
+        <!-- These controls are unrelated so we can simply
+             skip them
+        <ctl name="AMP PCM Gain" />
+        <ctl name="Digital PCM Volume" />
+        -->
+        <!-- struct calibration_data END -->
+    </path>
+
+    <path name="cs35l41-dsp-amp2-protection-values">
+        <!-- struct calibration_data START -->
+        <ctl name="R DSP1 Protection cd CAL_R" />
+        <ctl name="R DSP1 Protection cd CAL_STATUS" />
+        <ctl name="R DSP1 Protection cd CAL_CHECKSUM" />
+        <ctl name="R DSP1 Protection cd CAL_AMBIENT" />
+
+        <!-- These controls are unrelated so we can simply
+             skip them
+        <ctl name="R AMP PCM Gain" />
+        <ctl name="R Digital PCM Volume" />
+        -->
+        <!-- struct calibration_data END -->
+    </path>
+
+    <path name="cs35l41-dsp-amp1-calibration-completion">
+        <ctl name="DSP1 Calibration cd CAL_STATUS" />
+    </path>
+
+    <path name="cs35l41-dsp-amp2-calibration-completion">
+        <ctl name="R DSP1 Calibration cd CAL_STATUS" />
+    </path>
+
+    <path name="cs35l41-dsp-amp1-apply-calibration-completion">
+        <ctl name="DSP1 Protection cd CAL_SET_STATUS" />
+    </path>
+
+    <path name="cs35l41-dsp-amp2-apply-calibration-completion">
+        <ctl name="R DSP1 Protection cd CAL_SET_STATUS" />
+    </path>
+
+    <path name="cs35l41-dsp-amp1-diagnostic-completion">
+        <ctl name="DSP1 Diagnostic cd CAL_STATUS" />
+        <ctl name="DSP1 Diagnostic cd DIAG_F0_STATUS" />
+    </path>
+
+    <path name="cs35l41-dsp-amp2-diagnostic-completion">
+        <ctl name="R DSP1 Diagnostic cd CAL_STATUS" />
+        <ctl name="R DSP1 Diagnostic cd DIAG_F0_STATUS" />
+    </path>
+</mixer>
