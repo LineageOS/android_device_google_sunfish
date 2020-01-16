@@ -65,6 +65,7 @@
 /data/vendor/tcpdump_logger(/.*)?                                                     u:object_r:tcpdump_vendor_data_file:s0
 /data/vendor_ce/[0-9]+/ramoops(/.*)?                                                  u:object_r:ramoops_vendor_data_file:s0
 /data/vendor/hal_neuralnetworks_darwinn/hal_camera(/.*)?                              u:object_r:hal_neuralnetworks_darwinn_hal_camera_data_file:s0
+/data/per_boot(/.*)?                                                                  u:object_r:per_boot_file:s0
 
 # dev socket node
 /dev/socket/diag_router                                                               u:object_r:diag_socket:s0
