@@ -76,7 +76,6 @@ PRODUCT_PROPERTY_OVERRIDES += vendor.audio.mic_break=true
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.use_color_management=true
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.has_wide_color_display=true
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.has_HDR_display=true
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.set_idle_timer_ms=50
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.protected_contents=true
 
 # Must align with HAL types Dataspace
@@ -91,3 +90,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     misc_writer \
     dmabuf_dump
+
+# Set the default property of tcpdump_logger on userdebug/eng ROM.
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+    PRODUCT_PROPERTY_OVERRIDES += \
+        persist.vendor.tcpdump.log.alwayson=false \
+        persist.vendor.tcpdump.log.br_num=5
+endif
