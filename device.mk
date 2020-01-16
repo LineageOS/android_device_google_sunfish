@@ -477,6 +477,7 @@ PRODUCT_PRODUCT_PROPERTIES +=\
     ro.vibrator.hal.click.duration=6 \
     ro.vibrator.hal.tick.duration=6 \
     ro.vibrator.hal.heavyclick.duration=6 \
+    ro.vibrator.hal.short.voltage=161 \
     ro.vibrator.hal.long.voltage=161 \
     ro.vibrator.hal.long.frequency.shift=0 \
     ro.vibrator.hal.steady.shape=1
