@@ -59,5 +59,8 @@ allow netmgrd netmgrd_data_file:file create_file_perms;
 
 userdebug_or_eng(`
   allow netmgrd diag_device:chr_file rw_file_perms;
+  #Allow diag logging
+  allow netmgrd sysfs_timestamp_switch:file r_file_perms;
+  r_dir_file(netmgrd, sysfs_diag)
 ')
 allow netmgrd self:netlink_xfrm_socket create_socket_perms_no_ioctl;
