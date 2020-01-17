@@ -154,6 +154,5 @@ type debugfs_ion, debugfs_type, fs_type;
 type debugfs_tzdbg, debugfs_type, fs_type;
 type cnss_vendor_data_file, file_type, data_file_type, mlstrustedobject;
 type modem_fdr_file, file_type, data_file_type;
-type per_boot_file, file_type, data_file_type, core_data_file_type;
 
 allow firmware_file self:filesystem associate;
