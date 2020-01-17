@@ -394,7 +394,6 @@ on boot
     setprop wifi.interface wlan0
 
     chown system system /sys/kernel/hbtp/display_pwr
-    start rmt_storage
     start rfs_access
 
     # default country code
@@ -618,13 +617,6 @@ service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
    class core
    user root
    oneshot
-
-service rmt_storage /vendor/bin/rmt_storage
-    class core
-    user root
-    group system wakelock
-    ioprio rt 0
-    shutdown critical
 
 service tftp_server /vendor/bin/tftp_server
    class core
