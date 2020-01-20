@@ -95,6 +95,12 @@ userdebug_or_eng(`
   set_prop(hal_dumpstate_impl, vendor_tcpdump_log_prop)
 ')
 
+# Access to sensor files
+userdebug_or_eng(`
+  allow hal_dumpstate_impl sensors_vendor_data_file:dir r_dir_perms;
+  allow hal_dumpstate_impl sensors_vendor_data_file:file r_file_perms;
+')
+
 # Access to modem stat
 domain_auto_trans(hal_dumpstate_impl, modem_svc_exec, modem_svc)
 allow hal_dumpstate_impl modem_stat_data_file:file r_file_perms;
@@ -115,6 +121,8 @@ binder_call(hal_dumpstate_impl, citadeld)
 allow hal_dumpstate_impl citadeld_service:service_manager find;
 allow hal_dumpstate_impl citadel_updater_exec:file execute_no_trans;
 
+dontaudit hal_dumpstate_impl sensors_vendor_data_file:dir r_dir_perms;
+dontaudit hal_dumpstate_impl sensors_vendor_data_file:file r_file_perms;
 dontaudit hal_dumpstate_impl modem_dump_file:dir create_dir_perms;
 dontaudit hal_dumpstate_impl modem_dump_file:file create_file_perms;
 dontaudit hal_dumpstate_impl netmgrd_data_file:dir r_dir_perms;
