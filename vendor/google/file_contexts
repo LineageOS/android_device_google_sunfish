@@ -9,6 +9,7 @@
 /dev/iaxxx-module-celldrv                                                             u:object_r:pwrstats_device:s0
 /dev/qg                                                                               u:object_r:qg_device:s0
 /dev/qg_battery                                                                       u:object_r:qg_device:s0
+/dev/block/mapper                                                                     u:object_r:mapper_block_device:s0
 
 # system binaries
 /system/bin/hw/hardware\.google\.pixelstats@1\.0-service                              u:object_r:pixelstats_system_exec:s0
