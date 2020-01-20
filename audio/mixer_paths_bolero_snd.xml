@@ -418,6 +418,7 @@
     <ctl name="TERT TDM TX Channel Offset" id="0" value="0" />
     <ctl name="TERT TDM TX Channel Offset" id="1" value="8" />
     <ctl name="TERT TDM TX Channel Offset" id="2" value="12" />
+    <ctl name="Mic Delay ms" value="85" />
     <!-- ALC5513 config end-->
 
     <!-- CS35L41 config -->
