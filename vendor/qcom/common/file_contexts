@@ -207,6 +207,7 @@
 /vendor/firmware_mnt(/.*)?                                          u:object_r:firmware_file:s0
 
 /(vendor|system/vendor)/bin/grep                                    u:object_r:vendor_toolbox_exec:s0
+/(vendor|system/vendor)/bin/awk                                     u:object_r:vendor_toolbox_exec:s0
 ##################################
 #vendor toolbox
 #
