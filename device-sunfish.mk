@@ -94,3 +94,5 @@ endif
 
 # Fingerprint HIDL
 include device/google/sunfish/fingerprint.mk
+
+PRODUCT_PRODUCT_PROPERTIES += ro.com.google.ime.height_ratio=1.2
