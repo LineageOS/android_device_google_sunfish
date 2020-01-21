@@ -403,10 +403,10 @@
     <ctl name="MultiMedia16 Mixer USB_AUDIO_TX" value="0" />
 
     <!-- ALC5513 config -->
-    <ctl name="Sto1 ADC MIXL DMIC Switch" value="1" />
-    <ctl name="Sto1 ADC MIXR DMIC Switch" value="1" />
-    <ctl name="Sto2 ADC MIXL DMIC Switch" value="1" />
-    <ctl name="Sto2 ADC MIXR DMIC Switch" value="1" />
+    <ctl name="Sto1 ADC MIXL DMIC Switch" value="0" />
+    <ctl name="Sto1 ADC MIXR DMIC Switch" value="0" />
+    <ctl name="Sto2 ADC MIXL DMIC Switch" value="0" />
+    <ctl name="Sto2 ADC MIXR DMIC Switch" value="0" />
     <ctl name="Stereo1 DMIC Mux" value="DMIC1" />
     <ctl name="Stereo2 DMIC Mux" value="DMIC2" />
     <ctl name="ADC1 Capture Volume" id="0" value="23"/>
@@ -418,6 +418,7 @@
     <ctl name="TERT TDM TX Channel Offset" id="0" value="0" />
     <ctl name="TERT TDM TX Channel Offset" id="1" value="8" />
     <ctl name="TERT TDM TX Channel Offset" id="2" value="12" />
+    <ctl name="Mic Delay ms" value="85" />
     <!-- ALC5513 config end-->
 
     <!-- CS35L41 config -->
@@ -1947,24 +1948,21 @@
         <ctl name="ADC1 Capture Volume" id="0" value="23"/>
         <ctl name="TERT_TDM_TX_0 Channels" value="One"/>
         <ctl name="Stereo1 DMIC Mux" value="DMIC1" />
+        <ctl name="Sto1 ADC MIXL DMIC Switch" value="1" />
     </path>
 
     <path name="1st-mic-only">
         <ctl name="TERT TDM TX Channel Offset" id="0" value="0" />
         <ctl name="ADC1 Capture Volume" id="0" value="60"/>
         <ctl name="MultiMedia1 Mixer TERT_TDM_TX_0" value="1" />
+        <ctl name="Sto1 ADC MIXL DMIC Switch" value="1" />
     </path>
 
     <path name="2nd-mic-only">
         <ctl name="TERT TDM TX Channel Offset" id="0" value="8" />
         <ctl name="ADC2 Capture Volume" id="0" value="60"/>
         <ctl name="MultiMedia1 Mixer TERT_TDM_TX_0" value="1" />
-    </path>
-
-    <path name="3rd-mic-only">
-        <ctl name="TERT TDM TX Channel Offset" id="0" value="12" />
-        <ctl name="ADC2 Capture Volume" id="1" value="60"/>
-        <ctl name="MultiMedia1 Mixer TERT_TDM_TX_0" value="1" />
+        <ctl name="Sto2 ADC MIXL DMIC Switch" value="1" />
     </path>
 
     <path name="headphones">
@@ -2133,6 +2131,8 @@
         <ctl name="TERT TDM TX Channel Offset" id="1" value="0" />
         <ctl name="TERT_TDM_TX_0 Channels" value="Two"/>
         <ctl name="TERT_TDM_TX_0 Format" value="S24_LE" />
+        <ctl name="Sto1 ADC MIXL DMIC Switch" value="1" />
+        <ctl name="Sto2 ADC MIXL DMIC Switch" value="1" />
         <ctl name="Stereo1 DMIC Mux" value="DMIC1" />
         <ctl name="Stereo2 DMIC Mux" value="DMIC2" />
     </path>
@@ -2211,6 +2211,8 @@
         <ctl name="TERT TDM TX Channel Offset" id="0" value="8" />
         <ctl name="TERT TDM TX Channel Offset" id="1" value="0" />
         <ctl name="TERT_TDM_TX_0 Channels" value="Two"/>
+        <ctl name="Sto1 ADC MIXL DMIC Switch" value="1" />
+        <ctl name="Sto2 ADC MIXL DMIC Switch" value="1" />
     </path>
 
     <path name="dmic-endfire-liquid">
@@ -2298,6 +2300,9 @@
     <!-- Tri MIC devices -->
     <path name="three-mic">
         <ctl name="TERT_TDM_TX_0 Channels" value="Three"/>
+        <ctl name="Sto1 ADC MIXL DMIC Switch" value="1" />
+        <ctl name="Sto2 ADC MIXL DMIC Switch" value="1" />
+        <ctl name="Sto2 ADC MIXR DMIC Switch" value="1" />
     </path>
 
     <path name="speaker-tmic">

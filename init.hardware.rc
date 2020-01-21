@@ -185,7 +185,7 @@ on late-fs
     start vendor.light-1-0
 
     # Wait for keymaster HALs (TEE and StrongBox)
-    #exec_start wait_for_strongbox
+    exec_start wait_for_strongbox
 
 
     # Mount RW partitions which need run fsck
