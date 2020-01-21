@@ -31,6 +31,7 @@ type sysfs_contaminant, sysfs_type, fs_type;
 type hal_neuralnetworks_darwinn_hal_camera_data_file, file_type, data_file_type;
 type sysfs_knowles_info, fs_type, sysfs_type;
 type sysfs_fingerprint, sysfs_type, fs_type;
+type mapper_block_device, dev_type;
 
 # Dumpstates bootloader logs
 type proc_bldrlog, fs_type, proc_type;
