@@ -38,6 +38,7 @@ DEVICE_USES_SM8150_QCRIL_TELEPHONY := true
 ifeq ($(DEVICE_USES_SM8150_QCRIL_TELEPHONY), true)
   PRODUCT_SOONG_NAMESPACES += \
       vendor/qcom/sm8150/codeaurora/telephony/ims \
+      vendor/qcom/sm8150/proprietary/data/permissions \
       vendor/qcom/sm8150/proprietary/qcril-data-hal/qdp \
       vendor/qcom/sm8150/proprietary/qcril-data-hal/util \
       vendor/qcom/sm8150/proprietary/qcril-data-hal/datamodule \
