@@ -19,7 +19,7 @@
 # vendor binaries
 /vendor/bin/hw/android\.hardware\.atrace@1\.0-service.pixel                           u:object_r:hal_atrace_default_exec:s0
 /vendor/bin/hw/android\.hardware\.authsecret@1\.0-service\.citadel                    u:object_r:hal_authsecret_citadel_exec:s0
-/vendor/bin/hw/android\.hardware\.camera\.provider@2\.4-service-google                u:object_r:hal_camera_default_exec:s0
+/vendor/bin/hw/android\.hardware\.camera\.provider@2\.6-service-google                u:object_r:hal_camera_default_exec:s0
 /vendor/bin/hw/android\.hardware\.health@2\.0-service\.sunfish                        u:object_r:hal_health_default_exec:s0
 /vendor/bin/hw/android\.hardware\.dumpstate@1\.0-service\.sunfish                     u:object_r:hal_dumpstate_impl_exec:s0
 /vendor/bin/hw/android\.hardware\.keymaster@4\.0-service\.citadel                     u:object_r:hal_keymaster_citadel_exec:s0
