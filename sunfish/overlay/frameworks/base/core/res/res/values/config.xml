@@ -174,25 +174,27 @@
       M 41,83 a 42,42 0 1,0 84,0 a 42,42 0 1,0 -84,0
       but using a radius 43 circle for now to see the antialiasing.
       -->
-        M40,83a43,43 0 1,0 86,0a43,43 0 1,0 -86,0
+        M 128,83 A 44,44 0 0 1 84,127 44,44 0 0 1 40,83 44,44 0 0 1 84,39 44,44 0 0 1 128,83 Z
         @left
     </string>
 
     <string translatable="false" name="config_mainBuiltInDisplayCutoutRectApproximation">
         M 0.0,0.0
-        h 129
-        v 129
-        h -129
+        h 136
+        v 136
+        h -136
         Z
         @left
     </string>
 
     <!-- Radius of the software rounded corners. -->
-    <dimen name="rounded_corner_radius">135px</dimen>
+    <dimen name="rounded_corner_radius">136px</dimen>
 
     <!-- Height of the status bar -->
     <dimen name="status_bar_height_portrait">136px</dimen>
     <!-- Height of area above QQS where battery/time go (equal to status bar) -->
     <dimen name="quick_qs_offset_height">136px</dimen>
+    <!-- Total height of QQS (quick_qs_offset_height + 128) -->
+    <dimen name="quick_qs_total_height">488px</dimen>
 
 </resources>
