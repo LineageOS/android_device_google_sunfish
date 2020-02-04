@@ -38,6 +38,7 @@ DEVICE_USES_SM8150_QCRIL_TELEPHONY := true
 ifeq ($(DEVICE_USES_SM8150_QCRIL_TELEPHONY), true)
   PRODUCT_SOONG_NAMESPACES += \
       vendor/qcom/sm8150/codeaurora/telephony/ims \
+      vendor/qcom/sm8150/proprietary/data/permissions \
       vendor/qcom/sm8150/proprietary/qcril-data-hal/qdp \
       vendor/qcom/sm8150/proprietary/qcril-data-hal/util \
       vendor/qcom/sm8150/proprietary/qcril-data-hal/datamodule \
@@ -67,6 +68,10 @@ PRODUCT_COPY_FILES += \
     device/google/sunfish/default-permissions.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/default-permissions/default-permissions.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml \
     frameworks/native/data/etc/android.software.verified_boot.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.software.verified_boot.xml
+
+# Enforce privapp-permissions whitelist
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.control_privapp_permissions=enforce
 
 PRODUCT_PACKAGES += \
     messaging
@@ -825,10 +830,6 @@ PRODUCT_PACKAGES += \
 # Recovery
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.recovery.device.rc:recovery/root/init.recovery.sunfish.rc
-
-# Do not skip init trigger by default
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    vendor.skip.init=0
 
 # Setup Wizard gesture settings
 PRODUCT_PRODUCT_PROPERTIES += \
