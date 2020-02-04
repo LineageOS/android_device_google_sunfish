@@ -37,6 +37,7 @@ DEVICE_USES_SM8150_QCRIL_TELEPHONY := true
 ifeq ($(DEVICE_USES_SM8150_QCRIL_TELEPHONY), true)
   PRODUCT_SOONG_NAMESPACES += \
       vendor/qcom/sm8150/codeaurora/telephony/ims \
+      vendor/qcom/sm8150/proprietary/data/permissions \
       vendor/qcom/sm8150/proprietary/qcril-data-hal/qdp \
       vendor/qcom/sm8150/proprietary/qcril-data-hal/util \
       vendor/qcom/sm8150/proprietary/qcril-data-hal/datamodule \
@@ -67,6 +68,10 @@ PRODUCT_COPY_FILES += \
     device/google/sunfish/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml \
     frameworks/native/data/etc/android.software.verified_boot.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.software.verified_boot.xml
+
+# Enforce privapp-permissions whitelist
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.control_privapp_permissions=enforce
 
 PRODUCT_PACKAGES += \
     messaging
@@ -428,8 +433,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.qc2.venc.avgqp.enable=1
 
 PRODUCT_PACKAGES += \
-    android.hardware.camera.provider@2.4-impl-google \
-    android.hardware.camera.provider@2.4-service-google \
+    android.hardware.camera.provider@2.6-impl-google \
+    android.hardware.camera.provider@2.6-service-google \
     camera.sm6150 \
     libgooglecamerahwl_impl \
     libqomx_core \

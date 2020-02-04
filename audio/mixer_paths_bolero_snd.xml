@@ -2814,8 +2814,6 @@
 
     <!-- cs35l41 specific path to load firmware in cs35l41-playback.c -->
     <path name="cs35l41-load-protection-firmware-start">
-        <ctl name="CCM Reset" value="1" />
-        <ctl name="R CCM Reset" value="1" />
         <ctl name="DSP Booted" value="0" />
         <ctl name="R DSP Booted" value="0" />
         <ctl name="DSP1 Preload Switch" value="0" />
@@ -2825,8 +2823,6 @@
     <path name="cs35l41-load-protection-firmware-end">
         <ctl name="DSP1 Preload Switch" value="1" />
         <ctl name="R DSP1 Preload Switch" value="1" />
-        <ctl name="DSP Booted" value="1" />
-        <ctl name="R DSP Booted" value="1" />
     </path>
     <!-- cs35l41 specific path to load firmware in cs35l41-playback.c end-->
 </mixer>
