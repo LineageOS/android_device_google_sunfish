@@ -17,4 +17,6 @@ allow qtidataservices_app sysfs_soc:dir search;
 allow qtidataservices_app sysfs_soc:file r_file_perms;
 allow qtidataservices_app sysfs_ssr:file r_file_perms;
 
+get_prop(qtidataservices_app, vendor_default_prop)
+
 binder_call(qtidataservices_app, cnd)
