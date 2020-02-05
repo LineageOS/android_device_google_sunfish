@@ -343,6 +343,7 @@ on early-boot
     chown system system /sys/class/leds/vibrator/device/autocal
     chown system system /sys/class/leds/vibrator/device/lp_trigger_effect
     chown system system /sys/class/leds/vibrator/device/lra_wave_shape
+    write /sys/class/leds/vibrator/trigger transient
 
     # Permission for Rainbow sensor
     chown system system /sys/devices/platform/soc/ac4b000.qcom,cci/ac4b000.qcom,cci:st,rainbow@20/rainbow_enable
