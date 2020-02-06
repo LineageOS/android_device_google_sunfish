@@ -15,6 +15,7 @@
  */
 
 #include "Vibrator.h"
+#include "utils.h"
 
 #include <cutils/properties.h>
 #include <hardware/hardware.h>
@@ -27,13 +28,10 @@
 #include <fstream>
 #include <iostream>
 
-#include "utils.h"
-
+namespace aidl {
 namespace android {
 namespace hardware {
 namespace vibrator {
-namespace V1_3 {
-namespace implementation {
 
 static constexpr int8_t MAX_RTP_INPUT = 127;
 static constexpr int8_t MIN_RTP_INPUT = 0;
@@ -175,9 +173,6 @@ static float targetGToVlevelsUnderCubicEquation(std::array<float, 4> inputCoeffs
 
 using utils::toUnderlying;
 
-using Status = ::android::hardware::vibrator::V1_0::Status;
-using EffectStrength = ::android::hardware::vibrator::V1_0::EffectStrength;
-
 Vibrator::Vibrator(std::unique_ptr<HwApi> hwapi, std::unique_ptr<HwCal> hwcal)
     : mHwApi(std::move(hwapi)), mHwCal(std::move(hwcal)) {
     std::string autocal;
@@ -278,9 +273,19 @@ Vibrator::Vibrator(std::unique_ptr<HwApi> hwapi, std::unique_ptr<HwCal> hwcal)
     }
 }
 
-Return<Status> Vibrator::on(uint32_t timeoutMs, const char mode[],
-                            const std::unique_ptr<VibrationConfig> &config,
-                            const int8_t volOffset) {
+ndk::ScopedAStatus Vibrator::getCapabilities(int32_t *_aidl_return) {
+    ATRACE_NAME("Vibrator::getCapabilities");
+    int32_t ret = 0;
+    if (mHwApi->hasRtpInput()) {
+        ret |= IVibrator::CAP_AMPLITUDE_CONTROL;
+    }
+    *_aidl_return = ret;
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus Vibrator::on(uint32_t timeoutMs, const char mode[],
+                                const std::unique_ptr<VibrationConfig> &config,
+                                const int8_t volOffset) {
     LoopControl loopMode = LoopControl::OPEN;
 
     // Open-loop mode is used for short click for over-drive
@@ -292,7 +297,7 @@ Return<Status> Vibrator::on(uint32_t timeoutMs, const char mode[],
     mHwApi->setCtrlLoop(toUnderlying(loopMode));
     if (!mHwApi->setDuration(timeoutMs)) {
         ALOGE("Failed to set duration (%d): %s", errno, strerror(errno));
-        return Status::UNKNOWN_ERROR;
+        return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
     }
 
     mHwApi->setMode(mode);
@@ -304,15 +309,18 @@ Return<Status> Vibrator::on(uint32_t timeoutMs, const char mode[],
 
     if (!mHwApi->setActivate(1)) {
         ALOGE("Failed to activate (%d): %s", errno, strerror(errno));
-        return Status::UNKNOWN_ERROR;
+        return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
     }
 
-    return Status::OK;
+    return ndk::ScopedAStatus::ok();
 }
 
-// Methods from ::android::hardware::vibrator::V1_2::IVibrator follow.
-Return<Status> Vibrator::on(uint32_t timeoutMs) {
+ndk::ScopedAStatus Vibrator::on(int32_t timeoutMs,
+                                const std::shared_ptr<IVibratorCallback> &callback) {
     ATRACE_NAME("Vibrator::on");
+    if (callback) {
+        return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+    }
     if (mDynamicConfig) {
         int usbTemp = 0;
         mHwApi->getUsbTemp(&usbTemp);
@@ -328,62 +336,47 @@ Return<Status> Vibrator::on(uint32_t timeoutMs) {
     return on(timeoutMs, RTP_MODE, mSteadyConfig, 0);
 }
 
-Return<Status> Vibrator::off() {
+ndk::ScopedAStatus Vibrator::off() {
     ATRACE_NAME("Vibrator::off");
     if (!mHwApi->setActivate(0)) {
         ALOGE("Failed to turn vibrator off (%d): %s", errno, strerror(errno));
-        return Status::UNKNOWN_ERROR;
+        return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
     }
-    return Status::OK;
+    return ndk::ScopedAStatus::ok();
 }
 
-Return<bool> Vibrator::supportsAmplitudeControl() {
-    ATRACE_NAME("Vibrator::supportsAmplitudeControl");
-    return (mHwApi->hasRtpInput() ? true : false);
-}
-
-Return<Status> Vibrator::setAmplitude(uint8_t amplitude) {
+ndk::ScopedAStatus Vibrator::setAmplitude(float amplitude) {
     ATRACE_NAME("Vibrator::setAmplitude");
-    if (amplitude == 0) {
-        return Status::BAD_VALUE;
+    if (amplitude <= 0.0f || amplitude > 1.0f) {
+        return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
     }
 
-    int32_t rtp_input =
-        std::round((amplitude - 1) / 254.0 * (MAX_RTP_INPUT - MIN_RTP_INPUT) + MIN_RTP_INPUT);
+    int32_t rtp_input = std::round(amplitude * (MAX_RTP_INPUT - MIN_RTP_INPUT) + MIN_RTP_INPUT);
 
     if (!mHwApi->setRtpInput(rtp_input)) {
         ALOGE("Failed to set amplitude (%d): %s", errno, strerror(errno));
-        return Status::UNKNOWN_ERROR;
+        return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
     }
 
-    return Status::OK;
+    return ndk::ScopedAStatus::ok();
 }
 
-// Methods from ::android::hardware::vibrator::V1_3::IVibrator follow.
-
-Return<bool> Vibrator::supportsExternalControl() {
-    ATRACE_NAME("Vibrator::supportsExternalControl");
-    return false;
-}
-
-Return<Status> Vibrator::setExternalControl(bool enabled) {
+ndk::ScopedAStatus Vibrator::setExternalControl(bool enabled) {
     ATRACE_NAME("Vibrator::setExternalControl");
     ALOGE("Not support in DRV2624 solution, %d", enabled);
-    return Status::UNSUPPORTED_OPERATION;
+    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
 }
 
-// Methods from ::android.hidl.base::V1_0::IBase follow.
-
-Return<void> Vibrator::debug(const hidl_handle &handle,
-                             const hidl_vec<hidl_string> & /* options */) {
-    if (handle == nullptr || handle->numFds < 1 || handle->data[0] < 0) {
+binder_status_t Vibrator::dump(int fd, const char **args, uint32_t numArgs) {
+    if (fd < 0) {
         ALOGE("Called debug() with invalid fd.");
-        return Void();
+        return STATUS_OK;
     }
 
-    int fd = handle->data[0];
+    (void)args;
+    (void)numArgs;
 
-    dprintf(fd, "HIDL:\n");
+    dprintf(fd, "AIDL:\n");
 
     dprintf(fd, "  Close Loop Thresh: %" PRIu32 "\n", mCloseLoopThreshold);
     if (mSteadyConfig) {
@@ -413,46 +406,38 @@ Return<void> Vibrator::debug(const hidl_handle &handle,
     mHwCal->debug(fd);
 
     fsync(fd);
-    return Void();
+    return STATUS_OK;
 }
 
-Return<void> Vibrator::perform(V1_0::Effect effect, EffectStrength strength, perform_cb _hidl_cb) {
-    return performWrapper(effect, strength, _hidl_cb);
+ndk::ScopedAStatus Vibrator::getSupportedEffects(std::vector<Effect> *_aidl_return) {
+    *_aidl_return = {Effect::TEXTURE_TICK, Effect::TICK, Effect::CLICK, Effect::HEAVY_CLICK,
+                     Effect::DOUBLE_CLICK};
+    return ndk::ScopedAStatus::ok();
 }
 
-Return<void> Vibrator::perform_1_1(V1_1::Effect_1_1 effect, EffectStrength strength,
-                                   perform_cb _hidl_cb) {
-    return performWrapper(effect, strength, _hidl_cb);
-}
+ndk::ScopedAStatus Vibrator::perform(Effect effect, EffectStrength strength,
+                                     const std::shared_ptr<IVibratorCallback> &callback,
+                                     int32_t *_aidl_return) {
+    ATRACE_NAME("Vibrator::perform");
+    ndk::ScopedAStatus status;
 
-Return<void> Vibrator::perform_1_2(V1_2::Effect effect, EffectStrength strength,
-                                   perform_cb _hidl_cb) {
-    return performWrapper(effect, strength, _hidl_cb);
-}
-
-Return<void> Vibrator::perform_1_3(Effect effect, EffectStrength strength, perform_cb _hidl_cb) {
-    return performWrapper(effect, strength, _hidl_cb);
-}
-
-template <typename T>
-Return<void> Vibrator::performWrapper(T effect, EffectStrength strength, perform_cb _hidl_cb) {
-    ATRACE_NAME("Vibrator::performWrapper");
-    auto validEffectRange = hidl_enum_range<T>();
-    if (effect < *validEffectRange.begin() || effect > *std::prev(validEffectRange.end())) {
-        _hidl_cb(Status::UNSUPPORTED_OPERATION, 0);
-        return Void();
+    if (callback) {
+        status = ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+    } else {
+        status = performEffect(effect, strength, _aidl_return);
     }
-    auto validStrengthRange = hidl_enum_range<EffectStrength>();
-    if (strength < *validStrengthRange.begin() || strength > *std::prev(validStrengthRange.end())) {
-        _hidl_cb(Status::UNSUPPORTED_OPERATION, 0);
-        return Void();
+
+    if (!status.isOk()) {
+        *_aidl_return = 0;
     }
-    return performEffect(static_cast<Effect>(effect), strength, _hidl_cb);
+
+    return status;
 }
 
-Return<void> Vibrator::performEffect(Effect effect, EffectStrength strength, perform_cb _hidl_cb) {
-    Status status = Status::OK;
-    uint32_t timeMS;
+ndk::ScopedAStatus Vibrator::performEffect(Effect effect, EffectStrength strength,
+                                           int32_t *outTimeMs) {
+    ndk::ScopedAStatus status;
+    uint32_t timeMS = 0;
     int8_t volOffset;
 
     switch (strength) {
@@ -466,8 +451,7 @@ Return<void> Vibrator::performEffect(Effect effect, EffectStrength strength, per
             volOffset = 1;
             break;
         default:
-            status = Status::UNSUPPORTED_OPERATION;
-            break;
+            return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
     }
 
     switch (effect) {
@@ -497,16 +481,54 @@ Return<void> Vibrator::performEffect(Effect effect, EffectStrength strength, per
             volOffset += HEAVY_CLICK;
             break;
         default:
-            _hidl_cb(Status::UNSUPPORTED_OPERATION, 0);
-            return Void();
+            return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
     }
-    on(timeMS, WAVEFORM_MODE, mEffectConfig, volOffset);
-    _hidl_cb(status, timeMS);
-    return Void();
+    status = on(timeMS, WAVEFORM_MODE, mEffectConfig, volOffset);
+    if (!status.isOk()) {
+        return status;
+    }
+
+    *outTimeMs = timeMS;
+
+    return ndk::ScopedAStatus::ok();
 }
 
-}  // namespace implementation
-}  // namespace V1_3
+ndk::ScopedAStatus Vibrator::getSupportedAlwaysOnEffects(std::vector<Effect> * /*_aidl_return*/) {
+    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+}
+
+ndk::ScopedAStatus Vibrator::alwaysOnEnable(int32_t /*id*/, Effect /*effect*/,
+                                            EffectStrength /*strength*/) {
+    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+}
+ndk::ScopedAStatus Vibrator::alwaysOnDisable(int32_t /*id*/) {
+    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+}
+
+ndk::ScopedAStatus Vibrator::getCompositionDelayMax(int32_t * /*maxDelayMs*/) {
+    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+}
+
+ndk::ScopedAStatus Vibrator::getCompositionSizeMax(int32_t * /*maxSize*/) {
+    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+}
+
+ndk::ScopedAStatus Vibrator::getSupportedPrimitives(
+        std::vector<CompositePrimitive> * /*supported*/) {
+    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+}
+
+ndk::ScopedAStatus Vibrator::getPrimitiveDuration(CompositePrimitive /*primitive*/,
+                                                  int32_t * /*durationMs*/) {
+    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+}
+
+ndk::ScopedAStatus Vibrator::compose(const std::vector<CompositeEffect> & /*composite*/,
+                                     const std::shared_ptr<IVibratorCallback> & /*callback*/) {
+    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+}
+
 }  // namespace vibrator
 }  // namespace hardware
 }  // namespace android
+}  // namespace aidl

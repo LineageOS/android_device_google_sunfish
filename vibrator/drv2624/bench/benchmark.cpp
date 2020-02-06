@@ -21,18 +21,12 @@
 #include "Hardware.h"
 #include "Vibrator.h"
 
-using ::android::sp;
-using ::android::hardware::hidl_enum_range;
-
+namespace aidl {
 namespace android {
 namespace hardware {
 namespace vibrator {
-namespace V1_3 {
-namespace implementation {
 
 using ::android::base::SetProperty;
-using ::android::hardware::vibrator::V1_0::EffectStrength;
-using ::android::hardware::vibrator::V1_0::Status;
 
 class VibratorBench : public benchmark::Fixture {
   private:
@@ -71,7 +65,7 @@ class VibratorBench : public benchmark::Fixture {
 
         SetProperty(std::string() + PROPERTY_PREFIX + "config.dynamic", getDynamicConfig(state));
 
-        mVibrator = new Vibrator(HwApi::Create(), std::make_unique<HwCal>());
+        mVibrator = ndk::SharedRefBase::make<Vibrator>(HwApi::Create(), std::make_unique<HwCal>());
     }
 
     static void DefaultConfig(benchmark::internal::Benchmark *b) {
@@ -95,7 +89,7 @@ class VibratorBench : public benchmark::Fixture {
 
   protected:
     TemporaryDir mFilesDir;
-    sp<IVibrator> mVibrator;
+    std::shared_ptr<IVibrator> mVibrator;
 };
 
 #define BENCHMARK_WRAPPER(fixt, test, code)                           \
@@ -109,7 +103,7 @@ BENCHMARK_WRAPPER(VibratorBench, on, {
     uint32_t duration = std::rand() ?: 1;
 
     for (auto _ : state) {
-        mVibrator->on(duration);
+        mVibrator->on(duration, nullptr);
     }
 });
 
@@ -119,23 +113,11 @@ BENCHMARK_WRAPPER(VibratorBench, off, {
     }
 });
 
-BENCHMARK_WRAPPER(VibratorBench, supportsAmplitudeControl, {
-    for (auto _ : state) {
-        mVibrator->supportsAmplitudeControl();
-    }
-});
-
 BENCHMARK_WRAPPER(VibratorBench, setAmplitude, {
     uint8_t amplitude = std::rand() ?: 1;
 
     for (auto _ : state) {
         mVibrator->setAmplitude(amplitude);
-    }
-});
-
-BENCHMARK_WRAPPER(VibratorBench, supportsExternalControl, {
-    for (auto _ : state) {
-        mVibrator->supportsExternalControl();
     }
 });
 
@@ -151,13 +133,21 @@ BENCHMARK_WRAPPER(VibratorBench, setExternalControl_disable, {
     }
 });
 
+BENCHMARK_WRAPPER(VibratorBench, getCapabilities, {
+    int32_t capabilities;
+
+    for (auto _ : state) {
+        mVibrator->getCapabilities(&capabilities);
+    }
+});
+
 class VibratorEffectsBench : public VibratorBench {
   public:
     static void DefaultArgs(benchmark::internal::Benchmark *b) {
         b->ArgNames({"DynamicConfig", "Effect", "Strength"});
         for (const auto &dynamic : {false, true}) {
-            for (const auto &effect : hidl_enum_range<Effect>()) {
-                for (const auto &strength : hidl_enum_range<EffectStrength>()) {
+            for (const auto &effect : ndk::enum_range<Effect>()) {
+                for (const auto &strength : ndk::enum_range<EffectStrength>()) {
                     b->Args({dynamic, static_cast<long>(effect), static_cast<long>(strength)});
                 }
             }
@@ -174,30 +164,25 @@ class VibratorEffectsBench : public VibratorBench {
     }
 };
 
-BENCHMARK_WRAPPER(VibratorEffectsBench, perform_1_3, {
+BENCHMARK_WRAPPER(VibratorEffectsBench, perform, {
     Effect effect = getEffect(state);
     EffectStrength strength = getStrength(state);
-    bool supported = true;
+    int32_t lengthMs;
 
-    mVibrator->perform_1_3(effect, strength, [&](Status status, uint32_t /*lengthMs*/) {
-        if (status == Status::UNSUPPORTED_OPERATION) {
-            supported = false;
-        }
-    });
+    ndk::ScopedAStatus status = mVibrator->perform(effect, strength, nullptr, &lengthMs);
 
-    if (!supported) {
+    if (status.getExceptionCode() == EX_UNSUPPORTED_OPERATION) {
         return;
     }
 
     for (auto _ : state) {
-        mVibrator->perform_1_3(effect, strength, [](Status /*status*/, uint32_t /*lengthMs*/) {});
+        mVibrator->perform(effect, strength, nullptr, &lengthMs);
     }
 });
 
-}  // namespace implementation
-}  // namespace V1_3
 }  // namespace vibrator
 }  // namespace hardware
 }  // namespace android
+}  // namespace aidl
 
 BENCHMARK_MAIN();

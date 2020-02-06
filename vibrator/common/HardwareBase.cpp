@@ -24,11 +24,10 @@
 
 #include "utils.h"
 
+namespace aidl {
 namespace android {
 namespace hardware {
 namespace vibrator {
-namespace common {
-namespace implementation {
 
 HwApiBase::HwApiBase() {
     mPathPrefix = std::getenv("HWAPI_PATH_PREFIX") ?: "";
@@ -127,8 +126,7 @@ void HwCalBase::debug(int fd) {
     }
 }
 
-}  // namespace implementation
-}  // namespace common
 }  // namespace vibrator
 }  // namespace hardware
 }  // namespace android
+}  // namespace aidl

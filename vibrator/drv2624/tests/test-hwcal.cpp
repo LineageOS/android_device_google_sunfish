@@ -22,11 +22,10 @@
 
 #include "Hardware.h"
 
+namespace aidl {
 namespace android {
 namespace hardware {
 namespace vibrator {
-namespace V1_3 {
-namespace implementation {
 
 using ::android::base::SetProperty;
 using ::android::base::WaitForProperty;
@@ -389,8 +388,7 @@ TEST_F(HwCalTest, trimming) {
     EXPECT_EQ(lraPeriodExpect, lraPeriodActual);
 }
 
-}  // namespace implementation
-}  // namespace V1_3
 }  // namespace vibrator
 }  // namespace hardware
 }  // namespace android
+}  // namespace aidl

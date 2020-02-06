@@ -13,15 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#ifndef ANDROID_HARDWARE_VIBRATOR_UTILS_H
-#define ANDROID_HARDWARE_VIBRATOR_UTILS_H
+#pragma once
+
+#include <fstream>
+#include <map>
+#include <sstream>
 
 #include <android-base/macros.h>
 #include <android-base/properties.h>
 #include <log/log.h>
 
-#include <fstream>
-
+namespace aidl {
 namespace android {
 namespace hardware {
 namespace vibrator {
@@ -83,17 +85,17 @@ inline void unpack<std::string>(std::istream &stream, std::string *value) {
 
 template <typename T>
 inline Enable_If_Signed<T, T> getProperty(const std::string &key, const T def) {
-    return base::GetIntProperty(key, def);
+    return ::android::base::GetIntProperty(key, def);
 }
 
 template <typename T>
 inline Enable_If_Unsigned<T, T> getProperty(const std::string &key, const T def) {
-    return base::GetUintProperty(key, def);
+    return ::android::base::GetUintProperty(key, def);
 }
 
 template <>
 inline bool getProperty<bool>(const std::string &key, const bool def) {
-    return base::GetBoolProperty(key, def);
+    return ::android::base::GetBoolProperty(key, def);
 }
 
 template <typename T>
@@ -158,5 +160,4 @@ static ATTRIBUTE_UNUSED std::string trim(const std::string &str,
 }  // namespace vibrator
 }  // namespace hardware
 }  // namespace android
-
-#endif  // ANDROID_HARDWARE_VIBRATOR_UTILS_H
+}  // namespace aidl

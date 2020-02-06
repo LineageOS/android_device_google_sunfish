@@ -21,7 +21,7 @@
 #include "types.h"
 
 static inline int32_t amplitudeToRtpInput(EffectAmplitude amplitude) {
-    return std::round((amplitude - 1) / 254.0 * 127);
+    return std::round(amplitude * 127);
 }
 
 #endif  // ANDROID_HARDWARE_VIBRATOR_TEST_UTILS_H
