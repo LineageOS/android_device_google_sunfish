@@ -13,8 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#ifndef ANDROID_HARDWARE_VIBRATOR_HARDWARE_BASE_H
-#define ANDROID_HARDWARE_VIBRATOR_HARDWARE_BASE_H
+#pragma once
 
 #include <android-base/unique_fd.h>
 #include <log/log.h>
@@ -28,13 +27,12 @@
 
 #include "utils.h"
 
+namespace aidl {
 namespace android {
 namespace hardware {
 namespace vibrator {
-namespace common {
-namespace implementation {
 
-using base::unique_fd;
+using ::android::base::unique_fd;
 
 class HwApiBase {
   private:
@@ -211,10 +209,7 @@ bool HwCalBase::getPersist(const char *key, T *value) {
     return true;
 }
 
-}  // namespace implementation
-}  // namespace common
 }  // namespace vibrator
 }  // namespace hardware
 }  // namespace android
-
-#endif  // ANDROID_HARDWARE_VIBRATOR_HARDWARE_BASE_H
+}  // namespace aidl

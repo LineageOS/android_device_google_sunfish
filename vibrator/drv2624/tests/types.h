@@ -16,12 +16,12 @@
 #ifndef ANDROID_HARDWARE_VIBRATOR_TEST_TYPES_H
 #define ANDROID_HARDWARE_VIBRATOR_TEST_TYPES_H
 
-#include <android/hardware/vibrator/1.3/IVibrator.h>
+#include <aidl/android/hardware/vibrator/IVibrator.h>
 
-using EffectAmplitude = uint8_t;
+using EffectAmplitude = float;
 using EffectDuration = uint32_t;
 using EffectSequence = std::tuple<std::string, uint8_t>;
-using EffectTuple = std::tuple<::android::hardware::vibrator::V1_3::Effect,
-                               ::android::hardware::vibrator::V1_0::EffectStrength>;
+using EffectTuple = std::tuple<::aidl::android::hardware::vibrator::Effect,
+                               ::aidl::android::hardware::vibrator::EffectStrength>;
 
 #endif  // ANDROID_HARDWARE_VIBRATOR_TEST_TYPES_H

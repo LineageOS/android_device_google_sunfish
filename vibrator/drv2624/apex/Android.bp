@@ -17,11 +17,11 @@ apex {
     // BEGIN of apex payloads
     binaries: [
         // /bin
-        "android.hardware.vibrator@1.3-service.sunfish",
+        "android.hardware.vibrator-service.sunfish",
     ],
     prebuilts: [
         // /etc
-        "android.hardware.vibrator@1.3-service.sunfish.rc",
+        "android.hardware.vibrator-service.sunfish.rc",
         // /firmware
         "drv2624.bin.sunfish",
     ],
@@ -31,7 +31,7 @@ apex {
     // vintf manifest fragments, which is installed in /vendor/etc/vintf.
     // TODO(b/130058564): should we put vintf framgments within the apex?
     vintf_fragments: [
-        "android.hardware.vibrator@1.3-service.sunfish.xml",
+        "android.hardware.vibrator-service.sunfish.xml",
     ],
     // END of companion files
 }
@@ -48,7 +48,7 @@ android_app_certificate {
 }
 
 prebuilt_etc {
-    name: "android.hardware.vibrator@1.3-service.sunfish.rc",
-    src: "android.hardware.vibrator@1.3-service.sunfish.rc",
+    name: "android.hardware.vibrator-service.sunfish.rc",
+    src: "android.hardware.vibrator-service.sunfish.rc",
     installable: false,
 }

@@ -23,14 +23,10 @@
 #include "types.h"
 #include "utils.h"
 
+namespace aidl {
 namespace android {
 namespace hardware {
 namespace vibrator {
-namespace V1_3 {
-namespace implementation {
-
-using ::android::hardware::vibrator::V1_0::EffectStrength;
-using ::android::hardware::vibrator::V1_0::Status;
 
 using ::testing::_;
 using ::testing::AnyNumber;
@@ -181,7 +177,7 @@ class VibratorTestTemplate : public Test, public WithParamInterface<std::tuple<b
         if (relaxed) {
             relaxMock(true);
         }
-        mVibrator = new Vibrator(std::move(mockapi), std::move(mockcal));
+        mVibrator = ndk::SharedRefBase::make<Vibrator>(std::move(mockapi), std::move(mockcal));
         if (relaxed) {
             relaxMock(false);
         }
@@ -191,7 +187,7 @@ class VibratorTestTemplate : public Test, public WithParamInterface<std::tuple<b
         if (relaxed) {
             relaxMock(true);
         }
-        mVibrator.clear();
+        mVibrator.reset();
     }
 
     void relaxMock(bool relax) {
@@ -235,7 +231,7 @@ class VibratorTestTemplate : public Test, public WithParamInterface<std::tuple<b
   protected:
     MockApi *mMockApi;
     MockCal *mMockCal;
-    sp<IVibrator> mVibrator;
+    std::shared_ptr<IVibrator> mVibrator;
 
     EffectDuration mCloseLoopThreshold;
     uint32_t mLongFrequencyShift;
@@ -310,7 +306,7 @@ TEST_P(BasicTest, on) {
 
     EXPECT_CALL(*mMockApi, setActivate(true)).After(e).WillOnce(DoDefault());
 
-    EXPECT_EQ(Status::OK, mVibrator->on(duration));
+    EXPECT_EQ(EX_NONE, mVibrator->on(duration, nullptr).getExceptionCode());
 }
 
 TEST_P(BasicTest, on_openLoop) {
@@ -320,7 +316,7 @@ TEST_P(BasicTest, on_openLoop) {
 
     EXPECT_CALL(*mMockApi, setCtrlLoop(true)).WillOnce(DoDefault());
 
-    EXPECT_EQ(Status::OK, mVibrator->on(duration));
+    EXPECT_EQ(EX_NONE, mVibrator->on(duration, nullptr).getExceptionCode());
 }
 
 TEST_P(BasicTest, on_closeLoop) {
@@ -330,45 +326,53 @@ TEST_P(BasicTest, on_closeLoop) {
 
     EXPECT_CALL(*mMockApi, setCtrlLoop(false)).WillOnce(DoDefault());
 
-    EXPECT_EQ(Status::OK, mVibrator->on(duration));
+    EXPECT_EQ(EX_NONE, mVibrator->on(duration, nullptr).getExceptionCode());
 }
 
 TEST_P(BasicTest, off) {
     EXPECT_CALL(*mMockApi, setActivate(false)).WillOnce(DoDefault());
 
-    EXPECT_EQ(Status::OK, mVibrator->off());
+    EXPECT_EQ(EX_NONE, mVibrator->off().getExceptionCode());
 }
 
 TEST_P(BasicTest, supportsAmplitudeControl_supported) {
     EXPECT_CALL(*mMockApi, hasRtpInput()).WillOnce(Return(true));
 
-    EXPECT_EQ(true, mVibrator->supportsAmplitudeControl());
+    int32_t capabilities;
+    EXPECT_TRUE(mVibrator->getCapabilities(&capabilities).isOk());
+    EXPECT_GT(capabilities & IVibrator::CAP_AMPLITUDE_CONTROL, 0);
 }
 
 TEST_P(BasicTest, supportsAmplitudeControl_unsupported) {
     EXPECT_CALL(*mMockApi, hasRtpInput()).WillOnce(Return(false));
 
-    EXPECT_EQ(false, mVibrator->supportsAmplitudeControl());
+    int32_t capabilities;
+    EXPECT_TRUE(mVibrator->getCapabilities(&capabilities).isOk());
+    EXPECT_EQ(capabilities & IVibrator::CAP_AMPLITUDE_CONTROL, 0);
 }
 
 TEST_P(BasicTest, setAmplitude) {
-    EffectAmplitude amplitude = std::rand();
+    EffectAmplitude amplitude = static_cast<float>(std::rand()) / RAND_MAX ?: 1.0f;
 
     EXPECT_CALL(*mMockApi, setRtpInput(amplitudeToRtpInput(amplitude))).WillOnce(Return(true));
 
-    EXPECT_EQ(Status::OK, mVibrator->setAmplitude(amplitude));
+    EXPECT_EQ(EX_NONE, mVibrator->setAmplitude(amplitude).getExceptionCode());
 }
 
 TEST_P(BasicTest, supportsExternalControl_unsupported) {
-    EXPECT_EQ(false, mVibrator->supportsExternalControl());
+    EXPECT_CALL(*mMockApi, hasRtpInput()).WillOnce(Return(false));
+
+    int32_t capabilities;
+    EXPECT_TRUE(mVibrator->getCapabilities(&capabilities).isOk());
+    EXPECT_EQ(capabilities & IVibrator::CAP_EXTERNAL_CONTROL, 0);
 }
 
 TEST_P(BasicTest, setExternalControl_enable) {
-    EXPECT_EQ(Status::UNSUPPORTED_OPERATION, mVibrator->setExternalControl(true));
+    EXPECT_EQ(EX_UNSUPPORTED_OPERATION, mVibrator->setExternalControl(true).getExceptionCode());
 }
 
 TEST_P(BasicTest, setExternalControl_disable) {
-    EXPECT_EQ(Status::UNSUPPORTED_OPERATION, mVibrator->setExternalControl(false));
+    EXPECT_EQ(EX_UNSUPPORTED_OPERATION, mVibrator->setExternalControl(false).getExceptionCode());
 }
 
 INSTANTIATE_TEST_CASE_P(VibratorTests, BasicTest,
@@ -423,27 +427,25 @@ TEST_P(EffectsTest, perform) {
         duration = 0;
     }
 
-    mVibrator->perform_1_3(effect, strength, [&](Status status, uint32_t lengthMs) {
-        if (duration) {
-            EXPECT_EQ(Status::OK, status);
-            EXPECT_LE(duration, lengthMs);
-        } else {
-            EXPECT_EQ(Status::UNSUPPORTED_OPERATION, status);
-            EXPECT_EQ(0, lengthMs);
-        }
-    });
+    int32_t lengthMs;
+    ndk::ScopedAStatus status = mVibrator->perform(effect, strength, nullptr, &lengthMs);
+    if (duration) {
+        EXPECT_EQ(EX_NONE, status.getExceptionCode());
+        EXPECT_LE(duration, lengthMs);
+    } else {
+        EXPECT_EQ(EX_UNSUPPORTED_OPERATION, status.getExceptionCode());
+    }
 }
 
 INSTANTIATE_TEST_CASE_P(VibratorTests, EffectsTest,
                         Combine(ValuesIn({false, true}),
-                                Combine(ValuesIn(hidl_enum_range<Effect>().begin(),
-                                                 hidl_enum_range<Effect>().end()),
-                                        ValuesIn(hidl_enum_range<EffectStrength>().begin(),
-                                                 hidl_enum_range<EffectStrength>().end()))),
+                                Combine(ValuesIn(ndk::enum_range<Effect>().begin(),
+                                                 ndk::enum_range<Effect>().end()),
+                                        ValuesIn(ndk::enum_range<EffectStrength>().begin(),
+                                                 ndk::enum_range<EffectStrength>().end()))),
                         EffectsTest::PrintParam);
 
-}  // namespace implementation
-}  // namespace V1_3
 }  // namespace vibrator
 }  // namespace hardware
 }  // namespace android
+}  // namespace aidl
