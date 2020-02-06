@@ -14,11 +14,11 @@
 // limitations under the License.
 
 cc_defaults {
-    name: "PixelVibratorDefaults",
+    name: "PixelVibratorDefaultsSunfish",
     defaults: ["hidl_defaults"],
     relative_install_path: "hw",
     static_libs: [
-        "PixelVibratorCommon",
+        "PixelVibratorCommonSunfish",
     ],
     shared_libs: [
         "libbase",

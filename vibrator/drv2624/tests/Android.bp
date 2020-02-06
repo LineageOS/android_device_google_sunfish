@@ -15,7 +15,7 @@
 
 cc_test {
     name: "VibratorHalDrv2624TestSuiteSunfish",
-    defaults: ["VibratorHalDrv2624TestDefaults"],
+    defaults: ["VibratorHalDrv2624TestDefaultsSunfish"],
     srcs: [
         "test-hwapi.cpp",
         "test-hwcal.cpp",
