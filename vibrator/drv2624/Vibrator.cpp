@@ -54,8 +54,10 @@ static constexpr char WAVEFORM_DOUBLE_CLICK_EFFECT_SEQ[] = "3 0";
 static constexpr char WAVEFORM_HEAVY_CLICK_EFFECT_SEQ[] = "4 0";
 
 // UT team design those target G values
-static constexpr std::array<float, 5> EFFECT_TARGET_G = {0.13, 0.13, 0.25, 0.4, 0.57};
+static constexpr std::array<float, 5> EFFECT_TARGET_G = {0.15, 0.15, 0.27, 0.43, 0.57};
 static constexpr std::array<float, 3> STEADY_TARGET_G = {1.2, 1.145, 0.905};
+
+#define FLOAT_EPS 1e-6
 
 static std::uint32_t freqPeriodFormula(std::uint32_t in) {
     return 1000000000 / (24615 * in);
@@ -71,38 +73,97 @@ static std::uint32_t convertLevelsToOdClamp(float voltageLevel, uint32_t lraPeri
     return round(odClamp);
 }
 
-static float convertTargetGToVlevels(std::array<float, 4> inputCoeffs, float targetG) {
-    // implement cubic equation to get voltage levels
+static float targetGToVlevelsUnderLinearEquation(std::array<float, 4> inputCoeffs, float targetG) {
+    // Implement linear equation to get voltage levels, f(x) = ax + b
+    // 0 to 3.2 is our valid output
+    float outPutVal = 0.0f;
+    outPutVal = (targetG - inputCoeffs[1]) / inputCoeffs[0];
+    if ((outPutVal > FLOAT_EPS) && (outPutVal <= 3.2)) {
+        return outPutVal;
+    } else {
+        return 0.0f;
+    }
+}
+
+static float targetGToVlevelsUnderCubicEquation(std::array<float, 4> inputCoeffs, float targetG) {
+    // Implement cubic equation to get voltage levels, f(x) = ax^3 + bx^2 + cx + d
+    // 0 to 3.2 is our valid output
     float AA = 0.0f, BB = 0.0f, CC = 0.0f, Delta = 0.0f;
-    float Y1 = 0.0f, Y2 = 0.0f;
-    float T = 0.0f, sita = 0.0f;
+    float Y1 = 0.0f, Y2 = 0.0f, K = 0.0f, T = 0.0f, sita = 0.0f;
+    float outPutVal = 0.0f;
+    float oneHalf = 1.0 / 2.0, oneThird = 1.0 / 3.0;
+    float cosSita = 0.0f, sinSitaSqrt3 = 0.0f, sqrtA = 0.0f;
 
     AA = inputCoeffs[1] * inputCoeffs[1] - 3.0 * inputCoeffs[0] * inputCoeffs[2];
     BB = inputCoeffs[1] * inputCoeffs[2] - 9.0 * inputCoeffs[0] * (inputCoeffs[3] - targetG);
     CC = inputCoeffs[2] * inputCoeffs[2] - 3.0 * inputCoeffs[1] * (inputCoeffs[3] - targetG);
 
     Delta = BB * BB - 4.0 * AA * CC;
-    if (Delta < 0) {
+
+    // There are four discriminants in Shengjin formula.
+    // https://zh.wikipedia.org/wiki/%E4%B8%89%E6%AC%A1%E6%96%B9%E7%A8%8B#%E7%9B%9B%E9%87%91%E5%85%AC%E5%BC%8F%E6%B3%95
+    if ((fabs(AA) <= FLOAT_EPS) && (fabs(BB) <= FLOAT_EPS)) {
+        // Case 1: A = B = 0
+        outPutVal = -inputCoeffs[1] / (3 * inputCoeffs[0]);
+        if ((outPutVal > FLOAT_EPS) && (outPutVal <= 3.2)) {
+            return outPutVal;
+        }
+        return 0.0f;
+    } else if (Delta > FLOAT_EPS) {
+        // Case 2: Delta > 0
+        Y1 = AA * inputCoeffs[1] + 3.0 * inputCoeffs[0] * (-BB + pow(Delta, oneHalf)) / 2.0;
+        Y2 = AA * inputCoeffs[1] + 3.0 * inputCoeffs[0] * (-BB - pow(Delta, oneHalf)) / 2.0;
+
+        if ((Y1 < -FLOAT_EPS) && (Y2 > FLOAT_EPS)) {
+            return (-inputCoeffs[1] + pow(-Y1, oneThird) - pow(Y2, oneThird)) /
+                   (3.0 * inputCoeffs[0]);
+        } else if ((Y1 > FLOAT_EPS) && (Y2 < -FLOAT_EPS)) {
+            return (-inputCoeffs[1] - pow(Y1, oneThird) + pow(-Y2, oneThird)) /
+                   (3.0 * inputCoeffs[0]);
+        } else if ((Y1 < -FLOAT_EPS) && (Y2 < -FLOAT_EPS)) {
+            return (-inputCoeffs[1] + pow(-Y1, oneThird) + pow(-Y2, oneThird)) /
+                   (3.0 * inputCoeffs[0]);
+        } else {
+            return (-inputCoeffs[1] - pow(Y1, oneThird) - pow(Y2, oneThird)) /
+                   (3.0 * inputCoeffs[0]);
+        }
+        return 0.0f;
+    } else if (Delta < -FLOAT_EPS) {
+        // Case 3: Delta < 0
         T = (2 * AA * inputCoeffs[1] - 3 * inputCoeffs[0] * BB) / (2 * AA * sqrt(AA));
         sita = acos(T);
-        return (-inputCoeffs[1] + sqrt(AA) * (cos(sita / 3) - sqrt(3.0) * sin(sita / 3))) /
-               (3 * inputCoeffs[0]);
-    }
+        cosSita = cos(sita / 3);
+        sinSitaSqrt3 = sqrt(3.0) * sin(sita / 3);
+        sqrtA = sqrt(AA);
 
-    Y1 = AA * inputCoeffs[1] + 3.0 * inputCoeffs[0] * (-BB + pow(Delta, 1.0 / 2.0)) / 2.0;
-    Y2 = AA * inputCoeffs[1] + 3.0 * inputCoeffs[0] * (-BB - pow(Delta, 1.0 / 2.0)) / 2.0;
-
-    if ((Y1 < 0) && (Y2 > 0)) {
-        return (-inputCoeffs[1] + pow(-Y1, 1.0 / 3.0) - pow(Y2, 1.0 / 3.0)) /
-               (3.0 * inputCoeffs[0]);
-    } else if ((Y1 > 0) && (Y2 < 0)) {
-        return (-inputCoeffs[1] - pow(Y1, 1.0 / 3.0) + pow(-Y2, 1.0 / 3.0)) /
-               (3.0 * inputCoeffs[0]);
-    } else if ((Y1 < 0) && (Y2 < 0)) {
-        return (-inputCoeffs[1] + pow(-Y1, 1.0 / 3.0) + pow(-Y2, 1.0 / 3.0)) /
-               (3.0 * inputCoeffs[0]);
+        outPutVal = (-inputCoeffs[1] - 2 * sqrtA * cosSita) / (3 * inputCoeffs[0]);
+        if ((outPutVal > FLOAT_EPS) && (outPutVal <= 3.2)) {
+            return outPutVal;
+        }
+        outPutVal = (-inputCoeffs[1] + sqrtA * (cosSita + sinSitaSqrt3)) / (3 * inputCoeffs[0]);
+        if ((outPutVal > FLOAT_EPS) && (outPutVal <= 3.2)) {
+            return outPutVal;
+        }
+        outPutVal = (-inputCoeffs[1] + sqrtA * (cosSita - sinSitaSqrt3)) / (3 * inputCoeffs[0]);
+        if ((outPutVal > FLOAT_EPS) && (outPutVal <= 3.2)) {
+            return outPutVal;
+        }
+        return 0.0f;
+    } else if (Delta <= FLOAT_EPS) {
+        // Case 4: Delta = 0
+        K = BB / AA;
+        outPutVal = (-inputCoeffs[1] / inputCoeffs[0] + K);
+        if ((outPutVal > FLOAT_EPS) && (outPutVal <= 3.2)) {
+            return outPutVal;
+        }
+        outPutVal = (-K / 2);
+        if ((outPutVal > FLOAT_EPS) && (outPutVal <= 3.2)) {
+            return outPutVal;
+        }
+        return 0.0f;
     } else {
-        return (-inputCoeffs[1] - pow(Y1, 1.0 / 3.0) - pow(Y2, 1.0 / 3.0)) / (3.0 * inputCoeffs[0]);
+        // Exception handling
+        return 0.0f;
     }
 }
 
@@ -117,7 +178,7 @@ Vibrator::Vibrator(std::unique_ptr<HwApi> hwapi, std::unique_ptr<HwCal> hwcal)
     uint32_t lraPeriod = 0;
     bool dynamicConfig = false;
     bool hasEffectCoeffs = false;
-    std::array<float, 4> effectCoeffs = {};
+    std::array<float, 4> effectCoeffs = {0};
 
     if (!mHwApi->setState(true)) {
         ALOGE("Failed to set state (%d): %s", errno, strerror(errno));
@@ -146,12 +207,27 @@ Vibrator::Vibrator(std::unique_ptr<HwApi> hwapi, std::unique_ptr<HwCal> hwcal)
         hasEffectCoeffs = mHwCal->getEffectCoeffs(&effectCoeffs);
         for (i = 0; i < 5; i++) {
             if (hasEffectCoeffs) {
-                tempVolLevel = convertTargetGToVlevels(effectCoeffs, EFFECT_TARGET_G[i]);
-                mEffectTargetOdClamp[i] = convertLevelsToOdClamp(tempVolLevel, lraPeriod);
+                // Use linear approach to get the target voltage levels
+                if ((effectCoeffs[2] == 0) && (effectCoeffs[3] == 0)) {
+                    tempVolLevel =
+                        targetGToVlevelsUnderLinearEquation(effectCoeffs, EFFECT_TARGET_G[i]);
+                    mEffectTargetOdClamp[i] = convertLevelsToOdClamp(tempVolLevel, lraPeriod);
+                } else {
+                    // Use cubic approach to get the target voltage levels
+                    tempVolLevel =
+                        targetGToVlevelsUnderCubicEquation(effectCoeffs, EFFECT_TARGET_G[i]);
+                    mEffectTargetOdClamp[i] = convertLevelsToOdClamp(tempVolLevel, lraPeriod);
+                }
             } else {
                 mEffectTargetOdClamp[i] = shortVoltageMax;
             }
         }
+        // Add a boundary protection for level 5 only, since
+        // some devices might not be able to reach the maximum target G
+        if ((mEffectTargetOdClamp[4] <= 0) || (mEffectTargetOdClamp[4] > 161)) {
+            mEffectTargetOdClamp[4] = shortVoltageMax;
+        }
+
         mHwCal->getEffectShape(&shape);
         mEffectConfig.reset(new VibrationConfig({
             .shape = (shape == UINT32_MAX) ? WaveShape::SINE : static_cast<WaveShape>(shape),

@@ -343,6 +343,7 @@ on early-boot
     chown system system /sys/class/leds/vibrator/device/autocal
     chown system system /sys/class/leds/vibrator/device/lp_trigger_effect
     chown system system /sys/class/leds/vibrator/device/lra_wave_shape
+    write /sys/class/leds/vibrator/trigger transient
 
     # Permission for Rainbow sensor
     chown system system /sys/devices/platform/soc/ac4b000.qcom,cci/ac4b000.qcom,cci:st,rainbow@20/rainbow_enable
@@ -369,13 +370,13 @@ on early-boot
 
     # Permission for Pixelstats
     chown system system /sys/class/misc/msm_cirrus_playback/resistance_left_right
-    chown system system /sys/devices/platform/soc/1d84000.ufshc/slowio_read_cnt
-    chown system system /sys/devices/platform/soc/1d84000.ufshc/slowio_write_cnt
-    chown system system /sys/devices/platform/soc/1d84000.ufshc/slowio_unmap_cnt
-    chown system system /sys/devices/platform/soc/1d84000.ufshc/slowio_sync_cnt
+    chown system system /sys/devices/platform/soc/${ro.boot.bootdevice}/slowio_read_cnt
+    chown system system /sys/devices/platform/soc/${ro.boot.bootdevice}/slowio_write_cnt
+    chown system system /sys/devices/platform/soc/${ro.boot.bootdevice}/slowio_unmap_cnt
+    chown system system /sys/devices/platform/soc/${ro.boot.bootdevice}/slowio_sync_cnt
 
     # Permission for Health Storage HAL
-    chown system system /sys/devices/platform/soc/1d84000.ufshc/manual_gc
+    chown system system /sys/devices/platform/soc/${ro.boot.bootdevice}/manual_gc
 
     # Permissions for reading display native color gamut
     chown system graphics /mnt/vendor/persist/display/native_gamut.csv

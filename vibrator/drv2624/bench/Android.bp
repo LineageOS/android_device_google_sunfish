@@ -14,8 +14,8 @@
 // limitations under the License.
 
 cc_benchmark {
-    name: "VibratorHalDrv2624Benchmark",
-    defaults: ["VibratorHalDrv2624TestDefaults"],
+    name: "VibratorHalDrv2624BenchmarkSunfish",
+    defaults: ["VibratorHalDrv2624TestDefaultsSunfish"],
     srcs: [
         "benchmark.cpp",
     ],
