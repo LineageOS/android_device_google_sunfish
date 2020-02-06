@@ -54,7 +54,7 @@ static constexpr char WAVEFORM_DOUBLE_CLICK_EFFECT_SEQ[] = "3 0";
 static constexpr char WAVEFORM_HEAVY_CLICK_EFFECT_SEQ[] = "4 0";
 
 // UT team design those target G values
-static constexpr std::array<float, 5> EFFECT_TARGET_G = {0.13, 0.13, 0.25, 0.4, 0.57};
+static constexpr std::array<float, 5> EFFECT_TARGET_G = {0.15, 0.15, 0.27, 0.43, 0.57};
 static constexpr std::array<float, 3> STEADY_TARGET_G = {1.2, 1.145, 0.905};
 
 static std::uint32_t freqPeriodFormula(std::uint32_t in) {
