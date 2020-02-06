@@ -1,2 +1,0 @@
-# b/146843343
-dontaudit hal_power_default cgroup:file read;
