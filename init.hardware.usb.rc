@@ -58,6 +58,9 @@ on early-boot
 on property:init.svc.console=running
     write /sys/class/power_supply/usb/moisture_detection_enabled 0
 
+on property:init.svc.vendor.charger=running
+    write /sys/class/typec/port0/port_type sink
+
 on property:vendor.usb.contaminantdisable=true
     write /sys/class/power_supply/usb/moisture_detection_enabled 0
 
