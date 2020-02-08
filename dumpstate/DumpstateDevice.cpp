@@ -466,6 +466,9 @@ Return<void> DumpstateDevice::dumpstateBoard(const hidl_handle& handle) {
     RunCommandToFd(fd, "Google Battery", {"/vendor/bin/sh", "-c", "cd /d/google_battery/; for f in `ls ssoc_*` ; do echo \"$f: `cat $f`\" ; done"});
     DumpFileToFd(fd, "BMS", "/d/logbuffer/ssoc");
     DumpFileToFd(fd, "smblib", "/d/logbuffer/smblib");
+    DumpFileToFd(fd, "TTF", "/d/logbuffer/ttf");
+    DumpFileToFd(fd, "TTF details", "/sys/class/power_supply/battery/ttf_details");
+    DumpFileToFd(fd, "TTF stats", "/sys/class/power_supply/battery/ttf_stats");
 
     DumpFileToFd(fd, "Modem Stat", "/data/vendor/modem_stat/debug.txt");
     DumpFileToFd(fd, "Pixel trace", "/d/tracing/instances/pixel-trace/trace");

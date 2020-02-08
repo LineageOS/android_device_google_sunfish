@@ -1,5 +1,4 @@
-//
-// Copyright (C) 2019 The Android Open Source Project
+// Copyright (C) 2017 The Android Open Source Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,19 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-cc_defaults {
-    name: "PixelVibratorDefaultsSunfish",
-    defaults: ["hidl_defaults"],
-    relative_install_path: "hw",
-    static_libs: [
-        "PixelVibratorCommonSunfish",
+cc_library_shared {
+    name: "libqcomvoiceprocessingdescriptors",
+    srcs: ["voice_processing_descriptors.c"],
+    header_libs: [
+        "libaudioeffects",
+        "libhardware_headers",
     ],
-    shared_libs: [
-        "libbase",
-        "libhidlbase",
-        "libcutils",
-        "liblog",
-        "libutils",
-        "libhardware",
-    ],
+    relative_install_path: "soundfx",
+    owner: "qcom",
+    proprietary: true,
 }

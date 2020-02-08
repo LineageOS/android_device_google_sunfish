@@ -15,7 +15,7 @@
 
 cc_benchmark {
     name: "VibratorHalDrv2624BenchmarkSunfish",
-    defaults: ["VibratorHalDrv2624TestDefaults"],
+    defaults: ["VibratorHalDrv2624TestDefaultsSunfish"],
     srcs: [
         "benchmark.cpp",
     ],
