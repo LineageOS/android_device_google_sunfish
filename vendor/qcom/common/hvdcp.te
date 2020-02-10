@@ -11,7 +11,7 @@ allow hvdcp kmsg_device:chr_file r_file_perms;
 allow hvdcp mnt_vendor_file:dir r_dir_perms;
 allow hvdcp persist_file:dir search;
 allow hvdcp persist_hvdcp_file:dir search;
-allow hvdcp persist_hvdcp_file:file r_file_perms;
+allow hvdcp persist_hvdcp_file:file rw_file_perms;
 
 set_prop(hvdcp, vendor_hvdcp_opti_prop)
 wakelock_use(hvdcp)
