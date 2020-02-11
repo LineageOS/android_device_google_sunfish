@@ -356,6 +356,8 @@ PRODUCT_PACKAGES += \
 #Bluetooth SAR HAL
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.bluetooth_sar@1.0-impl
+PRODUCT_PACKAGES_DEBUG += \
+    bluetooth_sar_test
 
 # Bluetooth SoC
 PRODUCT_PROPERTY_OVERRIDES += \
