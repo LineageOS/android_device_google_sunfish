@@ -125,6 +125,9 @@
     <!-- Whether the always on display mode is available. -->
     <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
 
+    <!-- Disable AOD by default -->
+    <bool name="config_dozeAlwaysOnEnabled">false</bool>
+
     <!-- True if the display hardware only has brightness buckets rather than a full range of
          backlight values -->
     <bool name="config_displayBrightnessBucketsInDoze">true</bool>
