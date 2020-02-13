@@ -134,7 +134,7 @@
 
     <!-- Default screen brightness setting.
          Must be in the range specified by minimum and maximum. -->
-    <integer name="config_screenBrightnessSettingDefault">98</integer>
+    <integer name="config_screenBrightnessSettingDefault">82</integer>
 
     <!-- Default screen brightness for VR setting. Target default value: 0x0BB for EVT1.1. -->
     <!-- 8 bit brightness level of 6 corresponds to the 10 bit brightness level of 0x0B6,
