@@ -1977,6 +1977,7 @@
         <ctl name="RX_MACRO RX0 MUX" value="AIF1_PB" />
         <ctl name="RX_MACRO RX1 MUX" value="AIF1_PB" />
         <ctl name="RX_CDC_DMA_RX_0 Channels" value="Two" />
+        <ctl name="RX_CDC_DMA_RX_0 Format" value="S24_3LE" />
         <ctl name="RX INT0_1 MIX1 INP0" value="RX0" />
         <ctl name="RX INT1_1 MIX1 INP0" value="RX1" />
         <ctl name="RX INT0 DEM MUX" value="CLSH_DSM_OUT" />
@@ -2023,13 +2024,13 @@
 
     <path name="voice-handset">
         <path name="handset" />
-        <ctl name="AMP PCM Gain" value="6.5"/>
+        <ctl name="AMP PCM Gain" value="10"/>
         <ctl name="PCM Source" value="ASP"/>
     </path>
 
     <path name="voice-handset-tmus">
         <path name="handset" />
-        <ctl name="AMP PCM Gain" value="6.5"/>
+        <ctl name="AMP PCM Gain" value="10"/>
         <ctl name="PCM Source" value="ASP"/>
     </path>
 
@@ -2214,8 +2215,8 @@
     </path>
 
     <path name="speaker-dmic-endfire">
-        <ctl name="ADC1 Capture Volume" id="0" value="45"/>
-        <ctl name="ADC2 Capture Volume" id="0" value="45"/>
+        <ctl name="ADC1 Capture Volume" id="0" value="47"/>
+        <ctl name="ADC2 Capture Volume" id="0" value="47"/>
         <ctl name="TERT TDM TX Channel Offset" id="0" value="8" />
         <ctl name="TERT TDM TX Channel Offset" id="1" value="0" />
         <ctl name="TERT_TDM_TX_0 Channels" value="Two"/>
