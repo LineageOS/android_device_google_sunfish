@@ -125,13 +125,16 @@
     <!-- Whether the always on display mode is available. -->
     <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
 
+    <!-- Disable AOD by default -->
+    <bool name="config_dozeAlwaysOnEnabled">false</bool>
+
     <!-- True if the display hardware only has brightness buckets rather than a full range of
          backlight values -->
     <bool name="config_displayBrightnessBucketsInDoze">true</bool>
 
     <!-- Default screen brightness setting.
          Must be in the range specified by minimum and maximum. -->
-    <integer name="config_screenBrightnessSettingDefault">98</integer>
+    <integer name="config_screenBrightnessSettingDefault">82</integer>
 
     <!-- Default screen brightness for VR setting. Target default value: 0x0BB for EVT1.1. -->
     <!-- 8 bit brightness level of 6 corresponds to the 10 bit brightness level of 0x0B6,
