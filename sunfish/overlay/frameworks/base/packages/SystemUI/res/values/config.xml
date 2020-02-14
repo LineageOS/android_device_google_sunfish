@@ -68,5 +68,7 @@
     <!-- the padding on the top of the statusbar (usually 0) -->
     <dimen name="status_bar_padding_top">3dp</dimen>
 
-    <string name="config_rounded_mask" translatable="false">M135,0.06C109.3,0.5 91.46,1.81 81.46,4C71.1,6.27 61.14,9.56 53.5,13.27C43.12,18.31 36.23,24.14 30.87,29.25C25.45,34.43 18.76,42.35 13.5,53.01C9.68,60.75 6.89,69.93 4.5,80.55C2.21,90.69 0.71,108.86 0,135.06</string>
+    <string name="config_rounded_mask" translatable="false">M 0,0 V 146 C 2,100 0,60 30,30 60,0 100,2 146,0 Z</string>
+
+    <bool name="config_roundedCornerMultipleRadius">true</bool>
 </resources>
