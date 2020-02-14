@@ -10,3 +10,5 @@ userdebug_or_eng(`
 get_prop(radio, vendor_radio_prop)
 get_prop(radio, public_vendor_default_prop)
 get_prop(radio, qcom_ims_prop)
+
+allow radio mediaextractor_service:service_manager find;
