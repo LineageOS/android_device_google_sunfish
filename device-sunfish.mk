@@ -20,6 +20,9 @@ include device/google/sunfish/device-common.mk
 
 DEVICE_PACKAGE_OVERLAYS += device/google/sunfish/sunfish/overlay
 
+PRODUCT_PACKAGES += \
+    TelephonyOverlay2020MidyearSunfish
+
 # Audio XMLs for sunfish
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/sound_trigger_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_platform_info.xml \
