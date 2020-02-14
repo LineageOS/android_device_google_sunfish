@@ -121,6 +121,10 @@ on init && property:vendor.skip.init=0
     chown system system /dev/stune/camera-daemon/tasks
     chmod 0664 /dev/stune/camera-daemon/tasks
 
+    # Allow PAI targeting per hardware SKU
+    setprop ro.oem.key1 ${ro.boot.hardware.sku}
+
+
 on late-init
     setprop vendor.thermal.config thermal_info_config.json
     chown system system /sys/devices/virtual/thermal/tz-by-name/skin-therm-monitor/trip_point_0_temp
