@@ -128,3 +128,6 @@ genfscon sysfs /devices/platform/soc/18321000.qcom,cpucc/18321000.qcom,cpucc:qco
 
 # Dumpstats IPA statistics
 genfscon debugfs /ipa/ipa_statistics_msg                  u:object_r:debugfs_ipa:s0
+
+# IPA Data Stall Detection
+genfscon debugfs /ipawwan/debug                           u:object_r:debugfs_ipa_data_stall_detection:s0
