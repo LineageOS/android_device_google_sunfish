@@ -59,6 +59,9 @@ static constexpr std::array<float, 3> STEADY_TARGET_G = {1.2, 1.145, 0.905};
 
 #define FLOAT_EPS 1e-6
 
+// Steady vibration's voltage in lower bound guarantee
+static uint32_t STEADY_VOLTAGE_LOWER_BOUND = 90;  // 1.8 Vpeak
+
 static std::uint32_t freqPeriodFormula(std::uint32_t in) {
     return 1000000000 / (24615 * in);
 }
@@ -235,9 +238,13 @@ Vibrator::Vibrator(std::unique_ptr<HwApi> hwapi, std::unique_ptr<HwCal> hwcal)
             .olLraPeriod = lraPeriod,
         }));
 
-        mSteadyTargetOdClamp = mHwCal->getSteadyAmpMax(&tempAmpMax)
-                                   ? round((STEADY_TARGET_G[0] / tempAmpMax) * longVoltageMax)
-                                   : longVoltageMax;
+        mSteadyTargetOdClamp = longVoltageMax;
+        if ((mHwCal->getSteadyAmpMax(&tempAmpMax)) && (tempAmpMax > STEADY_TARGET_G[0])) {
+            tempVolLevel = round((STEADY_TARGET_G[0] / tempAmpMax) * longVoltageMax);
+            mSteadyTargetOdClamp = (tempVolLevel < STEADY_VOLTAGE_LOWER_BOUND)
+                                       ? STEADY_VOLTAGE_LOWER_BOUND
+                                       : tempVolLevel;
+        }
         mHwCal->getSteadyShape(&shape);
         mSteadyConfig.reset(new VibrationConfig({
             .shape = (shape == UINT32_MAX) ? WaveShape::SQUARE : static_cast<WaveShape>(shape),
