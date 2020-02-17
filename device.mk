@@ -18,6 +18,7 @@ LOCAL_PATH := device/google/sunfish
 
 PRODUCT_VENDOR_MOVE_ENABLED := true
 TARGET_BOARD_PLATFORM := sm6150
+MSMSTEPPE := sm6150
 
 PRODUCT_SOONG_NAMESPACES += \
     device/google/sunfish \
@@ -858,3 +859,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Security
 -include vendor/qcom/sm7150/proprietary/securemsm/config/keymaster_vendor_proprietary_board.mk
 -include vendor/qcom/sm7150/proprietary/securemsm/config/keymaster_vendor_proprietary_product.mk
+-include vendor/qcom/sm7150/proprietary/securemsm/config/cpz_vendor_proprietary_board.mk
+-include vendor/qcom/sm7150/proprietary/securemsm/config/cpz_vendor_proprietary_product.mk
+-include vendor/qcom/sm7150/proprietary/securemsm/config/smcinvoke_vendor_proprietary_product.mk
+-include vendor/qcom/sm7150/proprietary/commonsys/securemsm/securemsm_system_product.mk
