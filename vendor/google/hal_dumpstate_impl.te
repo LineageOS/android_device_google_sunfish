@@ -132,6 +132,9 @@ binder_call(hal_dumpstate_impl, citadeld)
 allow hal_dumpstate_impl citadeld_service:service_manager find;
 allow hal_dumpstate_impl citadel_updater_exec:file execute_no_trans;
 
+# Access to vendor logging property
+set_prop(hal_dumpstate_impl, vendor_logging_prop)
+
 dontaudit hal_dumpstate_impl sensors_vendor_data_file:dir r_dir_perms;
 dontaudit hal_dumpstate_impl sensors_vendor_data_file:file r_file_perms;
 dontaudit hal_dumpstate_impl modem_dump_file:dir create_dir_perms;
