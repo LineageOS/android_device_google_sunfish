@@ -49,6 +49,8 @@
 
 #define MODEM_EFS_DUMP_PROPERTY "vendor.sys.modem.diag.efsdump"
 
+#define VENDOR_VERBOSE_LOGGING_ENABLED_PROPERTY "persist.vendor.verbose_logging_enabled"
+
 using android::os::dumpstate::CommandOptions;
 using android::os::dumpstate::DumpFileToFd;
 using android::os::dumpstate::PropertiesHelper;
@@ -57,7 +59,7 @@ using android::os::dumpstate::RunCommandToFd;
 namespace android {
 namespace hardware {
 namespace dumpstate {
-namespace V1_0 {
+namespace V1_1 {
 namespace implementation {
 
 #define DIAG_LOG_PREFIX "diag_log_"
@@ -402,6 +404,18 @@ static void DumpPower(int fd) {
 
 // Methods from ::android::hardware::dumpstate::V1_0::IDumpstateDevice follow.
 Return<void> DumpstateDevice::dumpstateBoard(const hidl_handle& handle) {
+    // Ignore return value, just return an empty status.
+    dumpstateBoard_1_1(handle, DumpstateMode::DEFAULT, 30 * 1000 /* timeoutMillis */);
+    return Void();
+}
+
+// Methods from ::android::hardware::dumpstate::V1_1::IDumpstateDevice follow.
+Return<DumpstateStatus> DumpstateDevice::dumpstateBoard_1_1(const hidl_handle& handle,
+                                                            const DumpstateMode mode,
+                                                            const uint64_t timeoutMillis) {
+    // Unused arguments.
+    (void) timeoutMillis;
+
     // Exit when dump is completed since this is a lazy HAL.
     addPostCommandTask([]() {
         exit(0);
@@ -409,13 +423,22 @@ Return<void> DumpstateDevice::dumpstateBoard(const hidl_handle& handle) {
 
     if (handle == nullptr || handle->numFds < 1) {
         ALOGE("no FDs\n");
-        return Void();
+        return DumpstateStatus::ILLEGAL_ARGUMENT;
     }
 
     int fd = handle->data[0];
     if (fd < 0) {
         ALOGE("invalid FD: %d\n", handle->data[0]);
-        return Void();
+        return DumpstateStatus::ILLEGAL_ARGUMENT;
+    }
+
+    if (mode == DumpstateMode::WEAR) {
+        // We aren't a Wear device.
+        ALOGE("Unsupported mode: %d\n", mode);
+        return DumpstateStatus::UNSUPPORTED_MODE;
+    } else if (mode < DumpstateMode::FULL || mode > DumpstateMode::DEFAULT) {
+        ALOGE("Invalid mode: %d\n", mode);
+        return DumpstateStatus::ILLEGAL_ARGUMENT;
     }
 
     RunCommandToFd(fd, "Notify modem", {"/vendor/bin/modem_svc", "-s"}, CommandOptions::WithTimeout(1).Build());
@@ -493,11 +516,20 @@ Return<void> DumpstateDevice::dumpstateBoard(const hidl_handle& handle) {
     // Keep this at the end as very long on not for humans
     DumpFileToFd(fd, "WLAN FW Log Symbol Table", "/vendor/firmware/Data.msc");
 
+    return DumpstateStatus::OK;
+}
+
+Return<void> DumpstateDevice::setVerboseLoggingEnabled(const bool enable) {
+    android::base::SetProperty(VENDOR_VERBOSE_LOGGING_ENABLED_PROPERTY, enable ? "true" : "false");
     return Void();
 }
 
+Return<bool> DumpstateDevice::getVerboseLoggingEnabled() {
+    return android::base::GetBoolProperty(VENDOR_VERBOSE_LOGGING_ENABLED_PROPERTY, false);
+}
+
 }  // namespace implementation
-}  // namespace V1_0
+}  // namespace V1_1
 }  // namespace dumpstate
 }  // namespace hardware
 }  // namespace android
