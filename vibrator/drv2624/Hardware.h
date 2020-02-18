@@ -108,6 +108,7 @@ class HwCal : public Vibrator::HwCal, private HwCalBase {
     static constexpr uint32_t DEFAULT_LRA_PERIOD = 262;
     static constexpr uint32_t DEFAULT_FREQUENCY_SHIFT = 10;
     static constexpr uint32_t DEFAULT_VOLTAGE_MAX = 107;  // 2.15V;
+    static constexpr uint32_t DEFAULT_LP_TRIGGER_SUPPORT = 1;
 
   public:
     HwCal() {}
@@ -166,6 +167,9 @@ class HwCal : public Vibrator::HwCal, private HwCalBase {
     }
     bool getSteadyShape(uint32_t *value) override {
         return getProperty("steady.shape", value, UINT32_MAX);
+    }
+    bool getTriggerEffectSupport(uint32_t *value) override {
+        return getProperty("lptrigger", value, DEFAULT_LP_TRIGGER_SUPPORT);
     }
     void debug(int fd) override { HwCalBase::debug(fd); }
 };
