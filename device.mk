@@ -716,10 +716,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Enable modem logging for debug
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.sys.modem.diag.mdlog=true \
-    persist.vendor.sys.modem.diag.mdlog_br_num=5
+    persist.vendor.sys.modem.diag.mdlog=true
 else
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.sys.modem.diag.mdlog=false
 endif
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.sys.modem.diag.mdlog_br_num=5
 
 # Preopt SystemUI
 PRODUCT_DEXPREOPT_SPEED_APPS += \
@@ -847,6 +850,15 @@ PRODUCT_COPY_FILES += \
 # Increment the SVN for any official public releases
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.build.svn=1
+
+# Vendor verbose logging default property
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.verbose_logging_enabled=true
+else
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.verbose_logging_enabled=false
+endif
 
 -include hardware/qcom/sm7150/display/config/display-product.mk
 -include vendor/qcom/sm7150/proprietary/display/config/display-product-proprietary.mk
