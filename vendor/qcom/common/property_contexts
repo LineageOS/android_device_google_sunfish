@@ -1,10 +1,6 @@
 # vendor_audio_prop
 audio.snd_card.open.retries                     u:object_r:vendor_audio_prop:s0
 
-ro.boot.sota                                    u:object_r:factory_ota_prop:s0
-persist.vendor.factoryota.reboot                u:object_r:exported_system_prop:s0
-persist.vendor.radio.bootwithlpm                u:object_r:exported_system_prop:s0
-
 audio.volume.listener.dump                      u:object_r:vendor_audio_prop:s0
 audio.volume.headset.gain.depcal                u:object_r:vendor_audio_prop:s0
 audio_hal.in_period_size                        u:object_r:vendor_audio_prop:s0

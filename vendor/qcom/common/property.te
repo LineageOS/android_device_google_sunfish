@@ -6,7 +6,6 @@ type ctl_qcrild_prop, property_type;
 type vendor_tee_listener_prop, property_type;
 type ctl_vendor_rild_prop, property_type;
 type ctl_LKCore_prop, property_type;
-type factory_ota_prop, property_type;
 type freq_prop, property_type;
 type vendor_dataqti_prop, property_type;
 type cnd_vendor_prop, property_type;
