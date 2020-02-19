@@ -214,11 +214,11 @@
             <param capture_device="HANDSET" />
             <!-- adm_cfg_profile should match with the one defined under adm_config -->
             <!-- Set it to NONE if LSM directly connects to AFE -->
-            <param adm_cfg_profile="NONE" />
+            <param adm_cfg_profile="FLUENCE" />
             <!-- fluence_type: "FLUENCE_MIC", "FLUENCE_DMIC", "FLUENCE_TMIC"   -->
             <!-- "FLUENCE_QMIC". Param value is valid when adm_cfg_profile -->
             <!-- is FFECNS -->
-            <param fluence_type="NONE" />
+            <param fluence_type="FLUENCE_DMIC" />
             <param execution_mode="ADSP" />
             <param app_type="3" /> <!-- app type used in ACDB -->
             <param in_channels="2"/> <!-- Module input channels -->
@@ -267,13 +267,13 @@
             <param capture_device="HANDSET" />
             <!-- adm_cfg_profile should match with the one defined under adm_config -->
             <!-- Set it to NONE if LSM directly connects to AFE -->
-            <param adm_cfg_profile="NONE" />
+            <param adm_cfg_profile="FLUENCE" />
             <!-- fluence_type: "FLUENCE_MIC", "FLUENCE_DMIC", "FLUENCE_TMIC"   -->
             <!-- "FLUENCE_QMIC". Param value is valid when adm_cfg_profile -->
             <!-- is FFECNS -->
-            <param fluence_type="NONE" />
+            <param fluence_type="FLUENCE_DMIC" />
             <param execution_mode="ADSP" />
-            <param app_type="3" /> <!-- app type used in ACDB -->
+            <param app_type="4" /> <!-- app type used in ACDB -->
             <param in_channels="2"/> <!-- Module input channels -->
             <param load_sound_model_ids="0x18100000, 0x0, 0x00012C14" />
             <param unload_sound_model_ids="0x18100000, 0x0, 0x00012C15" />
@@ -313,5 +313,12 @@
         <param sample_rate="16000" />
         <param bit_width="16" />
         <param out_channels="5"/>
+    </adm_config>
+
+    <adm_config>
+        <param adm_cfg_profile="FLUENCE" />
+        <param app_type="69944" />
+        <param sample_rate="16000" />
+        <param bit_width="16" />
     </adm_config>
 </sound_trigger_platform_info>
