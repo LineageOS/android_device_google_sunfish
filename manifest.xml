@@ -500,16 +500,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
            <instance>default</instance>
        </interface>
     </hal>
-    <!-- Context Hub HAL Service -->
-    <hal format="hidl">
-        <name>android.hardware.contexthub</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IContexthub</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
     <!-- Neural Network HAL -->
     <hal format="hidl">
         <name>android.hardware.neuralnetworks</name>
