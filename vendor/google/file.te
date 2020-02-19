@@ -39,3 +39,6 @@ type proc_bldrlog, fs_type, proc_type;
 
 # Dumpstats IPA statistics
 type debugfs_ipa, debugfs_type, fs_type;
+
+# IPA Data Stall Detection
+type debugfs_ipa_data_stall_detection, debugfs_type, fs_type;
