@@ -461,8 +461,7 @@ PRODUCT_PACKAGES += \
 
 # Context hub HAL
 PRODUCT_PACKAGES += \
-    android.hardware.contexthub@1.0-impl.generic \
-    android.hardware.contexthub@1.0-service
+    android.hardware.contexthub@1.1-service.generic
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
@@ -547,10 +546,6 @@ PRODUCT_COPY_FILES += \
 
 LIB_NL := libnl_2
 PRODUCT_PACKAGES += $(LIB_NL)
-
-# Factory OTA
-PRODUCT_PACKAGES += \
-    FactoryOta
 
 # Audio effects
 PRODUCT_PACKAGES += \
@@ -720,10 +715,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Enable modem logging for debug
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.sys.modem.diag.mdlog=true \
-    persist.vendor.sys.modem.diag.mdlog_br_num=5
+    persist.vendor.sys.modem.diag.mdlog=true
 else
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.sys.modem.diag.mdlog=false
 endif
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.sys.modem.diag.mdlog_br_num=5
 
 # Preopt SystemUI
 PRODUCT_DEXPREOPT_SPEED_APPS += \
@@ -852,6 +850,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.build.svn=1
 
+# Vendor verbose logging default property
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.verbose_logging_enabled=true
+else
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.verbose_logging_enabled=false
+endif
+
 -include hardware/qcom/sm7150/display/config/display-product.mk
 -include vendor/qcom/sm7150/proprietary/display/config/display-product-proprietary.mk
 -include vendor/qcom/sm7150/proprietary/commonsys-intf/data/data_commonsys-intf_system_product.mk
@@ -859,6 +866,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Security
 -include vendor/qcom/sm7150/proprietary/securemsm/config/keymaster_vendor_proprietary_board.mk
 -include vendor/qcom/sm7150/proprietary/securemsm/config/keymaster_vendor_proprietary_product.mk
+
+# Factory OTA
+-include vendor/google/factoryota/client/factoryota.mk
+
 -include vendor/qcom/sm7150/proprietary/securemsm/config/cpz_vendor_proprietary_board.mk
 -include vendor/qcom/sm7150/proprietary/securemsm/config/cpz_vendor_proprietary_product.mk
 -include vendor/qcom/sm7150/proprietary/securemsm/config/smcinvoke_vendor_proprietary_product.mk
