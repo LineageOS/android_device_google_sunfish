@@ -547,6 +547,10 @@ PRODUCT_COPY_FILES += \
 LIB_NL := libnl_2
 PRODUCT_PACKAGES += $(LIB_NL)
 
+# Factory OTA
+PRODUCT_PACKAGES += \
+    FactoryOta
+
 # Audio effects
 PRODUCT_PACKAGES += \
     libvolumelistener \
@@ -866,10 +870,6 @@ endif
 # Security
 -include vendor/qcom/sm7150/proprietary/securemsm/config/keymaster_vendor_proprietary_board.mk
 -include vendor/qcom/sm7150/proprietary/securemsm/config/keymaster_vendor_proprietary_product.mk
-
-# Factory OTA
--include vendor/google/factoryota/client/factoryota.mk
-
 -include vendor/qcom/sm7150/proprietary/securemsm/config/cpz_vendor_proprietary_board.mk
 -include vendor/qcom/sm7150/proprietary/securemsm/config/cpz_vendor_proprietary_product.mk
 -include vendor/qcom/sm7150/proprietary/securemsm/config/smcinvoke_vendor_proprietary_product.mk
