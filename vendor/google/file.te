@@ -10,6 +10,7 @@ type sysfs_display, sysfs_type, fs_type;
 type sysfs_touch, sysfs_type, fs_type;
 type sysfs_power_stats, sysfs_type, fs_type;
 type sysfs_power_stats_ignore, sysfs_type, fs_type;
+type sysfs_poweroff, sysfs_type, fs_type;
 type sysfs_msm_boardid, fs_type, sysfs_type;
 type sysfs_iio_devices, fs_type, sysfs_type;
 type sysfs_pixelstats, fs_type, sysfs_type;

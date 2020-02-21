@@ -131,3 +131,6 @@ genfscon debugfs /ipa/ipa_statistics_msg                  u:object_r:debugfs_ipa
 
 # IPA Data Stall Detection
 genfscon debugfs /ipawwan/debug                           u:object_r:debugfs_ipa_data_stall_detection:s0
+
+# Poweroff for warm_reset in recovery mode
+genfscon sysfs /module/msm_poweroff                       u:object_r:sysfs_poweroff:s0
