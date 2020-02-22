@@ -1,0 +1,2 @@
+# b/149812194
+dontaudit platform_app default_android_hwservice:hwservice_manager add;
