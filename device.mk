@@ -37,7 +37,7 @@ DEVICE_USES_SM7250_QCRIL_TELEPHONY := true
 
 ifeq ($(DEVICE_USES_SM7250_QCRIL_TELEPHONY), true)
   PRODUCT_SOONG_NAMESPACES += \
-      vendor/qcom/sm7250/codeaurora/commonsys/telephony/ims \
+      vendor/qcom/sm7250/codeaurora/commonsys/telephony/ims/ims-ext-common \
       vendor/qcom/sm7250/proprietary/qcril-data-hal \
       vendor/qcom/sm7250/proprietary/qcril-hal \
       vendor/qcom/sm8150/proprietary/data/permissions
@@ -227,6 +227,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vulkan.level-1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.level.xml \
     frameworks/native/data/etc/android.hardware.vulkan.compute-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.compute.xml \
     frameworks/native/data/etc/android.hardware.vulkan.version-1_1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version.xml \
+    frameworks/native/data/etc/android.software.vulkan.deqp.level-2020-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml \
     frameworks/native/data/etc/android.hardware.telephony.carrierlock.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.carrierlock.xml \
     frameworks/native/data/etc/android.hardware.strongbox_keystore.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.strongbox_keystore.xml \
     frameworks/native/data/etc/android.hardware.nfc.uicc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.uicc.xml \
