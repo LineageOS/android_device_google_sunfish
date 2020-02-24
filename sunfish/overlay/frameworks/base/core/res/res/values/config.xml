@@ -177,7 +177,7 @@
       M 41,83 a 42,42 0 1,0 84,0 a 42,42 0 1,0 -84,0
       but using a radius 43 circle for now to see the antialiasing.
       -->
-        M 128,83 A 44,44 0 0 1 84,127 44,44 0 0 1 40,83 44,44 0 0 1 84,39 44,44 0 0 1 128,83 Z
+        M 40,83 a 43,43 0 1 0 86,0 43,43 0 1 0 -86,0 Z
         @left
     </string>
 
@@ -191,7 +191,7 @@
     </string>
 
     <!-- Radius of the software rounded corners. -->
-    <dimen name="rounded_corner_radius">136px</dimen>
+    <dimen name="rounded_corner_radius">102px</dimen>
 
     <!-- Height of the status bar -->
     <dimen name="status_bar_height_portrait">136px</dimen>
