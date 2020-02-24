@@ -1,0 +1,2 @@
+#b/150107662
+dontaudit system_server proc_irq:dir search;
