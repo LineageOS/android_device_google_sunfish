@@ -765,3 +765,8 @@ on property:persist.vendor.factoryota.enable_sota=triggered
     exec_start vendor.enable_sota
     setprop persist.vendor.factoryota.enable_sota completed
 
+# For Japan radio builds, always enforce camera shutter sound
+# Since this property is read by the audio server in system service,
+# it should be written by the system init.
+on property:ro.boot.hardware.radio.subtype=1
+    setprop audio.camerasound.force true
