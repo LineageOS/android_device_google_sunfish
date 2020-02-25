@@ -81,6 +81,8 @@ class Vibrator : public IVibrator {
         // Specifies the maximum voltage for automatic overdrive and automatic
         // braking periods.
         virtual bool setOdClamp(uint32_t value) = 0;
+        // Get battery temperature sensor value
+        virtual bool getUsbTemp(int32_t *value) = 0;
         // Emit diagnostic information to the given file.
         virtual void debug(int fd) = 0;
     };
@@ -190,6 +192,8 @@ class Vibrator : public IVibrator {
     uint32_t mHeavyClickDuration;
     std::array<uint32_t, 5> mEffectTargetOdClamp;
     uint32_t mSteadyTargetOdClamp;
+    uint32_t mSteadyOlLraPeriod;
+    uint32_t mSteadyOlLraPeriodShift;
 };
 
 }  // namespace implementation
