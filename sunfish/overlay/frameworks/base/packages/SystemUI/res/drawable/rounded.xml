@@ -12,12 +12,12 @@
     limitations under the License.
 -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-        android:width="136dp"
-        android:height="136dp"
-        android:viewportWidth="136.0"
-        android:viewportHeight="136.0">
+        android:width="146px"
+        android:height="146px"
+        android:viewportWidth="146.0"
+        android:viewportHeight="146.0">
 
     <path
-        android:pathData="M 0,0 V 136 C 0.71,108.86 2.21,90.69 4.5,80.55 6.89,69.93 9.68,60.75 13.5,53.01 18.76,42.35 25.45,34.43 30.87,29.25 36.23,24.14 43.12,18.31 53.5,13.27 61.14,9.56 71.1,6.27 81.46,4 91.46,1.81 109.3,0.5 136,0 Z"
+        android:pathData="M 0,0 V 146 C 2,100 0,60 30,30 60,0 100,2 146,0 Z"
         android:fillColor="#000000" />
 </vector>
