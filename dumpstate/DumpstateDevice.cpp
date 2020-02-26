@@ -453,6 +453,7 @@ Return<void> DumpstateDevice::dumpstateBoard(const hidl_handle& handle) {
     RunCommandToFd(fd, "PMIC Votables", {"/vendor/bin/sh", "-c", "cat /sys/kernel/debug/pmic-votable/*/status"});
     RunCommandToFd(fd, "Google Charger", {"/vendor/bin/sh", "-c", "cd /d/google_charger/; for f in `ls pps_*` ; do echo \"$f: `cat $f`\" ; done"});
     RunCommandToFd(fd, "Google Battery", {"/vendor/bin/sh", "-c", "cd /d/google_battery/; for f in `ls ssoc_*` ; do echo \"$f: `cat $f`\" ; done"});
+    RunCommandToFd(fd, "Battery EEPROM", {"/vendor/bin/sh", "-c", "xxd /sys/devices/platform/soc/a8c000.i2c/i2c-2/2-0050/2-00500/nvmem"});
     DumpFileToFd(fd, "BMS", "/d/logbuffer/ssoc");
     DumpFileToFd(fd, "smblib", "/d/logbuffer/smblib");
     DumpFileToFd(fd, "TTF", "/d/logbuffer/ttf");
