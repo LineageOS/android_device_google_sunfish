@@ -754,13 +754,15 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 
 # Early phase offset configuration for SurfaceFlinger (b/75985430)
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.sf.early_phase_offset_ns=500000
+    debug.sf.early_phase_offset_ns=11600000
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.sf.early_app_phase_offset_ns=500000
+    debug.sf.early_app_phase_offset_ns=11600000
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.early_gl_phase_offset_ns=3000000
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.early_gl_app_phase_offset_ns=15000000
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.phase_offset_threshold_for_next_vsync_ns=11600000
 
 # Enable backpressure for GL comp
 PRODUCT_PROPERTY_OVERRIDES += \
