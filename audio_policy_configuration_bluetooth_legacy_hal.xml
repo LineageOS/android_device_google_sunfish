@@ -82,12 +82,12 @@
                 <mixPort name="primary input" role="sink">
                     <profile name="" format="AUDIO_FORMAT_PCM_8_24_BIT"
                              samplingRates="8000,11025,12000,16000,22050,24000,32000,44100,48000"
-                             channelMasks="AUDIO_CHANNEL_IN_MONO,AUDIO_CHANNEL_IN_STEREO,AUDIO_CHANNEL_IN_FRONT_BACK,AUDIO_CHANNEL_INDEX_MASK_3"/>
+                             channelMasks="AUDIO_CHANNEL_IN_MONO,AUDIO_CHANNEL_IN_STEREO,AUDIO_CHANNEL_IN_FRONT_BACK,AUDIO_CHANNEL_INDEX_MASK_2"/>
                 </mixPort>
                 <mixPort name="fast input" role="sink" flags="AUDIO_INPUT_FLAG_FAST">
                     <profile name="" format="AUDIO_FORMAT_PCM_8_24_BIT"
                              samplingRates="8000,11025,12000,16000,22050,24000,32000,44100,48000"
-                             channelMasks="AUDIO_CHANNEL_IN_MONO,AUDIO_CHANNEL_IN_STEREO,AUDIO_CHANNEL_IN_FRONT_BACK,AUDIO_CHANNEL_INDEX_MASK_3"/>
+                             channelMasks="AUDIO_CHANNEL_IN_MONO,AUDIO_CHANNEL_IN_STEREO,AUDIO_CHANNEL_IN_FRONT_BACK,AUDIO_CHANNEL_INDEX_MASK_2"/>
                 </mixPort>
                 <mixPort name="hifi_input" role="sink" />
                 <mixPort name="voice_rx" role="sink">
@@ -97,7 +97,7 @@
                 <mixPort name="mmap_no_irq_in" role="sink" flags="AUDIO_INPUT_FLAG_MMAP_NOIRQ">
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
                              samplingRates="8000,11025,12000,16000,22050,24000,32000,44100,48000"
-                             channelMasks="AUDIO_CHANNEL_IN_MONO,AUDIO_CHANNEL_IN_STEREO,AUDIO_CHANNEL_IN_FRONT_BACK,AUDIO_CHANNEL_INDEX_MASK_3"/>
+                             channelMasks="AUDIO_CHANNEL_IN_MONO,AUDIO_CHANNEL_IN_STEREO,AUDIO_CHANNEL_IN_FRONT_BACK,AUDIO_CHANNEL_INDEX_MASK_2"/>
                 </mixPort>
                 <mixPort name="voip_tx" role="sink"
                          flags="AUDIO_INPUT_FLAG_VOIP_TX">
