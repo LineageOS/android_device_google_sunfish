@@ -181,7 +181,7 @@ using EffectStrength = ::android::hardware::vibrator::V1_0::EffectStrength;
 Vibrator::Vibrator(std::unique_ptr<HwApi> hwapi, std::unique_ptr<HwCal> hwcal)
     : mHwApi(std::move(hwapi)), mHwCal(std::move(hwcal)) {
     std::string autocal;
-    uint32_t lraPeriod = 0;
+    uint32_t lraPeriod = 0, lpTrigSupport = 0;
     bool dynamicConfig = false;
     bool hasEffectCoeffs = false;
     std::array<float, 4> effectCoeffs = {0};
@@ -271,7 +271,10 @@ Vibrator::Vibrator(std::unique_ptr<HwApi> hwapi, std::unique_ptr<HwCal> hwcal)
 
     // This enables effect #1 from the waveform library to be triggered by SLPI
     // while the AP is in suspend mode
-    if (!mHwApi->setLpTriggerEffect(1)) {
+    // For default setting, we will enable this feature if that project did not
+    // set the lptrigger config
+    mHwCal->getTriggerEffectSupport(&lpTrigSupport);
+    if (!mHwApi->setLpTriggerEffect(lpTrigSupport)) {
         ALOGW("Failed to set LP trigger mode (%d): %s", errno, strerror(errno));
     }
 }
