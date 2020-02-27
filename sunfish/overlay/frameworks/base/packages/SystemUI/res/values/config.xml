@@ -31,6 +31,14 @@
          always-on display) -->
     <string name="doze_brightness_sensor_type" translatable="false">com.google.sensor.binned_brightness</string>
 
+    <!-- Override value to use for proximity sensor.  -->
+    <string name="proximity_sensor_type" translatable="false">android.sensor.light</string>
+
+    <!-- If using proximity_sensor_type, specifies a threshold value to distinguish near and
+         far break points.-->
+    <item name="proximity_sensor_threshold" translatable="false" format="float" type="dimen">
+        15</item>
+
     <!-- Doze: can we assume the pickup sensor includes a proximity check? -->
     <bool name="doze_pickup_performs_proximity_check">true</bool>
 
@@ -68,5 +76,11 @@
     <!-- the padding on the top of the statusbar (usually 0) -->
     <dimen name="status_bar_padding_top">3dp</dimen>
 
-    <string name="config_rounded_mask" translatable="false">M135,0.06C109.3,0.5 91.46,1.81 81.46,4C71.1,6.27 61.14,9.56 53.5,13.27C43.12,18.31 36.23,24.14 30.87,29.25C25.45,34.43 18.76,42.35 13.5,53.01C9.68,60.75 6.89,69.93 4.5,80.55C2.21,90.69 0.71,108.86 0,135.06</string>
+    <!-- Default rounded corner curve (a Bezier). Must match (the curved path in) rounded.xml.
+         Note that while rounded.xml includes the entire path (including the horizontal and vertical
+         corner edges), this pulls out just the curve.
+     -->
+    <string name="config_rounded_mask" translatable="false">C 2,100 0,60 30,30 60,0 100,2 146,0</string>
+
+    <bool name="config_roundedCornerMultipleRadius">true</bool>
 </resources>

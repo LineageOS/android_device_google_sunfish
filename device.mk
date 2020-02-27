@@ -18,6 +18,7 @@ LOCAL_PATH := device/google/sunfish
 
 PRODUCT_VENDOR_MOVE_ENABLED := true
 TARGET_BOARD_PLATFORM := sm6150
+MSMSTEPPE := sm6150
 
 PRODUCT_SOONG_NAMESPACES += \
     device/google/sunfish \
@@ -31,19 +32,17 @@ PRODUCT_SOONG_NAMESPACES += \
     vendor/qcom/sm7150 \
     vendor/google/interfaces
 
-# Single vendor RIL/Telephony/data with SM8150
-DEVICE_USES_SM8150_QCRIL_TELEPHONY := true
+# Single vendor RIL/Telephony/data with SM7250
+DEVICE_USES_SM7250_QCRIL_TELEPHONY := true
 
-ifeq ($(DEVICE_USES_SM8150_QCRIL_TELEPHONY), true)
+ifeq ($(DEVICE_USES_SM7250_QCRIL_TELEPHONY), true)
   PRODUCT_SOONG_NAMESPACES += \
-      vendor/qcom/sm8150/codeaurora/telephony/ims \
-      vendor/qcom/sm8150/proprietary/data/permissions \
-      vendor/qcom/sm8150/proprietary/qcril-data-hal/qdp \
-      vendor/qcom/sm8150/proprietary/qcril-data-hal/util \
-      vendor/qcom/sm8150/proprietary/qcril-data-hal/datamodule \
-      vendor/qcom/sm8150/proprietary/qcril-hal
+      vendor/qcom/sm7250/codeaurora/commonsys/telephony/ims/ims-ext-common \
+      vendor/qcom/sm7250/proprietary/qcril-data-hal \
+      vendor/qcom/sm7250/proprietary/qcril-hal \
+      vendor/qcom/sm8150/proprietary/data/permissions
 else
-  $(warning DEVICE_USES_SM8150_QCRIL_TELEPHONY is disabled)
+  $(warning DEVICE_USES_SM7250_QCRIL_TELEPHONY is disabled)
 
   PRODUCT_SOONG_NAMESPACES += \
       vendor/qcom/sm7150/codeaurora/commonsys/telephony/ims \
@@ -228,6 +227,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vulkan.level-1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.level.xml \
     frameworks/native/data/etc/android.hardware.vulkan.compute-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.compute.xml \
     frameworks/native/data/etc/android.hardware.vulkan.version-1_1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version.xml \
+    frameworks/native/data/etc/android.software.vulkan.deqp.level-2020-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml \
     frameworks/native/data/etc/android.hardware.telephony.carrierlock.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.carrierlock.xml \
     frameworks/native/data/etc/android.hardware.strongbox_keystore.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.strongbox_keystore.xml \
     frameworks/native/data/etc/android.hardware.nfc.uicc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.uicc.xml \
@@ -259,6 +259,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.feature.usb_offload.enable=true \
     vendor.audio.feature.audiozoom.enable=true \
     vendor.audio.feature.snd_mon.enable=true \
+    vendor.audio.feature.multi_voice_session.enable=true \
     vendor.audio.capture.enforce_legacy_copp_sr=true \
     vendor.audio.offload.buffer.size.kb=256 \
     persist.vendor.audio_hal.dsp_bit_width_enforce_mode=24 \
@@ -356,6 +357,8 @@ PRODUCT_PACKAGES += \
 #Bluetooth SAR HAL
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.bluetooth_sar@1.0-impl
+PRODUCT_PACKAGES_DEBUG += \
+    bluetooth_sar_test
 
 # Bluetooth SoC
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -459,8 +462,7 @@ PRODUCT_PACKAGES += \
 
 # Context hub HAL
 PRODUCT_PACKAGES += \
-    android.hardware.contexthub@1.0-impl.generic \
-    android.hardware.contexthub@1.0-service
+    android.hardware.contexthub@1.1-service.generic
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
@@ -484,7 +486,7 @@ PRODUCT_PRODUCT_PROPERTIES +=\
     ro.vibrator.hal.heavyclick.duration=6 \
     ro.vibrator.hal.short.voltage=161 \
     ro.vibrator.hal.long.voltage=161 \
-    ro.vibrator.hal.long.frequency.shift=0 \
+    ro.vibrator.hal.long.frequency.shift=10 \
     ro.vibrator.hal.steady.shape=1
 
 # Thermal HAL
@@ -545,10 +547,6 @@ PRODUCT_COPY_FILES += \
 
 LIB_NL := libnl_2
 PRODUCT_PACKAGES += $(LIB_NL)
-
-# Factory OTA
-PRODUCT_PACKAGES += \
-    FactoryOta
 
 # Audio effects
 PRODUCT_PACKAGES += \
@@ -659,7 +657,7 @@ endif
 
 # Dumpstate HAL
 PRODUCT_PACKAGES += \
-    android.hardware.dumpstate@1.0-service.sunfish
+    android.hardware.dumpstate@1.1-service.sunfish
 
 # Citadel
 PRODUCT_PACKAGES += \
@@ -718,10 +716,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Enable modem logging for debug
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.sys.modem.diag.mdlog=true \
-    persist.vendor.sys.modem.diag.mdlog_br_num=5
+    persist.vendor.sys.modem.diag.mdlog=true
 else
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.sys.modem.diag.mdlog=false
 endif
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.sys.modem.diag.mdlog_br_num=5
 
 # Preopt SystemUI
 PRODUCT_DEXPREOPT_SPEED_APPS += \
@@ -746,13 +747,15 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 
 # Early phase offset configuration for SurfaceFlinger (b/75985430)
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.sf.early_phase_offset_ns=500000
+    debug.sf.early_phase_offset_ns=11600000
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.sf.early_app_phase_offset_ns=500000
+    debug.sf.early_app_phase_offset_ns=11600000
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.early_gl_phase_offset_ns=3000000
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.early_gl_app_phase_offset_ns=15000000
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.phase_offset_threshold_for_next_vsync_ns=11600000
 
 # Enable backpressure for GL comp
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -850,6 +853,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.build.svn=1
 
+# Vendor verbose logging default property
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.verbose_logging_enabled=true
+else
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.verbose_logging_enabled=false
+endif
+
 -include hardware/qcom/sm7150/display/config/display-product.mk
 -include vendor/qcom/sm7150/proprietary/display/config/display-product-proprietary.mk
 -include vendor/qcom/sm7150/proprietary/commonsys-intf/data/data_commonsys-intf_system_product.mk
@@ -857,3 +869,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Security
 -include vendor/qcom/sm7150/proprietary/securemsm/config/keymaster_vendor_proprietary_board.mk
 -include vendor/qcom/sm7150/proprietary/securemsm/config/keymaster_vendor_proprietary_product.mk
+
+# Factory OTA
+-include vendor/google/factoryota/client/factoryota.mk
+
+-include vendor/qcom/sm7150/proprietary/securemsm/config/cpz_vendor_proprietary_board.mk
+-include vendor/qcom/sm7150/proprietary/securemsm/config/cpz_vendor_proprietary_product.mk
+-include vendor/qcom/sm7150/proprietary/securemsm/config/smcinvoke_vendor_proprietary_product.mk
+-include vendor/qcom/sm7150/proprietary/commonsys/securemsm/securemsm_system_product.mk

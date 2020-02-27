@@ -126,15 +126,15 @@
         <usecase name="USECASE_AUDIO_PLAYBACK_AFE_PROXY" type="out" id="6"/>
         <usecase name="USECASE_AUDIO_RECORD_AFE_PROXY" type="in" id="7"/>
         <usecase name="USECASE_AUDIO_RECORD_AFE_PROXY" type="out" id="-1"/>
-        <usecase name="USECASE_AUDIO_RECORD_LOW_LATENCY" type="in" id="13" />
+        <usecase name="USECASE_AUDIO_RECORD_LOW_LATENCY" type="in" id="17" />
         <usecase name="USECASE_AUDIO_PLAYBACK_ULL" type="out" id="17" />
         <usecase name="USECASE_AUDIO_PLAYBACK_SILENCE" type="out" id="23" />
         <usecase name="USECASE_AUDIO_PLAYBACK_VOIP" type="out" id="16" />
         <usecase name="USECASE_AUDIO_RECORD_VOIP" type="in" id="16" />
         <usecase name="USECASE_AUDIO_PLAYBACK_MMAP" type="out" id="33" />
         <usecase name="USECASE_AUDIO_RECORD_MMAP" type="in" id="33" />
-        <usecase name="USECASE_AUDIO_A2DP_ABR_FEEDBACK" type="in" id="36" />
-        <usecase name="USECASE_AUDIO_A2DP_ABR_FEEDBACK" type="out" id="36" />
+        <usecase name="USECASE_AUDIO_A2DP_ABR_FEEDBACK" type="in" id="12" />
+        <usecase name="USECASE_AUDIO_A2DP_ABR_FEEDBACK" type="out" id="12" />
         <usecase name="USECASE_INCALL_MUSIC_UPLINK" type="out" id="27"/>
         <usecase name="USECASE_INCALL_MUSIC_UPLINK2" type="out" id="27"/>
     </pcm_ids>
@@ -147,7 +147,6 @@
         <!-- In the below value string, first parameter indicates size -->
         <!-- followed by perf lock options                             -->
         <param key="perf_lock_opts" value="4, 0x40400000, 0x1, 0x40C00000, 0x1"/>
-        <param key="native_audio_mode" value="src"/>
         <param key="input_mic_max_count" value="2"/>
         <param key="true_32_bit" value="true"/>
         <!-- In the below value string, the value indicates sidetone gain in dB -->

@@ -91,9 +91,9 @@
     <ctl name="EC Reference SampleRate" value="0"/>
     <ctl name="TERT_TDM_TX_0 LSM Function" value="None" />
     <ctl name="TERT_TDM_TX_0 Channels" value="One" />
-    <ctl name="Sto1 ADC MIXL BargeIn DMIC Switch" value="0" />
-    <ctl name="Sto2 ADC MIXL BargeIn DMIC Switch" value="0" />
-    <ctl name="Sto2 ADC MIXR BargeIn DMIC Switch" value="0" />
+    <ctl name="Sto1 ADC MIXL DMIC Switch" value="0" />
+    <ctl name="Sto2 ADC MIXL DMIC Switch" value="0" />
+    <ctl name="Sto2 ADC MIXR DMIC Switch" value="0" />
 
     <path name="listen-voice-wakeup-1">
         <ctl name="TERT_TDM_TX_0 LSM Function" value="AUDIO" />
@@ -144,35 +144,51 @@
     </path>
 
     <path name="listen-voice-wakeup-1 preproc">
-        <path name="listen-voice-wakeup-1" />
+        <ctl name="TERT_TDM_TX_0 LSM Function" value="SWAUDIO" />
+        <ctl name="LSM1 Port" value="ADM_LSM_TX" />
+        <ctl name="LSM1 Mixer TERT_TDM_TX_0" value="1" />
     </path>
 
     <path name="listen-voice-wakeup-2 preproc">
-        <path name="listen-voice-wakeup-2" />
+        <ctl name="TERT_TDM_TX_0 LSM Function" value="SWAUDIO" />
+        <ctl name="LSM2 Port" value="ADM_LSM_TX" />
+        <ctl name="LSM2 Mixer TERT_TDM_TX_0" value="1" />
     </path>
 
     <path name="listen-voice-wakeup-3 preproc">
-        <path name="listen-voice-wakeup-3" />
+        <ctl name="TERT_TDM_TX_0 LSM Function" value="SWAUDIO" />
+        <ctl name="LSM3 Port" value="ADM_LSM_TX" />
+        <ctl name="LSM3 Mixer TERT_TDM_TX_0" value="1" />
     </path>
 
     <path name="listen-voice-wakeup-4 preproc">
-        <path name="listen-voice-wakeup-4" />
+        <ctl name="TERT_TDM_TX_0 LSM Function" value="SWAUDIO" />
+        <ctl name="LSM4 Port" value="ADM_LSM_TX" />
+        <ctl name="LSM4 Mixer TERT_TDM_TX_0" value="1" />
     </path>
 
     <path name="listen-voice-wakeup-5 preproc">
-        <path name="listen-voice-wakeup-5" />
+        <ctl name="TERT_TDM_TX_0 LSM Function" value="SWAUDIO" />
+        <ctl name="LSM5 Port" value="ADM_LSM_TX" />
+        <ctl name="LSM5 Mixer TERT_TDM_TX_0" value="1" />
     </path>
 
     <path name="listen-voice-wakeup-6 preproc">
-        <path name="listen-voice-wakeup-6" />
+        <ctl name="TERT_TDM_TX_0 LSM Function" value="SWAUDIO" />
+        <ctl name="LSM6 Port" value="ADM_LSM_TX" />
+        <ctl name="LSM6 Mixer TERT_TDM_TX_0" value="1" />
     </path>
 
     <path name="listen-voice-wakeup-7 preproc">
-        <path name="listen-voice-wakeup-7" />
+        <ctl name="TERT_TDM_TX_0 LSM Function" value="SWAUDIO" />
+        <ctl name="LSM7 Port" value="ADM_LSM_TX" />
+        <ctl name="LSM7 Mixer TERT_TDM_TX_0" value="1" />
     </path>
 
     <path name="listen-voice-wakeup-8 preproc">
-        <path name="listen-voice-wakeup-8" />
+        <ctl name="TERT_TDM_TX_0 LSM Function" value="SWAUDIO" />
+        <ctl name="LSM8 Port" value="ADM_LSM_TX" />
+        <ctl name="LSM8 Mixer TERT_TDM_TX_0" value="1" />
     </path>
 
     <path name="listen-voice-wakeup-1 port">
@@ -240,23 +256,17 @@
     </path>
 
     <path name="listen-ape-handset-mic">
-        <ctl name="ADC1 Capture Volume" value="45" />
-        <ctl name="ADC2 Capture Volume" value="45" />
         <ctl name="TERT_TDM_TX_0 Channels" value="One" />
-        <ctl name="Sto1 ADC MIXL BargeIn DMIC Switch" value="1" />
+        <ctl name="Sto1 ADC MIXL DMIC Switch" value="1" />
     </path>
 
     <path name="listen-ape-handset-dmic">
-        <ctl name="ADC1 Capture Volume" value="45"/>
-        <ctl name="ADC2 Capture Volume" value="45"/>
         <ctl name="TERT_TDM_TX_0 Channels" value="Two"/>
-        <ctl name="Sto1 ADC MIXL BargeIn DMIC Switch" value="1" />
-        <ctl name="Sto2 ADC MIXL BargeIn DMIC Switch" value="1" />
+        <ctl name="Sto1 ADC MIXL DMIC Switch" value="1" />
+        <ctl name="Sto2 ADC MIXL DMIC Switch" value="1" />
     </path>
 
     <path name="listen-ape-handset-tmic">
-        <ctl name="ADC1 Capture Volume" value="45" />
-        <ctl name="ADC2 Capture Volume" value="45" />
         <ctl name="TERT_TDM_TX_0 Channels" value="Three" />
     </path>
 

@@ -68,6 +68,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/cs35l41/cs35l41-dsp1-spk-diag.wmfw:$(TARGET_COPY_OUT_VENDOR)/firmware/cs35l41-dsp1-spk-diag.wmfw \
     $(LOCAL_PATH)/audio/cs35l41/R-cs35l41-dsp1-spk-diag.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/R-cs35l41-dsp1-spk-diag.bin
 
+# CS35L41 SPEAKER AMP SPECIFIC TUNING FOR EVT1.1
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/audio/cs35l41/EVT1.1/cs35l41-revB2-dsp1-spk-prot.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/cs35l41-revB2-dsp1-spk-prot.bin \
+    $(LOCAL_PATH)/audio/cs35l41/EVT1.1/cs35l41-revB2-dsp1-spk-prot.wmfw:$(TARGET_COPY_OUT_VENDOR)/firmware/cs35l41-revB2-dsp1-spk-prot.wmfw \
+    $(LOCAL_PATH)/audio/cs35l41/EVT1.1/R-cs35l41-revB2-dsp1-spk-prot.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/R-cs35l41-revB2-dsp1-spk-prot.bin \
+
 # Audio effects
 PRODUCT_PACKAGES += \
     libqcomvoiceprocessingdescriptors
@@ -96,3 +102,7 @@ endif
 include device/google/sunfish/fingerprint.mk
 
 PRODUCT_PRODUCT_PROPERTIES += ro.com.google.ime.height_ratio=1.2
+
+# Bluetooth Tx power caps for sunfish
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/bluetooth_power_limits_sunfish.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits.csv

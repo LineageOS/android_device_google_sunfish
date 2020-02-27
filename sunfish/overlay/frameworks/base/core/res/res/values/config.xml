@@ -125,13 +125,12 @@
     <!-- Whether the always on display mode is available. -->
     <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
 
+    <!-- Disable AOD by default -->
+    <bool name="config_dozeAlwaysOnEnabled">false</bool>
+
     <!-- True if the display hardware only has brightness buckets rather than a full range of
          backlight values -->
     <bool name="config_displayBrightnessBucketsInDoze">true</bool>
-
-    <!-- Default screen brightness setting.
-         Must be in the range specified by minimum and maximum. -->
-    <integer name="config_screenBrightnessSettingDefault">98</integer>
 
     <!-- Default screen brightness for VR setting. Target default value: 0x0BB for EVT1.1. -->
     <!-- 8 bit brightness level of 6 corresponds to the 10 bit brightness level of 0x0B6,
@@ -140,13 +139,18 @@
     <integer name="config_screenBrightnessForVrSettingMinimum">6</integer>
     <integer name="config_screenBrightnessForVrSettingMaximum">7</integer>
 
-    <!-- Minimum screen brightness setting allowed by the power manager.
-         The user is forbidden from setting the brightness below this level. -->
-    <integer name="config_screenBrightnessSettingMinimum">1</integer>
+    <!-- Minimum screen brightness setting allowed by power manager.
+         The user is forbidden from setting the brightness below this level.  -->
+    <item name="config_screenBrightnessSettingMinimumFloat" format="float" type="dimen">0.0</item>
 
-    <!-- Maximum screen brightness setting allowed by the power manager.
+    <!-- Maximum screen brightness allowed by the power manager.
          The user is forbidden from setting the brightness above this level. -->
-    <integer name="config_screenBrightnessSettingMaximum">255</integer>
+    <item name="config_screenBrightnessSettingMaximumFloat" format="float" type="dimen">1.0</item>
+
+    <!-- Default screen brightness setting
+         Must be in the range specified by minimum and maximum. -->
+    <item name="config_screenBrightnessSettingDefaultFloat" format="float" type="dimen">0.318897637795</item>
+
 
     <!-- The nominal white coordinates, in CIE1931 XYZ color space, for Display White Balance to
          use in its calculations. AWB will adapt this white point to the target ambient white
@@ -174,7 +178,7 @@
       M 41,83 a 42,42 0 1,0 84,0 a 42,42 0 1,0 -84,0
       but using a radius 43 circle for now to see the antialiasing.
       -->
-        M 128,83 A 44,44 0 0 1 84,127 44,44 0 0 1 40,83 44,44 0 0 1 84,39 44,44 0 0 1 128,83 Z
+        M 40,83 a 43,43 0 1 0 86,0 43,43 0 1 0 -86,0 Z
         @left
     </string>
 
@@ -188,7 +192,7 @@
     </string>
 
     <!-- Radius of the software rounded corners. -->
-    <dimen name="rounded_corner_radius">136px</dimen>
+    <dimen name="rounded_corner_radius">102px</dimen>
 
     <!-- Height of the status bar -->
     <dimen name="status_bar_height_portrait">136px</dimen>

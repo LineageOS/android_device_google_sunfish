@@ -121,6 +121,10 @@ on init && property:vendor.skip.init=0
     chown system system /dev/stune/camera-daemon/tasks
     chmod 0664 /dev/stune/camera-daemon/tasks
 
+    # Allow PAI targeting per hardware SKU
+    setprop ro.oem.key1 ${ro.boot.hardware.sku}
+
+
 on late-init
     setprop vendor.thermal.config thermal_info_config.json
     chown system system /sys/devices/virtual/thermal/tz-by-name/skin-therm-monitor/trip_point_0_temp
@@ -368,6 +372,10 @@ on early-boot
     # FG cycle count read from dumpstate + backup restore from health HAL (and pixelstats)
     chown system system /sys/class/power_supply/maxfg/cycle_counts_bins
 
+    # Permission for battery eeprom
+    chown system system /sys/devices/platform/soc/a8c000.i2c/i2c-2/2-0050/2-00500/nvmem
+    chmod 0640 /sys/devices/platform/soc/a8c000.i2c/i2c-2/2-0050/2-00500/nvmem
+
     # Permission for Pixelstats
     chown system system /sys/class/misc/msm_cirrus_playback/resistance_left_right
     chown system system /sys/devices/platform/soc/${ro.boot.bootdevice}/slowio_read_cnt
@@ -419,10 +427,6 @@ on property:init.svc.vendor.charger=running
     write /sys/devices/system/cpu/cpu4/online 0
     write /sys/devices/system/cpu/cpu5/online 0
     write /sys/devices/system/cpu/cpu7/online 0
-
-    # FIXME: b/146195067
-    # hold a wakelock to avoid device hang in charger mode
-    write /sys/power/wake_lock "charger"
 
     # Enable thermal mitigation
     write /sys/devices/virtual/thermal/tz-by-name/backup-charge/mode enabled
@@ -758,3 +762,8 @@ on property:persist.sys.theme=0
     start vendor.theme_clear
 
 
+# For Japan radio builds, always enforce camera shutter sound
+# Since this property is read by the audio server in system service,
+# it should be written by the system init.
+on property:ro.boot.hardware.radio.subtype=1
+    setprop audio.camerasound.force true

@@ -16,7 +16,7 @@
 #ifndef ANDROID_HARDWARE_VIBRATOR_HARDWARE_H
 #define ANDROID_HARDWARE_VIBRATOR_HARDWARE_H
 
-#include "HardwareBase.h"
+#include "../common/HardwareBase.h"
 #include "Vibrator.h"
 
 namespace android {
@@ -54,6 +54,7 @@ class HwApi : public Vibrator::HwApi, private HwApiBase {
     bool setLpTriggerEffect(uint32_t value) override { return set(value, &mLpTrigger); }
     bool setLraWaveShape(uint32_t value) override { return set(value, &mLraWaveShape); }
     bool setOdClamp(uint32_t value) override { return set(value, &mOdClamp); }
+    bool getUsbTemp(int32_t *value) override { return get(value, &mUsbTemp); }
     void debug(int fd) override { HwApiBase::debug(fd); }
 
   private:
@@ -71,6 +72,8 @@ class HwApi : public Vibrator::HwApi, private HwApiBase {
         open("device/lp_trigger_effect", &mLpTrigger);
         open("device/lra_wave_shape", &mLraWaveShape);
         open("device/od_clamp", &mOdClamp);
+        // TODO: for future new architecture: b/149610125
+        openFull("/sys/devices/virtual/thermal/tz-by-name/usbc-therm-monitor/temp", &mUsbTemp);
     }
 
   private:
@@ -87,6 +90,7 @@ class HwApi : public Vibrator::HwApi, private HwApiBase {
     std::ofstream mLpTrigger;
     std::ofstream mLraWaveShape;
     std::ofstream mOdClamp;
+    std::ifstream mUsbTemp;
 };
 
 class HwCal : public Vibrator::HwCal, private HwCalBase {

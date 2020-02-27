@@ -59,6 +59,12 @@ static constexpr std::array<float, 3> STEADY_TARGET_G = {1.2, 1.145, 0.905};
 
 #define FLOAT_EPS 1e-6
 
+// Temperature protection upper bound 10°C and lower bound 5°C
+static constexpr int32_t TEMP_UPPER_BOUND = 10000;
+static constexpr int32_t TEMP_LOWER_BOUND = 5000;
+// Steady vibration's voltage in lower bound guarantee
+static uint32_t STEADY_VOLTAGE_LOWER_BOUND = 90;  // 1.8 Vpeak
+
 static std::uint32_t freqPeriodFormula(std::uint32_t in) {
     return 1000000000 / (24615 * in);
 }
@@ -235,18 +241,25 @@ Vibrator::Vibrator(std::unique_ptr<HwApi> hwapi, std::unique_ptr<HwCal> hwcal)
             .olLraPeriod = lraPeriod,
         }));
 
-        mSteadyTargetOdClamp = mHwCal->getSteadyAmpMax(&tempAmpMax)
-                                   ? round((STEADY_TARGET_G[0] / tempAmpMax) * longVoltageMax)
-                                   : longVoltageMax;
+        mSteadyTargetOdClamp = longVoltageMax;
+        if ((mHwCal->getSteadyAmpMax(&tempAmpMax)) && (tempAmpMax > STEADY_TARGET_G[0])) {
+            tempVolLevel = round((STEADY_TARGET_G[0] / tempAmpMax) * longVoltageMax);
+            mSteadyTargetOdClamp = (tempVolLevel < STEADY_VOLTAGE_LOWER_BOUND)
+                                       ? STEADY_VOLTAGE_LOWER_BOUND
+                                       : tempVolLevel;
+        }
         mHwCal->getSteadyShape(&shape);
         mSteadyConfig.reset(new VibrationConfig({
             .shape = (shape == UINT32_MAX) ? WaveShape::SQUARE : static_cast<WaveShape>(shape),
             .odClamp = &mSteadyTargetOdClamp,
-            // 1. Change long lra period to frequency
-            // 2. Get frequency': subtract the frequency shift from the frequency
-            // 3. Get final long lra period after put the frequency' to formula
-            .olLraPeriod = freqPeriodFormula(freqPeriodFormula(lraPeriod) - longFreqencyShift),
+            .olLraPeriod = lraPeriod,
         }));
+        mSteadyOlLraPeriod = lraPeriod;
+        // 1. Change long lra period to frequency
+        // 2. Get frequency': subtract the frequency shift from the frequency
+        // 3. Get final long lra period after put the frequency' to formula
+        mSteadyOlLraPeriodShift =
+            freqPeriodFormula(freqPeriodFormula(lraPeriod) - longFreqencyShift);
     } else {
         mHwApi->setOlLraPeriod(lraPeriod);
     }
@@ -297,7 +310,17 @@ Return<Status> Vibrator::on(uint32_t timeoutMs, const char mode[],
 
 // Methods from ::android::hardware::vibrator::V1_2::IVibrator follow.
 Return<Status> Vibrator::on(uint32_t timeoutMs) {
+  int usbTemp;
     ATRACE_NAME("Vibrator::on");
+    mHwApi->getUsbTemp(&usbTemp);
+    if (usbTemp > TEMP_UPPER_BOUND) {
+        mSteadyConfig->odClamp = &mSteadyTargetOdClamp;
+        mSteadyConfig->olLraPeriod = mSteadyOlLraPeriod;
+    } else if (usbTemp < TEMP_LOWER_BOUND) {
+        mSteadyConfig->odClamp = &STEADY_VOLTAGE_LOWER_BOUND;
+        mSteadyConfig->olLraPeriod = mSteadyOlLraPeriodShift;
+    }
+
     return on(timeoutMs, RTP_MODE, mSteadyConfig, 0);
 }
 
