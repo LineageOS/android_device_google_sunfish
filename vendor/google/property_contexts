@@ -67,3 +67,6 @@ ro.vibrator.hal.steady.shape                    u:object_r:vendor_vibrator_prop:
 ro.vibrator.hal.closeloop.threshold             u:object_r:vendor_vibrator_prop:s0
 ro.vibrator.hal.short.voltage                   u:object_r:vendor_vibrator_prop:s0
 ro.vibrator.hal.effect.shape                    u:object_r:vendor_vibrator_prop:s0
+
+# Vendor verbose logging prop
+persist.vendor.verbose_logging_enabled          u:object_r:vendor_logging_prop:s0

@@ -25,3 +25,7 @@ dontaudit hardware_info_app sysfs_soc:file { getattr open read };
 # Display
 allow hardware_info_app sysfs_display:dir search;
 allow hardware_info_app sysfs_display:file r_file_perms;
+
+# SysFS audio
+allow hardware_info_app sysfs_audio:dir search;
+allow hardware_info_app sysfs_audio:file r_file_perms;

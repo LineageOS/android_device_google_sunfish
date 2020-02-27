@@ -1,2 +1,0 @@
-# b/146848189
-dontaudit hal_dumpstate_impl display_vendor_data_file:dir search;
