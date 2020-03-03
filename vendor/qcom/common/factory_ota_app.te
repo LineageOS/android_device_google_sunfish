@@ -1,7 +1,0 @@
-type factory_ota_app, domain, coredomain;
-
-app_domain(factory_ota_app)
-
-# Services
-# For get access WiFi manager service
-allow factory_ota_app app_api_service:service_manager find;
