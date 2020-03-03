@@ -5,9 +5,6 @@ user=radio seinfo=platform name=.dataservices domain=dataservice_app type=radio_
 # Hardware Info Collection
 user=_app seinfo=platform name=com.google.android.hardwareinfo domain=hardware_info_app type=app_data_file levelFrom=user
 
-# Factory OTA
-user=_app seinfo=platform name=com.google.android.factoryota domain=factory_ota_app levelFrom=all
-
 user=radio isPrivApp=true seinfo=platform name=com.google.RilConfigService domain=ril_config_service_app type=app_data_file
 
 user=radio seinfo=platform name=.qtidataservices domain=qtidataservices_app type=radio_data_file
