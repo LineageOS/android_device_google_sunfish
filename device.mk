@@ -338,7 +338,7 @@ PRODUCT_PACKAGES += \
 # Light HAL
 PRODUCT_PACKAGES += \
     lights.sm6150 \
-    hardware.google.light@1.0-service
+    hardware.google.light@1.1-service
 
 # Memtrack HAL
 PRODUCT_PACKAGES += \
