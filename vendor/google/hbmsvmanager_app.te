@@ -1,0 +1,7 @@
+type hbmsvmanager_app, domain;
+
+app_domain(hbmsvmanager_app);
+hal_client_domain(hbmsvmanager_app, hal_light)
+
+# Standard system services
+allow hbmsvmanager_app app_api_service:service_manager find;
