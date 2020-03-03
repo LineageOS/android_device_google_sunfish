@@ -44,7 +44,7 @@ allow location wifihal_socket:dir search;
 unix_socket_send(location, wifihal, hal_wifi_ext);
 
 get_prop(location, hwservicemanager_prop)
-allow location hwservicemanager:binder call;
+binder_call(location, hwservicemanager)
 allow location hal_cacert_hwservice:hwservice_manager find;
 
 userdebug_or_eng(`
