@@ -36,7 +36,7 @@
 /vendor/bin/hw/init_citadel                                                           u:object_r:init_citadel_exec:s0
 /vendor/bin/hw/citadel_updater                                                        u:object_r:citadel_updater_exec:s0
 /vendor/bin/CitadelProvision                                                          u:object_r:citadel_provision_exec:s0
-/vendor/bin/hw/hardware\.google\.light@1\.0-service                                   u:object_r:hal_light_default_exec:s0
+/vendor/bin/hw/hardware\.google\.light@1\.1-service                                   u:object_r:hal_light_default_exec:s0
 /vendor/bin/hw/vendor\.google\.radioext@1\.0-service                                  u:object_r:hal_radioext_default_exec:s0
 /vendor/bin/hw/wait_for_strongbox                                                     u:object_r:wait_for_strongbox_exec:s0
 /vendor/bin/init\.insmod\.sh                                                          u:object_r:init-insmod-sh_exec:s0
