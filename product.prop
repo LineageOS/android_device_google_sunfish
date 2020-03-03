@@ -83,6 +83,9 @@ persist.data.df.mux_count=8
 persist.data.df.iwlan_mux=9
 persist.data.df.dev_name=rmnet_usb0
 
+#set netflix property by Qualcomm's request to pass the certification
+ro.netflix.bsp_rev=Q6150-17263-1
+
 #
 ## system props for the data modules
 #
