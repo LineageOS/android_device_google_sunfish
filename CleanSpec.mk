@@ -97,3 +97,9 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib64/android.hidl.base@1.0.
 
 # Remove Face permission
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/permissions/android.hardware.biometrics.face.xml)
+
+# Removing GSI keys from the ramdisk.
+# Those keys will be embedded into VTS instead, to verify the GSI image in used.
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/recovery/root/first_stage_ramdisk/avb/q-gsi.avbpubkey)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/recovery/root/first_stage_ramdisk/avb/r-gsi.avbpubkey)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/recovery/root/first_stage_ramdisk/avb/s-gsi.avbpubkey)
