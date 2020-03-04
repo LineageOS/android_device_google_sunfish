@@ -196,6 +196,7 @@ class Vibrator : public IVibrator {
     uint32_t mSteadyTargetOdClamp;
     uint32_t mSteadyOlLraPeriod;
     uint32_t mSteadyOlLraPeriodShift;
+    bool mDynamicConfig;
 };
 
 }  // namespace implementation
