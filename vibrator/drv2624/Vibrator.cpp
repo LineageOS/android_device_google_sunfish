@@ -182,7 +182,6 @@ Vibrator::Vibrator(std::unique_ptr<HwApi> hwapi, std::unique_ptr<HwCal> hwcal)
     : mHwApi(std::move(hwapi)), mHwCal(std::move(hwcal)) {
     std::string autocal;
     uint32_t lraPeriod = 0, lpTrigSupport = 0;
-    bool dynamicConfig = false;
     bool hasEffectCoeffs = false;
     std::array<float, 4> effectCoeffs = {0};
 
@@ -196,9 +195,9 @@ Vibrator::Vibrator(std::unique_ptr<HwApi> hwapi, std::unique_ptr<HwCal> hwcal)
     mHwCal->getLraPeriod(&lraPeriod);
 
     mHwCal->getCloseLoopThreshold(&mCloseLoopThreshold);
-    mHwCal->getDynamicConfig(&dynamicConfig);
+    mHwCal->getDynamicConfig(&mDynamicConfig);
 
-    if (dynamicConfig) {
+    if (mDynamicConfig) {
         uint8_t i = 0;
         float tempVolLevel = 0.0f;
         float tempAmpMax = 0.0f;
@@ -313,15 +312,17 @@ Return<Status> Vibrator::on(uint32_t timeoutMs, const char mode[],
 
 // Methods from ::android::hardware::vibrator::V1_2::IVibrator follow.
 Return<Status> Vibrator::on(uint32_t timeoutMs) {
-  int usbTemp;
     ATRACE_NAME("Vibrator::on");
-    mHwApi->getUsbTemp(&usbTemp);
-    if (usbTemp > TEMP_UPPER_BOUND) {
-        mSteadyConfig->odClamp = &mSteadyTargetOdClamp;
-        mSteadyConfig->olLraPeriod = mSteadyOlLraPeriod;
-    } else if (usbTemp < TEMP_LOWER_BOUND) {
-        mSteadyConfig->odClamp = &STEADY_VOLTAGE_LOWER_BOUND;
-        mSteadyConfig->olLraPeriod = mSteadyOlLraPeriodShift;
+    if (mDynamicConfig) {
+        int usbTemp = 0;
+        mHwApi->getUsbTemp(&usbTemp);
+        if (usbTemp > TEMP_UPPER_BOUND) {
+            mSteadyConfig->odClamp = &mSteadyTargetOdClamp;
+            mSteadyConfig->olLraPeriod = mSteadyOlLraPeriod;
+        } else if (usbTemp < TEMP_LOWER_BOUND) {
+            mSteadyConfig->odClamp = &STEADY_VOLTAGE_LOWER_BOUND;
+            mSteadyConfig->olLraPeriod = mSteadyOlLraPeriodShift;
+        }
     }
 
     return on(timeoutMs, RTP_MODE, mSteadyConfig, 0);
