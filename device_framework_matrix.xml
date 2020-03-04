@@ -232,6 +232,14 @@
         </interface>
     </hal>
     <hal format="hidl" optional="true">
+        <name>vendor.qti.hardware.bt_channel_avoidance</name>
+        <version>1.0</version>
+        <interface>
+            <name>IBTChannelAvoidance</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
         <name>vendor.google.wifi_ext</name>
         <transport>hwbinder</transport>
         <version>1.1</version>
