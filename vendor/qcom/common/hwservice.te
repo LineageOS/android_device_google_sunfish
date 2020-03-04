@@ -18,6 +18,6 @@ type hal_qdutils_disp_hwservice, hwservice_manager_type;
 type hal_sensorscalibrate_qti_hwservice, hwservice_manager_type;
 type vnd_atcmdfwd_hwservice, hwservice_manager_type;
 type hal_dataconnection_hwservice, hwservice_manager_type;
-type hal_bluetooth_sar_hwservice, hwservice_manager_type;
+type hal_bluetooth_coexistence_hwservice, hwservice_manager_type;
 type hal_cacert_hwservice, hwservice_manager_type;
 type hal_capabilityconfigstore_qti_hwservice, hwservice_manager_type;
