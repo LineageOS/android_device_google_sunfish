@@ -79,9 +79,6 @@ TARGET_PRODUCT_PROP := $(LOCAL_PATH)/product.prop
 
 $(call inherit-product, $(LOCAL_PATH)/utils.mk)
 
-# Installs gsi keys into ramdisk, to boot a GSI with verified boot.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
-
 # Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 
@@ -341,7 +338,7 @@ PRODUCT_PACKAGES += \
 # Light HAL
 PRODUCT_PACKAGES += \
     lights.sm6150 \
-    hardware.google.light@1.0-service
+    hardware.google.light@1.1-service
 
 # Memtrack HAL
 PRODUCT_PACKAGES += \
@@ -547,10 +544,6 @@ PRODUCT_COPY_FILES += \
 
 LIB_NL := libnl_2
 PRODUCT_PACKAGES += $(LIB_NL)
-
-# Factory OTA
-PRODUCT_PACKAGES += \
-    FactoryOta
 
 # Audio effects
 PRODUCT_PACKAGES += \
@@ -873,6 +866,10 @@ endif
 # Security
 -include vendor/qcom/sm7150/proprietary/securemsm/config/keymaster_vendor_proprietary_board.mk
 -include vendor/qcom/sm7150/proprietary/securemsm/config/keymaster_vendor_proprietary_product.mk
+
+# Factory OTA
+-include vendor/google/factoryota/client/factoryota.mk
+
 -include vendor/qcom/sm7150/proprietary/securemsm/config/cpz_vendor_proprietary_board.mk
 -include vendor/qcom/sm7150/proprietary/securemsm/config/cpz_vendor_proprietary_product.mk
 -include vendor/qcom/sm7150/proprietary/securemsm/config/smcinvoke_vendor_proprietary_product.mk

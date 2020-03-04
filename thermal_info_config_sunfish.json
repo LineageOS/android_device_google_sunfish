@@ -200,10 +200,10 @@
             "Type":"SKIN",
             "HotThreshold":[
                 "NAN",
-                42.0,
-                44.0,
-                46.0,
-                49.0,
+                43.0,
+                45.0,
+                48.0,
+                50.0,
                 54.0,
                 58.0
             ],
@@ -252,7 +252,7 @@
             "Type":"CPU"
         },
         {
-            "Name":"thermal-cpufreq-6",
+            "Name":"thermal-cpufreq-7",
             "Type":"CPU"
         },
         {
