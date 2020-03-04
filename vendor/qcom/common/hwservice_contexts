@@ -11,7 +11,8 @@ vendor.display.color::IDisplayColor                                     u:object
 vendor.display.config::IDisplayConfig                                   u:object_r:hal_display_config_hwservice:s0
 vendor.display.postproc::IDisplayPostproc                               u:object_r:hal_display_postproc_hwservice:s0
 vendor.qti.hardware.display.mapper::IQtiMapper                          u:object_r:hal_graphics_mapper_hwservice:s0
-vendor.qti.hardware.bluetooth_sar::IBluetoothSar                        u:object_r:hal_bluetooth_sar_hwservice:s0
+vendor.qti.hardware.bluetooth_sar::IBluetoothSar                        u:object_r:hal_bluetooth_coexistence_hwservice:s0
+vendor.qti.hardware.bt_channel_avoidance::IBTChannelAvoidance           u:object_r:hal_bluetooth_coexistence_hwservice:s0
 vendor.qti.hardware.qdutils_disp::IQdutilsDisp                          u:object_r:hal_qdutils_disp_hwservice:s0
 vendor.qti.hardware.qteeconnector::IAppConnector                        u:object_r:hal_qteeconnector_hwservice:s0
 vendor.qti.hardware.qteeconnector::IGPAppConnector                      u:object_r:hal_qteeconnector_hwservice:s0
