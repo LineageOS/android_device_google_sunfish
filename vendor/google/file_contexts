@@ -21,7 +21,7 @@
 /vendor/bin/hw/android\.hardware\.authsecret@1\.0-service\.citadel                    u:object_r:hal_authsecret_citadel_exec:s0
 /vendor/bin/hw/android\.hardware\.camera\.provider@2\.6-service-google                u:object_r:hal_camera_default_exec:s0
 /vendor/bin/hw/android\.hardware\.contexthub@1\.1-service\.generic                    u:object_r:hal_contexthub_default_exec:s0
-/vendor/bin/hw/android\.hardware\.health@2\.0-service\.sunfish                        u:object_r:hal_health_default_exec:s0
+/vendor/bin/hw/android\.hardware\.health@2\.1-service                                 u:object_r:hal_health_default_exec:s0
 /vendor/bin/hw/android\.hardware\.dumpstate@1\.1-service\.sunfish                     u:object_r:hal_dumpstate_impl_exec:s0
 /vendor/bin/hw/android\.hardware\.keymaster@4\.0-service\.citadel                     u:object_r:hal_keymaster_citadel_exec:s0
 /vendor/bin/hw/android\.hardware\.neuralnetworks@1\.0-service-paintbox                u:object_r:hal_neuralnetworks_paintbox_exec:s0
