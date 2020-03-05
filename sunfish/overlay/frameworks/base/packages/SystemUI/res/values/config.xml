@@ -75,4 +75,17 @@
     <string name="config_rounded_mask" translatable="false">C 2,100 0,60 30,30 60,0 100,2 146,0</string>
 
     <bool name="config_roundedCornerMultipleRadius">true</bool>
+
+    <!-- Configure 19px of extra protection around the front-facing camera -->
+    <string translatable="false" name="config_frontBuiltInDisplayCutoutProtection">
+        M 21,83
+        a 62,62 0 1 0 124,0
+        a 62,62 0 1 0 -124,0
+        Z
+    </string>
+
+    <!-- Camera 1 is the front camera on sunfish -->
+    <string translatable="false" name="config_protectedCameraId">1</string>
+
+    <bool name="config_enableDisplayCutoutProtection">true</bool>
 </resources>
