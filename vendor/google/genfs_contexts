@@ -7,6 +7,7 @@ genfscon sysfs /devices/platform/soc/1d84000.ufshc/slowio_write_cnt          u:o
 genfscon sysfs /devices/platform/soc/1d84000.ufshc/slowio_unmap_cnt          u:object_r:sysfs_scsi_devices_0000:s0
 genfscon sysfs /devices/platform/soc/1d84000.ufshc/slowio_sync_cnt           u:object_r:sysfs_scsi_devices_0000:s0
 genfscon sysfs /devices/platform/soc/1d84000.ufshc/manual_gc                 u:object_r:sysfs_scsi_devices_0000:s0
+genfscon sysfs /devices/platform/soc/1d84000.ufshc/device_descriptor         u:object_r:sysfs_scsi_devices_0000:s0
 genfscon proc /sys/vm/swappiness		      u:object_r:proc_swappiness:s0
 genfscon proc /fs/f2fs                                u:object_r:proc_f2fs:s0
 genfscon proc /irq                                    u:object_r:proc_irq:s0
