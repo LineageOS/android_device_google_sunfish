@@ -54,7 +54,7 @@ static DeviceHealth deviceHealth;
 constexpr char kUfsHealthEol[]{UFS_DIR "/health/eol"};
 constexpr char kUfsHealthLifetimeA[]{UFS_DIR "/health/lifetimeA"};
 constexpr char kUfsHealthLifetimeB[]{UFS_DIR "/health/lifetimeB"};
-constexpr char kUfsVersion[]{UFS_DIR "/version"};
+constexpr char kUfsVersion[]{UFS_DIR "/device_descriptor/specification_version"};
 constexpr char kDiskStatsFile[]{"/sys/block/sda/stat"};
 constexpr char kUFSName[]{"UFS0"};
 
