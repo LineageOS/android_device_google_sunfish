@@ -774,3 +774,7 @@ on property:persist.vendor.factoryota.enable_sota=triggered
 # it should be written by the system init.
 on property:ro.boot.hardware.radio.subtype=1
     setprop audio.camerasound.force true
+
+on property:persist.sys.device_provisioned=1
+    setprop dalvik.vm.dex2oat-cpu-set 2,3,4,5
+    setprop dalvik.vm.dex2oat-threads 4
