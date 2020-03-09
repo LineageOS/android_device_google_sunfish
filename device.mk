@@ -38,6 +38,10 @@ DEVICE_USES_SM7250_QCRIL_TELEPHONY := true
 ifeq ($(DEVICE_USES_SM7250_QCRIL_TELEPHONY), true)
   PRODUCT_SOONG_NAMESPACES += \
       vendor/qcom/sm7250/codeaurora/commonsys/telephony/ims/ims-ext-common \
+      vendor/qcom/sm7250/proprietary/commonsys/qcrilOemHook \
+      vendor/qcom/sm7250/proprietary/commonsys/telephony-apps/ims \
+      vendor/qcom/sm7250/proprietary/commonsys/telephony-apps/QtiTelephonyService \
+      vendor/qcom/sm7250/proprietary/commonsys/telephony-apps/xdivert \
       vendor/qcom/sm7250/proprietary/qcril-data-hal \
       vendor/qcom/sm7250/proprietary/qcril-hal \
       vendor/qcom/sm8150/proprietary/data/permissions
