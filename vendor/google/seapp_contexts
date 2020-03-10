@@ -6,7 +6,7 @@ user=_app seinfo=platform name=com.android.ramdump domain=ramdump_app type=app_d
 user=_app isPrivApp=true seinfo=platform name=com.google.android.grilservice domain=grilservice_app levelFrom=all
 
 # Domain for Modem Diagnostic System
-user=_app seinfo=google name=com.google.mds domain=modem_diagnostic_app type=app_data_file levelFrom=user
+user=_app seinfo=mds name=com.google.mds domain=modem_diagnostic_app type=app_data_file levelFrom=user
 
 # Domain for Pixel Logger
 user=_app seinfo=platform name=com.android.pixellogger domain=logger_app type=app_data_file levelFrom=all
