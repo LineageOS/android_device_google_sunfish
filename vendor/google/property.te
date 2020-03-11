@@ -8,6 +8,7 @@ type camera_ro_prop, property_type;
 type vendor_ramoops_prop, property_type;
 type ecoservice_prop, property_type;
 type vendor_shutdown_prop, property_type;
+type vendor_battery_defender_prop, property_type;
 type vendor_vibrator_prop, property_type;
 
 # vendor verbose logging property
