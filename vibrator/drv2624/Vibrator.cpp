@@ -427,10 +427,6 @@ ndk::ScopedAStatus Vibrator::perform(Effect effect, EffectStrength strength,
         status = performEffect(effect, strength, _aidl_return);
     }
 
-    if (!status.isOk()) {
-        *_aidl_return = 0;
-    }
-
     return status;
 }
 
