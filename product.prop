@@ -93,9 +93,6 @@ ro.netflix.bsp_rev=Q6150-17263-1
 persist.data.netmgrd.qos.enable=true
 persist.data.mode=concurrent
 
-# Disable RescueParty / rescue mode
-persist.sys.disable_rescue=true
-
 # System props to enable Bluetooth Quality Report (BQR) feature
 # BQR event mask configuration
 persist.bluetooth.bqr.event_mask=14
