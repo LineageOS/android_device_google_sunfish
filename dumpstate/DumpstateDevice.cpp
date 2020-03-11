@@ -286,7 +286,11 @@ static void DumpTouch(int fd) {
     }
 
     if (!access("/proc/fts/driver_test", R_OK)) {
-        RunCommandToFd(fd, "Mutual Raw Data",
+        RunCommandToFd(fd, "Lock Normal Active Mode",
+                       {"/vendor/bin/sh", "-c",
+                        "echo 16 A0 03 00 > /proc/fts/driver_test && "
+                        "cat /proc/fts/driver_test"});
+	RunCommandToFd(fd, "Mutual Raw Data",
                        {"/vendor/bin/sh", "-c",
                         "echo 23 00 > /proc/fts/driver_test && "
                         "cat /proc/fts/driver_test"});
