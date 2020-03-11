@@ -1,0 +1,2 @@
+# b/151195350
+dontaudit linkerconfig self:capability kill;
