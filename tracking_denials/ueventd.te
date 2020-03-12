@@ -1,0 +1,2 @@
+# b/151195218
+dontaudit ueventd tmpfs:dir write;
