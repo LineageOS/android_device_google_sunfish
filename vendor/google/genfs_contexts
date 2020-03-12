@@ -74,6 +74,8 @@ genfscon debugfs /logbuffer/ssoc                                                
 genfscon debugfs /logbuffer/ttf                                                 u:object_r:debugfs_batteryinfo:s0
 genfscon debugfs /google_charger                                                u:object_r:debugfs_batteryinfo:s0
 genfscon debugfs /google_battery                                                u:object_r:debugfs_batteryinfo:s0
+genfscon sysfs /devices/platform/soc/soc:google,charger/charge_start_level      u:object_r:sysfs_chargelevel:s0
+genfscon sysfs /devices/platform/soc/soc:google,charger/charge_stop_level       u:object_r:sysfs_chargelevel:s0
 
 # Pixelstats
 genfscon sysfs /devices/platform/soc/soc:google,overheat_mitigation               u:object_r:sysfs_pixelstats:s0
