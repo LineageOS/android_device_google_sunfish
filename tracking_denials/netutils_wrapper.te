@@ -1,0 +1,2 @@
+# b/144659339
+dontaudit netutils_wrapper self:capability dac_override;
