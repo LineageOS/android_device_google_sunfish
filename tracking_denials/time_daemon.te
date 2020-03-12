@@ -1,0 +1,2 @@
+# b/144548385
+dontaudit time_daemon kernel:system module_request;
