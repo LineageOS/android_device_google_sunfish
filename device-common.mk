@@ -68,9 +68,6 @@ persist.vendor.bt.aac_frm_ctl.enabled=true
 # Set lmkd options
 PRODUCT_PRODUCT_PROPERTIES += \
 	ro.config.low_ram = false \
-	ro.lmk.kill_heaviest_task = true \
-	ro.lmk.kill_timeout_ms = 100 \
-	ro.lmk.use_minfree_levels = true \
 	ro.lmk.log_stats = true \
 
 # Modem loging file
@@ -115,4 +112,10 @@ ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
     PRODUCT_PROPERTY_OVERRIDES += \
         persist.vendor.tcpdump.log.alwayson=false \
         persist.vendor.tcpdump.log.br_num=5
+endif
+
+# Disable Rescue Party on userdebug & eng build
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.sys.disable_rescue=true
 endif

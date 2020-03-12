@@ -286,7 +286,11 @@ static void DumpTouch(int fd) {
     }
 
     if (!access("/proc/fts/driver_test", R_OK)) {
-        RunCommandToFd(fd, "Mutual Raw Data",
+        RunCommandToFd(fd, "Lock Normal Active Mode",
+                       {"/vendor/bin/sh", "-c",
+                        "echo 16 A0 03 00 > /proc/fts/driver_test && "
+                        "cat /proc/fts/driver_test"});
+	RunCommandToFd(fd, "Mutual Raw Data",
                        {"/vendor/bin/sh", "-c",
                         "echo 23 00 > /proc/fts/driver_test && "
                         "cat /proc/fts/driver_test"});
@@ -463,12 +467,15 @@ Return<DumpstateStatus> DumpstateDevice::dumpstateBoard_1_1(const hidl_handle& h
     RunCommandToFd(fd, "Notify modem", {"/vendor/bin/modem_svc", "-s"}, CommandOptions::WithTimeout(1).Build());
 
     pthread_t modemThreadHandle = 0;
-    if (handle->numFds < 2) {
-        ALOGE("no FD for modem\n");
-    } else {
-        int fdModem = handle->data[1];
-        if (pthread_create(&modemThreadHandle, NULL, dumpModemThread, (void *)((long)fdModem)) != 0) {
-            ALOGE("could not create thread for dumpModem\n");
+    if (getVerboseLoggingEnabled()) {
+        ALOGD("Verbose logging is enabled.\n");
+        if (handle->numFds < 2) {
+            ALOGE("no FD for modem\n");
+        } else {
+            int fdModem = handle->data[1];
+            if (pthread_create(&modemThreadHandle, NULL, dumpModemThread, (void *)((long)fdModem)) != 0) {
+                ALOGE("could not create thread for dumpModem\n");
+            }
         }
     }
 
