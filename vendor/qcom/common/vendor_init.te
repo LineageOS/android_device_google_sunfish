@@ -1,4 +1,5 @@
 set_prop(vendor_init, factory_ota_prop)
+set_prop(vendor_init, exported_system_prop)
 
 userdebug_or_eng(`
   # Allow vendor_init to write to /proc/sysrq-trigger on userdebug and eng builds
