@@ -467,8 +467,8 @@
     <ctl name="R ASP TX4 Source" value="Zero" />
     <!-- CS35L41 TX source end -->
     <!-- CS35L41 TX slot(to QCT ADSP) -->
-    <ctl name="ASPTX1 Slot Position" value="0" />
-    <ctl name="R ASPTX1 Slot Position" value="1" />
+    <ctl name="ASPTX1 Slot Position" value="1" />
+    <ctl name="R ASPTX1 Slot Position" value="0" />
     <ctl name="ASPTX2 Slot Position" value="4" />
     <ctl name="R ASPTX2 Slot Position" value="5" />
     <ctl name="ASPTX3 Slot Position" value="2" />
