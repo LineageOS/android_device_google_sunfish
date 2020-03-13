@@ -1,2 +1,4 @@
 # b/144399145
 dontaudit init kernel:system module_request;
+# b/144808976
+dontaudit init mapper_block_device:dir relabelto;
