@@ -23,3 +23,4 @@ userdebug_or_eng(`
 dontaudit init-insmod-sh debugfs_ipc:dir search;
 dontaudit init-insmod-sh debugfs_wlan:dir search;
 dontaudit init-insmod-sh self:capability sys_admin;
+dontaudit init-insmod-sh proc_cmdline:file read;
