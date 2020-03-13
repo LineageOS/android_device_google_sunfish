@@ -24,6 +24,9 @@ set_prop(hal_wifi_ext, vendor_wifi_version)
 # Fetch debug info from the wifi driver.
 r_dir_file(hal_wifi_ext, proc_wifi_dbg)
 
+# Allow wifi_ext to report callbacks to gril-service app
+binder_call(hal_wifi_ext, grilservice_app)
+
 userdebug_or_eng(`
 # debugfs entries are only needed in user-debug or eng builds
 
