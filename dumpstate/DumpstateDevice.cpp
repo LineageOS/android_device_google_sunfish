@@ -386,6 +386,8 @@ static void DumpF2FS(int fd) {
                        "for d in $(ls /proc/fs/f2fs/); do "
                        "echo $d: /dev/block/mapper/`ls -l /dev/block/mapper | grep $d | awk '{print $8,$9,$10}'`; "
                        "cat /proc/fs/f2fs/$d/segment_info; done"});
+    RunCommandToFd(fd, "F2FS - fsck time (ms)", {"/vendor/bin/sh", "-c", "getprop ro.boottime.init.fsck.data"});
+    RunCommandToFd(fd, "F2FS - checkpoint=disable time (ms)", {"/vendor/bin/sh", "-c", "getprop ro.boottime.init.mount.data"});
 }
 
 static void DumpUFS(int fd) {
