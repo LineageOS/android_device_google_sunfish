@@ -92,8 +92,6 @@
 ###################################
 # persist files
 #
-/persist                                                                       u:object_r:persist_file:s0
-/mnt/vendor/persist(/.*)?                                                      u:object_r:persist_file:s0
 /mnt/vendor/persist/camera(/.*)?                                               u:object_r:persist_camera_file:s0
 /mnt/vendor/persist/bluetooth(/.*)?                                            u:object_r:persist_bluetooth_file:s0
 /mnt/vendor/persist/drm(/.*)?                                                  u:object_r:persist_drm_file:s0
@@ -201,17 +199,7 @@
 ###################################
 # firmware images
 #
-/vendor/firmware(/.*)?                                              u:object_r:vendor_firmware_file:s0
 /vendor/bt_firmware(/.*)?                                           u:object_r:bt_firmware_file:s0
-/vendor/firmware_mnt(/.*)?                                          u:object_r:firmware_file:s0
-
-/(vendor|system/vendor)/bin/grep                                    u:object_r:vendor_toolbox_exec:s0
-/(vendor|system/vendor)/bin/awk                                     u:object_r:vendor_toolbox_exec:s0
-/(vendor|system/vendor)/bin/cp                                      u:object_r:vendor_toolbox_exec:s0
-##################################
-#vendor toolbox
-#
-/(vendor|system/vendor)/bin/toolbox_vendor                          u:object_r:vendor_toolbox_exec:s0
 
 #Android NN Driver
 /(vendor|system/vendor)/bin/hw/android\.hardware\.neuralnetworks@1\.2-service-qti u:object_r:hal_neuralnetworks_default_exec:s0
