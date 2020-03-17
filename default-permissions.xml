@@ -88,8 +88,8 @@
         <!-- Calendar -->
         <permission name="android.permission.READ_CALENDAR" fixed="true"/>
         <!-- Location -->
-        <permission name="android.permission.ACCESS_FINE_LOCATION" fixed="true"/>
-        <permission name="android.permission.ACCESS_BACKGROUND_LOCATION" fixed="true"/>
+        <permission name="android.permission.ACCESS_FINE_LOCATION" fixed="false"/>
+        <permission name="android.permission.ACCESS_BACKGROUND_LOCATION" fixed="false"/>
     </exception>
 
     <exception package="com.google.android.apps.scone">
