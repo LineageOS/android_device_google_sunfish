@@ -6,7 +6,6 @@ system_ext                                              /system_ext            e
 vendor                                                  /vendor                ext4    ro,barrier=1                                         wait,slotselect,avb=vbmeta,logical,first_stage_mount
 product                                                 /product               ext4    ro,barrier=1                                         wait,slotselect,avb,logical,first_stage_mount
 /dev/block/by-name/metadata                             /metadata              ext4    noatime,nosuid,nodev,discard,sync                    wait,formattable,first_stage_mount
-/dev/block/bootdevice/by-name/modem                     /vendor/firmware_mnt   vfat    ro,shortname=lower,uid=0,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0 wait,slotselect
 /dev/block/bootdevice/by-name/misc                      /misc                  emmc    defaults                                             defaults
 /dev/block/bootdevice/by-name/userdata                  /data                  f2fs    noatime,nosuid,nodev,discard,reserve_root=32768,resgid=1065,fsync_mode=nobarrier       latemount,wait,check,quota,formattable,fileencryption=ice,reservedsize=128M,sysfs_path=/sys/devices/platform/soc/1d84000.ufshc,keydirectory=/metadata/vold/metadata_encryption,checkpoint=fs
 /devices/platform/soc/a600000.ssusb/a600000.dwc3*       auto                   vfat    defaults                                             voldmanaged=usb:auto
