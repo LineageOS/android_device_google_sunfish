@@ -2146,6 +2146,19 @@
         <ctl name="Stereo2 DMIC Mux" value="DMIC2" />
     </path>
 
+    <path name="camcorder-mic-invert">
+        <ctl name="ADC1 Capture Volume" id="0" value="23"/>
+        <ctl name="ADC2 Capture Volume" id="0" value="23"/>
+        <ctl name="TERT TDM TX Channel Offset" id="0" value="0" />
+        <ctl name="TERT TDM TX Channel Offset" id="1" value="8" />
+        <ctl name="TERT_TDM_TX_0 Channels" value="Two"/>
+        <ctl name="TERT_TDM_TX_0 Format" value="S24_LE" />
+        <ctl name="Sto1 ADC MIXL DMIC Switch" value="1" />
+        <ctl name="Sto2 ADC MIXL DMIC Switch" value="1" />
+        <ctl name="Stereo1 DMIC Mux" value="DMIC1" />
+        <ctl name="Stereo2 DMIC Mux" value="DMIC2" />
+    </path>
+
     <path name="bt-sco-headset">
     </path>
 
