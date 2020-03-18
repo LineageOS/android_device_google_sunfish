@@ -39,7 +39,6 @@
 /vendor/bin/hw/hardware\.google\.light@1\.1-service                                   u:object_r:hal_light_default_exec:s0
 /vendor/bin/hw/vendor\.google\.radioext@1\.0-service                                  u:object_r:hal_radioext_default_exec:s0
 /vendor/bin/hw/wait_for_strongbox                                                     u:object_r:wait_for_strongbox_exec:s0
-/vendor/bin/init\.insmod\.sh                                                          u:object_r:init-insmod-sh_exec:s0
 /vendor/bin/color_init                                                                u:object_r:color_init_exec:s0
 /vendor/bin/init\.ramoops\.sh                                                         u:object_r:ramoops_exec:s0
 /vendor/bin/modem_svc                                                                 u:object_r:modem_svc_exec:s0
@@ -71,3 +70,6 @@
 
 # dev socket node
 /dev/socket/diag_router                                                               u:object_r:diag_socket:s0
+
+#vendor_kernel_modules
+/vendor/lib/modules/.*\.ko                                                             u:object_r:vendor_kernel_modules:s0
