@@ -38,7 +38,6 @@ on early-init
 
     # Disable EAS
     write /proc/sys/kernel/sched_energy_aware 0
-    mount_all /vendor/etc/fstab.persist --early
 
 # Disable VDSO on JAWS boards.
 on early-init && property:ro.revision="DEV1.0"
@@ -715,6 +714,13 @@ on property:ro.boot.hardware.dsds=1
     setprop persist.radio.multisim.config dsds
 
 # DSDS feature
+# Restart 1st qcrild after SIM config changed
+on property:vendor.radio.sim_num.switch=1to2 && property:persist.radio.multisim.config=dsds
+    restart vendor.qcrild
+
+on property:vendor.radio.sim_num.switch=2to1 && property:persist.radio.multisim.config=
+    restart vendor.qcrild
+
 # Enable 2nd qcrild when the property set to dsds
 on property:persist.radio.multisim.config=dsds
     start vendor.qcrild2
