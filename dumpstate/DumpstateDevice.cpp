@@ -179,6 +179,8 @@ static void *dumpModemThread(void *data)
         const std::string extendedLogDir = "/data/vendor/radio/extended_logs";
         const std::vector <std::string> rilAndNetmgrLogs
             {
+                "/data/vendor/radio/haldebug_ril0",
+                "/data/vendor/radio/haldebug_ril1",
                 "/data/vendor/radio/ril_log0",
                 "/data/vendor/radio/ril_log0_old",
                 "/data/vendor/radio/ril_log1",
@@ -386,6 +388,8 @@ static void DumpF2FS(int fd) {
                        "for d in $(ls /proc/fs/f2fs/); do "
                        "echo $d: /dev/block/mapper/`ls -l /dev/block/mapper | grep $d | awk '{print $8,$9,$10}'`; "
                        "cat /proc/fs/f2fs/$d/segment_info; done"});
+    RunCommandToFd(fd, "F2FS - fsck time (ms)", {"/vendor/bin/sh", "-c", "getprop ro.boottime.init.fsck.data"});
+    RunCommandToFd(fd, "F2FS - checkpoint=disable time (ms)", {"/vendor/bin/sh", "-c", "getprop ro.boottime.init.mount.data"});
 }
 
 static void DumpUFS(int fd) {
