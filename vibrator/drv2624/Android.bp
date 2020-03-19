@@ -19,7 +19,6 @@ package {
 
 cc_defaults {
     name: "android.hardware.vibrator-defaults.sunfish",
-    defaults: ["PixelVibratorDefaultsSunfish"],
     cflags: [
         "-DATRACE_TAG=(ATRACE_TAG_VIBRATOR | ATRACE_TAG_HAL)",
         "-DLOG_TAG=\"android.hardware.vibrator-sunfish\"",
@@ -27,16 +26,25 @@ cc_defaults {
 }
 
 cc_defaults {
+    name: "VibratorHalDrv2624BinaryDefaultsSunfish",
+    defaults: [
+        "PixelVibratorBinaryDefaultsSunfish",
+        "android.hardware.vibrator-defaults.sunfish",
+    ],
+}
+
+cc_defaults {
     name: "VibratorHalDrv2624TestDefaultsSunfish",
-    defaults: ["android.hardware.vibrator-defaults.sunfish"],
+    defaults: [
+        "PixelVibratorTestDefaultsSunfish",
+        "android.hardware.vibrator-defaults.sunfish",
+    ],
     static_libs: ["android.hardware.vibrator-impl.sunfish"],
-    test_suites: ["device-tests"],
-    require_root: true,
 }
 
 cc_library {
     name: "android.hardware.vibrator-impl.sunfish",
-    defaults: ["android.hardware.vibrator-defaults.sunfish"],
+    defaults: ["VibratorHalDrv2624BinaryDefaultsSunfish"],
     srcs: ["Vibrator.cpp"],
     export_include_dirs: ["."],
     vendor_available: true,
@@ -44,7 +52,7 @@ cc_library {
 
 cc_binary {
     name: "android.hardware.vibrator-service.sunfish",
-    defaults: ["android.hardware.vibrator-defaults.sunfish"],
+    defaults: ["VibratorHalDrv2624BinaryDefaultsSunfish"],
     srcs: ["service.cpp"],
     static_libs: ["android.hardware.vibrator-impl.sunfish"],
     proprietary: true,

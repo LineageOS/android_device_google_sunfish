@@ -24,7 +24,6 @@ cc_defaults {
         "PixelVibratorCommonSunfish",
     ],
     shared_libs: [
-        "android.hardware.vibrator-ndk_platform",
         "libbase",
         "libbinder_ndk",
         "libcutils",
@@ -32,4 +31,22 @@ cc_defaults {
         "liblog",
         "libutils",
     ],
+}
+
+cc_defaults {
+    name: "PixelVibratorBinaryDefaultsSunfish",
+    defaults: ["PixelVibratorDefaultsSunfish"],
+    shared_libs: [
+        "android.hardware.vibrator-ndk_platform",
+    ],
+}
+
+cc_defaults {
+    name: "PixelVibratorTestDefaultsSunfish",
+    defaults: ["PixelVibratorDefaultsSunfish"],
+    static_libs: [
+        "android.hardware.vibrator-ndk_platform",
+    ],
+    test_suites: ["device-tests"],
+    require_root: true,
 }
