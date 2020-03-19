@@ -885,3 +885,6 @@ include hardware/google/pixel/common/pixel-common-device.mk
 -include vendor/qcom/sm7150/proprietary/securemsm/config/cpz_vendor_proprietary_product.mk
 -include vendor/qcom/sm7150/proprietary/securemsm/config/smcinvoke_vendor_proprietary_product.mk
 -include vendor/qcom/sm7150/proprietary/commonsys/securemsm/securemsm_system_product.mk
+
+# storage
+-include hardware/google/pixel/pixelstats/device.mk
