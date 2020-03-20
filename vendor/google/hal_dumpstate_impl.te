@@ -34,7 +34,6 @@ allow hal_dumpstate_impl debugfs_icnss:file r_file_perms;
 
 # Access /dev/block/mapper/
 allow hal_dumpstate_impl block_device:dir r_dir_perms;
-allow hal_dumpstate_impl mapper_block_device:dir r_dir_perms;
 
 # Access to files for dumping
 allow hal_dumpstate_impl sysfs:dir r_dir_perms;
