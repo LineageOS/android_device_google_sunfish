@@ -1,1 +1,0 @@
-dontaudit fsverity_init self:capability sys_admin;
