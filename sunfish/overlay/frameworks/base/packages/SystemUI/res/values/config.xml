@@ -66,17 +66,17 @@
     <dimen name="status_bar_header_height_keyguard">@*android:dimen/status_bar_height_portrait</dimen>
 
     <!-- the padding on the top of the statusbar (usually 0) -->
-    <dimen name="status_bar_padding_top">3dp</dimen>
+    <dimen name="status_bar_padding_top">11dp</dimen>
 
     <string name="config_rounded_mask" translatable="false">M146,0 C100,2 60,0 30,30 C0,60 2,100 0,146</string>
 
     <bool name="config_roundedCornerMultipleRadius">true</bool>
 
-    <!-- Configure 13px of extra protection around the front-facing camera -->
+    <!-- Configure 11px of extra protection around the front-facing camera -->
     <string translatable="false" name="config_frontBuiltInDisplayCutoutProtection">
-        M 28,83
-        a 55,55 0 1 0 110,0
-        a 55,55 0 1 0 -110,0
+        M 30,83
+        a 53,53 0 1 0 106,0
+        a 53,53 0 1 0 -106,0
         Z
     </string>
 
