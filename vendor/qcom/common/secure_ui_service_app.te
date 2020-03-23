@@ -9,3 +9,4 @@ allow secure_ui_service_app surfaceflinger_service:service_manager find;
 allow secure_ui_service_app telecom_service:service_manager find;
 allow secure_ui_service_app trust_service:service_manager find;
 allow secure_ui_service_app activity_service:service_manager find;
+allow secure_ui_service_app thermal_service:service_manager find;
