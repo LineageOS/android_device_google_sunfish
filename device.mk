@@ -781,7 +781,7 @@ PRODUCT_COPY_FILES += \
 
 # power HAL
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.3-service.pixel-libperfmgr
+    android.hardware.power-service.pixel-libperfmgr
 
 # GPS configuration file
 PRODUCT_COPY_FILES += \
