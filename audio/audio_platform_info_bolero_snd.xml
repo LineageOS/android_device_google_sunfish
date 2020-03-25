@@ -78,6 +78,8 @@
         <device name="SND_DEVICE_IN_VOICE_HEADSET_MIC" acdb_id="44"/>
         <device name="SND_DEVICE_OUT_VOICE_HEARING_AID" acdb_id="201"/>
         <device name="SND_DEVICE_IN_VOICE_HEARING_AID" acdb_id="41"/>
+        <device name="SND_DEVICE_IN_VOICE_SPEAKER_MIC_HFP" acdb_id="19"/>
+        <device name="SND_DEVICE_OUT_VOICE_SPEAKER_HFP" acdb_id="14"/>
     </acdb_ids>
 
     <module_ids>
@@ -137,6 +139,10 @@
         <usecase name="USECASE_AUDIO_A2DP_ABR_FEEDBACK" type="out" id="12" />
         <usecase name="USECASE_INCALL_MUSIC_UPLINK" type="out" id="27"/>
         <usecase name="USECASE_INCALL_MUSIC_UPLINK2" type="out" id="27"/>
+        <usecase name="USECASE_AUDIO_HFP_SCO" type="in" id="12"/>
+        <usecase name="USECASE_AUDIO_HFP_SCO" type="out" id="100"/>
+        <usecase name="USECASE_AUDIO_HFP_SCO_WB" type="in" id="12"/>
+        <usecase name="USECASE_AUDIO_HFP_SCO_WB" type="out" id="100"/>
     </pcm_ids>
     <config_params>
         <param key="spkr_1_tz_name" value="wsatz.13"/>
@@ -149,6 +155,7 @@
         <param key="perf_lock_opts" value="4, 0x40400000, 0x1, 0x40C00000, 0x1"/>
         <param key="input_mic_max_count" value="2"/>
         <param key="true_32_bit" value="true"/>
+        <param key="hfp_pcm_dev_id" value="37"/>
         <!-- In the below value string, the value indicates sidetone gain in dB -->
         <param key="usb_sidetone_gain" value="35"/>
     </config_params>
@@ -290,6 +297,8 @@
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER_AND_VOICE_HEADPHONES" backend="speaker-and-headphones" interface="SEC_TDM_RX_0-and-RX_CDC_DMA_RX_0"/>
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER_AND_VOICE_ANC_HEADSET" backend="speaker-and-headphones" interface="SEC_TDM_RX_0-and-RX_CDC_DMA_RX_0"/>
         <device name="SND_DEVICE_IN_VOICE_HEARING_AID" backend="handset-mic" interface="TERT_TDM_TX_0"/>
+        <device name="SND_DEVICE_OUT_VOICE_SPEAKER_HFP" backend="speaker" interface="SEC_TDM_RX_0"/>
+        <device name="SND_DEVICE_IN_VOICE_SPEAKER_MIC_HFP" backend="speaker-mic" interface="TERT_TDM_TX_0"/>
     </backend_names>
     <!-- below values are for ref purpose to OEM, doesn't contain actual hardware info on MTP -->
     <microphone_characteristics>
