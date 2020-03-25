@@ -219,7 +219,6 @@
 /dev/adsprpc-smd-secure                         u:object_r:qdsp_device:s0
 /dev/kgsl-3d0                                   u:object_r:gpu_device:s0
 /dev/wlan                                       u:object_r:wlan_device:s0
-/dev/cpu_dma_latency                            u:object_r:latency_device:s0
 /dev/smem_log                                   u:object_r:smem_log_device:s0
 /dev/subsys_modem                               u:object_r:modem_ssr_device:s0
 /dev/diag                                       u:object_r:diag_device:s0
@@ -242,7 +241,6 @@
 /dev/socket/ipacm_log_file                      u:object_r:ipacm_socket:s0
 /dev/socket/location(/.*)?                      u:object_r:location_socket:s0
 /dev/socket/wifihal(/.*)?                       u:object_r:wifihal_socket:s0
-/dev/socket/pps                                 u:object_r:pps_socket:s0
 
 # files in /vendor
 /vendor/bin/ipacm               u:object_r:hal_tetheroffload_default_exec:s0
