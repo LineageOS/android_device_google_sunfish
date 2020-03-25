@@ -1425,6 +1425,19 @@
     </path>
 
     <path name="hfp-sco">
+        <ctl name="SEC_TDM_RX_0 Port Mixer SLIM_7_TX" value="1" />
+        <ctl name="SLIMBUS_7_RX Audio Mixer MultiMedia6" value="1" />
+        <ctl name="MultiMedia6 Mixer TERT_TDM_TX_0" value="1" />
+        <ctl name="SEC_TDM_RX_DL_HL Switch" value="1" />
+        <ctl name="HFP_SLIM7_UL_HL Switch" value="1" />
+    </path>
+
+    <path name="hfp-sco handset">
+        <path name="hfp-sco" />
+    </path>
+
+    <path name="hfp-sco speaker">
+        <path name="hfp-sco" />
     </path>
 
     <path name="hfp-sco headphones">
@@ -1434,8 +1447,19 @@
     </path>
 
    <path name="hfp-sco-wb">
+        <ctl name="BT SampleRate" value="KHZ_16" />
         <path name="hfp-sco" />
    </path>
+
+    <path name="hfp-sco-wb handset">
+        <ctl name="BT SampleRate" value="KHZ_16" />
+        <path name="hfp-sco" />
+    </path>
+
+    <path name="hfp-sco-wb speaker">
+        <ctl name="BT SampleRate" value="KHZ_16" />
+        <path name="hfp-sco" />
+    </path>
 
     <path name="hfp-sco-wb headphones">
         <path name="hfp-sco headphones" />
@@ -2849,4 +2873,8 @@
         <ctl name="R DSP1 Preload Switch" value="1" />
     </path>
     <!-- cs35l41 specific path to load firmware in cs35l41-playback.c end-->
+
+    <path name="voice-speaker-hfp">
+        <path name="voice-speaker" />
+    </path>
 </mixer>
