@@ -29,6 +29,7 @@ userdebug_or_eng(`
 
 dontaudit vendor_init debugfs:file write;
 allow vendor_init proc_sched_energy_aware:file w_file_perms;
+allow vendor_init proc_sched_updown_migrate:file w_file_perms;
 allow vendor_init proc_swappiness:file w_file_perms;
 allow vendor_init proc_dirty:file w_file_perms;
 
