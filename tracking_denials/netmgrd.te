@@ -1,0 +1,2 @@
+# b/143662901
+dontaudit netmgrd property_socket:sock_file write;
