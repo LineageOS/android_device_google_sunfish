@@ -59,4 +59,3 @@ type uefi_block_device, dev_type;
 type persist_block_device, dev_type;
 type npu_device, dev_type;
 type devinfo_block_device, dev_type;
-type latency_device, dev_type;

@@ -3,7 +3,6 @@ type netmgrd_socket, file_type;
 type vendor_qti_data_file, file_type, data_file_type;
 type proc_wifi_dbg, proc_type, fs_type;
 type proc_swappiness, proc_type, fs_type;
-type pps_socket, file_type;
 type qdcmsocket_socket, file_type;
 type cnd_socket, file_type, mlstrustedobject;
 type cnd_data_file, file_type, data_file_type;
