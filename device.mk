@@ -38,6 +38,7 @@ DEVICE_USES_SM7250_QCRIL_TELEPHONY := true
 ifeq ($(DEVICE_USES_SM7250_QCRIL_TELEPHONY), true)
   PRODUCT_SOONG_NAMESPACES += \
       vendor/qcom/sm7250/codeaurora/commonsys/telephony/ims/ims-ext-common \
+      vendor/qcom/sm7250/codeaurora/dataservices/rmnetctl \
       vendor/qcom/sm7250/proprietary/commonsys/qcrilOemHook \
       vendor/qcom/sm7250/proprietary/commonsys/telephony-apps/ims \
       vendor/qcom/sm7250/proprietary/commonsys/telephony-apps/QtiTelephonyService \
@@ -779,10 +780,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
 
-# power HAL
-PRODUCT_PACKAGES += \
-    android.hardware.power@1.3-service.pixel-libperfmgr
-
 # GPS configuration file
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf
@@ -888,3 +885,6 @@ include hardware/google/pixel/common/pixel-common-device.mk
 
 # storage
 -include hardware/google/pixel/pixelstats/device.mk
+
+# power HAL
+-include hardware/google/pixel/power-libperfmgr/aidl/device.mk
