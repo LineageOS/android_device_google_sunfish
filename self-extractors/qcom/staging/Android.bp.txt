@@ -1,0 +1,536 @@
+// Copyright (C) 2020 The Android Open Source Project
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+soong_namespace {
+}
+
+cc_prebuilt_library_shared {
+    name: "libadsprpc_system",
+    arch: {
+        arm: {
+            srcs: ["libadsprpc_system.so"],
+            shared_libs: [
+                "liblog",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        arm64: {
+            srcs: ["lib64/libadsprpc_system.so"],
+            shared_libs: [
+                "liblog",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    owner: "qcom",
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libcdsprpc_system",
+    arch: {
+        arm: {
+            srcs: ["libcdsprpc_system.so"],
+            shared_libs: [
+                "liblog",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        arm64: {
+            srcs: ["lib64/libcdsprpc_system.so"],
+            shared_libs: [
+                "liblog",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    owner: "qcom",
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libdisplayconfig",
+    arch: {
+        arm: {
+            srcs: ["libdisplayconfig.so"],
+            shared_libs: [
+                "libhidlbase",
+                "libutils",
+                // "vendor.display.config@1.0",
+                // "vendor.display.config@1.4",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        arm64: {
+            srcs: ["lib64/libdisplayconfig.so"],
+            shared_libs: [
+                "libhidlbase",
+                "libutils",
+                // "vendor.display.config@1.0",
+                // "vendor.display.config@1.4",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    owner: "qcom",
+    strip: {
+        none: true,
+    },
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmdsprpc_system",
+    arch: {
+        arm: {
+            srcs: ["libmdsprpc_system.so"],
+            shared_libs: [
+                "liblog",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        arm64: {
+            srcs: ["lib64/libmdsprpc_system.so"],
+            shared_libs: [
+                "liblog",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    owner: "qcom",
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libmediaplayerservice",
+    arch: {
+        arm64: {
+            srcs: ["lib64/libmediaplayerservice.so"],
+            shared_libs: [
+                "android.hardware.media.c2@1.0",
+                "android.hardware.media.omx@1.0",
+                "libbase",
+                "libaudioclient",
+                "libbinder",
+                "libcamera_client",
+                "libcodec2_client",
+                "libcrypto",
+                "libcutils",
+                "libdatasource",
+                "libdrmframework",
+                "libgui",
+                "libhidlbase",
+                "liblog",
+                "libmedia",
+                "libmedia_codeclist",
+                "libmedia_omx",
+                "libmediadrm",
+                // "libmediametrics",
+                "libmediautils",
+                "libmemunreachable",
+                "libnetd_client",
+                "libpowermanager",
+                "libstagefright",
+                "libstagefright_foundation",
+                "libstagefright_httplive",
+                "libutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    owner: "qcom",
+    strip: {
+        none: true,
+    },
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmmosal",
+    arch: {
+        arm: {
+            srcs: ["libmmosal.so"],
+            shared_libs: [
+                "libutils",
+                "libcutils",
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        arm64: {
+            srcs: ["lib64/libmmosal.so"],
+            shared_libs: [
+                "libutils",
+                "libcutils",
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    owner: "qcom",
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libOpenCL_system",
+    arch: {
+        arm: {
+            srcs: ["libOpenCL_system.so"],
+            shared_libs: [
+                "libcutils",
+                "liblog",
+                "libvndksupport",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        arm64: {
+            srcs: ["lib64/libOpenCL_system.so"],
+            shared_libs: [
+                "libcutils",
+                "liblog",
+                "libvndksupport",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    owner: "qcom",
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libqct_resampler",
+    arch: {
+        arm: {
+            srcs: ["libqct_resampler.so"],
+            shared_libs: [
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "32",
+    owner: "qcom",
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libqmi_cci_system",
+    arch: {
+        arm: {
+            srcs: ["libqmi_cci_system.so"],
+            shared_libs: [
+                "libcutils",
+                "libutils",
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        arm64: {
+            srcs: ["lib64/libqmi_cci_system.so"],
+            shared_libs: [
+                "libcutils",
+                "libutils",
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    owner: "qcom",
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libqti-util_system",
+    arch: {
+        arm: {
+            srcs: ["libqti-util_system.so"],
+            shared_libs: [
+                "libcutils",
+                "libutils",
+                "libxml2",
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        arm64: {
+            srcs: ["lib64/libqti-util_system.so"],
+            shared_libs: [
+                "libcutils",
+                "libutils",
+                "libxml2",
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    owner: "qcom",
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libsdsprpc_system",
+    arch: {
+        arm: {
+            srcs: ["libsdsprpc_system.so"],
+            shared_libs: [
+                "liblog",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        arm64: {
+            srcs: ["lib64/libsdsprpc_system.so"],
+            shared_libs: [
+                "liblog",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    owner: "qcom",
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libsns_device_mode_stub",
+    arch: {
+        arm: {
+            srcs: ["libsns_device_mode_stub.so"],
+            shared_libs: [
+                "libsns_fastRPC_util",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        arm64: {
+            srcs: ["lib64/libsns_device_mode_stub.so"],
+            shared_libs: [
+                "libsns_fastRPC_util",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    owner: "qcom",
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libsns_fastRPC_util",
+    arch: {
+        arm: {
+            srcs: ["libsns_fastRPC_util.so"],
+            shared_libs: [
+                "liblog",
+                "libprotobuf-cpp-full",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        arm64: {
+            srcs: ["lib64/libsns_fastRPC_util.so"],
+            shared_libs: [
+                "liblog",
+                "libprotobuf-cpp-full",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    owner: "qcom",
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libsns_low_lat_stream_stub",
+    arch: {
+        arm: {
+            srcs: ["libsns_low_lat_stream_stub.so"],
+            shared_libs: [
+                "libsns_fastRPC_util",
+                "liblog",
+                "libprotobuf-cpp-full",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        arm64: {
+            srcs: ["lib64/libsns_low_lat_stream_stub.so"],
+            shared_libs: [
+                "libsns_fastRPC_util",
+                "liblog",
+                "libprotobuf-cpp-full",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    owner: "qcom",
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libstagefright_httplive",
+    arch: {
+        arm64: {
+            srcs: ["lib64/libstagefright_httplive.so"],
+            shared_libs: [
+                "liblog",
+                "libcrypto",
+                "libcutils",
+                "libdatasource",
+                "libmedia",
+                "libmediandk",
+                "libstagefright",
+                "libstagefright_foundation",
+                "libutils",
+                "libhidlbase",
+                "libhidlmemory",
+                "android.hardware.cas@1.0",
+                "android.hardware.cas.native@1.0",
+                "android.hidl.allocator@1.0",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    owner: "qcom",
+    strip: {
+        none: true,
+    },
+}
