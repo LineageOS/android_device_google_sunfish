@@ -5,8 +5,6 @@ userdebug_or_eng(`
   # Allow vendor_init to write vendor_tcpdump_log_prop on userdebug or eng ROM
   set_prop(vendor_init, vendor_tcpdump_log_prop)
 ')
-allow vendor_init debugfs_tracing_instances:dir create_dir_perms;
-allow vendor_init debugfs_tracing_instances:file w_file_perms;
 
 get_prop(vendor_init, public_vendor_default_prop)
 set_prop(vendor_init, vendor_audio_prop)
