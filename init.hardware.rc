@@ -481,17 +481,6 @@ on property:sys.boot_completed=1
     chown system system /sys/kernel/debug/google_charger/pps_op_ua
     chown system system /sys/kernel/debug/google_charger/pps_out_uv
 
-    # Create pixel-trace.
-    # At this moment, only mm_event is available. If others want to put more,
-    # it should get hard review from pixel-perf-team.
-    mkdir /sys/kernel/debug/tracing/instances/pixel-trace 0755 system system
-    chown system system /sys/kernel/debug/tracing/instances/pixel-trace/trace
-    chmod 0660 /sys/kernel/debug/tracing/instances/pixel-trace/trace
-    chown system system /sys/kernel/debug/tracing/instances/pixel-trace/tracing_on
-    chmod 0660 /sys/kernel/debug/tracing/instances/pixel-trace/tracing_on
-    write /sys/kernel/debug/tracing/instances/pixel-trace/buffer_size_kb 64
-    write /sys/kernel/debug/tracing/instances/pixel-trace/events/mm_event/enable 1
-
     # Permission for bootloader logs
     chown root log /proc/bldrlog
     chmod 0444 /proc/bldrlog
