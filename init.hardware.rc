@@ -183,6 +183,11 @@ on late-fs
     #setprop ro.surface_flinger.display_primary_green ${vendor.display.primary_green}
     #setprop ro.surface_flinger.display_primary_blue ${vendor.display.primary_blue}
     #setprop ro.surface_flinger.display_primary_white ${vendor.display.primary_white}
+    # Permission for hwcomposer
+    chown system system /sys/class/backlight/panel0-backlight/brightness
+    chown system system /sys/class/backlight/panel0-backlight/max_brightness
+    chown system system /sys/class/backlight/panel0-backlight/vr_mode
+    chown system system /sys/class/backlight/panel0-backlight/hbm_mode
     start surfaceflinger
     start bootanim
     start vendor.hwcomposer-2-3
@@ -322,11 +327,6 @@ on early-boot
     # Set up touch directories and permissions
     chmod 770 /mnt/vendor/persist/touch
     chown system system /mnt/vendor/persist/touch
-
-    # Permission for lights driver
-    chown system system /sys/class/backlight/panel0-backlight/brightness
-    chown system system /sys/class/backlight/panel0-backlight/vr_mode
-    chown system system /sys/class/backlight/panel0-backlight/hbm_mode
 
     # Wait for insmod_sh to finish all modules
     wait_for_prop vendor.all.modules.ready 1
