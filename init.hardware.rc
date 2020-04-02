@@ -183,6 +183,11 @@ on late-fs
     #setprop ro.surface_flinger.display_primary_green ${vendor.display.primary_green}
     #setprop ro.surface_flinger.display_primary_blue ${vendor.display.primary_blue}
     #setprop ro.surface_flinger.display_primary_white ${vendor.display.primary_white}
+    # Permission for hwcomposer
+    chown system system /sys/class/backlight/panel0-backlight/brightness
+    chown system system /sys/class/backlight/panel0-backlight/max_brightness
+    chown system system /sys/class/backlight/panel0-backlight/vr_mode
+    chown system system /sys/class/backlight/panel0-backlight/hbm_mode
     start surfaceflinger
     start bootanim
     start vendor.hwcomposer-2-3
@@ -322,11 +327,6 @@ on early-boot
     # Set up touch directories and permissions
     chmod 770 /mnt/vendor/persist/touch
     chown system system /mnt/vendor/persist/touch
-
-    # Permission for lights driver
-    chown system system /sys/class/backlight/panel0-backlight/brightness
-    chown system system /sys/class/backlight/panel0-backlight/vr_mode
-    chown system system /sys/class/backlight/panel0-backlight/hbm_mode
 
     # Wait for insmod_sh to finish all modules
     wait_for_prop vendor.all.modules.ready 1
@@ -480,17 +480,6 @@ on property:sys.boot_completed=1
     chown system system /sys/kernel/debug/google_battery/ssoc_uicurve
     chown system system /sys/kernel/debug/google_charger/pps_op_ua
     chown system system /sys/kernel/debug/google_charger/pps_out_uv
-
-    # Create pixel-trace.
-    # At this moment, only mm_event is available. If others want to put more,
-    # it should get hard review from pixel-perf-team.
-    mkdir /sys/kernel/debug/tracing/instances/pixel-trace 0755 system system
-    chown system system /sys/kernel/debug/tracing/instances/pixel-trace/trace
-    chmod 0660 /sys/kernel/debug/tracing/instances/pixel-trace/trace
-    chown system system /sys/kernel/debug/tracing/instances/pixel-trace/tracing_on
-    chmod 0660 /sys/kernel/debug/tracing/instances/pixel-trace/tracing_on
-    write /sys/kernel/debug/tracing/instances/pixel-trace/buffer_size_kb 64
-    write /sys/kernel/debug/tracing/instances/pixel-trace/events/mm_event/enable 1
 
     # Permission for bootloader logs
     chown root log /proc/bldrlog
@@ -770,3 +759,7 @@ on property:persist.sys.theme=0
 # it should be written by the system init.
 on property:ro.boot.hardware.radio.subtype=1
     setprop audio.camerasound.force true
+
+on property:persist.sys.device_provisioned=1
+    setprop dalvik.vm.dex2oat-cpu-set 2,3,4,5
+    setprop dalvik.vm.dex2oat-threads 4
