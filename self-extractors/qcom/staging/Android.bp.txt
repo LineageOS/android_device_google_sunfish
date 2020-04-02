@@ -155,6 +155,42 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "libmediaplayerservice",
     arch: {
+        arm: {
+            srcs: ["libmediaplayerservice.so"],
+            shared_libs: [
+                "android.hardware.media.c2@1.0",
+                "android.hardware.media.omx@1.0",
+                "libbase",
+                "libaudioclient",
+                "libbinder",
+                "libcamera_client",
+                "libcodec2_client",
+                "libcrypto",
+                "libcutils",
+                "libdatasource",
+                "libdrmframework",
+                "libgui",
+                "libhidlbase",
+                "liblog",
+                "libmedia",
+                "libmedia_codeclist",
+                "libmedia_omx",
+                "libmediadrm",
+                // "libmediametrics",
+                "libmediautils",
+                "libmemunreachable",
+                "libnetd_client",
+                "libpowermanager",
+                "libstagefright",
+                "libstagefright_foundation",
+                "libstagefright_httplive",
+                "libutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
         arm64: {
             srcs: ["lib64/libmediaplayerservice.so"],
             shared_libs: [
@@ -192,7 +228,7 @@ cc_prebuilt_library_shared {
             ],
         },
     },
-    compile_multilib: "64",
+    compile_multilib: "both",
     owner: "qcom",
     strip: {
         none: true,
@@ -504,6 +540,29 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "libstagefright_httplive",
     arch: {
+        arm: {
+            srcs: ["libstagefright_httplive.so"],
+            shared_libs: [
+                "liblog",
+                "libcrypto",
+                "libcutils",
+                "libdatasource",
+                "libmedia",
+                "libmediandk",
+                "libstagefright",
+                "libstagefright_foundation",
+                "libutils",
+                "libhidlbase",
+                "libhidlmemory",
+                "android.hardware.cas@1.0",
+                "android.hardware.cas.native@1.0",
+                "android.hidl.allocator@1.0",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
         arm64: {
             srcs: ["lib64/libstagefright_httplive.so"],
             shared_libs: [
@@ -528,7 +587,7 @@ cc_prebuilt_library_shared {
             ],
         },
     },
-    compile_multilib: "64",
+    compile_multilib: "both",
     owner: "qcom",
     strip: {
         none: true,
