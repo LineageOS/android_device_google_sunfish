@@ -329,6 +329,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.iwlan_operation_mode=legacy \
     persist.vendor.radio.procedure_bytes=SKIP \
 
+# Enable reboot free DSDS
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.telephony.max.active.modems=2 \
+    persist.radio.reboot_on_modem_change=false
+
 # Disable snapshot timer
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.snapshot_enabled=0 \
