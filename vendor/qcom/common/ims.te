@@ -49,3 +49,5 @@ set_prop(ims, ctl_stop_prop)
 
 r_dir_file(ims, sysfs_esoc)
 r_dir_file(ims, sysfs_ssr)
+
+dontaudit ims diag_device:chr_file rw_file_perms;
