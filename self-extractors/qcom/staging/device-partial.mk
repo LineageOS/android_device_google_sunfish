@@ -21,7 +21,6 @@ PRODUCT_PACKAGES := \
     libcdsprpc_system \
     libdisplayconfig \
     libmdsprpc_system \
-    libmediaplayerservice \
     libmmosal \
     libOpenCL_system \
     libqct_resampler \
@@ -31,7 +30,6 @@ PRODUCT_PACKAGES := \
     libsns_device_mode_stub \
     libsns_fastRPC_util \
     libsns_low_lat_stream_stub \
-    libstagefright_httplive \
 
 PRODUCT_COPY_FILES := \
     vendor/qcom/sunfish/proprietary/ATT_profiles.xml:system/etc/cne/Nexus/ATT/ATT_profiles.xml \
