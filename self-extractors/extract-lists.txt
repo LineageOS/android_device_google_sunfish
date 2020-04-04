@@ -19,7 +19,6 @@
             system/lib64/libcdsprpc_system.so \
             system/lib64/libdisplayconfig.so \
             system/lib64/libmdsprpc_system.so \
-            system/lib64/libmediaplayerservice.so \
             system/lib64/libmmosal.so \
             system/lib64/libOpenCL_system.so \
             system/lib64/libqmi_cci_system.so \
@@ -28,7 +27,6 @@
             system/lib64/libsns_device_mode_stub.so \
             system/lib64/libsns_fastRPC_util.so \
             system/lib64/libsns_low_lat_stream_stub.so \
-            system/lib64/libstagefright_httplive.so \
             system/lib/libadsprpc_system.so \
             system/lib/libcdsprpc_system.so \
             system/lib/libdisplayconfig.so \
