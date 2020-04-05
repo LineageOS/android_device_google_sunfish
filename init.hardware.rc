@@ -440,6 +440,10 @@ on property:sys.boot_completed=1
     # Otherwise, contiguous discards can be merged
     write /sys/block/sda/queue/discard_max_bytes 134217728
 
+    # Back to default VM settings
+    write /proc/sys/vm/dirty_expire_centisecs 3000
+    write /proc/sys/vm/dirty_background_ratio 10
+
     # Enable ZRAM on boot_complete
     swapon_all /vendor/etc/fstab.${ro.boot.hardware.platform}
     write /proc/sys/vm/swappiness 100
