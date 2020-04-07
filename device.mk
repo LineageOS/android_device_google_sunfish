@@ -502,15 +502,6 @@ PRODUCT_PRODUCT_PROPERTIES +=\
     ro.vibrator.hal.long.frequency.shift=10 \
     ro.vibrator.hal.steady.shape=1
 
-# Thermal HAL
-PRODUCT_PACKAGES += \
-    android.hardware.thermal@2.0-service.pixel \
-
-ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-PRODUCT_PACKAGES += \
-    thermal_logd
-endif
-
 # Thermal HAL config
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/thermal_info_config_$(PRODUCT_HARDWARE).json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json \
@@ -897,3 +888,6 @@ include hardware/google/pixel/common/pixel-common-device.mk
 
 # mm_event
 -include hardware/google/pixel/mm/device_legacy.mk
+
+# thermal
+-include hardware/google/pixel/thermal/device.mk
