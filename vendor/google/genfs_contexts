@@ -125,8 +125,6 @@ genfscon proc /bldrlog                                u:object_r:proc_bldrlog:s0
 genfscon sysfs /devices/platform/soc/soc:fp_fpc1020                               u:object_r:sysfs_fingerprint:s0
 
 # Thermal
-genfscon sysfs /devices/virtual/thermal                                           u:object_r:sysfs_thermal:s0
-genfscon sysfs /class/thermal							  u:object_r:sysfs_thermal:s0
 genfscon sysfs /devices/platform/soc/18321000.qcom,cpucc/18321000.qcom,cpucc:qcom,limits-dcvs@18350800  u:object_r:sysfs_thermal:s0
 genfscon sysfs /devices/platform/soc/18321000.qcom,cpucc/18321000.qcom,cpucc:qcom,limits-dcvs@18358800  u:object_r:sysfs_thermal:s0
 
