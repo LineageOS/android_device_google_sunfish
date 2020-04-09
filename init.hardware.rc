@@ -523,14 +523,6 @@ service init-sensors-sh /vendor/bin/init.sensors.sh
     disabled
     oneshot
 
-service sensors.qti /vendor/bin/sensors.qti
-    class core
-    user system
-    group system
-    # Grants the ability for this daemon to bind IPC router ports so it can
-    # register QMI services
-    capabilities NET_BIND_SERVICE
-
 service vendor.adsprpcd /vendor/bin/adsprpcd
    class main
    user system
