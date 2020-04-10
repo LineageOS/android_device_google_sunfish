@@ -126,7 +126,7 @@ BOARD_EXT4_SHARE_DUP_BLOCKS := true
 
 QCOM_BOARD_PLATFORMS += sm6150
 MSMSTEPPE = sm6150
-QC_PROP_ROOT := vendor/qcom/sm7150/proprietary
+QC_PROP_ROOT := vendor/qcom/sm8150/proprietary
 QC_PROP_PATH := $(QC_PROP_ROOT)
 BOARD_HAVE_BLUETOOTH_QCOM := true
 BOARD_HAVE_QCOM_FM := false
