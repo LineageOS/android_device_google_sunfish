@@ -26,10 +26,10 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/camera \
     hardware/google/interfaces \
     hardware/google/pixel \
-    hardware/qcom/sm7150 \
-    hardware/qcom/sm7150/display \
+    hardware/qcom/sm8150 \
+    hardware/qcom/sm8150/display \
     vendor/google/camera \
-    vendor/qcom/sm7150 \
+    vendor/qcom/sm8150 \
     vendor/google/interfaces
 
 # Single vendor RIL/Telephony/data with SM7250
@@ -861,13 +861,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.verbose_logging_enabled=false
 endif
 
--include hardware/qcom/sm7150/display/config/display-product.mk
--include vendor/qcom/sm7150/proprietary/display/config/display-product-proprietary.mk
--include vendor/qcom/sm7150/proprietary/commonsys-intf/data/data_commonsys-intf_system_product.mk
--include vendor/qcom/sm7150/proprietary/commonsys-intf/data/data_commonsys-intf_vendor_product.mk
+-include hardware/qcom/sm8150/display/config/display-product.mk
+-include vendor/qcom/sm8150/proprietary/display/config/display-product-proprietary.mk
+-include vendor/qcom/sm8150/proprietary/commonsys-intf/data/data_commonsys-intf_system_product.mk
+-include vendor/qcom/sm8150/proprietary/commonsys-intf/data/data_commonsys-intf_vendor_product.mk
 # Security
--include vendor/qcom/sm7150/proprietary/securemsm/config/keymaster_vendor_proprietary_board.mk
--include vendor/qcom/sm7150/proprietary/securemsm/config/keymaster_vendor_proprietary_product.mk
+-include vendor/qcom/sm8150/proprietary/securemsm/config/keymaster_vendor_proprietary_board.mk
+-include vendor/qcom/sm8150/proprietary/securemsm/config/keymaster_vendor_proprietary_product.mk
 
 # Project
 include hardware/google/pixel/common/pixel-common-device.mk
@@ -875,10 +875,10 @@ include hardware/google/pixel/common/pixel-common-device.mk
 # Factory OTA
 -include vendor/google/factoryota/client/factoryota.mk
 
--include vendor/qcom/sm7150/proprietary/securemsm/config/cpz_vendor_proprietary_board.mk
--include vendor/qcom/sm7150/proprietary/securemsm/config/cpz_vendor_proprietary_product.mk
--include vendor/qcom/sm7150/proprietary/securemsm/config/smcinvoke_vendor_proprietary_product.mk
--include vendor/qcom/sm7150/proprietary/commonsys/securemsm/securemsm_system_product.mk
+-include vendor/qcom/sm8150/proprietary/securemsm/config/cpz_vendor_proprietary_board.mk
+-include vendor/qcom/sm8150/proprietary/securemsm/config/cpz_vendor_proprietary_product.mk
+-include vendor/qcom/sm8150/proprietary/securemsm/config/smcinvoke_vendor_proprietary_product.mk
+-include vendor/qcom/sm8150/proprietary/commonsys/securemsm/securemsm_system_product.mk
 
 # storage
 -include hardware/google/pixel/pixelstats/device.mk
