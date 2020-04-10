@@ -12,6 +12,12 @@
             system/etc/cne/Nexus/VZW/VZW_profiles.xml \
             system/etc/permissions/audiosphere.xml \
             system/etc/permissions/com.qti.snapdragon.sdk.display.xml \
+            system_ext/app/QtiTelephonyService/QtiTelephonyService.apk \
+            system_ext/etc/permissions/qcrilhook.xml \
+            system_ext/framework/qcrilhook.jar \
+            system_ext/lib64/libimsmedia_jni.so \
+            system_ext/lib/libimsmedia_jni.so \
+            system_ext/priv-app/ims/ims.apk \
             system/framework/com.qti.location.sdk.jar \
             system/framework/com.qti.snapdragon.sdk.display.jar \
             system/framework/ConnectivityExt.jar \
