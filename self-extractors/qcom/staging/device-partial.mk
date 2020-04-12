@@ -15,11 +15,17 @@
 PRODUCT_SOONG_NAMESPACES += \
     vendor/qcom/sunfish/proprietary
 
+# AOSP packages required by the blobs
+PRODUCT_PACKAGES := \
+    ims \
+    QtiTelephonyService
+
 #  blob(s) necessary for sunfish hardware
 PRODUCT_PACKAGES := \
     libadsprpc_system \
     libcdsprpc_system \
     libdisplayconfig \
+    libimsmedia_jni \
     libmdsprpc_system \
     libmmosal \
     libOpenCL_system \
@@ -36,8 +42,10 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/sunfish/proprietary/ROW_profiles.xml:system/etc/cne/Nexus/ROW/ROW_profiles.xml \
     vendor/qcom/sunfish/proprietary/VZW_profiles.xml:system/etc/cne/Nexus/VZW/VZW_profiles.xml \
     vendor/qcom/sunfish/proprietary/audiosphere.xml:system/etc/permissions/audiosphere.xml \
-    vendor/qcom/sunfish/proprietary/com.qti.snapdragon.sdk.display.xml:system/etc/permissions/com.qti.snapdragon.sdk.display.xml \
     vendor/qcom/sunfish/proprietary/com.qti.location.sdk.jar:system/framework/com.qti.location.sdk.jar \
     vendor/qcom/sunfish/proprietary/com.qti.snapdragon.sdk.display.jar:system/framework/com.qti.snapdragon.sdk.display.jar \
+    vendor/qcom/sunfish/proprietary/com.qti.snapdragon.sdk.display.xml:system/etc/permissions/com.qti.snapdragon.sdk.display.xml \
+    vendor/qcom/sunfish/proprietary/qcrilhook.jar:system_ext/framework/qcrilhook.jar \
+    vendor/qcom/sunfish/proprietary/qcrilhook.xml:system_ext/etc/permissions/qcrilhook.xml \
     vendor/qcom/sunfish/proprietary/ConnectivityExt.jar:system/framework/ConnectivityExt.jar \
 
