@@ -54,7 +54,6 @@ on early-fs
 on init && property:vendor.skip.init=0
     # Disable UFS powersaving
     write /sys/devices/platform/soc/${ro.boot.bootdevice}/clkgate_enable 0
-    write /sys/devices/platform/soc/${ro.boot.bootdevice}/hibern8_on_idle_enable 0
 
     # Disable powersaving
     write /sys/module/lpm_levels/parameters/sleep_disabled 1
