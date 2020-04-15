@@ -2037,6 +2037,8 @@
 
     <path name="line">
         <path name="headphones" />
+        <ctl name="RX_RX0 Digital Volume" value="84" />
+        <ctl name="RX_RX1 Digital Volume" value="84" />
     </path>
 
     <path name="headset-mic">
@@ -2268,10 +2270,17 @@
         <ctl name="IIR0 INP0 MUX" value="DEC7" />
     </path>
 
+    <!-- generic mic source with Dual-MIC D:22 dB -->
     <path name="handset-stereo-dmic-ef">
-        <path name="handset-dmic-endfire" />
-        <ctl name="ADC1 Capture Volume" id="0" value="50"/>
-        <ctl name="ADC2 Capture Volume" id="0" value="50"/>
+        <ctl name="ADC1 Capture Volume" id="0" value="52"/>
+        <ctl name="ADC2 Capture Volume" id="0" value="52"/>
+        <ctl name="TERT TDM TX Channel Offset" id="0" value="0" />
+        <ctl name="TERT TDM TX Channel Offset" id="1" value="8" />
+        <ctl name="TERT_TDM_TX_0 Channels" value="Two"/>
+        <ctl name="Sto1 ADC MIXL DMIC Switch" value="1" />
+        <ctl name="Sto2 ADC MIXL DMIC Switch" value="1" />
+        <ctl name="Stereo1 DMIC Mux" value="DMIC1" />
+        <ctl name="Stereo2 DMIC Mux" value="DMIC2" />
     </path>
 
     <path name="speaker-stereo-dmic-ef">
@@ -2297,7 +2306,13 @@
 
     <!-- VR Dual-MIC 1st D:22 dB -->
     <path name="voice-rec-dmic-ef">
-        <path name="dmic-endfire" />
+        <ctl name="ADC1 Capture Volume" id="0" value="52"/>
+        <ctl name="ADC2 Capture Volume" id="0" value="52"/>
+        <ctl name="TERT_TDM_TX_0 Channels" value="Two"/>
+        <ctl name="Sto1 ADC MIXL DMIC Switch" value="1" />
+        <ctl name="Sto2 ADC MIXL DMIC Switch" value="1" />
+        <ctl name="Stereo1 DMIC Mux" value="DMIC1" />
+        <ctl name="Stereo2 DMIC Mux" value="DMIC2" />
     </path>
 
     <path name="voice-rec-dmic-ef-fluence">
