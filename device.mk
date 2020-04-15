@@ -339,6 +339,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.snapshot_enabled=0 \
     persist.vendor.radio.snapshot_timer=0
 
+PRODUCT_PACKAGES += \
+    hwcomposer.sm6150 \
+    android.hardware.graphics.composer@2.4-service-sm8150 \
+    gralloc.sm6150 \
+    android.hardware.graphics.mapper@3.0-impl-qti-display \
+    vendor.qti.hardware.display.allocator-service
+
 # RenderScript HAL
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
@@ -862,8 +869,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.verbose_logging_enabled=false
 endif
 
--include hardware/qcom/sm8150/display/config/display-product.mk
--include vendor/qcom/sm8150/proprietary/display/config/display-product-proprietary.mk
 -include vendor/qcom/sm8150/proprietary/commonsys-intf/data/data_commonsys-intf_system_product.mk
 -include vendor/qcom/sm8150/proprietary/commonsys-intf/data/data_commonsys-intf_vendor_product.mk
 # Security
