@@ -62,7 +62,6 @@ BOARD_BOOT_HEADER_VERSION := 2
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 
 # DTBO partition definitions
-BOARD_PREBUILT_DTBOIMAGE := device/google/sunfish-kernel/dtbo.img
 BOARD_DTBOIMG_PARTITION_SIZE := 8388608
 
 TARGET_NO_KERNEL := false
@@ -208,27 +207,6 @@ DEVICE_FRAMEWORK_MANIFEST_FILE := device/google/sunfish/framework_manifest.xml
 # Use mke2fs to create ext4 images
 TARGET_USES_MKE2FS := true
 
-# Kernel modules
-ifeq (,$(filter-out sunfish_kasan, $(TARGET_PRODUCT)))
-BOARD_VENDOR_KERNEL_MODULES += \
-    $(wildcard device/google/sunfish-kernel/kasan/*.ko)
-else ifeq (,$(filter-out sunfish_kernel_debug_memory, $(TARGET_PRODUCT)))
-BOARD_VENDOR_KERNEL_MODULES += \
-    $(wildcard device/google/sunfish-kernel/debug_memory/*.ko)
-else ifeq (,$(filter-out sunfish_kernel_debug_locking, $(TARGET_PRODUCT)))
-BOARD_VENDOR_KERNEL_MODULES += \
-    $(wildcard device/google/sunfish-kernel/debug_locking/*.ko)
-else ifeq (,$(filter-out sunfish_kernel_debug_hang, $(TARGET_PRODUCT)))
-BOARD_VENDOR_KERNEL_MODULES += \
-    $(wildcard device/google/sunfish-kernel/debug_hang/*.ko)
-else ifeq (,$(filter-out sunfish_kernel_debug_api, $(TARGET_PRODUCT)))
-BOARD_VENDOR_KERNEL_MODULES += \
-    $(wildcard device/google/sunfish-kernel/debug_api/*.ko)
-else
-BOARD_VENDOR_KERNEL_MODULES += \
-    $(wildcard device/google/sunfish-kernel/*.ko)
-endif
-
 # dynamic partition
 BOARD_SUPER_PARTITION_SIZE := 9755951104
 BOARD_SUPER_PARTITION_GROUPS := google_dynamic_partitions
@@ -243,21 +221,6 @@ BOARD_GOOGLE_DYNAMIC_PARTITIONS_SIZE := 4873781248
 
 # Set error limit to BOARD_SUPER_PARTITON_SIZE - 500MB
 BOARD_SUPER_PARTITION_ERROR_LIMIT := 9231663104
-
-# DTB
-ifeq (,$(filter-out sunfish_kasan, $(TARGET_PRODUCT)))
-BOARD_PREBUILT_DTBIMAGE_DIR := device/google/sunfish-kernel/kasan
-else ifeq (,$(filter-out sunfish_kernel_debug_memory, $(TARGET_PRODUCT)))
-BOARD_PREBUILT_DTBIMAGE_DIR := device/google/sunfish-kernel/debug_memory
-else ifeq (,$(filter-out sunfish_kernel_debug_locking, $(TARGET_PRODUCT)))
-BOARD_PREBUILT_DTBIMAGE_DIR := device/google/sunfish-kernel/debug_locking
-else ifeq (,$(filter-out sunfish_kernel_debug_hang, $(TARGET_PRODUCT)))
-BOARD_PREBUILT_DTBIMAGE_DIR := device/google/sunfish-kernel/debug_hang
-else ifeq (,$(filter-out sunfish_kernel_debug_api, $(TARGET_PRODUCT)))
-BOARD_PREBUILT_DTBIMAGE_DIR := device/google/sunfish-kernel/debug_api
-else
-BOARD_PREBUILT_DTBIMAGE_DIR := device/google/sunfish-kernel
-endif
 
 # Testing related defines
 #BOARD_PERFSETUP_SCRIPT := platform_testing/scripts/perf-setup/s5-setup.sh
