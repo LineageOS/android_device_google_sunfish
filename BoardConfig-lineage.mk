@@ -13,3 +13,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+## Kernel
+BOARD_KERNEL_IMAGE_NAME := Image.lz4
+KERNEL_LD := LD=ld.lld
+TARGET_COMPILE_WITH_MSM_KERNEL := true
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_CLANG_COMPILE := true
+TARGET_KERNEL_CONFIG := sunfish_defconfig
+TARGET_KERNEL_SOURCE := kernel/google/sunfish
+TARGET_NEEDS_DTBOIMAGE := true
