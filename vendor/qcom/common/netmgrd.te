@@ -64,3 +64,10 @@ userdebug_or_eng(`
   r_dir_file(netmgrd, sysfs_diag)
 ')
 allow netmgrd self:netlink_xfrm_socket create_socket_perms_no_ioctl;
+
+#Allow set persist.vendor.data.shs_ko_load
+#Allow set persist.vendor.data.shsusr_load
+#Allow set persist.vendor.data.perf_ko_load
+#Allow set persist.vendor.data.qmipriod_load
+set_prop(netmgrd, vendor_radio_prop)
+
