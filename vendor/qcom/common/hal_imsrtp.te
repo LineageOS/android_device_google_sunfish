@@ -8,6 +8,7 @@ net_domain(hal_imsrtp)
 
 add_hwservice(hal_imsrtp, hal_imsrtp_hwservice)
 binder_call(hal_imsrtp, radio)
+binder_call(hal_imsrtp, qtelephony)
 unix_socket_connect(hal_imsrtp, ims, ims)
 
 get_prop(hal_imsrtp, hwservicemanager_prop)
