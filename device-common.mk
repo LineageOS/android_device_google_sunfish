@@ -70,6 +70,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
 	ro.config.low_ram = false \
 	ro.lmk.log_stats = true \
 
+# charger
+PRODUCT_PRODUCT_PROPERTIES += \
+	ro.charger.enable_suspend=true
+
 # Modem loging file
 PRODUCT_COPY_FILES += \
     device/google/sunfish/init.logging.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(PRODUCT_PLATFORM).logging.rc
