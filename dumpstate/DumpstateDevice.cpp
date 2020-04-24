@@ -270,19 +270,19 @@ static void DumpTouch(int fd) {
 
         // Mutual raw data
         snprintf(cmd, sizeof(cmd),
-                 "echo 13 00 > %s/stm_fts_cmd && cat %s/stm_fts_cmd",
+                 "echo 13 00 01 > %s/stm_fts_cmd && cat %s/stm_fts_cmd",
                  touch_spi_path, touch_spi_path);
         RunCommandToFd(fd, "Mutual Raw", {"/vendor/bin/sh", "-c", cmd});
 
         // Mutual strength data
         snprintf(cmd, sizeof(cmd),
-                 "echo 17 > %s/stm_fts_cmd && cat %s/stm_fts_cmd",
+                 "echo 17 01 > %s/stm_fts_cmd && cat %s/stm_fts_cmd",
                  touch_spi_path, touch_spi_path);
         RunCommandToFd(fd, "Mutual Strength", {"/vendor/bin/sh", "-c", cmd});
 
         // Self raw data
         snprintf(cmd, sizeof(cmd),
-                 "echo 15 00 > %s/stm_fts_cmd && cat %s/stm_fts_cmd",
+                 "echo 15 00 01> %s/stm_fts_cmd && cat %s/stm_fts_cmd",
                  touch_spi_path, touch_spi_path);
         RunCommandToFd(fd, "Self Raw", {"/vendor/bin/sh", "-c", cmd});
     }
