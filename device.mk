@@ -547,7 +547,8 @@ endif
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
     wificond \
-    libwpa_client
+    libwpa_client \
+    WifiOverlay
 
 # WLAN driver configuration files
 PRODUCT_COPY_FILES += \
