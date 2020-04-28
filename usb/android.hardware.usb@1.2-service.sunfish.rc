@@ -10,3 +10,4 @@ on boot
     chmod 664 /sys/class/typec/port0/power_role
     chmod 664 /sys/class/typec/port0/data_role
     chmod 664 /sys/class/typec/port0/port_type
+    chmod 664 /sys/class/power_supply/usb/moisture_detection_enabled
