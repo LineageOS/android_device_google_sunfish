@@ -59,6 +59,7 @@ class MockCal : public ::android::hardware::vibrator::V1_3::implementation::Vibr
     MOCK_METHOD1(getHeavyClickDuration, bool(uint32_t *value));
     MOCK_METHOD1(getEffectShape, bool(uint32_t *value));
     MOCK_METHOD1(getSteadyShape, bool(uint32_t *value));
+    MOCK_METHOD1(getTriggerEffectSupport, bool(uint32_t *value));
     MOCK_METHOD1(debug, void(int fd));
 
     ~MockCal() override { destructor(); };
