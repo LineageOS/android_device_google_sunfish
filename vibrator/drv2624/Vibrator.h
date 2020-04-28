@@ -121,6 +121,8 @@ class Vibrator : public IVibrator {
         virtual bool getEffectShape(uint32_t *value) = 0;
         // Obtains the wave shape for steady vibration
         virtual bool getSteadyShape(uint32_t *value) = 0;
+        // Obtains the trigger effect support
+        virtual bool getTriggerEffectSupport(uint32_t *value) = 0;
         // Emit diagnostic information to the given file.
         virtual void debug(int fd) = 0;
     };
@@ -194,6 +196,7 @@ class Vibrator : public IVibrator {
     uint32_t mSteadyTargetOdClamp;
     uint32_t mSteadyOlLraPeriod;
     uint32_t mSteadyOlLraPeriodShift;
+    bool mDynamicConfig;
 };
 
 }  // namespace implementation
