@@ -507,7 +507,8 @@ PRODUCT_PRODUCT_PROPERTIES +=\
     ro.vibrator.hal.short.voltage=161 \
     ro.vibrator.hal.long.voltage=161 \
     ro.vibrator.hal.long.frequency.shift=10 \
-    ro.vibrator.hal.steady.shape=1
+    ro.vibrator.hal.steady.shape=1 \
+    ro.vibrator.hal.lptrigger=0
 
 # Thermal HAL config
 PRODUCT_COPY_FILES += \
