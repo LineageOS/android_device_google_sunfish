@@ -178,7 +178,7 @@
       M 41,83 a 42,42 0 1,0 84,0 a 42,42 0 1,0 -84,0
       but using a radius 43 circle for now to see the antialiasing.
       -->
-        M 40,83 a 43,43 0 1 0 86,0 43,43 0 1 0 -86,0 Z
+        M 40,83 a 42.75,42.75 0 1 0 85.5,0 42.75,42.75 0 1 0 -85.5,0 Z
         @left
     </string>
 
