@@ -72,15 +72,15 @@
          Note that while rounded.xml includes the entire path (including the horizontal and vertical
          corner edges), this pulls out just the curve.
      -->
-    <string name="config_rounded_mask" translatable="false">C 2,100 0,60 30,30 60,0 100,2 146,0</string>
+    <string name="config_rounded_mask" translatable="false">M146,0 C100,2 60,0 30,30 C0,60 2,100 0,146</string>
 
     <bool name="config_roundedCornerMultipleRadius">true</bool>
 
-    <!-- Configure 19px of extra protection around the front-facing camera -->
+    <!-- Configure 13px of extra protection around the front-facing camera -->
     <string translatable="false" name="config_frontBuiltInDisplayCutoutProtection">
-        M 21,83
-        a 62,62 0 1 0 124,0
-        a 62,62 0 1 0 -124,0
+        M 28,83
+        a 55,55 0 1 0 110,0
+        a 55,55 0 1 0 -110,0
         Z
     </string>
 
