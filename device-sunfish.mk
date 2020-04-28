@@ -102,6 +102,12 @@ PRODUCT_COPY_FILES += \
 endif
 endif
 
+# Settings overlay packages for regulatory_info
+PRODUCT_PACKAGES += \
+    SettingsOverlayG025J \
+    SettingsOverlayG025M \
+    SettingsOverlayG025N \
+
 # Fingerprint HIDL
 include device/google/sunfish/fingerprint.mk
 
