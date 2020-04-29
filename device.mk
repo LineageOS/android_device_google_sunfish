@@ -507,7 +507,8 @@ PRODUCT_PRODUCT_PROPERTIES +=\
     ro.vibrator.hal.short.voltage=161 \
     ro.vibrator.hal.long.voltage=161 \
     ro.vibrator.hal.long.frequency.shift=10 \
-    ro.vibrator.hal.steady.shape=1
+    ro.vibrator.hal.steady.shape=1 \
+    ro.vibrator.hal.lptrigger=0
 
 # Thermal HAL config
 PRODUCT_COPY_FILES += \
@@ -579,7 +580,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.audio@5.0-impl:32 \
     android.hardware.audio.effect@5.0-impl:32 \
-    android.hardware.soundtrigger@2.2-impl \
+    android.hardware.soundtrigger@2.3-impl \
     android.hardware.bluetooth.audio@2.0-impl \
     android.hardware.audio@2.0-service
 
