@@ -26,11 +26,18 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/camera \
     hardware/google/interfaces \
     hardware/google/pixel \
-    hardware/qcom/sm8150 \
     hardware/qcom/sm8150/display \
+    hardware/qcom/sm8150/data/ipacfg-mgr \
+    hardware/qcom/sm8150/gps \
     vendor/google/camera \
     vendor/qcom/sm8150 \
+    vendor/qcom/sm8150/proprietary/gps \
+    vendor/qcom/sm8150/codeaurora/location \
     vendor/google/interfaces
+
+# Include sensors soong namespace
+PRODUCT_SOONG_NAMESPACES += \
+    vendor/qcom/sensors
 
 # Single vendor RIL/Telephony/data with SM7250
 DEVICE_USES_SM7250_QCRIL_TELEPHONY := true
@@ -115,7 +122,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/uinput-fpc.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/uinput-fpc.idc \
     $(LOCAL_PATH)/init.hardware.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(PRODUCT_PLATFORM).usb.rc \
     $(LOCAL_PATH)/init.sensors.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.sensors.sh \
-    $(LOCAL_PATH)/sensors.hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf \
     $(LOCAL_PATH)/thermal-engine-$(PRODUCT_HARDWARE).conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-$(PRODUCT_HARDWARE).conf \
     $(LOCAL_PATH)/ueventd.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc \
     $(LOCAL_PATH)/init.ramoops.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.ramoops.sh \
@@ -472,9 +478,8 @@ PRODUCT_PACKAGES_DEBUG += \
 
 PRODUCT_PACKAGES += \
     sensors.$(PRODUCT_HARDWARE) \
-    android.hardware.sensors@2.0-impl \
-    android.hardware.sensors@2.0-service \
-    android.hardware.sensors@2.0-service.rc
+    android.hardware.sensors@2.0-service.multihal \
+    hals.conf
 
 PRODUCT_PACKAGES += \
     fs_config_dirs \
