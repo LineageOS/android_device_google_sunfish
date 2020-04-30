@@ -7,7 +7,7 @@ user=_app seinfo=platform name=com.google.android.hardwareinfo domain=hardware_i
 
 user=radio isPrivApp=true seinfo=platform name=com.google.RilConfigService domain=ril_config_service_app type=app_data_file
 
-user=radio seinfo=platform name=.qtidataservices domain=qtidataservices_app type=radio_data_file
+user=_app seinfo=platform name=.qtidataservices domain=qtidataservices_app type=app_data_file levelFrom=all
 
 # Domain for connectivity monitor
 user=_app isPrivApp=true seinfo=platform name=com.google.android.connectivitymonitor domain=con_monitor_app type=app_data_file levelFrom=all
