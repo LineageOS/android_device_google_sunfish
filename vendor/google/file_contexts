@@ -49,7 +49,7 @@
 /vendor/bin/hw/android.hardware.graphics.composer@2.1-service                         u:object_r:hal_graphics_composer_default_exec:s0
 /vendor/bin/hw/vendor.qti.hardware.display.composer-service                           u:object_r:hal_graphics_composer_default_exec:s0
 /vendor/bin/hw/init_dp.sh                                                             u:object_r:init_dp_exec:s0
-/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.fpc           u:object_r:hal_fingerprint_default_exec:s0
+/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.2-service\.fpc           u:object_r:hal_fingerprint_default_exec:s0
 /vendor/bin/init\.qti\.chg_policy\.sh                                                 u:object_r:init_qti_chg_policy_exec:s0
 /vendor/bin/hw/android\.hardware\.graphics\.composer@2\.4-service-sm8150              u:object_r:hal_graphics_composer_default_exec:s0
 
