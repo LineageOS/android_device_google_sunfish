@@ -1,0 +1,25 @@
+#define the domain
+type hal_qseecom_default, domain;
+hal_server_domain(hal_qseecom_default, hal_qseecom)
+type hal_qseecom_default_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(hal_qseecom_default)
+
+#Allow hal_qseecom client domain apps to find hwservice
+binder_call(hal_qseecom_client, hal_qseecom_server)
+binder_call(hal_qseecom_server, hal_qseecom_client)
+
+#allow the service to be added to hwservice list
+hal_attribute_hwservice(hal_qseecom, hal_qseecom_hwservice)
+
+#allow access to hal_allocator
+hal_client_domain(hal_qseecom_default, hal_allocator)
+
+#allow access to ion device
+allow hal_qseecom_default ion_device:chr_file rw_file_perms;
+
+#Allow access to firmware
+r_dir_file(hal_qseecom_default, firmware_file);
+
+#Allow access to tee device
+allow hal_qseecom_default tee_device:chr_file rw_file_perms;
