@@ -289,15 +289,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>eSE1</instance>
         </interface>
     </hal>
-    <hal format="hidl">
-        <name>android.hardware.sensors</name>
-        <transport>hwbinder</transport>
-        <version>2.0</version>
-        <interface>
-            <name>ISensors</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
     <!-- gatekeeper -->
     <hal format="hidl">
        <name>android.hardware.gatekeeper</name>
