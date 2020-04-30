@@ -21,3 +21,4 @@ type hal_dataconnection_hwservice, hwservice_manager_type;
 type hal_bluetooth_coexistence_hwservice, hwservice_manager_type;
 type hal_cacert_hwservice, hwservice_manager_type;
 type hal_capabilityconfigstore_qti_hwservice, hwservice_manager_type;
+type hal_qseecom_hwservice, hwservice_manager_type, protected_hwservice;
