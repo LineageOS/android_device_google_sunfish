@@ -123,6 +123,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
 endif
 
 # Enable Incremental on the device via kernel module
-PRODUCT_PRODUCT_PROPERTIES += \
+PRODUCT_PROPERTY_OVERRIDES += \
         ro.incremental.enable=module:/vendor/lib/modules/incrementalfs.ko
 
