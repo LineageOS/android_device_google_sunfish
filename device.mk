@@ -859,7 +859,7 @@ PRODUCT_PACKAGES += $(HIDL_WRAPPER)
 
 # Increment the SVN for any official public releases
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.vendor.build.svn=1
+	ro.vendor.build.svn=2
 
 # ZRAM writeback
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -869,10 +869,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
-
-# Increment the SVN for any official public releases
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.build.svn=1
 
 # Vendor verbose logging default property
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
