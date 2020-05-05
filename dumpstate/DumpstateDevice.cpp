@@ -259,6 +259,11 @@ static void DumpTouch(int fd) {
     const char touch_spi_path[] = "/sys/bus/i2c/drivers/fts/1-0049";
     char cmd[256];
 
+    RunCommandToFd(fd, "Force Set AP as Bus Owner",
+                   {"/vendor/bin/sh", "-c",
+                    "echo A0 01 > /proc/fts/driver_test && "
+                    "cat /proc/fts/driver_test"});
+
     snprintf(cmd, sizeof(cmd), "%s/appid", touch_spi_path);
     if (!access(cmd, R_OK)) {
         // Touch firmware version
@@ -328,6 +333,16 @@ static void DumpTouch(int fd) {
                        {"/vendor/bin/sh", "-c",
                         "echo 34 > /proc/fts/driver_test && "
                         "cat /proc/fts/driver_test"});
+        RunCommandToFd(fd, "Packaging Plant - HW reset",
+                       {"/vendor/bin/sh", "-c",
+                        "echo 01 FA 20 00 00 24 80 > /proc/fts/driver_test"});
+	RunCommandToFd(fd, "Packaging Plant - Hibernate Memory",
+                       {"/vendor/bin/sh", "-c",
+                        "echo 01 FA 20 00 00 68 08 > /proc/fts/driver_test"});
+	RunCommandToFd(fd, "Packaging Plant - Read 10 bytes from Address 0x00043F28",
+                       {"/vendor/bin/sh", "-c",
+                        "echo 02 FA 00 04 3F 28 00 0A 00 > /proc/fts/driver_test && "
+                        "cat /proc/fts/driver_test"});
     }
 
     snprintf(cmd, sizeof(cmd), "%s/stm_fts_cmd", touch_spi_path);
@@ -338,6 +353,10 @@ static void DumpTouch(int fd) {
                  touch_spi_path, touch_spi_path);
         RunCommandToFd(fd, "ITO Raw", {"/vendor/bin/sh", "-c", cmd});
     }
+    RunCommandToFd(fd, "Restore Bus Owner",
+                   {"/vendor/bin/sh", "-c",
+                    "echo A0 00 > /proc/fts/driver_test && "
+                    "cat /proc/fts/driver_test"});
 }
 
 static void DumpDisplay(int fd) {
