@@ -87,5 +87,9 @@
     <!-- Camera 1 is the front camera on sunfish -->
     <string translatable="false" name="config_protectedCameraId">1</string>
 
+    <!-- Comma-separated list of packages to exclude from camera protection. In our case,
+    ignore the gaze detection package -->
+    <string translatable="false" name="config_cameraProtectionExcludedPackages">com.google.android.as</string>
+
     <bool name="config_enableDisplayCutoutProtection">true</bool>
 </resources>
