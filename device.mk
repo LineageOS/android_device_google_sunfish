@@ -37,7 +37,8 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # Include sensors soong namespace
 PRODUCT_SOONG_NAMESPACES += \
-    vendor/qcom/sensors
+    vendor/qcom/sensors \
+    vendor/google/tools/sensors
 
 # Single vendor RIL/Telephony/data with SM7250
 DEVICE_USES_SM7250_QCRIL_TELEPHONY := true
@@ -589,8 +590,8 @@ PRODUCT_PACKAGES += \
     audio.bluetooth.default
 
 PRODUCT_PACKAGES += \
-    android.hardware.audio@5.0-impl:32 \
-    android.hardware.audio.effect@5.0-impl:32 \
+    android.hardware.audio@6.0-impl:32 \
+    android.hardware.audio.effect@6.0-impl:32 \
     android.hardware.soundtrigger@2.3-impl \
     android.hardware.bluetooth.audio@2.0-impl \
     android.hardware.audio@2.0-service
@@ -858,7 +859,7 @@ PRODUCT_PACKAGES += $(HIDL_WRAPPER)
 
 # Increment the SVN for any official public releases
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.vendor.build.svn=1
+	ro.vendor.build.svn=2
 
 # ZRAM writeback
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -868,10 +869,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
-
-# Increment the SVN for any official public releases
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.build.svn=1
 
 # Vendor verbose logging default property
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
