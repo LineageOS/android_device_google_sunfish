@@ -133,3 +133,6 @@ firmware_directories /vendor/firmware_mnt/image/
 
 # ABC PCIE DMA
 /dev/abc-pcie-dma         0666   cameraserver camera
+
+# Resume-on-Reboot
+/dev/access-kregistry     0660   system system
