@@ -1,5 +1,6 @@
 # dev nodes
 /dev/abc-pcie-tpu_0                                                                   u:object_r:abc_tpu_device:s0
+/dev/access-kregistry                                                                 u:object_r:rebootescrow_device:s0
 /dev/access-metadata                                                                  u:object_r:ramoops_device:s0
 /dev/access-ramoops                                                                   u:object_r:ramoops_device:s0
 /dev/block/zram0                                                                      u:object_r:swap_block_device:s0
