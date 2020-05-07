@@ -1,5 +1,5 @@
-PRODUCT_PUBLIC_SEPOLICY_DIRS := device/google/sunfish-sepolicy/public
-PRODUCT_PRIVATE_SEPOLICY_DIRS := device/google/sunfish-sepolicy/private
+PRODUCT_PUBLIC_SEPOLICY_DIRS += device/google/sunfish-sepolicy/public
+PRODUCT_PRIVATE_SEPOLICY_DIRS += device/google/sunfish-sepolicy/private
 
 # vendors
 BOARD_SEPOLICY_DIRS += device/google/sunfish-sepolicy/vendor/google
