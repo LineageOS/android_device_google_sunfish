@@ -708,6 +708,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=256m
 
+# Use 64-bit dex2oat for better dexopt time.
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.dex2oat64.enabled=true
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/hidl/android.hidl.base@1.0.so-32:system_ext/lib/android.hidl.base@1.0.so \
     $(LOCAL_PATH)/hidl/android.hidl.base@1.0.so-64:system_ext/lib64/android.hidl.base@1.0.so \
