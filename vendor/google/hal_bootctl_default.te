@@ -1,0 +1,1 @@
+get_prop(hal_bootctl_default, public_vendor_default_prop)
