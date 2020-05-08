@@ -498,9 +498,9 @@ PRODUCT_PACKAGES += \
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.0-impl \
-    android.hardware.boot@1.0-impl.recovery \
-    android.hardware.boot@1.0-service \
+    android.hardware.boot@1.1-impl-pixel-legacy \
+    android.hardware.boot@1.1-impl-pixel-legacy.recovery \
+    android.hardware.boot@1.1-service \
 
 # Vibrator HAL
 PRODUCT_PACKAGES += \
@@ -912,3 +912,6 @@ include hardware/google/pixel/common/pixel-common-device.mk
 
 # thermal
 -include hardware/google/pixel/thermal/device.mk
+
+# enable retrofit virtual A/B
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota_retrofit.mk)
