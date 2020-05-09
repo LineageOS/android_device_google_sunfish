@@ -498,9 +498,9 @@ PRODUCT_PACKAGES += \
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.0-impl \
-    android.hardware.boot@1.0-impl.recovery \
-    android.hardware.boot@1.0-service \
+    android.hardware.boot@1.1-impl-pixel-legacy \
+    android.hardware.boot@1.1-impl-pixel-legacy.recovery \
+    android.hardware.boot@1.1-service \
 
 # Vibrator HAL
 PRODUCT_PACKAGES += \
@@ -708,6 +708,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=256m
 
+# Use 64-bit dex2oat for better dexopt time.
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.dex2oat64.enabled=true
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/hidl/android.hidl.base@1.0.so-32:system_ext/lib/android.hidl.base@1.0.so \
     $(LOCAL_PATH)/hidl/android.hidl.base@1.0.so-64:system_ext/lib64/android.hidl.base@1.0.so \
@@ -914,3 +918,6 @@ include hardware/google/pixel/common/pixel-common-device.mk
 
 # thermal
 -include hardware/google/pixel/thermal/device.mk
+
+# enable retrofit virtual A/B
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota_retrofit.mk)
