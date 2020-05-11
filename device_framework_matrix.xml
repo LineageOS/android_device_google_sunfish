@@ -309,5 +309,12 @@
             <instance>slot2</instance>
         </interface>
     </hal>
-
+    <hal format="hidl" optional="true">
+        <name>android.hardware.gnss</name>
+        <version>1.0</version>
+        <interface>
+            <name>IGnss</name>
+            <instance>gnss_vendor</instance>
+        </interface>
+    </hal>
 </compatibility-matrix>
