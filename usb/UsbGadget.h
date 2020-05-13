@@ -14,13 +14,12 @@
  * limitations under the License.
  */
 
-#ifndef ANDROID_HARDWARE_USB_GADGET_V1_0_USBGADGET_H
-#define ANDROID_HARDWARE_USB_GADGET_V1_0_USBGADGET_H
+#pragma once
 
 #include <android-base/file.h>
 #include <android-base/properties.h>
 #include <android-base/unique_fd.h>
-#include <android/hardware/usb/gadget/1.0/IUsbGadget.h>
+#include <android/hardware/usb/gadget/1.1/IUsbGadget.h>
 #include <hidl/MQDescriptor.h>
 #include <hidl/Status.h>
 #include <pixelusb/UsbGadgetCommon.h>
@@ -37,7 +36,7 @@ namespace android {
 namespace hardware {
 namespace usb {
 namespace gadget {
-namespace V1_0 {
+namespace V1_1 {
 namespace implementation {
 
 using ::android::sp;
@@ -61,6 +60,9 @@ using ::android::hardware::google::pixel::usb::MonitorFfs;
 using ::android::hardware::google::pixel::usb::resetGadget;
 using ::android::hardware::google::pixel::usb::setVidPid;
 using ::android::hardware::google::pixel::usb::unlinkFunctions;
+using ::android::hardware::usb::gadget::V1_0::GadgetFunction;
+using ::android::hardware::usb::gadget::V1_0::Status;
+using ::android::hardware::usb::gadget::V1_1::IUsbGadget;
 using ::std::string;
 
 constexpr char kGadgetName[] = "a600000.dwc3";
@@ -74,22 +76,23 @@ struct UsbGadget : public IUsbGadget {
     uint64_t mCurrentUsbFunctions;
     bool mCurrentUsbFunctionsApplied;
 
-    Return<void> setCurrentUsbFunctions(uint64_t functions, const sp<IUsbGadgetCallback> &callback,
+    Return<void> setCurrentUsbFunctions(uint64_t functions,
+                                        const sp<V1_0::IUsbGadgetCallback> &callback,
                                         uint64_t timeout) override;
 
-    Return<void> getCurrentUsbFunctions(const sp<IUsbGadgetCallback> &callback) override;
+    Return<void> getCurrentUsbFunctions(const sp<V1_0::IUsbGadgetCallback> &callback) override;
 
-  private:
+    Return<Status> reset() override;
+
+private:
     Status tearDownGadget();
-    Status setupFunctions(uint64_t functions, const sp<IUsbGadgetCallback> &callback,
+    Status setupFunctions(uint64_t functions, const sp<V1_0::IUsbGadgetCallback> &callback,
                           uint64_t timeout);
 };
 
 }  // namespace implementation
-}  // namespace V1_0
+}  // namespace V1_1
 }  // namespace gadget
 }  // namespace usb
 }  // namespace hardware
 }  // namespace android
-
-#endif  // ANDROID_HARDWARE_USB_V1_2_USBGADGET_H
