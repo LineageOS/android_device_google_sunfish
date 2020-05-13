@@ -760,7 +760,7 @@
       "Value": "0"
     },
     {
-      "PowerHint": "TPU_BOOST",
+      "PowerHint": "ML_ACC",
       "Node": "PMQoSCpuDmaLatency",
       "Duration": 2000,
       "Value": "44"
