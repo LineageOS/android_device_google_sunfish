@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "android.hardware.usb.gadget@1.0-service.sunfish"
+#define LOG_TAG "android.hardware.usb.gadget@1.1-service.sunfish"
 
 #include "UsbGadget.h"
 #include <dirent.h>
@@ -30,7 +30,7 @@ namespace android {
 namespace hardware {
 namespace usb {
 namespace gadget {
-namespace V1_0 {
+namespace V1_1 {
 namespace implementation {
 
 UsbGadget::UsbGadget() {
@@ -218,6 +218,24 @@ static V1_0::Status validateAndSetVidPid(uint64_t functions) {
     return ret;
 }
 
+Return<Status> UsbGadget::reset() {
+    ALOGI("USB Gadget reset");
+
+    if (!WriteStringToFile("none", PULLUP_PATH)) {
+        ALOGI("Gadget cannot be pulled down");
+        return Status::ERROR;
+    }
+
+    usleep(kDisconnectWaitUs);
+
+    if (!WriteStringToFile(kGadgetName, PULLUP_PATH)) {
+        ALOGI("Gadget cannot be pulled up");
+        return Status::ERROR;
+    }
+
+    return Status::SUCCESS;
+}
+
 V1_0::Status UsbGadget::setupFunctions(uint64_t functions,
                                        const sp<V1_0::IUsbGadgetCallback> &callback,
                                        uint64_t timeout) {
@@ -339,7 +357,7 @@ error:
     return Void();
 }
 }  // namespace implementation
-}  // namespace V1_0
+}  // namespace V1_1
 }  // namespace gadget
 }  // namespace usb
 }  // namespace hardware
