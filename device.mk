@@ -850,9 +850,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.recovery.device.rc:recovery/root/init.recovery.sunfish.rc
 
-# Do not skip init trigger by default
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    vendor.skip.init=0
 
 QTI_TELEPHONY_UTILS := qti-telephony-utils
 QTI_TELEPHONY_UTILS += qti_telephony_utils.xml
