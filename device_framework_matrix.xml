@@ -65,7 +65,7 @@
     </hal>
     <hal format="hidl" optional="true">
         <name>vendor.display.config</name>
-        <version>1.9</version>
+        <version>1.11</version>
         <interface>
             <name>IDisplayConfig</name>
             <instance>default</instance>
