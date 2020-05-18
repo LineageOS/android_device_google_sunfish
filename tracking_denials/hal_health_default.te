@@ -1,3 +1,0 @@
-# b/144668972
-dontaudit hal_health_default mnt_vendor_file:dir search;
-dontaudit hal_health_default vendor_default_prop:property_service set;
