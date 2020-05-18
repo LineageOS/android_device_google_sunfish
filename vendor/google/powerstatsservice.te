@@ -1,0 +1,10 @@
+# PowerStatsService app
+type powerstatsservice_app, domain, coredomain;
+
+userdebug_or_eng(`
+  app_domain(powerstatsservice_app)
+  binder_call(powerstatsservice_app, incidentd)
+  allow powerstatsservice_app activity_service:service_manager find;
+  allow powerstatsservice_app incident_service:service_manager find;
+  hal_client_domain(powerstatsservice_app, hal_power_stats);
+')
