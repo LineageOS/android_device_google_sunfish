@@ -17,6 +17,9 @@ user=_app seinfo=platform name=com.google.googlecbrs domain=cbrs_setup_app type=
 # Domain for Touch app
 user=_app seinfo=platform name=com.google.touch.touchinspector domain=google_touch_app type=app_data_file levelFrom=user
 
+# Domain for power stats service
+user=_app isPrivApp=true seinfo=platform name=com.android.powerstatsservice domain=powerstatsservice_app type=app_data_file levelFrom=all
+
 # Domain for Display
 user=_app seinfo=platform name=com.android.hbmsvmanager domain=hbmsvmanager_app type=app_data_file levelFrom=all
 
