@@ -122,8 +122,6 @@ include device/google/sunfish-sepolicy/sunfish-sepolicy.mk
 
 TARGET_FS_CONFIG_GEN := device/google/sunfish/config.fs
 
-BOARD_EXT4_SHARE_DUP_BLOCKS := true
-
 QCOM_BOARD_PLATFORMS += sm6150
 MSMSTEPPE = sm6150
 QC_PROP_ROOT := vendor/qcom/sm8150/proprietary
