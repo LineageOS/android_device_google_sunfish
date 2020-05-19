@@ -210,7 +210,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <name>vendor.display.config</name>
         <transport>hwbinder</transport>
         <impl level="generic"></impl>
-        <version>1.9</version>
+        <version>1.11</version>
         <interface>
             <name>IDisplayConfig</name>
             <instance>default</instance>
