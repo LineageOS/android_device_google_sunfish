@@ -31,6 +31,7 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/qcom/sm8150/gps \
     vendor/google/camera \
     vendor/qcom/sm8150 \
+    vendor/qcom/sm8150/proprietary/commonsys/telephony-apps/DataStatusNotification \
     vendor/qcom/sm8150/proprietary/gps \
     vendor/qcom/sm8150/codeaurora/location \
     vendor/google/interfaces
