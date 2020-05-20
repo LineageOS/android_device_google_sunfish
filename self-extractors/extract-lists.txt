@@ -42,6 +42,38 @@
             system/lib/libsns_device_mode_stub.so \
             system/lib/libsns_fastRPC_util.so \
             system/lib/libsns_low_lat_stream_stub.so \
+            product/app/QtiTelephonyService/QtiTelephonyService.apk \
+            product/etc/permissions/qcrilhook.xml \
+            product/etc/permissions/telephonyservice.xml \
+            product/etc/permissions/qti_telephony_hidl_wrapper.xml \
+            product/etc/permissions/qti_telephony_utils.xml \
+            product/etc/permissions/com.qualcomm.qcrilmsgtunnel.xml \
+            product/framework/qcrilhook.jar \
+            product/framework/qti-telephony-utils.jar \
+            product/framework/qti-telephony-hidl-wrapper.jar \
+            product/lib64/libimsmedia_jni.so \
+            product/lib/libimsmedia_jni.so \
+            product/priv-app/ims/ims.apk \
+            product/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk \
+            product/framework/oat/arm64/qcrilhook.vdex \
+            product/framework/oat/arm/qcrilhook.vdex \
+            product/framework/oat/arm64/qcrilhook.odex
+            product/framework/oat/arm/qcrilhook.odex \
+            product/framework/qti-telephony-utils.jar \
+            product/framework/oat/arm64/qti-telephony-utils.vdex \
+            product/framework/oat/arm/qti-telephony-utils.vdex \
+            product/framework/oat/arm64/qti-telephony-utils.odex
+            product/framework/oat/arm/qti-telephony-utils.odex \
+            product/framework/qti-telephony-hidl-wrapper.jar \
+            product/framework/oat/arm64/qti-telephony-hidl-wrapper.vdex \
+            product/framework/oat/arm/qti-telephony-hidl-wrapper.vdex \
+            product/framework/oat/arm64/qti-telephony-hidl-wrapper.odex
+            product/framework/oat/arm/qti-telephony-hidl-wrapper.odex \
+            product/framework/QtiTelephonyServicelibrary.jar \
+            product/framework/oat/arm64/QtiTelephonyServicelibrary.vdex \
+            product/framework/oat/arm/QtiTelephonyServicelibrary.vdex \
+            product/framework/oat/arm64/QtiTelephonyServicelibrary.odex
+            product/framework/oat/arm/QtiTelephonyServicelibrary.odex \
             "
     ;;
 

@@ -12,6 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+
+# AOSP packages required by the blobs
+PRODUCT_PACKAGES := \
+    ims \
+    qcrilmsgtunnel \
+    QtiTelephonyService
+
 #  blob(s) necessary for sunfish hardware
 PRODUCT_COPY_FILES := \
     vendor/qcom/sunfish/proprietary/ATT_profiles.xml:system/etc/cne/Nexus/ATT/ATT_profiles.xml \
@@ -49,4 +56,29 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/sunfish/proprietary/libsns_device_mode_stub.so:system/lib/libsns_device_mode_stub.so \
     vendor/qcom/sunfish/proprietary/libsns_fastRPC_util.so:system/lib/libsns_fastRPC_util.so \
     vendor/qcom/sunfish/proprietary/libsns_low_lat_stream_stub.so:system/lib/libsns_low_lat_stream_stub.so \
+    vendor/qcom/sunfish/proprietary/qcrilhook.xml:product/etc/permissions/qcrilhook.xml \
+    vendor/qcom/sunfish/proprietary/telephonyservice.xml:product/etc/permissions/telephonyservice.xml \
+    vendor/qcom/sunfish/proprietary/qcrilhook.jar:product/framework/qcrilhook.jar \
+    vendor/qcom/sunfish/proprietary/qcrilhook.jar:product/framework/oat/arm64/qcrilhook.vdex \
+    vendor/qcom/sunfish/proprietary/qcrilhook.jar:product/framework/oat/arm/qcrilhook.vdex \
+    vendor/qcom/sunfish/proprietary/qcrilhook.jar:product/framework/oat/arm64/qcrilhook.odex \
+    vendor/qcom/sunfish/proprietary/qcrilhook.jar:product/framework/oat/arm/qcrilhook.odex \
+    vendor/qcom/sunfish/proprietary/qti-telephony-utils.jar:product/framework/qti-telephony-utils.jar \
+    vendor/qcom/sunfish/proprietary/qti-telephony-hidl-wrapper.jar:product/framework/qti-telephony-hidl-wrapper.jar \
+    vendor/qcom/sunfish/proprietary/qti-telephony-hidl-wrapper.jar:product/framework/oat/arm64/qti-telephony-hidl-wrapper.vdex \
+    vendor/qcom/sunfish/proprietary/qti-telephony-hidl-wrapper.jar:product/framework/oat/arm/qti-telephony-hidl-wrapper.vdex \
+    vendor/qcom/sunfish/proprietary/qti-telephony-hidl-wrapper.jar:product/framework/oat/arm64/qti-telephony-hidl-wrapper.odex \
+    vendor/qcom/sunfish/proprietary/qti-telephony-hidl-wrapper.jar:product/framework/oat/arm/qti-telephony-hidl-wrapper.odex \
+    vendor/qcom/sunfish/proprietary/qti_telephony_hidl_wrapper.xml:product/etc/permissions/qti_telephony_hidl_wrapper.xml \
+    vendor/qcom/sunfish/proprietary/qti_telephony_utils.xml:product/etc/permissions/qti_telephony_utils.xml \
+    vendor/qcom/sunfish/proprietary/com.qualcomm.qcrilmsgtunnel.xml:product/etc/permissions/com.qualcomm.qcrilmsgtunnel.xml \
+    vendor/qcom/sunfish/proprietary/QtiTelephonyServicelibrary.jar:product/framework/QtiTelephonyServicelibrary.jar \
+    vendor/qcom/sunfish/proprietary/QtiTelephonyServicelibrary.jar:product/framework/oat/arm64/QtiTelephonyServicelibrary.vdex \
+    vendor/qcom/sunfish/proprietary/QtiTelephonyServicelibrary.jar:product/framework/oat/arm/QtiTelephonyServicelibrary.vdex \
+    vendor/qcom/sunfish/proprietary/QtiTelephonyServicelibrary.jar:product/framework/oat/arm64/QtiTelephonyServicelibrary.odex \
+    vendor/qcom/sunfish/proprietary/QtiTelephonyServicelibrary.jar:product/framework/oat/arm/QtiTelephonyServicelibrary.odex \
+    vendor/qcom/sunfish/proprietary/lib64/libimsmedia_jni.so:product/lib64/libimsmedia_jni.so \
+    vendor/qcom/sunfish/proprietary/libimsmedia_jni.so:product/lib/libimsmedia_jni.so \
+    vendor/qcom/sunfish/proprietary/QtiTelephonyServicelibrary.jar:product/priv-app/qcrilmsgtunnel/oat/arm64/qcrilmsgtunnel.vdex \
+    vendor/qcom/sunfish/proprietary/QtiTelephonyServicelibrary.jar:product/priv-app/qcrilmsgtunnel/oat/arm64/qcrilmsgtunnel.odex \
 
