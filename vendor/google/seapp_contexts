@@ -22,3 +22,6 @@ user=_app seinfo=platform name=com.android.hbmsvmanager domain=hbmsvmanager_app 
 
 # Domain for UvExposureReporter service
 user=_app seinfo=platform name=com.google.android.uvexposurereporter domain=uv_exposure_reporter type=app_data_file levelFrom=all
+
+# Domain for DeviceDropMonitor service
+user=_app seinfo=platform name=com.google.android.devicedropmonitor domain=device_drop_monitor type=app_data_file levelFrom=all
