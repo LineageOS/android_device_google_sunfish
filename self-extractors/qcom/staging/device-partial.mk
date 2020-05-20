@@ -18,34 +18,19 @@ PRODUCT_SOONG_NAMESPACES += \
 # AOSP packages required by the blobs
 PRODUCT_PACKAGES := \
     ims \
+    qcrilmsgtunnel \
     QtiTelephonyService
 
 #  blob(s) necessary for sunfish hardware
-PRODUCT_PACKAGES := \
-    libadsprpc_system \
-    libcdsprpc_system \
-    libdisplayconfig \
+PRODUCT_PACKAGES += \
     libimsmedia_jni \
-    libmdsprpc_system \
-    libmmosal \
-    libOpenCL_system \
-    libqct_resampler \
-    libqmi_cci_system \
-    libqti-util_system \
-    libsdsprpc_system \
-    libsns_device_mode_stub \
-    libsns_fastRPC_util \
-    libsns_low_lat_stream_stub \
 
 PRODUCT_COPY_FILES := \
-    vendor/qcom/sunfish/proprietary/ATT_profiles.xml:system/etc/cne/Nexus/ATT/ATT_profiles.xml \
-    vendor/qcom/sunfish/proprietary/ROW_profiles.xml:system/etc/cne/Nexus/ROW/ROW_profiles.xml \
-    vendor/qcom/sunfish/proprietary/VZW_profiles.xml:system/etc/cne/Nexus/VZW/VZW_profiles.xml \
-    vendor/qcom/sunfish/proprietary/audiosphere.xml:system/etc/permissions/audiosphere.xml \
-    vendor/qcom/sunfish/proprietary/com.qti.location.sdk.jar:system/framework/com.qti.location.sdk.jar \
-    vendor/qcom/sunfish/proprietary/com.qti.snapdragon.sdk.display.jar:system/framework/com.qti.snapdragon.sdk.display.jar \
-    vendor/qcom/sunfish/proprietary/com.qti.snapdragon.sdk.display.xml:system/etc/permissions/com.qti.snapdragon.sdk.display.xml \
     vendor/qcom/sunfish/proprietary/qcrilhook.jar:system_ext/framework/qcrilhook.jar \
+    vendor/qcom/sunfish/proprietary/qti-telephony-utils.jar:system_ext/framework/qti-telephony-utils.jar \
+    vendor/qcom/sunfish/proprietary/qti-telephony-hidl-wrapper.jar:system_ext/framework/qti-telephony-hidl-wrapper.jar \
     vendor/qcom/sunfish/proprietary/qcrilhook.xml:system_ext/etc/permissions/qcrilhook.xml \
-    vendor/qcom/sunfish/proprietary/ConnectivityExt.jar:system/framework/ConnectivityExt.jar \
+    vendor/qcom/sunfish/proprietary/qti_telephony_hidl_wrapper.xml:system_ext/etc/permissions/qti_telephony_hidl_wrapper.xml \
+    vendor/qcom/sunfish/proprietary/qti_telephony_utils.xml:system_ext/etc/permissions/qti_telephony_utils.xml \
+    vendor/qcom/sunfish/proprietary/com.qualcomm.qcrilmsgtunnel.xml:system_ext/etc/permissions/com.qualcomm.qcrilmsgtunnel.xml \
 
