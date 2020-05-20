@@ -7,45 +7,18 @@
     ;;
   qcom)
     TO_EXTRACT="\
-            system/etc/cne/Nexus/ATT/ATT_profiles.xml \
-            system/etc/cne/Nexus/ROW/ROW_profiles.xml \
-            system/etc/cne/Nexus/VZW/VZW_profiles.xml \
-            system/etc/permissions/audiosphere.xml \
-            system/etc/permissions/com.qti.snapdragon.sdk.display.xml \
             system_ext/app/QtiTelephonyService/QtiTelephonyService.apk \
             system_ext/etc/permissions/qcrilhook.xml \
+            system_ext/etc/permissions/qti_telephony_hidl_wrapper.xml \
+            system_ext/etc/permissions/qti_telephony_utils.xml \
+            system_ext/etc/permissions/com.qualcomm.qcrilmsgtunnel.xml \
             system_ext/framework/qcrilhook.jar \
+            system_ext/framework/qti-telephony-utils.jar \
+            system_ext/framework/qti-telephony-hidl-wrapper.jar \
             system_ext/lib64/libimsmedia_jni.so \
             system_ext/lib/libimsmedia_jni.so \
             system_ext/priv-app/ims/ims.apk \
-            system/framework/com.qti.location.sdk.jar \
-            system/framework/com.qti.snapdragon.sdk.display.jar \
-            system/framework/ConnectivityExt.jar \
-            system/lib64/libadsprpc_system.so \
-            system/lib64/libcdsprpc_system.so \
-            system/lib64/libdisplayconfig.so \
-            system/lib64/libmdsprpc_system.so \
-            system/lib64/libmmosal.so \
-            system/lib64/libOpenCL_system.so \
-            system/lib64/libqmi_cci_system.so \
-            system/lib64/libqti-util_system.so \
-            system/lib64/libsdsprpc_system.so \
-            system/lib64/libsns_device_mode_stub.so \
-            system/lib64/libsns_fastRPC_util.so \
-            system/lib64/libsns_low_lat_stream_stub.so \
-            system/lib/libadsprpc_system.so \
-            system/lib/libcdsprpc_system.so \
-            system/lib/libdisplayconfig.so \
-            system/lib/libmdsprpc_system.so \
-            system/lib/libmmosal.so \
-            system/lib/libOpenCL_system.so \
-            system/lib/libqct_resampler.so \
-            system/lib/libqmi_cci_system.so \
-            system/lib/libqti-util_system.so \
-            system/lib/libsdsprpc_system.so \
-            system/lib/libsns_device_mode_stub.so \
-            system/lib/libsns_fastRPC_util.so \
-            system/lib/libsns_low_lat_stream_stub.so \
+            system_ext/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk \
             "
     ;;
 
