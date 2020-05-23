@@ -24,8 +24,10 @@ hal_client_domain(qtelephony, hal_telephony)
 
 get_prop(qtelephony, vendor_radio_prop)
 get_prop(qtelephony, public_vendor_default_prop)
-set_prop(qtelephony, qcom_ims_prop)
+get_prop(qtelephony, qcom_ims_prop)
 
 userdebug_or_eng(`
    allow qtelephony diag_device:chr_file rw_file_perms;
 ')
+
+dontaudit qtelephony property_socket:sock_file write;
