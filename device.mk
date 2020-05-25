@@ -54,8 +54,8 @@ ifeq ($(DEVICE_USES_SM7250_QCRIL_TELEPHONY), true)
       vendor/qcom/sm7250/proprietary/commonsys/telephony-apps/xdivert \
       vendor/qcom/sm7250/proprietary/qcril-data-hal \
       vendor/qcom/sm7250/proprietary/qcril-hal \
-      vendor/qcom/sm8150/proprietary/data/permissions
-else
+      vendor/qcom/sm7250/proprietary/data
+  else
   $(warning DEVICE_USES_SM7250_QCRIL_TELEPHONY is disabled)
 
   PRODUCT_SOONG_NAMESPACES += \
