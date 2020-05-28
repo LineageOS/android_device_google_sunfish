@@ -8,9 +8,9 @@ audio_hal.period_multiplier                     u:object_r:vendor_audio_prop:s0
 audio_hal.period_size                           u:object_r:vendor_audio_prop:s0
 persist.audio.dualmic.config                    u:object_r:vendor_audio_prop:s0
 
-persist.audio.fluence.speaker                   u:object_r:vendor_audio_prop:s0
-persist.audio.fluence.voicecall                 u:object_r:vendor_audio_prop:s0
-persist.audio.fluence.voicerec                  u:object_r:vendor_audio_prop:s0
+persist.vendor.audio.fluence.speaker            u:object_r:vendor_audio_prop:s0
+persist.vendor.audio.fluence.voicecall          u:object_r:vendor_audio_prop:s0
+persist.vendor.audio.fluence.voicerec           u:object_r:vendor_audio_prop:s0
 
 persist.camera.                                 u:object_r:camera_prop:s0
 vendor.debug.camera.                            u:object_r:camera_prop:s0
