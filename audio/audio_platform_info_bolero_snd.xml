@@ -122,8 +122,8 @@
         <usecase name="USECASE_VOWLAN_CALL" type="out" id="-1"/>
         <usecase name="USECASE_AUDIO_PLAYBACK_FM" type="out" id="30"/>
         <usecase name="USECASE_AUDIO_PLAYBACK_FM" type="in" id="38"/>
-        <usecase name="USECASE_AUDIO_SPKR_CALIB_RX" type="out" id="100"/>
-        <usecase name="USECASE_AUDIO_SPKR_CALIB_TX" type="in" id="101"/>
+        <usecase name="USECASE_AUDIO_SPKR_CALIB_RX" type="out" id="102"/>
+        <usecase name="USECASE_AUDIO_SPKR_CALIB_TX" type="in" id="103"/>
         <usecase name="USECASE_AUDIO_PLAYBACK_AFE_PROXY" type="in" id="-1"/>
         <usecase name="USECASE_AUDIO_PLAYBACK_AFE_PROXY" type="out" id="6"/>
         <usecase name="USECASE_AUDIO_RECORD_AFE_PROXY" type="in" id="7"/>
@@ -140,9 +140,9 @@
         <usecase name="USECASE_INCALL_MUSIC_UPLINK" type="out" id="27"/>
         <usecase name="USECASE_INCALL_MUSIC_UPLINK2" type="out" id="27"/>
         <usecase name="USECASE_AUDIO_HFP_SCO" type="in" id="12"/>
-        <usecase name="USECASE_AUDIO_HFP_SCO" type="out" id="100"/>
+        <usecase name="USECASE_AUDIO_HFP_SCO" type="out" id="102"/>
         <usecase name="USECASE_AUDIO_HFP_SCO_WB" type="in" id="12"/>
-        <usecase name="USECASE_AUDIO_HFP_SCO_WB" type="out" id="100"/>
+        <usecase name="USECASE_AUDIO_HFP_SCO_WB" type="out" id="102"/>
     </pcm_ids>
     <config_params>
         <param key="spkr_1_tz_name" value="wsatz.13"/>
