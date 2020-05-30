@@ -2300,8 +2300,8 @@
 
     <!-- generic mic source with Dual-MIC D:22 dB -->
     <path name="handset-stereo-dmic-ef">
-        <ctl name="ADC1 Capture Volume" id="0" value="52"/>
-        <ctl name="ADC2 Capture Volume" id="0" value="52"/>
+        <ctl name="ADC1 Capture Volume" id="0" value="23"/>
+        <ctl name="ADC2 Capture Volume" id="0" value="23"/>
         <ctl name="TERT TDM TX Channel Offset" id="0" value="0" />
         <ctl name="TERT TDM TX Channel Offset" id="1" value="8" />
         <ctl name="TERT_TDM_TX_0 Channels" value="Two"/>
