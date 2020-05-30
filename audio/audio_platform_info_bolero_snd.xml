@@ -139,6 +139,9 @@
         <usecase name="USECASE_AUDIO_A2DP_ABR_FEEDBACK" type="out" id="12" />
         <usecase name="USECASE_INCALL_MUSIC_UPLINK" type="out" id="27"/>
         <usecase name="USECASE_INCALL_MUSIC_UPLINK2" type="out" id="27"/>
+        <usecase name="USECASE_INCALL_REC_UPLINK" type="in" id="27" />
+        <usecase name="USECASE_INCALL_REC_DOWNLINK" type="in" id="27" />
+        <usecase name="USECASE_INCALL_REC_UPLINK_AND_DOWNLINK" type="in" id="27"/>
         <usecase name="USECASE_AUDIO_HFP_SCO" type="in" id="12"/>
         <usecase name="USECASE_AUDIO_HFP_SCO" type="out" id="102"/>
         <usecase name="USECASE_AUDIO_HFP_SCO_WB" type="in" id="12"/>
