@@ -113,6 +113,12 @@
 /mnt/vendor/persist/audio(/.*)?                                                u:object_r:persist_audio_file:s0
 
 ###################################
+# ramdumpfs files
+#
+/mnt/vendor/ramdump(/.*)?                       u:object_r:ramdump_vendor_mnt_file:s0
+/ramdump(/.*)?                                  u:object_r:ramdump_vendor_mnt_file:s0
+
+###################################
 # adsp files
 #
 /(vendor|system/vendor)/dsp(/.*)?                                   u:object_r:adsprpcd_file:s0
