@@ -17,9 +17,6 @@
 # define hardware platform
 PRODUCT_PLATFORM := sm7150
 
-# Enable userspace reboot
-$(call inherit-product, $(SRC_TARGET_DIR)/product/userspace_reboot.mk)
-
 include device/google/sunfish/device.mk
 
 # Set Vendor SPL to match platform
