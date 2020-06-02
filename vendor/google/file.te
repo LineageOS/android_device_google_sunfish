@@ -46,3 +46,6 @@ type debugfs_ipa_data_stall_detection, debugfs_type, fs_type;
 
 # Incremental file system driver
 type vendor_incremental_module, vendor_file_type, file_type;
+
+# RamdumpFS
+allow ramdump_vendor_mnt_file self:filesystem associate;
