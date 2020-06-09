@@ -31,7 +31,6 @@ type debugfs_clk, debugfs_type, fs_type;
 type debugfs_pmic, debugfs_type, fs_type;
 type sysfs_contaminant, sysfs_type, fs_type;
 type hal_neuralnetworks_darwinn_hal_camera_data_file, file_type, data_file_type;
-type hal_rebootescrow_citadel_data_file, file_type, data_file_type;
 type sysfs_knowles_info, fs_type, sysfs_type;
 type sysfs_fingerprint, sysfs_type, fs_type;
 type per_boot_file, file_type, data_file_type, core_data_file_type;
