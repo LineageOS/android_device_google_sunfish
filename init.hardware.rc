@@ -240,6 +240,8 @@ on post-fs-data
     mkdir /data/vendor/modem_fdr 0700 root system
     mkdir /data/vendor/display 0770 system graphics
     mkdir /data/vendor/camera 0770 system system
+    mkdir /data/vendor/rebootescrow 0770 hsm hsm
+    start vendor.rebootescrow-citadel
 
 on zygote-start
     # zygote is started in common init.rc
