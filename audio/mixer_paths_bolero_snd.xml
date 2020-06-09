@@ -339,6 +339,7 @@
     <ctl name="TX DEC7 MUX" value="MSM_DMIC" />
     <ctl name="TX DMIC MUX7" value="ZERO" />
     <ctl name="TX SMIC MUX7" value="ZERO" />
+    <ctl name="DEC0_BCS Switch" value="1" />
 
     <!-- Volume controls -->
     <ctl name="RX_RX0 Digital Volume" value="84" />
