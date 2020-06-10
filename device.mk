@@ -234,6 +234,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.display.sensortype=2 \
     vendor.display.foss.config=1 \
     vendor.display.foss.config_path=/vendor/etc/FOSSConfig.xml \
+    vendor.display.lbe.supported=1 \
     vendor.display.qdcm.mode_combine=1
 
 # camera hal buffer management
@@ -303,14 +304,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.gralloc=qcom \
     ro.hardware.hwcomposer=qcom
-
-# Light HAL
-PRODUCT_PACKAGES += \
-    lights.qcom \
-    hardware.google.light@1.1-service
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hardware.lights=qcom
 
 # Memtrack HAL
 PRODUCT_PACKAGES += \

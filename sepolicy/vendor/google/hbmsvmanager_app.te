@@ -7,3 +7,6 @@ hal_client_domain(hbmsvmanager_app, hal_light)
 allow hbmsvmanager_app app_api_service:service_manager find;
 
 allow hbmsvmanager_app hal_pixel_display_service:service_manager find;
+
+binder_call(hbmsvmanager_app, hal_graphics_composer_default)
+allow hbmsvmanager_app cameraserver_service:service_manager find;
