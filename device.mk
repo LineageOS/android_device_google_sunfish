@@ -854,7 +854,7 @@ PRODUCT_PACKAGES += \
 
 # Resume on Reboot support
 PRODUCT_PACKAGES += \
-    android.hardware.rebootescrow-service.default
+    android.hardware.rebootescrow-service.citadel
 
 # Recovery
 PRODUCT_COPY_FILES += \
