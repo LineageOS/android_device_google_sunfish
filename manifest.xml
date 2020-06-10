@@ -397,25 +397,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
        <transport>hwbinder</transport>
        <fqname>@4.0::IKeymasterDevice/default</fqname>
      </hal>
-    <!-- light HAL -->
-    <hal format="hidl">
-        <name>android.hardware.light</name>
-        <transport>hwbinder</transport>
-        <version>2.0</version>
-        <interface>
-            <name>ILight</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>hardware.google.light</name>
-        <transport>hwbinder</transport>
-        <version>1.1</version>
-        <interface>
-            <name>ILight</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
     <hal format="hidl">
         <name>android.hardware.dumpstate</name>
         <transport>hwbinder</transport>

@@ -189,14 +189,6 @@
         </interface>
     </hal>
     <hal format="hidl" optional="true">
-        <name>hardware.google.light</name>
-        <version>1.1</version>
-        <interface>
-            <name>ILight</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
         <name>hardware.google.bluetooth.sar</name>
         <version>1.0</version>
         <interface>
@@ -279,6 +271,21 @@
             <name>IQtiRadio</name>
             <instance>slot1</instance>
             <instance>slot2</instance>
+        </interface>
+    </hal>
+    <hal>
+        <name>vendor.google.radioext</name>
+        <version>1.2</version>
+        <interface>
+            <name>IRadioExt</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="false">
+        <name>com.google.hardware.pixel.display</name>
+        <interface>
+            <name>IDisplay</name>
+            <instance>default</instance>
         </interface>
     </hal>
 </compatibility-matrix>
