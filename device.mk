@@ -771,23 +771,21 @@ ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
       persist.vendor.usb.usbradio.config=diag
 endif
 
-# Default app/sf phase offset
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    ro.surface_flinger.vsync_event_phase_offset_ns=2000000
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000
+# Enable app/sf phase offset as durations. The numbers below are translated from the existing
+# positive offsets by finding the duration app/sf will have with the offsets.
+# For SF the previous value was 6ms which under 16.6ms vsync time (60Hz) will leave SF with ~10.5ms
+# for each frame. For App the previous value was 2ms which under 16.6ms vsync time will leave the
+# App with ~20.5ms (16.6ms * 2 - 10.5ms - 2ms). The other values were calculated similarly.
+# Full comparison between the old vs. the new values are captured in
+# https://docs.google.com/spreadsheets/d/1a_5cVNY3LUAkeg-yL56rYQNwved6Hy-dvEcKSxp6f8k/edit
 
-# Early phase offset configuration for SurfaceFlinger (b/75985430)
-PRODUCT_PROPERTY_OVERRIDES += \
-    debug.sf.early_phase_offset_ns=11600000
-PRODUCT_PROPERTY_OVERRIDES += \
-    debug.sf.early_app_phase_offset_ns=11600000
-PRODUCT_PROPERTY_OVERRIDES += \
-    debug.sf.early_gl_phase_offset_ns=3000000
-PRODUCT_PROPERTY_OVERRIDES += \
-    debug.sf.early_gl_app_phase_offset_ns=15000000
-PRODUCT_PROPERTY_OVERRIDES += \
-    debug.sf.phase_offset_threshold_for_next_vsync_ns=11600000
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += debug.sf.use_phase_offsets_as_durations=1
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += debug.sf.late.sf.duration=10500000
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += debug.sf.late.app.duration=20500000
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += debug.sf.early.sf.duration=21000000
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += debug.sf.early.app.duration=16500000
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += debug.sf.earlyGl.sf.duration=13500000
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += debug.sf.earlyGl.app.duration=21000000
 
 # Enable backpressure for GL comp
 PRODUCT_PROPERTY_OVERRIDES += \
