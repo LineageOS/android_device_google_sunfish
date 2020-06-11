@@ -280,6 +280,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.capture.enforce_legacy_copp_sr=true \
     vendor.audio.offload.buffer.size.kb=256 \
     persist.vendor.audio_hal.dsp_bit_width_enforce_mode=24 \
+    vendor.audio.offload.gapless.enabled=true \
 
 # MaxxAudio effect and add rotation monitor
 PRODUCT_PROPERTY_OVERRIDES += \
