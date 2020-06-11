@@ -83,6 +83,10 @@
         <device name="SND_DEVICE_IN_VOICE_REC_DMIC_STEREO" acdb_id="144"/>
     </acdb_ids>
 
+    <audio_output_usecase_delay>
+        <audio_usecase_delay name="USECASE_AUDIO_PLAYBACK_DEEP_BUFFER" delay="20"/>
+    </audio_output_usecase_delay>
+
     <module_ids>
         <aec>
             <device name="SND_DEVICE_IN_SPEAKER_TMIC_AEC_NS" module_id="0x10F35" instance_id="0x0" param_id="0x10EAF" param_value="0x01"/>
