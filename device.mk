@@ -475,6 +475,10 @@ QC2_HAVE_ECO_SERVICE := true
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.qc2.venc.avgqp.enable=1
 
+# To reach target bitrate in CBR mode for IMS VT Call
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.ims.mm_minqp=1
+
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.6-impl-google \
     android.hardware.camera.provider@2.6-service-google \
