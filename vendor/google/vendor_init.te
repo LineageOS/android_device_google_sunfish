@@ -23,6 +23,9 @@ set_prop(vendor_init, vendor_modem_diag_prop)
 set_prop(vendor_init, vendor_radio_prop)
 set_prop(vendor_init, power_prop)
 
+#IMS related
+set_prop(vendor_init, qcom_ims_prop)
+
 userdebug_or_eng(`
   set_prop(vendor_init, logpersistd_logging_prop)
 ')
