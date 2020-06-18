@@ -3,7 +3,7 @@ service vendor.vibrator-1-3 /vendor/bin/hw/android.hardware.vibrator@1.3-service
     user system
     group system
 
-    setenv PROPERTY_PREFIX ro.vibrator.hal.
+    setenv PROPERTY_PREFIX ro.vendor.vibrator.hal.
     setenv CALIBRATION_FILEPATH /mnt/vendor/persist/haptics/drv2624.cal
 
     setenv HWAPI_PATH_PREFIX /sys/class/leds/vibrator/
