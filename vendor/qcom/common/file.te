@@ -131,8 +131,6 @@ type sysfs_sectouch, sysfs_type, fs_type;
 type vendor_tui_data_file, file_type, data_file_type;
 type vendor_bt_data_file, file_type, data_file_type;
 type sysfs_jpeg, fs_type, sysfs_type;
-type ramdump_vendor_data_file, file_type, data_file_type, mlstrustedobject;
-type ramdump_vendor_mnt_file, file_type, data_file_type, mlstrustedobject;
 type sysfs_npu, fs_type, sysfs_type;
 type vendor_ramdump_data_file, file_type, data_file_type;
 type vendor_mdmhelperdata_data_file, file_type, data_file_type;
