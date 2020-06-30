@@ -653,7 +653,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/seccomp_policy/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    audio.snd_card.open.retries=50
+    vendor.audio.snd_card.open.retries=50
 
 
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
@@ -877,7 +877,7 @@ PRODUCT_PACKAGES += $(HIDL_WRAPPER)
 
 # Increment the SVN for any official public releases
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.vendor.build.svn=4
+	ro.vendor.build.svn=11
 
 # ZRAM writeback
 PRODUCT_PROPERTY_OVERRIDES += \
