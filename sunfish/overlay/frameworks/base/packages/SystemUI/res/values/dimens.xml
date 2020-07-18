@@ -17,9 +17,6 @@
 -->
 
 <resources>
-    <!-- Don't need the left side padding due to being inset from the cutout -->
-    <dimen name="status_bar_padding_start">0dp</dimen>
-
     <dimen name="config_rounded_mask_size">146px</dimen>
     <dimen name="config_rounded_mask_size_top">146px</dimen>
     <dimen name="config_rounded_mask_size_bottom">146px</dimen>
