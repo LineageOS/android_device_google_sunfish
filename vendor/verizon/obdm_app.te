@@ -18,4 +18,10 @@ userdebug_or_eng(`
 
   allow obdm_app sysfs:dir r_dir_perms;
   r_dir_file(obdm_app, sysfs_msm_subsys)
+
+  # b/162012722
+  allow obdm_app self:qipcrtr_socket { create getattr read setopt write };
+  allow obdm_app sysfs_soc:dir search;
+  allow obdm_app sysfs_soc:file r_file_perms;
+  allow obdm_app sysfs_ssr:file r_file_perms;
 ')
