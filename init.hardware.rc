@@ -48,14 +48,17 @@ on early-init && property:ro.boot.mode=charger
     setprop vendor.skip.init 1
 
 on init && property:vendor.skip.init=0
-    # Disable UFS powersaving
-    write /sys/devices/platform/soc/${ro.boot.bootdevice}/clkgate_enable 0
-
     # Disable powersaving
     write /sys/module/lpm_levels/parameters/sleep_disabled 1
 
-    wait /dev/block/platform/soc/${ro.boot.bootdevice}
-    symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+    wait /dev/block/platform/${ro.boot.boot_devices}
+    symlink /dev/block/platform/${ro.boot.boot_devices} /dev/block/bootdevice
+
+    # to access UFS/eMMC sysfs directly
+    symlink /sys/devices/platform/${ro.boot.boot_devices} /dev/sys/block/bootdevice
+
+    # Disable UFS powersaving
+    write /dev/sys/block/bootdevice/clkgate_enable 0
 
     # start qseecomd early as we mount system/ vendor/ early
     # vold needs keymaster that needs qseecomd
@@ -379,13 +382,13 @@ on early-boot
 
     # Permission for Pixelstats
     chown system system /sys/class/misc/msm_cirrus_playback/resistance_left_right
-    chown system system /sys/devices/platform/soc/${ro.boot.bootdevice}/slowio_read_cnt
-    chown system system /sys/devices/platform/soc/${ro.boot.bootdevice}/slowio_write_cnt
-    chown system system /sys/devices/platform/soc/${ro.boot.bootdevice}/slowio_unmap_cnt
-    chown system system /sys/devices/platform/soc/${ro.boot.bootdevice}/slowio_sync_cnt
+    chown system system /dev/sys/block/bootdevice/slowio_read_cnt
+    chown system system /dev/sys/block/bootdevice/slowio_write_cnt
+    chown system system /dev/sys/block/bootdevice/slowio_unmap_cnt
+    chown system system /dev/sys/block/bootdevice/slowio_sync_cnt
 
     # Permission for Health Storage HAL
-    chown system system /sys/devices/platform/soc/${ro.boot.bootdevice}/manual_gc
+    chown system system /dev/sys/block/bootdevice/manual_gc
 
     # Permissions for reading display native color gamut
     chown system graphics /mnt/vendor/persist/display/native_gamut.csv
