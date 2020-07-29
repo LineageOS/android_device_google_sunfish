@@ -1,2 +1,2 @@
-power.stats-vendor                      u:object_r:power_stats_service:s0
+power.stats-vendor                      u:object_r:hal_power_stats_service:s0
 media.ecoservice                        u:object_r:eco_service:s0
