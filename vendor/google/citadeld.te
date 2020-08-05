@@ -1,5 +1,3 @@
-allow citadeld power_stats_service:service_manager find;
-
 userdebug_or_eng(`
   allow citadeld debugfs_ipc:dir search;
 ')
