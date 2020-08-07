@@ -1,5 +1,4 @@
 type abc_tpu_device, dev_type;
-type citadel_device, dev_type;
 type ipu_device, dev_type, mlstrustedobject;
 type ramoops_device, dev_type;
 type maxfg_device, dev_type;
