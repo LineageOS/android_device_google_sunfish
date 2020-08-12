@@ -27,7 +27,7 @@ r_dir_file(hal_wifi_ext, proc_wifi_dbg)
 # Allow wifi_ext to report callbacks to gril-service app
 binder_call(hal_wifi_ext, grilservice_app)
 
-allow hal_wifi_ext wlan_device:chr_file w_file_perms;
+allow hal_wifi_ext wlan_device:chr_file rw_file_perms;
 
 userdebug_or_eng(`
 # debugfs entries are only needed in user-debug or eng builds
