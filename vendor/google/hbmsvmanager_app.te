@@ -1,4 +1,4 @@
-type hbmsvmanager_app, domain;
+type hbmsvmanager_app, domain, coredomain;
 
 app_domain(hbmsvmanager_app);
 hal_client_domain(hbmsvmanager_app, hal_light)
