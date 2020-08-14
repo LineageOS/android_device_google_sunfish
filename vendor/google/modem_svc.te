@@ -12,11 +12,9 @@ get_prop(modem_svc, exported3_radio_prop)
 get_prop(modem_svc, vendor_build_type_prop)
 
 # For bugreport collection
-userdebug_or_eng(`
-  allow modem_svc hal_dumpstate_impl:fd use;
-  allow modem_svc dumpstate:fd use;
-  allow modem_svc shell_data_file:file write;
-')
+allow modem_svc hal_dumpstate_impl:fd use;
+allow modem_svc dumpstate:fd use;
+allow modem_svc shell_data_file:file write;
 
 dontaudit modem_svc sysfs_msm_subsys:dir r_dir_perms;
 dontaudit modem_svc sysfs_esoc:dir r_dir_perms;
