@@ -150,6 +150,7 @@
 /vendor/lib(64)?/libqservice\.so           u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libqdutils\.so            u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libadreno_utils\.so       u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libgpudataproducer\.so    u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libgsl\.so                u:object_r:same_process_hal_file:s0
 
 /vendor/lib(64)?/libEGL_adreno\.so         u:object_r:same_process_hal_file:s0
@@ -178,6 +179,10 @@
 
 # libGLESv2_adreno depends on this
 /vendor/lib(64)?/libllvm-glnext\.so         u:object_r:same_process_hal_file:s0
+
+# Game profiling library
+/vendor/lib(64)?/libadreno_app_profiles\.so    u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/vendor\.qti\.qspmhal@1\.0\.so u:object_r:same_process_hal_file:s0
 
 # libOpenCL-pixel and its dependencies
 /vendor/lib(64)?/libOpenCL-pixel\.so        u:object_r:same_process_hal_file:s0
