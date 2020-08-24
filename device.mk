@@ -411,7 +411,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libqcodec2 \
     vendor.qti.media.c2@1.0-service \
-    media_codecs_c2.xml
+    media_codecs_c2.xml \
+    codec2.vendor.ext.policy \
+    codec2.vendor.base.policy
 
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.stagefright.omx_default_rank=512
@@ -612,7 +614,6 @@ PRODUCT_COPY_FILES += \
 
 # Vendor seccomp policy files for media components:
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/seccomp_policy/codec2.vendor.ext.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/codec2.vendor.ext.policy \
     $(LOCAL_PATH)/seccomp_policy/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -844,7 +845,7 @@ PRODUCT_PACKAGES += $(HIDL_WRAPPER)
 
 # Increment the SVN for any official public releases
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.vendor.build.svn=1
+	ro.vendor.build.svn=4
 
 # ZRAM writeback
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -854,10 +855,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
-
-# Increment the SVN for any official public releases
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.build.svn=1
 
 -include hardware/qcom/sm7150/display/config/display-product.mk
 -include vendor/qcom/sm7150/proprietary/display/config/display-product-proprietary.mk
