@@ -16,6 +16,7 @@
 
 # The modem image is mounted at /vendor/firmware_mnt
 firmware_directories /vendor/firmware_mnt/image/
+firmware_directories /apex/com.android.vibrator.sunfish/firmware/
 
 # the DIAG device node is not world writable/readable.
 /dev/diag                 0660   system     diag
