@@ -17,6 +17,8 @@ allow tee ssd_block_device:blk_file rw_file_perms;
 set_prop(tee, vendor_tee_listener_prop)
 vndbinder_use(tee)
 
+wakelock_use(tee);
+
 hwbinder_use(tee)
 get_prop(tee, hwservicemanager_prop)
 

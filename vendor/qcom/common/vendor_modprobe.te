@@ -1,0 +1,1 @@
+dontaudit vendor_modprobe proc_cmdline:file r_file_perms;

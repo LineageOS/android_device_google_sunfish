@@ -1,3 +1,0 @@
-type perfservice, domain, coredomain;
-type perfservice_exec, exec_type, system_file_type, file_type;
-init_daemon_domain(perfservice)

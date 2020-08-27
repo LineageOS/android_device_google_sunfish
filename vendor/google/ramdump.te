@@ -21,4 +21,17 @@ userdebug_or_eng(`
   dontaudit ramdump metadata_file:dir search;
 
   r_dir_file(ramdump, sysfs_type)
+
+  # To access statsd.
+  hwbinder_use(ramdump)
+  get_prop(ramdump, hwservicemanager_prop)
+  allow ramdump fwk_stats_hwservice:hwservice_manager find;
+  binder_call(ramdump, stats_service_server)
+
+  # To implement fusefs (ramdumpfs) under /mnt/vendor/ramdump.
+  allow ramdump fuse:filesystem relabelfrom;
+  allow ramdump fuse_device:chr_file rw_file_perms;
+  allow ramdump mnt_vendor_file:dir r_dir_perms;
+  allow ramdump ramdump_vendor_mnt_file:dir { getattr mounton };
+  allow ramdump ramdump_vendor_mnt_file:filesystem { mount unmount relabelfrom relabelto };
 ')
