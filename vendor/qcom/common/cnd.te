@@ -42,3 +42,5 @@ allow cnd self:{
     netlink_generic_socket
     qipcrtr_socket
 } create_socket_perms_no_ioctl;
+
+dontaudit cnd wifi_hal_prop:file r_file_perms;
