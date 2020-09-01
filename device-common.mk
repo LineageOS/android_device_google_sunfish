@@ -65,10 +65,11 @@ persist.vendor.bt.aac_frm_ctl.enabled=true
 # Set lmkd options
 PRODUCT_PRODUCT_PROPERTIES += \
 	ro.config.low_ram = false \
-	ro.lmk.kill_heaviest_task = true \
-	ro.lmk.kill_timeout_ms = 100 \
-	ro.lmk.use_minfree_levels = true \
 	ro.lmk.log_stats = true \
+
+# charger
+PRODUCT_PRODUCT_PROPERTIES += \
+	ro.charger.enable_suspend=true
 
 # Modem loging file
 PRODUCT_COPY_FILES += \
@@ -102,9 +103,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.pro.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.pro.xml
 
-# Write flags to the vendor space in /misc partition.
 PRODUCT_PACKAGES += \
-    misc_writer \
     dmabuf_dump
 
 # Set the default property of tcpdump_logger on userdebug/eng ROM.
@@ -119,3 +118,8 @@ ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.disable_rescue=true
 endif
+
+# Enable Incremental on the device via kernel module
+PRODUCT_PROPERTY_OVERRIDES += \
+        ro.incremental.enable=module:/vendor/lib/modules/incrementalfs.ko
+

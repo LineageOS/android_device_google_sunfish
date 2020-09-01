@@ -21,11 +21,7 @@ import /vendor/etc/init/hw/init.${ro.boot.hardware.platform}.mpssrfs.rc
 import /vendor/etc/init/hw/init.${ro.boot.hardware.platform}.power.rc
 import /vendor/etc/init/hw/init.${ro.boot.hardware.platform}.power_debug.rc
 
-# If boot mode is sota then set factory ota mode property
-on property:ro.boot.mode=sota
-    setprop ro.boot.sota enabled
-
-service vendor.charger /charger
+service vendor.charger /system/bin/charger
     class charger
     seclabel u:r:charger:s0
     user system
@@ -42,7 +38,6 @@ on early-init
 
     # Disable EAS
     write /proc/sys/kernel/sched_energy_aware 0
-    mount_all /vendor/etc/fstab.persist --early
 
 # Disable VDSO on JAWS boards.
 on early-init && property:ro.revision="DEV1.0"
@@ -55,7 +50,6 @@ on early-init && property:ro.boot.mode=charger
 on init && property:vendor.skip.init=0
     # Disable UFS powersaving
     write /sys/devices/platform/soc/${ro.boot.bootdevice}/clkgate_enable 0
-    write /sys/devices/platform/soc/${ro.boot.bootdevice}/hibern8_on_idle_enable 0
 
     # Disable powersaving
     write /sys/module/lpm_levels/parameters/sleep_disabled 1
@@ -69,7 +63,7 @@ on init && property:vendor.skip.init=0
     start keymaster-4-0
 
     start vendor.citadeld
-    start vendor.keymaster-4-0-citadel
+    start vendor.keymaster-4-1-citadel
 
     # Loading kernel modules in background
     start insmod_sh
@@ -124,9 +118,11 @@ on init && property:vendor.skip.init=0
     # Allow PAI targeting per hardware SKU
     setprop ro.oem.key1 ${ro.boot.hardware.sku}
 
+    # Battery Defender
+    chown system system /sys/devices/platform/soc/soc:google,charger/charge_stop_level
+    chown system system /sys/devices/platform/soc/soc:google,charger/charge_start_level
 
 on late-init
-    setprop vendor.thermal.config thermal_info_config.json
     chown system system /sys/devices/virtual/thermal/tz-by-name/skin-therm-monitor/trip_point_0_temp
     chown system system /sys/devices/virtual/thermal/tz-by-name/skin-therm-monitor/trip_point_0_hyst
     chown system system /sys/devices/virtual/thermal/tz-by-name/usbc-therm-monitor/trip_point_0_temp
@@ -181,9 +177,14 @@ on late-fs
     #setprop ro.surface_flinger.display_primary_green ${vendor.display.primary_green}
     #setprop ro.surface_flinger.display_primary_blue ${vendor.display.primary_blue}
     #setprop ro.surface_flinger.display_primary_white ${vendor.display.primary_white}
+    # Permission for hwcomposer
+    chown system system /sys/class/backlight/panel0-backlight/brightness
+    chown system system /sys/class/backlight/panel0-backlight/max_brightness
+    chown system system /sys/class/backlight/panel0-backlight/vr_mode
+    chown system system /sys/class/backlight/panel0-backlight/hbm_mode
     start surfaceflinger
     start bootanim
-    start vendor.hwcomposer-2-3
+    start vendor.hwcomposer-2-4
     start vendor.configstore-hal
     start vendor.qti.hardware.display.allocator
     start vendor.light-1-1
@@ -223,6 +224,9 @@ on late-fs
     # turn off vblank irq immediately after turning off
     write /sys/module/drm/parameters/vblankoffdelay -1
 
+    # Write build info to kdebuginfo.
+    write /sys/module/kdebuginfo/parameters/build_info "${ro.product.name}-${ro.build.type} ${ro.build.version.incremental}"
+
 on post-fs-data
     mkdir /vendor/data/tombstones 0771 system system
     mkdir /tombstones/modem 0771 system system
@@ -236,6 +240,8 @@ on post-fs-data
     mkdir /data/vendor/modem_fdr 0700 root system
     mkdir /data/vendor/display 0770 system graphics
     mkdir /data/vendor/camera 0770 system system
+    mkdir /data/vendor/rebootescrow 0770 hsm hsm
+    start vendor.rebootescrow-citadel
 
 on zygote-start
     # zygote is started in common init.rc
@@ -320,11 +326,6 @@ on early-boot
     # Set up touch directories and permissions
     chmod 770 /mnt/vendor/persist/touch
     chown system system /mnt/vendor/persist/touch
-
-    # Permission for lights driver
-    chown system system /sys/class/backlight/panel0-backlight/brightness
-    chown system system /sys/class/backlight/panel0-backlight/vr_mode
-    chown system system /sys/class/backlight/panel0-backlight/hbm_mode
 
     # Wait for insmod_sh to finish all modules
     wait_for_prop vendor.all.modules.ready 1
@@ -434,12 +435,13 @@ on property:init.svc.vendor.charger=running
 on property:sys.boot_completed=1
     setprop vendor.setup.power 1
 
-    # F2FS tuning: issue discard commands up to 128MB
-    write /sys/block/dm-7/queue/discard_max_bytes 134217728
-
     # Block layer tuning: discard chunk size up to 128MB
     # Otherwise, contiguous discards can be merged
     write /sys/block/sda/queue/discard_max_bytes 134217728
+
+    # Back to default VM settings
+    write /proc/sys/vm/dirty_expire_centisecs 3000
+    write /proc/sys/vm/dirty_background_ratio 10
 
     # Enable ZRAM on boot_complete
     swapon_all /vendor/etc/fstab.${ro.boot.hardware.platform}
@@ -482,17 +484,6 @@ on property:sys.boot_completed=1
     chown system system /sys/kernel/debug/google_charger/pps_op_ua
     chown system system /sys/kernel/debug/google_charger/pps_out_uv
 
-    # Create pixel-trace.
-    # At this moment, only mm_event is available. If others want to put more,
-    # it should get hard review from pixel-perf-team.
-    mkdir /sys/kernel/debug/tracing/instances/pixel-trace 0755 system system
-    chown system system /sys/kernel/debug/tracing/instances/pixel-trace/trace
-    chmod 0660 /sys/kernel/debug/tracing/instances/pixel-trace/trace
-    chown system system /sys/kernel/debug/tracing/instances/pixel-trace/tracing_on
-    chmod 0660 /sys/kernel/debug/tracing/instances/pixel-trace/tracing_on
-    write /sys/kernel/debug/tracing/instances/pixel-trace/buffer_size_kb 64
-    write /sys/kernel/debug/tracing/instances/pixel-trace/events/mm_event/enable 1
-
     # Permission for bootloader logs
     chown root log /proc/bldrlog
     chmod 0444 /proc/bldrlog
@@ -531,14 +522,6 @@ service init-sensors-sh /vendor/bin/init.sensors.sh
     group root system
     disabled
     oneshot
-
-service sensors.qti /vendor/bin/sensors.qti
-    class core
-    user system
-    group system
-    # Grants the ability for this daemon to bind IPC router ports so it can
-    # register QMI services
-    capabilities NET_BIND_SERVICE
 
 service vendor.adsprpcd /vendor/bin/adsprpcd
    class main
@@ -590,14 +573,6 @@ service cnd /vendor/bin/cnd
    class main
    user system
    group system wifi inet radio wakelock net_admin
-
-service vendor.chre /vendor/bin/chre
-    class late_start
-    user system
-    group system wakelock
-    capabilities BLOCK_SUSPEND
-    socket chre seqpacket 0660 root system
-    shutdown critical
 
 service wait_for_strongbox /vendor/bin/hw/wait_for_strongbox
     user root
@@ -670,10 +645,10 @@ service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
     disabled
     oneshot
 
-on property:init.svc.vendor.hwcomposer-2-3=stopped
+on property:init.svc.vendor.hwcomposer-2-4=stopped
     stop ppd
 
-on property:init.svc.vendor.hwcomposer-2-3=running
+on property:init.svc.vendor.hwcomposer-2-4=running
     start ppd
 
 # charger driver exposes now finer grain control, map demo mode to those properties
@@ -681,12 +656,6 @@ on property:init.svc.vendor.hwcomposer-2-3=running
 on property:sys.retaildemo.enabled=1
     setprop persist.vendor.charge.stop.level 35
     setprop persist.vendor.charge.start.level 30
-
-on property:persist.vendor.charge.stop.level=*
-    write /sys/devices/platform/soc/soc:google,charger/charge_stop_level ${persist.vendor.charge.stop.level}
-
-on property:persist.vendor.charge.start.level=*
-    write /sys/devices/platform/soc/soc:google,charger/charge_start_level ${persist.vendor.charge.start.level}
 
 service insmod_sh /vendor/bin/init.insmod.sh /vendor/etc/init.insmod.${ro.hardware}.cfg
     class main
@@ -719,8 +688,7 @@ service loc_launcher /vendor/bin/loc_launcher
     group gps
 
 # bugreport is triggered by holding down volume down, volume up and power
-service bugreport /system/bin/dumpstate -d -p -B -z \
-        -o /data/user_de/0/com.android.shell/files/bugreports/bugreport
+service bugreport /system/bin/dumpstate -d -p -z
     class main
     disabled
     oneshot
@@ -730,44 +698,33 @@ on property:ro.boot.hardware.dsds=1
     setprop persist.radio.multisim.config dsds
 
 # DSDS feature
+# Restart 1st qcrild after SIM config changed
+on property:vendor.radio.sim_num.switch=1to2 && property:persist.radio.multisim.config=dsds
+    restart vendor.qcrild
+
+on property:vendor.radio.sim_num.switch=2to1 && property:persist.radio.multisim.config=
+    restart vendor.qcrild
+
 # Enable 2nd qcrild when the property set to dsds
 on property:persist.radio.multisim.config=dsds
     start vendor.qcrild2
 
-# Write the dark theme magic (`theme-dark`, or 0x7468656d652d6461726b in hex string) to /misc
-# partition. Offset 0 in vendor space is effectively offset 2048 in /misc partition.
-service vendor.theme_set /vendor/bin/misc_writer --vendor-space-offset 0 --hex-string 0x7468656d652d6461726b
+# init-fingerprint-sh is for stopping fps_hal after init retry fail serval times
+# It keeps running until max init retry or fps_hal running successfully
+# vendor.fps_hal restarts until max init retry times
+#
+# /vendor/bin/init.fingerprint.sh [max_init_retry_times]
+service init-fingerprint-sh /vendor/bin/init.fingerprint.sh 10
+    group root
+    user root
     disabled
     oneshot
 
-# Clear the 10-byte dark theme magic in /misc partition. Offset 0 in vendor space is effectively
-# offset 2048 in /misc partition.
-service vendor.theme_clear /vendor/bin/misc_writer --vendor-space-offset 0 --hex-string 0x00000000000000000000
-    disabled
-    oneshot
+on property:sys.boot_completed=1
+    start init-fingerprint-sh
 
-# Set dark boot flag on dark mode (UiModeManager.MODE_NIGHT_YES == 2).
-on property:persist.sys.theme=2
-    start vendor.theme_set
-
-# Clear the dark boot flag on light mode (UiModeManager.MODE_NIGHT_NO == 1) or auto mode
-# (UiModeManager.MODE_NIGHT_AUTO == 0).
-on property:persist.sys.theme=1
-    start vendor.theme_clear
-
-on property:persist.sys.theme=0
-    start vendor.theme_clear
-
-# Write the enable sota magic (`enable-sota`, or 0x656e61626c652d736f7461 in hex string) to /misc
-# partition. Offset 32 in vendor space is effectively offset 2048 in /misc partition.
-service vendor.enable_sota /vendor/bin/misc_writer --vendor-space-offset 32 --hex-string 0x656e61626c652d736f7461
-    disabled
-    oneshot
-
-# Set enable sota flag
-on property:persist.vendor.factoryota.enable_sota=triggered
-    exec_start vendor.enable_sota
-    setprop persist.vendor.factoryota.enable_sota completed
+on property:vendor.fps.init.succeed=true && property:init.svc.vendor.fps_hal=stopped
+    start init-fingerprint-sh
 
 # For Japan radio builds, always enforce camera shutter sound
 # Since this property is read by the audio server in system service,
