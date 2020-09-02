@@ -47,9 +47,14 @@ cc_library {
 cc_binary {
     name: "android.hardware.vibrator@1.3-service.sunfish",
     defaults: ["android.hardware.vibrator@1.3-defaults.sunfish"],
-    init_rc: ["android.hardware.vibrator@1.3-service.sunfish.rc"],
-    vintf_fragments: ["android.hardware.vibrator@1.3-service.sunfish.xml"],
     srcs: ["service.cpp"],
     static_libs: ["android.hardware.vibrator@1.3-impl.sunfish"],
+    proprietary: true,
+}
+
+prebuilt_firmware {
+    name: "drv2624.bin.sunfish",
+    src: "drv2624.bin",
+    filename_from_src: true,
     proprietary: true,
 }

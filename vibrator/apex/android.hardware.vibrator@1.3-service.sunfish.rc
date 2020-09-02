@@ -1,4 +1,4 @@
-service vendor.vibrator-1-3 /vendor/bin/hw/android.hardware.vibrator@1.3-service.sunfish
+service vendor.vibrator-1-3 /apex/com.android.vibrator.sunfish/bin/hw/android.hardware.vibrator@1.3-service.sunfish
     class hal
     user system
     group system
