@@ -1,0 +1,49 @@
+apex {
+    name: "com.android.vibrator.sunfish",
+    manifest: "apex_manifest.json",
+    key: "com.android.vibrator.sunfish.key",
+    certificate: ":com.android.vibrator.sunfish.certificate",
+    file_contexts: "file_contexts",
+    use_vndk_as_stable: true,
+
+    // install the apex in /vendor/apex
+    proprietary: true,
+
+    // BEGIN of apex payloads
+    binaries: [
+        // /bin
+        "android.hardware.vibrator@1.3-service.sunfish",
+    ],
+    prebuilts: [
+        // /etc
+        "android.hardware.vibrator@1.3-service.sunfish.rc",
+        // /firmware
+        "drv2624.bin.sunfish",
+    ],
+    // END of apex payloads
+
+    // BEGIN of companion files
+    // vintf manifest fragments, which is installed in /vendor/etc/vintf.
+    // TODO(b/130058564): should we put vintf framgments within the apex?
+    vintf_fragments: [
+        "android.hardware.vibrator@1.3-service.sunfish.xml",
+    ],
+    // END of companion files
+}
+
+apex_key {
+    name: "com.android.vibrator.sunfish.key",
+    public_key: "com.android.vibrator.sunfish.pubkey",
+    private_key: "com.android.vibrator.sunfish.pem",
+}
+
+android_app_certificate {
+    name: "com.android.vibrator.sunfish.certificate",
+    certificate: "com.android.vibrator.sunfish",
+}
+
+prebuilt_etc {
+    name: "android.hardware.vibrator@1.3-service.sunfish.rc",
+    src: "android.hardware.vibrator@1.3-service.sunfish.rc",
+    installable: false,
+}
