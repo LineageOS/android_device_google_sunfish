@@ -11,6 +11,5 @@
 
 ###################################
 # data files
-/data/vendor/ese(/.*)?                                                                u:object_r:ese_vendor_data_file:s0
 /data/nfc(/.*)?                                                                       u:object_r:nfc_data_file:s0
 
