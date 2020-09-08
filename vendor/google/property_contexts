@@ -8,28 +8,21 @@ persist.vendor.radio.smlog_switch               u:object_r:vendor_radio_prop:s0
 ro.vendor.radio.log_loc                         u:object_r:vendor_radio_prop:s0
 ro.vendor.radio.log_prefix                      u:object_r:vendor_radio_prop:s0
 
-persist.audio.fluence.voicecomm                 u:object_r:vendor_audio_prop:s0
-audio.adm.buffering.ms                          u:object_r:vendor_audio_prop:s0
-
-vendor.all.modules.ready                        u:object_r:vendor_device_prop:s0
-vendor.all.devices.ready                        u:object_r:vendor_device_prop:s0
-vendor.thermal.config                           u:object_r:vendor_thermal_prop:s0
+persist.vendor.audio.fluence.voicecomm          u:object_r:vendor_audio_prop:s0
 
 ro.boot.usbcontroller                           u:object_r:vendor_usb_prop:s0
 
 ro.boot.hardware.platform                       u:object_r:public_vendor_default_prop:s0
-
-vendor.powerhal.state                           u:object_r:power_prop:s0
-vendor.powerhal.audio                           u:object_r:power_prop:s0
-vendor.powerhal.lpm                             u:object_r:power_prop:s0
-vendor.powerhal.init                            u:object_r:power_prop:s0
-vendor.powerhal.rendering                       u:object_r:power_prop:s0
 
 vendor.display.primary_red                      u:object_r:vendor_display_prop:s0
 vendor.display.primary_green                    u:object_r:vendor_display_prop:s0
 vendor.display.primary_blue                     u:object_r:vendor_display_prop:s0
 vendor.display.primary_white                    u:object_r:vendor_display_prop:s0
 vendor.display.native_display_primaries_ready   u:object_r:vendor_display_prop:s0
+
+# battery
+vendor.battery.defender.                        u:object_r:vendor_battery_defender_prop:s0
+
 # Tcpdump_logger
 persist.vendor.tcpdump.log.alwayson             u:object_r:vendor_tcpdump_log_prop:s0
 vendor.tcpdump.log.ondemand                     u:object_r:vendor_tcpdump_log_prop:s0
@@ -57,14 +50,17 @@ vendor.ramoops.                                 u:object_r:vendor_ramoops_prop:s
 vendor.fpc_kpi                                  u:object_r:vendor_default_prop:s0
 
 # Haptics HAL properties
-ro.vibrator.hal.config.dynamic                  u:object_r:vendor_vibrator_prop:s0
-ro.vibrator.hal.click.duration                  u:object_r:vendor_vibrator_prop:s0
-ro.vibrator.hal.tick.duration                   u:object_r:vendor_vibrator_prop:s0
-ro.vibrator.hal.heavyclick.duration             u:object_r:vendor_vibrator_prop:s0
-ro.vibrator.hal.long.voltage                    u:object_r:vendor_vibrator_prop:s0
-ro.vibrator.hal.long.frequency.shift            u:object_r:vendor_vibrator_prop:s0
-ro.vibrator.hal.steady.shape                    u:object_r:vendor_vibrator_prop:s0
-ro.vibrator.hal.closeloop.threshold             u:object_r:vendor_vibrator_prop:s0
-ro.vibrator.hal.short.voltage                   u:object_r:vendor_vibrator_prop:s0
-ro.vibrator.hal.effect.shape                    u:object_r:vendor_vibrator_prop:s0
-ro.vibrator.hal.lptrigger                       u:object_r:vendor_vibrator_prop:s0
+ro.vendor.vibrator.hal.config.dynamic           u:object_r:vendor_vibrator_prop:s0
+ro.vendor.vibrator.hal.click.duration           u:object_r:vendor_vibrator_prop:s0
+ro.vendor.vibrator.hal.tick.duration            u:object_r:vendor_vibrator_prop:s0
+ro.vendor.vibrator.hal.heavyclick.duration      u:object_r:vendor_vibrator_prop:s0
+ro.vendor.vibrator.hal.long.voltage             u:object_r:vendor_vibrator_prop:s0
+ro.vendor.vibrator.hal.long.frequency.shift     u:object_r:vendor_vibrator_prop:s0
+ro.vendor.vibrator.hal.steady.shape             u:object_r:vendor_vibrator_prop:s0
+ro.vendor.vibrator.hal.closeloop.threshold      u:object_r:vendor_vibrator_prop:s0
+ro.vendor.vibrator.hal.short.voltage            u:object_r:vendor_vibrator_prop:s0
+ro.vendor.vibrator.hal.effect.shape             u:object_r:vendor_vibrator_prop:s0
+ro.vendor.vibrator.hal.lptrigger                u:object_r:vendor_vibrator_prop:s0
+
+# Vendor verbose logging prop
+persist.vendor.verbose_logging_enabled          u:object_r:vendor_logging_prop:s0
