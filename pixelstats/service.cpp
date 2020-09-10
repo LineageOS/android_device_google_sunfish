@@ -39,9 +39,14 @@ const struct SysfsCollector::SysfsPaths sysfs_paths = {
     .CodecPath =     "/sys/devices/platform/codec_detect/codec_state",
     .SpeechDspPath = "/sys/devices/platform/codec_detect/wdsp_stat",
     .Codec1Path = "/sys/devices/platform/codec_detect/headset_codec_state",
+    .UFSLifetimeA = UFSHC_PATH(health/lifetimeA),
+    .UFSLifetimeB = UFSHC_PATH(health/lifetimeB),
+    .UFSLifetimeC = UFSHC_PATH(health/lifetimeC),
+    .F2fsStatsPath = "/sys/fs/f2fs/",
 };
 
 const char *const kAudioUevent = "/kernel/q6audio/q6voice_uevent";
+const char *const kSSOCDetailsPath = "/sys/class/power_supply/battery/ssoc_details";
 
 int main() {
     LOG(INFO) << "starting PixelStats";
@@ -53,7 +58,7 @@ int main() {
         return 1;
     }
 
-    UeventListener ueventListener(kAudioUevent);
+    UeventListener ueventListener(kAudioUevent, kSSOCDetailsPath);
     std::thread listenThread(&UeventListener::ListenForever, &ueventListener);
     listenThread.detach();
 

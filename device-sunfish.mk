@@ -74,6 +74,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/cs35l41/EVT1.1/cs35l41-revB2-dsp1-spk-prot.wmfw:$(TARGET_COPY_OUT_VENDOR)/firmware/cs35l41-revB2-dsp1-spk-prot.wmfw \
     $(LOCAL_PATH)/audio/cs35l41/EVT1.1/R-cs35l41-revB2-dsp1-spk-prot.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/R-cs35l41-revB2-dsp1-spk-prot.bin \
 
+# Audio CS35L41 speaker calibration tool
+PRODUCT_PACKAGES += \
+    crus_sp_cal
+
 # Audio effects
 PRODUCT_PACKAGES += \
     libqcomvoiceprocessingdescriptors
@@ -98,7 +102,17 @@ PRODUCT_COPY_FILES += \
 endif
 endif
 
+# Settings overlay packages for regulatory_info
+PRODUCT_PACKAGES += \
+    SettingsOverlayG025J \
+    SettingsOverlayG025M \
+    SettingsOverlayG025N \
+
 # Fingerprint HIDL
 include device/google/sunfish/fingerprint.mk
 
 PRODUCT_PRODUCT_PROPERTIES += ro.com.google.ime.height_ratio=1.2
+
+# Bluetooth Tx power caps for sunfish
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/bluetooth_power_limits_sunfish.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits.csv
