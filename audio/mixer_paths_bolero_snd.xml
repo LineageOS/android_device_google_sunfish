@@ -185,7 +185,9 @@
 
     <!-- Multimode Voice1 -->
     <ctl name="RX_CDC_DMA_RX_0_Voice Mixer VoiceMMode1" value="0" />
+    <ctl name="SEC_TDM_RX_0_Voice Mixer VoiceMMode1" value="0" />
     <ctl name="VoiceMMode1_Tx Mixer TX_CDC_DMA_TX_3_MMode1" value="0" />
+    <ctl name="VoiceMMode1_Tx Mixer TERT_TDM_TX_0_MMode1" value="0" />
     <!-- Multimode Voice1 BTSCO -->
     <ctl name="SLIM_7_RX_Voice Mixer VoiceMMode1" value="0" />
     <ctl name="VoiceMMode1_Tx Mixer SLIM_7_TX_MMode1" value="0" />
@@ -202,8 +204,10 @@
     <!-- Miltimode Voice1 end-->
 
     <!-- Multimode Voice2 -->
+    <ctl name="SEC_TDM_RX_0_Voice Mixer VoiceMMode2" value="0" />
     <ctl name="RX_CDC_DMA_RX_0_Voice Mixer VoiceMMode2" value="0" />
-    <ctl name="VoiceMMode1_Tx Mixer TX_CDC_DMA_TX_3_MMode2" value="0" />
+    <ctl name="VoiceMMode2_Tx Mixer TX_CDC_DMA_TX_3_MMode2" value="0" />
+    <ctl name="VoiceMMode2_Tx Mixer TERT_TDM_TX_0_MMode2" value="0" />
     <!-- Multimode Voice2 BTSCO -->
     <ctl name="SLIM_7_RX_Voice Mixer VoiceMMode2" value="0" />
     <ctl name="VoiceMMode2_Tx Mixer SLIM_7_TX_MMode2" value="0" />
