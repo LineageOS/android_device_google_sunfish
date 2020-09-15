@@ -1,10 +1,9 @@
 # ConnectivityMonitor app
-type con_monitor_app, domain;
+type con_monitor_app, domain, coredomain;
 
 app_domain(con_monitor_app)
 
 set_prop(con_monitor_app, radio_prop)
-set_prop(con_monitor_app, vendor_radio_prop)
 allow con_monitor_app app_api_service:service_manager find;
 allow con_monitor_app audioserver_service:service_manager find;
 allow con_monitor_app radio_service:service_manager find;
