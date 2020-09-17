@@ -224,7 +224,7 @@
         </interface>
     </hal>
     <hal format="hidl" optional="true">
-        <name>vendor.qti.hardware.bt_channel_avoidance</name>
+        <name>vendor.google.bluetooth_ext.bt_channel_avoidance</name>
         <version>1.0</version>
         <interface>
             <name>IBTChannelAvoidance</name>
