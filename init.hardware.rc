@@ -129,6 +129,10 @@ on init && property:vendor.skip.init=0
     # Charge stats (write 0)
     chown system system /sys/class/power_supply/battery/charge_stats
 
+    # Report max frequency to unity tasks.
+    write /proc/sys/kernel/sched_lib_name "UnityMain,libunity.so"
+    write /proc/sys/kernel/sched_lib_mask_force 255
+
 on late-init
     chown system system /sys/devices/virtual/thermal/tz-by-name/skin-therm-monitor/trip_point_0_temp
     chown system system /sys/devices/virtual/thermal/tz-by-name/skin-therm-monitor/trip_point_0_hyst
