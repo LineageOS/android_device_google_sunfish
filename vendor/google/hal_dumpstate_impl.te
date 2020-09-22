@@ -65,6 +65,9 @@ userdebug_or_eng(`
   allow hal_dumpstate_impl debugfs_ipa:file r_file_perms;
 ')
 
+#Dumpstats fastrpc buffer
+allow hal_dumpstate_impl sysfs_fastrpc:file r_file_perms;
+
 # dump Battery/Charger/Guage
 allow hal_dumpstate_impl debugfs_batteryinfo:dir r_dir_perms;
 allow hal_dumpstate_impl debugfs_batteryinfo:file r_file_perms;
