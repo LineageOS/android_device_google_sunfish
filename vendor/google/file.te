@@ -35,6 +35,7 @@ type hal_rebootescrow_citadel_data_file, file_type, data_file_type;
 type sysfs_knowles_info, fs_type, sysfs_type;
 type sysfs_fingerprint, sysfs_type, fs_type;
 type per_boot_file, file_type, data_file_type, core_data_file_type;
+type proc_sched_lib_mask_cpuinfo, proc_type, fs_type;
 
 # Dumpstates bootloader logs
 type proc_bldrlog, fs_type, proc_type;
