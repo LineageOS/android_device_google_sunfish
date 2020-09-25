@@ -202,8 +202,10 @@ TARGET_USES_DRM_PP := true
 # Vendor Interface Manifest
 DEVICE_MANIFEST_FILE := device/google/sunfish/manifest.xml
 DEVICE_MATRIX_FILE := device/google/sunfish/compatibility_matrix.xml
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := device/google/sunfish/device_framework_matrix.xml
-DEVICE_FRAMEWORK_MANIFEST_FILE := device/google/sunfish/framework_manifest.xml
+# Install product specific framework compatibility matrix
+# (TODO: b/169535506) This includes the FCM for system_ext and product partition.
+# It must be split into the FCM of each partition.
+DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE := device/google/sunfish/device_framework_matrix_product.xml
 
 # Use mke2fs to create ext4 images
 TARGET_USES_MKE2FS := true
