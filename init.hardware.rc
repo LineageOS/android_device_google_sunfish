@@ -323,6 +323,10 @@ on early-boot
     mkdir /data/vendor/sensors/log 0770
     chown system system /data/vendor/sensors/log
 
+    # Restore SeLinux Context for preventing temp.json with
+    # incorrect security context
+    restorecon /mnt/vendor/persist/sensors/registry/temp.json
+
     chmod 770 /mnt/vendor/persist/audio
     chmod 660 /mnt/vendor/persist/audio/audio.cal
     chown media audio /mnt/vendor/persist/audio
