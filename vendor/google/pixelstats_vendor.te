@@ -17,6 +17,7 @@ binder_call(pixelstats_vendor, stats_service_server)
 allow pixelstats_vendor sysfs_scsi_devices_0000:file rw_file_perms;
 r_dir_file(pixelstats_vendor, sysfs_batteryinfo)
 allow pixelstats_vendor sysfs_batteryinfo:file w_file_perms;
+allow pixelstats_vendor battery_history_device:chr_file r_file_perms;
 
 # UeventListener
 allow pixelstats_vendor self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
