@@ -391,6 +391,8 @@ on early-boot
     # Permission for battery eeprom
     chown system system /sys/devices/platform/soc/a8c000.i2c/i2c-2/2-0050/2-00500/nvmem
     chmod 0640 /sys/devices/platform/soc/a8c000.i2c/i2c-2/2-0050/2-00500/nvmem
+    chown system system /dev/battery_history
+    chmod 0644 /dev/battery_history
 
     # Permission for Pixelstats
     chown system system /sys/class/misc/msm_cirrus_playback/resistance_left_right
