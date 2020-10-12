@@ -92,6 +92,9 @@ genfscon sysfs /devices/platform/codec_detect/codec_state              u:object_
 genfscon sysfs /devices/platform/codec_detect/wdsp_stat                u:object_r:sysfs_pixelstats:s0
 genfscon sysfs /devices/platform/codec_detect/headset_codec_state      u:object_r:sysfs_pixelstats:s0
 
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pm6150@0:qcom,usb-pdphy@1700/usbpd0/typec/port0/port0-partner/identity/id_header  u:object_r:sysfs_pixelstats:s0
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pm6150@0:qcom,usb-pdphy@1700/usbpd0/typec/port0/port0-partner/identity/product  u:object_r:sysfs_pixelstats:s0
+
 
 # Audio Dsp for HardwareInfo
 genfscon sysfs /devices/platform/codec_detect/hwinfo_part_number      u:object_r:sysfs_audio:s0
