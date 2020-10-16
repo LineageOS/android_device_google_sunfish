@@ -557,10 +557,6 @@ PRODUCT_PACKAGES += \
     android.hardware.gnss@2.0-impl-qti \
     android.hardware.gnss@2.0-service-qti
 
-# Wireless Charger HAL
-PRODUCT_PACKAGES += \
-    vendor.google.wireless_charger@1.0
-
 ENABLE_VENDOR_RIL_SERVICE := true
 
 HOSTAPD := hostapd
