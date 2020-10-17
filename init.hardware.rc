@@ -640,7 +640,7 @@ on post-fs-data && property:persist.vendor.sys.ssr.enable_ramdumps=1 && property
     mkdir /data/vendor/wifidump 771 root system
     mkdir /data/vendor/ramdump 771 root system
     mkdir /data/vendor/ssrdump 771 root system
-    mkdir /data/vendor/ssrlog  771 root system
+    mkdir /data/vendor/ssrlog  775 root system
     start vendor.ss_ramdump
     start vendor.crash_event_logger
 
