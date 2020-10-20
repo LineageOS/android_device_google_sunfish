@@ -43,6 +43,7 @@ const struct SysfsCollector::SysfsPaths sysfs_paths = {
     .UFSLifetimeB = UFSHC_PATH(health/lifetimeB),
     .UFSLifetimeC = UFSHC_PATH(health/lifetimeC),
     .F2fsStatsPath = "/sys/fs/f2fs/",
+    .EEPROMPath = "/dev/battery_history",
 };
 
 const char *const kAudioUevent = "/kernel/q6audio/q6voice_uevent";
