@@ -518,7 +518,7 @@ PRODUCT_PACKAGES += \
 
 # Context hub HAL
 PRODUCT_PACKAGES += \
-    android.hardware.contexthub@1.1-service.generic
+    android.hardware.contexthub@1.2-service.generic
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
@@ -556,10 +556,6 @@ PRODUCT_PACKAGES += \
     libgeofencing \
     android.hardware.gnss@2.0-impl-qti \
     android.hardware.gnss@2.0-service-qti
-
-# Wireless Charger HAL
-PRODUCT_PACKAGES += \
-    vendor.google.wireless_charger@1.0
 
 ENABLE_VENDOR_RIL_SERVICE := true
 

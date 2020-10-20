@@ -123,3 +123,8 @@ endif
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.incremental.enable=module:/vendor/lib/modules/incrementalfs.ko
 
+# Enable watchdog timeout loop breaker.
+PRODUCT_PROPERTY_OVERRIDES += \
+    framework_watchdog.fatal_window.second=600 \
+    framework_watchdog.fatal_count=3
+
