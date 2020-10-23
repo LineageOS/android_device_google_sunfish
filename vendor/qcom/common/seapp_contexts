@@ -1,11 +1,9 @@
-#TODO(b/126137625): moving dataservice app from system to radio process
-user=radio seinfo=platform name=.dataservices domain=dataservice_app type=radio_data_file
-#user=system seinfo=platform name=.dataservices domain=dataservice_app type=system_app_data_file
+user=radio seinfo=platform name=.dataservices domain=dataservice_app type=radio_data_file levelFrom=user
 
 # Hardware Info Collection
 user=_app seinfo=platform name=com.google.android.hardwareinfo domain=hardware_info_app type=app_data_file levelFrom=user
 
-user=radio isPrivApp=true seinfo=platform name=com.google.RilConfigService domain=ril_config_service_app type=app_data_file
+user=radio isPrivApp=true seinfo=platform name=com.google.RilConfigService domain=ril_config_service_app type=app_data_file levelFrom=all
 
 user=_app seinfo=platform name=.qtidataservices domain=qtidataservices_app type=app_data_file levelFrom=all
 
@@ -15,7 +13,7 @@ user=_app isPrivApp=true seinfo=platform name=com.google.android.connectivitymon
 user=_app seinfo=platform name=com.qualcomm.qti.services.secureui* domain=secure_ui_service_app levelFrom=all
 
 #Needed for time service apk
-user=_app seinfo=platform name=com.qualcomm.timeservice domain=timeservice_app type=app_data_file
+user=_app seinfo=platform name=com.qualcomm.timeservice domain=timeservice_app type=app_data_file levelFrom=all
 
 # Use a custom domain for GoogleCamera, to allow for Hexagon DSP / Easel access
 user=_app seinfo=google name=com.google.android.GoogleCamera domain=google_camera_app type=app_data_file levelFrom=all
