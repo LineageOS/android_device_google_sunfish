@@ -708,6 +708,20 @@ endif
 PRODUCT_PACKAGES += \
     android.hardware.dumpstate@1.1-service.sunfish
 
+# Citadel
+PRODUCT_PACKAGES += \
+    citadeld \
+    citadel_updater \
+    android.hardware.authsecret@1.0-service.citadel \
+    android.hardware.oemlock@1.0-service.citadel \
+    android.hardware.weaver@1.0-service.citadel \
+    android.hardware.keymaster@4.1-service.citadel \
+    android.hardware.identity@1.0-service.citadel \
+    wait_for_strongbox
+
+# Citadel debug stuff
+PRODUCT_PACKAGES_DEBUG += \
+    test_citadel
 
 # Storage: for factory reset protection feature
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -826,6 +840,11 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
+# fastbootd
+PRODUCT_PACKAGES += \
+    android.hardware.fastboot@1.0-impl.pixel \
+    fastbootd
+
 # insmod files
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/init.insmod.sunfish.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/init.insmod.sunfish.cfg
@@ -852,6 +871,10 @@ PRODUCT_COPY_FILES += \
 # powerstats HAL
 PRODUCT_PACKAGES += \
     android.hardware.power.stats@1.0-service.pixel
+
+# Resume on Reboot support
+PRODUCT_PACKAGES += \
+    android.hardware.rebootescrow-service.citadel
 
 # Recovery
 PRODUCT_COPY_FILES += \
@@ -894,9 +917,6 @@ endif
 
 # Project
 include hardware/google/pixel/common/pixel-common-device.mk
-
-# Citadel
-include hardware/google/pixel/citadel/citadel.mk
 
 # Factory OTA
 -include vendor/google/factoryota/client/factoryota.mk
