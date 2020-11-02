@@ -31,3 +31,6 @@ allow tee hal_graphics_allocator_default:fd use;
 
 allow tee sysfs_wake_lock:file append;
 allow tee time_daemon:unix_stream_socket connectto;
+
+# allow tee access for secure UI to work
+allow tee graphics_device:chr_file rw_file_perms;
