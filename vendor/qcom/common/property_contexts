@@ -1,5 +1,6 @@
 # vendor_audio_prop
 vendor.audio.snd_card.open.retries              u:object_r:vendor_audio_prop:s0
+vendor.audio.adm.buffering.ms                   u:object_r:vendor_audio_prop:s0
 
 vendor.audio.volume.listener.dump               u:object_r:vendor_audio_prop:s0
 vendor.audio.volume.headset.gain.depcal         u:object_r:vendor_audio_prop:s0
