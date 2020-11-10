@@ -25,7 +25,6 @@ type sysfs_esim, sysfs_type, fs_type;
 type debugfs_usb, debugfs_type, fs_type;
 type mediadrm_vendor_data_file, file_type, data_file_type;
 type diag_socket, file_type, mlstrustedobject;
-type ese_vendor_data_file, file_type, data_file_type;
 type debugfs_dma_buf, debugfs_type, fs_type;
 type debugfs_clk, debugfs_type, fs_type;
 type debugfs_pmic, debugfs_type, fs_type;
