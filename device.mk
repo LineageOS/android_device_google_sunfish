@@ -408,7 +408,7 @@ PRODUCT_PACKAGES_DEBUG += \
 
 # Bluetooth AFH
 PRODUCT_PACKAGES += \
-    vendor.google.bluetooth_ext.bt_channel_avoidance@1.0-impl
+    hardware.google.bluetooth.bt_channel_avoidance@1.0-impl
 
 # Bluetooth SoC
 PRODUCT_PROPERTY_OVERRIDES += \
