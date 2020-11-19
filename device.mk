@@ -408,7 +408,7 @@ PRODUCT_PACKAGES_DEBUG += \
 
 # Bluetooth AFH
 PRODUCT_PACKAGES += \
-    vendor.google.bluetooth_ext.bt_channel_avoidance@1.0-impl
+    hardware.google.bluetooth.bt_channel_avoidance@1.0-impl
 
 # Bluetooth SoC
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -868,7 +868,7 @@ PRODUCT_PACKAGES += $(HIDL_WRAPPER)
 
 # Increment the SVN for any official public releases
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.vendor.build.svn=16
+	ro.vendor.build.svn=17
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
