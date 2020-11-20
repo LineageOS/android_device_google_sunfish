@@ -836,14 +836,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.support_one_handed_mode=true
 
-# Set one_handed_mode screen translate offset percentage
-PRODUCT_PRODUCT_PROPERTIES += \
-    persist.debug.one_handed_offset_percentage=50
-
-# Set one_handed_mode translate animation duration milliseconds
-PRODUCT_PRODUCT_PROPERTIES += \
-    persist.debug.one_handed_translate_animation_duration=300
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/fstab.postinstall:$(TARGET_COPY_OUT_PRODUCT)/etc/fstab.postinstall
 
