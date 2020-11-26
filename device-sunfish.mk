@@ -119,3 +119,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # Bluetooth Tx power caps for sunfish
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/bluetooth_power_limits_sunfish.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits.csv
+
+# Set support hide display cutout feature
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.support_hide_display_cutout=true
+
+PRODUCT_PACKAGES += \
+    NoCutoutOverlay
