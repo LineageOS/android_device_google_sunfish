@@ -76,6 +76,8 @@ allow hal_dumpstate_impl debugfs_pmic:file r_file_perms;
 userdebug_or_eng(`
   allow hal_dumpstate_impl debugfs_pmic:file rw_file_perms;
 ')
+allow hal_dumpstate_impl sysfs_chargelevel:file r_file_perms;
+allow hal_dumpstate_impl sysfs_batteryinfo:file r_file_perms;
 
 allow hal_dumpstate_impl debugfs_usb:dir r_dir_perms;
 allow hal_dumpstate_impl debugfs_usb:file r_file_perms;
