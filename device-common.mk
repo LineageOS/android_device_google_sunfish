@@ -75,9 +75,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_COPY_FILES += \
     device/google/sunfish/init.logging.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(PRODUCT_PLATFORM).logging.rc
 
-# TODO(b/171462631): Remove this once it is the default
-PRODUCT_PROPERTY_OVERRIDES += ro.vold.level_from_user=1
-
 # Pixelstats broken mic detection
 PRODUCT_PROPERTY_OVERRIDES += vendor.audio.mic_break=true
 
