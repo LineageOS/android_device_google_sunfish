@@ -702,6 +702,9 @@ Return<DumpstateStatus> DumpstateDevice::dumpstateBoard_1_1(const hidl_handle& h
     RunCommandToFd(fd, "Google Charger", {"/vendor/bin/sh", "-c", "cd /d/google_charger/; for f in `ls pps_*` ; do echo \"$f: `cat $f`\" ; done"});
     RunCommandToFd(fd, "Google Battery", {"/vendor/bin/sh", "-c", "cd /d/google_battery/; for f in `ls ssoc_*` ; do echo \"$f: `cat $f`\" ; done"});
     RunCommandToFd(fd, "Battery EEPROM", {"/vendor/bin/sh", "-c", "xxd /sys/devices/platform/soc/a8c000.i2c/i2c-2/2-0050/2-00500/nvmem"});
+    RunCommandToFd(fd, "TRICKLE-DEFEND Config", {"/vendor/bin/sh", "-c", " cd /sys/devices/platform/soc/soc:google,battery/power_supply/battery/; echo \"bd_trickle_cnt: `cat bd_trickle_cnt`\";  echo \"bd_rl_soc_threshold: `cat bd_rl_soc_threshold`\";  echo \"bd_trickle_dry_run: `cat bd_trickle_dry_run`\";"});
+    RunCommandToFd(fd, "DWELL-DEFEND Config", {"/vendor/bin/sh", "-c", " cd /sys/devices/platform/soc/soc:google,charger/; for f in `ls charge_s*` ; do echo \"$f: `cat $f`\" ; done"});
+    RunCommandToFd(fd, "TEMP-DEFEND Config", {"/vendor/bin/sh", "-c", " cd /sys/devices/platform/soc/soc:google,charger/; for f in `ls bd_*` ; do echo \"$f: `cat $f`\" ; done"});
     DumpFileToFd(fd, "BMS", "/d/logbuffer/ssoc");
     DumpFileToFd(fd, "smblib", "/d/logbuffer/smblib");
     DumpFileToFd(fd, "TTF", "/d/logbuffer/ttf");
