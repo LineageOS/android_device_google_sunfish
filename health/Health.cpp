@@ -75,7 +75,7 @@ constexpr char kTCPMPSYName[]{"tcpm-source-psy-usbpd0"};
 std::ifstream assert_open(const std::string &path) {
   std::ifstream stream(path);
   if (!stream.is_open()) {
-    LOG(FATAL) << "Cannot read " << path;
+    LOG(WARNING) << "Cannot read " << path;
   }
   return stream;
 }
