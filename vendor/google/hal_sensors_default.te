@@ -15,3 +15,7 @@ allow hal_sensors_default sysfs_leds:file r_file_perms;
 # For Suez metrics collection
 allow hal_sensors_default fwk_stats_hwservice:hwservice_manager find;
 binder_call(hal_sensors_default, system_server);
+
+# Allow Suez nanoapp clients to connect to CHRE.
+allow hal_sensors_default chre_socket:sock_file write;
+allow hal_sensors_default chre:unix_stream_socket connectto;

@@ -40,6 +40,8 @@ genfscon proc /sys/kernel/sched_upmigrate                                       
 genfscon proc /sys/kernel/sched_downmigrate                                     u:object_r:proc_sched_updown_migrate:s0
 genfscon proc /sys/kernel/sched_upmigrate_boosted                               u:object_r:proc_sched_updown_migrate:s0
 genfscon proc /sys/kernel/sched_downmigrate_boosted                             u:object_r:proc_sched_updown_migrate:s0
+genfscon proc /sys/kernel/sched_lib_name                                        u:object_r:proc_sched_lib_mask_cpuinfo:s0
+genfscon proc /sys/kernel/sched_lib_mask_force                                  u:object_r:proc_sched_lib_mask_cpuinfo:s0
 
 # PowerStatsHal
 genfscon sysfs /power/system_sleep/stats           u:object_r:sysfs_power_stats:s0
