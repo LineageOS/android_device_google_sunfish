@@ -103,14 +103,13 @@ void fill_ufs_storage_attribute(StorageAttribute *attr) {
 
 void private_healthd_board_init(struct healthd_config *hc) {
   hc->ignorePowerSupplyNames.push_back(android::String8(kTCPMPSYName));
-  battDefender.update();
 }
 
 int private_healthd_board_battery_update(struct android::BatteryProperties *props) {
   deviceHealth.update(props);
   battMetricsLogger.logBatteryProperties(props);
   shutdownMetrics.logShutdownVoltage(props);
-  battDefender.update();
+  battDefender.update(props);
   return 0;
 }
 
