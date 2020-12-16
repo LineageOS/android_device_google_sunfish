@@ -1,0 +1,2 @@
+# b/175659410
+dontaudit vold vendor_apex_file:file getattr;
