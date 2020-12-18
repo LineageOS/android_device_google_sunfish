@@ -479,9 +479,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.stagefright.c2inputsurface=-1 \
 
-#  Maximum operating rate for codecs.
+# Transcoding related property.
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.media.transcoding.codec_max_operating_rate=120 \
+    debug.media.transcoding.codec_max_operating_rate_720P=240 \
+    debug.media.transcoding.codec_max_operating_rate_1080P=120 \
 
 # Disable OMX
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -867,9 +868,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
 
 # Vendor verbose logging default property
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
