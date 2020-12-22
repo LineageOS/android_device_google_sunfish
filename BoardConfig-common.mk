@@ -118,7 +118,7 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_ROOT_EXTRA_SYMLINKS := /vendor/dsp:/dsp
 BOARD_ROOT_EXTRA_SYMLINKS += /mnt/vendor/persist:/persist
 
-include device/google/sunfish-sepolicy/sunfish-sepolicy.mk
+include device/google/sunfish/sepolicy/sunfish-sepolicy.mk
 
 TARGET_FS_CONFIG_GEN := device/google/sunfish/config.fs
 
