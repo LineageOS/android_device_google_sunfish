@@ -764,7 +764,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Preopt SystemUI
 PRODUCT_DEXPREOPT_SPEED_APPS += \
-    SystemUIGoogle
+    SystemUI
 
 # Enable stats logging in LMKD
 TARGET_LMKD_STATS_LOG := true
