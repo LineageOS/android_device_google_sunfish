@@ -100,10 +100,6 @@ $(call inherit-product, $(LOCAL_PATH)/utils.mk)
 # Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 
-ifeq ($(wildcard vendor/google_devices/sunfish/proprietary/device-vendor-sunfish.mk),)
-    BUILD_WITHOUT_VENDOR := true
-endif
-
 PRODUCT_CHARACTERISTICS := nosdcard
 PRODUCT_SHIPPING_API_LEVEL := 29
 
