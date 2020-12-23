@@ -26,3 +26,5 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="sunfish-user 13 TP1A.220624.014 8819323 release-keys"
 
 BUILD_FINGERPRINT := google/sunfish/sunfish:13/TP1A.220624.014/8819323:user/release-keys
+
+$(call inherit-product, vendor/google/sunfish/sunfish-vendor.mk)
