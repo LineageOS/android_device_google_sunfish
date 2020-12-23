@@ -24,6 +24,21 @@ TARGET_KERNEL_CONFIG := sunfish_defconfig
 TARGET_KERNEL_SOURCE := kernel/google/sunfish
 TARGET_NEEDS_DTBOIMAGE := true
 
+# Partitions
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_PRODUCTIMAGE_PARTITION_RESERVED_SIZE := 15728640
+BOARD_SYSTEMIMAGE_EXTFS_INODE_COUNT := -1
+BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE := 1887436800
+BOARD_VENDORIMAGE_EXTFS_INODE_COUNT := -1
+BOARD_VENDORIMAGE_PARTITION_RESERVED_SIZE := 419430000
+
 # Verified Boot
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --set_hashtree_disabled_flag
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 2
+
+# TODO: Remove this
+# This is due to vendor.qti.hardware.radio.atcmdfwd@1.0.xml
+# being present in proprietary-files
+BUILD_BROKEN_VINTF_PRODUCT_COPY_FILES := true
+
+-include vendor/google/sunfish/BoardConfigVendor.mk
