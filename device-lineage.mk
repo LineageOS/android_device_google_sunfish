@@ -14,6 +14,10 @@
 # limitations under the License.
 #
 
+# Camera
+PRODUCT_PACKAGES += \
+    Snap \
+
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
 
