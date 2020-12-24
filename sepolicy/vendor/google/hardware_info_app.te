@@ -1,0 +1,31 @@
+type hardware_info_app, domain;
+
+app_domain(hardware_info_app)
+
+##
+## Sepolicy requseted by libhwinfo.jar and HardwareInfoService
+##
+allow hardware_info_app app_api_service:service_manager find;
+
+# putStorageHealthInfo
+dontaudit hardware_info_app sysfs:file r_file_perms;
+
+# Batteryinfo
+allow hardware_info_app sysfs_batteryinfo:dir search;
+allow hardware_info_app sysfs_batteryinfo:file r_file_perms;
+
+# putStorage
+allow hardware_info_app sysfs_scsi_devices_0000:dir search;
+allow hardware_info_app sysfs_scsi_devices_0000:file r_file_perms;
+
+# putApplicationProcessor
+dontaudit hardware_info_app sysfs_soc:dir search;
+dontaudit hardware_info_app sysfs_soc:file { getattr open read };
+
+# Display
+allow hardware_info_app sysfs_display:dir search;
+allow hardware_info_app sysfs_display:file r_file_perms;
+
+# SysFS audio
+allow hardware_info_app sysfs_audio:dir search;
+allow hardware_info_app sysfs_audio:file r_file_perms;

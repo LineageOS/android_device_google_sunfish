@@ -1,0 +1,10 @@
+recovery_only(`
+  allow fastbootd boot_block_device:blk_file r_file_perms;
+  allow fastbootd custom_ab_block_device:blk_file { w_file_perms ioctl getattr };
+  allow fastbootd dp_block_device:blk_file r_file_perms;
+  allow fastbootd gpt_block_device:blk_file rw_file_perms;
+  allow fastbootd modem_block_device:blk_file getattr;
+  allow fastbootd sysfs_scsi_devices_0000:dir r_dir_perms;
+  allow fastbootd sg_device:chr_file rw_file_perms;
+  allow fastbootd citadel_device:chr_file rw_file_perms;
+')

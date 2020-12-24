@@ -1,0 +1,53 @@
+type ims, domain;
+type ims_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(ims)
+
+net_domain(ims)
+
+# Use generic netlink socket
+allow ims self:{
+    socket
+    netlink_generic_socket
+    qipcrtr_socket
+} create_socket_perms_no_ioctl;
+
+set_prop(ims, qcom_ims_prop)
+
+#Allow access to netmgrd socket
+allow ims netmgrd_socket:dir r_dir_perms;
+unix_socket_connect(ims, netmgrd, netmgrd)
+allow ims netmgrd_socket:sock_file rw_file_perms;
+
+hwbinder_use(ims)
+get_prop(ims, hwservicemanager_prop)
+
+r_dir_file(ims, sysfs_msm_subsys)
+
+allow ims sysfs_soc:dir search;
+allow ims sysfs_soc:file r_file_perms;
+
+get_prop(ims, cnd_vendor_prop)
+
+allow ims hal_datafactory_hwservice:hwservice_manager find;
+
+# for video call
+binder_call(ims, cnd)
+
+allow ims vendor_radio_data_file:dir rw_dir_perms;
+allow ims vendor_radio_data_file:file create_file_perms;
+
+allow ims sysfs_timestamp_switch:file r_file_perms;
+
+#diag
+userdebug_or_eng(`
+    r_dir_file(ims, sysfs_diag)
+    allow ims diag_device:chr_file rw_file_perms;
+')
+
+set_prop(ims, ctl_start_prop)
+set_prop(ims, ctl_stop_prop)
+
+r_dir_file(ims, sysfs_esoc)
+r_dir_file(ims, sysfs_ssr)
+
+dontaudit ims diag_device:chr_file rw_file_perms;

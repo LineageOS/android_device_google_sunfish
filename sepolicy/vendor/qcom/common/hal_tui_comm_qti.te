@@ -1,0 +1,10 @@
+type hal_tui_comm_qti, domain;
+type hal_tui_comm_qti_exec, exec_type, file_type, vendor_file_type;
+init_daemon_domain(hal_tui_comm_qti)
+
+hwbinder_use(hal_tui_comm_qti)
+binder_call(hal_tui_comm_qti, secure_ui_service_app)
+add_hwservice(hal_tui_comm_qti, hal_tui_comm_hwservice)
+get_prop(hal_tui_comm_qti, hwservicemanager_prop)
+
+allow hal_tui_comm_qti hal_graphics_allocator_default:fd use;

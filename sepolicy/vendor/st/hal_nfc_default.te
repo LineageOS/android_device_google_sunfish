@@ -1,0 +1,3 @@
+# Modem property
+set_prop(hal_nfc_default, vendor_modem_prop)
+

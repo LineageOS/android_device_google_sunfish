@@ -1,0 +1,2 @@
+get_prop(shell, vendor_hvdcp_opti_prop)
+get_prop(shell, public_vendor_default_prop)

@@ -1,0 +1,30 @@
+# Domain for Ramdump
+user=system seinfo=platform name=com.google.SSRestartDetector domain=ssr_detector_app type=system_app_data_file
+user=_app seinfo=platform name=com.android.ramdump domain=ramdump_app type=app_data_file levelFrom=all
+
+# Domain for grilservice
+user=_app isPrivApp=true seinfo=platform name=com.google.android.grilservice domain=grilservice_app levelFrom=all
+
+# Domain for Modem Diagnostic System
+user=_app seinfo=mds name=com.google.mds domain=modem_diagnostic_app type=app_data_file levelFrom=user
+
+# Domain for Pixel Logger
+user=_app seinfo=platform name=com.android.pixellogger domain=logger_app type=app_data_file levelFrom=all
+
+# Domain for GoogleCBRS app
+user=_app seinfo=platform name=com.google.googlecbrs domain=cbrs_setup_app type=app_data_file levelFrom=user
+
+# Domain for Touch app
+user=_app seinfo=platform name=com.google.touch.touchinspector domain=google_touch_app type=app_data_file levelFrom=user
+
+# Domain for power stats service
+user=_app isPrivApp=true seinfo=platform name=com.android.powerstatsservice domain=powerstatsservice_app type=app_data_file levelFrom=all
+
+# Domain for Display
+user=_app seinfo=platform name=com.android.hbmsvmanager domain=hbmsvmanager_app type=app_data_file levelFrom=all
+
+# Domain for UvExposureReporter service
+user=_app seinfo=platform name=com.google.android.uvexposurereporter domain=uv_exposure_reporter type=app_data_file levelFrom=all
+
+# Domain for DeviceDropMonitor service
+user=_app seinfo=platform name=com.google.android.devicedropmonitor domain=device_drop_monitor type=app_data_file levelFrom=all

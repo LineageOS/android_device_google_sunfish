@@ -1,0 +1,3 @@
+type sec_nvm, domain;
+type sec_nvm_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(sec_nvm)

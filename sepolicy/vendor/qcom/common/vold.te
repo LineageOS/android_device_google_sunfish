@@ -1,0 +1,2 @@
+allow vold sysfs_scsi_devices_0000:file w_file_perms;
+get_prop(vold, public_vendor_default_prop)

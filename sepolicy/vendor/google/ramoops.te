@@ -1,0 +1,12 @@
+type ramoops, domain;
+type ramoops_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(ramoops);
+
+allow ramoops ramoops_exec:file rx_file_perms;
+allow ramoops vendor_toolbox_exec:file rx_file_perms;
+allow ramoops sysfs_pstore:file rw_file_perms;
+allow ramoops ramoops_device:chr_file rw_file_perms;
+allow ramoops ramoops_vendor_data_file:file create_file_perms;
+allow ramoops ramoops_vendor_data_file:dir rw_dir_perms;
+
+set_prop(ramoops, vendor_ramoops_prop);

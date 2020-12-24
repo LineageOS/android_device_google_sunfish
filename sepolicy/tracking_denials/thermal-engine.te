@@ -1,0 +1,3 @@
+# b/143579151
+dontaudit thermal-engine ion_device:chr_file read;
+dontaudit thermal-engine sysfs:dir read;

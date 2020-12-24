@@ -1,0 +1,16 @@
+type init_citadel, domain;
+type init_citadel_exec, exec_type, vendor_file_type, file_type;
+type citadel_updater_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(init_citadel)
+
+vndbinder_use(init_citadel)
+binder_call(init_citadel, citadeld)
+allow init_citadel citadeld_service:service_manager find;
+
+# Many standard utils are actually vendor_toolbox (like xxd)
+allow init_citadel vendor_toolbox_exec:file rx_file_perms;
+
+# init_citadel needs to invoke citadel_updater
+allow init_citadel citadel_updater_exec:file rx_file_perms;
+allow init_citadel citadel_device:chr_file rw_file_perms;
