@@ -1,0 +1,5 @@
+attribute vendor_persist_type;
+attribute hal_display_color;
+attribute hal_qseecom;
+attribute hal_qseecom_client;
+attribute hal_qseecom_server;

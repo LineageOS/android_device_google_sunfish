@@ -1,0 +1,25 @@
+# Read and write factory calibration and sensor configuration data
+r_dir_file(hal_sensors_default, sensors_persist_file)
+
+# Interact with the sensors low power island (SLPI) CPU
+allow hal_sensors_default self:qipcrtr_socket create_socket_perms_no_ioctl;
+allowxperm hal_sensors_default self:socket ioctl msm_sock_ipc_ioctls;
+
+# sysfs needed for HW version info
+r_dir_file(hal_sensors_default, sysfs_msm_subsys);
+
+# For QCOM diag port access
+userdebug_or_eng(`
+  allow hal_sensors_default diag_device:chr_file rw_file_perms;
+')
+
+allow hal_sensors_default persist_file:dir search;
+allow hal_sensors_default persist_file:lnk_file read;
+
+allow hal_sensors_default mnt_vendor_file:dir search;
+
+allow hal_sensors_default sysfs_ssr:file r_file_perms;
+
+allow hal_sensors_default hal_graphics_mapper_hwservice:hwservice_manager find;
+
+dontaudit hal_sensors_default sysfs_esoc:dir r_dir_perms;

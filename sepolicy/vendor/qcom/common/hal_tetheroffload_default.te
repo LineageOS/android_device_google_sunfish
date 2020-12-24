@@ -1,0 +1,9 @@
+# associate netdomain to use for accessing internet sockets
+net_domain(hal_tetheroffload_default)
+
+# Allow operations with /dev/ipa, /dev/wwan_ioctl and /dev/ipaNatTable
+allow hal_tetheroffload_default ipa_dev:chr_file rw_file_perms;
+
+# Allow creating and modifying the PID file
+allow hal_tetheroffload_default ipa_vendor_data_file:dir w_dir_perms;
+allow hal_tetheroffload_default ipa_vendor_data_file:file create_file_perms;

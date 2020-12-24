@@ -1,0 +1,10 @@
+type port-bridge, domain;
+type port-bridge_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(port-bridge)
+
+r_dir_file(port-bridge, sysfs_esoc)
+r_dir_file(port-bridge, sysfs_msm_subsys)
+r_dir_file(port-bridge, sysfs_soc)
+r_dir_file(port-bridge, sysfs_ssr)
+
+allow port-bridge at_device:chr_file rw_file_perms;

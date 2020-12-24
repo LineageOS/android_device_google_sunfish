@@ -1,0 +1,7 @@
+binder_call(dataservice_app, cnd)
+allow dataservice_app hal_datafactory_hwservice:hwservice_manager find;
+get_prop(dataservice_app, cnd_vendor_prop)
+
+binder_call(dataservice_app, hal_rcsservice)
+
+allow dataservice_app hal_imsrcsd_hwservice:hwservice_manager find;

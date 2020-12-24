@@ -1,0 +1,13 @@
+type qlogd, domain, mlstrustedsubject;
+type qlogd_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(qlogd)
+
+allow qlogd diag_device:chr_file rw_file_perms;
+
+allow qlogd vendor_radio_data_file:file create_file_perms;
+allow qlogd vendor_radio_data_file:dir create_dir_perms;
+
+set_prop(qlogd, vendor_modem_diag_prop)
+
+allow qlogd self:socket create_socket_perms;
+allowxperm qlogd self:socket ioctl msm_sock_ipc_ioctls;

@@ -1,0 +1,30 @@
+type wcnss_service, domain;
+type wcnss_service_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(wcnss_service)
+net_domain(wcnss_service)
+vndbinder_use(wcnss_service)
+
+allow wcnss_service self:qipcrtr_socket create_socket_perms_no_ioctl;
+allow wcnss_service self:netlink_generic_socket create_socket_perms_no_ioctl;
+
+# For Peripheral Manager in cnss-daemon
+binder_call(wcnss_service, vendor_per_mgr)
+allow wcnss_service vendor_per_mgr_service:service_manager find;
+
+# pkt logging for cnss_diag
+userdebug_or_eng(`
+  r_dir_file(wcnss_service, proc_wifi_dbg)
+  allow wcnss_service cnss_vendor_data_file:dir create_dir_perms;
+  allow wcnss_service cnss_vendor_data_file:file create_file_perms;
+')
+
+# files in /sys
+r_dir_file(wcnss_service, sysfs_msm_subsys)
+r_dir_file(wcnss_service, sysfs_soc)
+r_dir_file(wcnss_service, sysfs_ssr)
+r_dir_file(wcnss_service, sysfs_esoc)
+r_dir_file(wcnss_service, sysfs_net)
+
+# Not enable cnss_cli in S5
+dontaudit wcnss_service kernel:system module_request;

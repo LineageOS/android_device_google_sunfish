@@ -1,0 +1,9 @@
+allow hal_vibrator_default sysfs_leds:dir search;
+
+r_dir_file(hal_vibrator_default, persist_haptics_file)
+allow hal_vibrator_default mnt_vendor_file:dir search;
+allow hal_vibrator_default persist_file:dir search;
+allow hal_vibrator_default sysfs_thermal:dir r_dir_perms;
+allow hal_vibrator_default sysfs_thermal:file r_file_perms;
+
+get_prop(hal_vibrator_default, vendor_vibrator_prop);

@@ -1,0 +1,10 @@
+type vendor_ssr_setup, domain;
+type vendor_ssr_setup_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(vendor_ssr_setup);
+
+allow vendor_ssr_setup sysfs_ssr:file r_file_perms;
+allow vendor_ssr_setup sysfs_ssr_writable:file w_file_perms;
+allow vendor_ssr_setup sysfs_msm_subsys:dir r_dir_perms;
+allow vendor_ssr_setup sysfs_msm_subsys:file r_file_perms;
+
+get_prop(vendor_ssr_setup, vendor_ssr_prop)

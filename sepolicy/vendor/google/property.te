@@ -1,0 +1,13 @@
+type vendor_tcpdump_log_prop, property_type;
+type vendor_build_type_prop, property_type;
+type vendor_aware_available_prop, property_type;
+type vendor_modem_prop, property_type;
+type camera_ro_prop, property_type;
+type vendor_ramoops_prop, property_type;
+type ecoservice_prop, property_type;
+type vendor_shutdown_prop, property_type;
+type vendor_battery_defender_prop, property_type;
+type vendor_vibrator_prop, property_type;
+
+# vendor verbose logging property
+type vendor_logging_prop, property_type;

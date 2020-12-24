@@ -1,0 +1,2 @@
+type qchook_service,              service_manager_type;
+type cne_service,                 service_manager_type;

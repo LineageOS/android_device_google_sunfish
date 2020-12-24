@@ -1,0 +1,2 @@
+type persist_dpm_prop, property_type;
+type vendor_bt_prop, property_type;
