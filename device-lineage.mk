@@ -95,5 +95,11 @@ PRODUCT_PACKAGES += \
 AB_OTA_PARTITIONS += \
     vendor \
 
+# RCS
+PRODUCT_PACKAGES += \
+    com.android.ims.rcsmanager \
+    PresencePolling \
+    RcsService \
+
 # Vendor Security Patch Level
 VENDOR_SECURITY_PATCH := "2020-12-05"
