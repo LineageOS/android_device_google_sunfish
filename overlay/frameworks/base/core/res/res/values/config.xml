@@ -402,4 +402,7 @@
     <!-- Flag indicating whether we should enable the adaptive sleep.-->
     <bool name="config_adaptive_sleep_available">true</bool>
 
+    <!-- Whether or not aware is enabled by default -->
+    <bool name="config_awareSettingAvailable">true</bool>
+
 </resources>
