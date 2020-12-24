@@ -24,6 +24,10 @@ TARGET_KERNEL_CONFIG := sunfish_defconfig
 TARGET_KERNEL_SOURCE := kernel/google/sunfish
 TARGET_NEEDS_DTBOIMAGE := true
 
+# Manifests
+DEVICE_MANIFEST_FILE += device/google/sunfish/lineage_manifest.xml
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += device/google/sunfish/lineage_compatibility_matrix.xml
+
 # Partitions
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_PRODUCTIMAGE_PARTITION_RESERVED_SIZE := 15728640
@@ -31,6 +35,10 @@ BOARD_SYSTEMIMAGE_EXTFS_INODE_COUNT := -1
 BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE := 1887436800
 BOARD_VENDORIMAGE_EXTFS_INODE_COUNT := -1
 BOARD_VENDORIMAGE_PARTITION_RESERVED_SIZE := 419430000
+
+# SELinux
+BOARD_SEPOLICY_DIRS += device/google/sunfish/sepolicy-lineage/dynamic
+BOARD_SEPOLICY_DIRS += device/google/sunfish/sepolicy-lineage/vendor
 
 # Verified Boot
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --set_hashtree_disabled_flag
