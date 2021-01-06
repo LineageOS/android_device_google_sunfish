@@ -1,4 +1,5 @@
 cnd wifi_hal_prop file b/162700455
+google_camera_app selinuxfs file b/175910397
 hal_health_default unlabeled file b/156200409
 hal_neuralnetworks_default default_prop file b/159570217
 hal_vibrator_default default_prop file b/162700134
