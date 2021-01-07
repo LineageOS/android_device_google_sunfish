@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3b128a6_f226fdb7",
+        "filename": "vendor.prop",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 7118
+      },
+      "writtenOn": "2021-01-07T04:44:01Z",
+      "side": 1,
+      "message": "These are already being added and the values have been adjusted, so it can be removed from here.\nhttps://github.com/LineageOS/android_hardware_google_pixel/commit/492bd6ff37fcf540646ac5895afa77fcb7d1eab5",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 34
+      },
+      "revId": "d3af98f2c8d53ee0bf93e108e5a7c2ab84950bc0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
