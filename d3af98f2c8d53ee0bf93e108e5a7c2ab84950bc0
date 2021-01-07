@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "98a178f2_31a233b4",
+        "filename": "device-lineage.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 7118
+      },
+      "writtenOn": "2021-01-07T06:35:13Z",
+      "side": 1,
+      "message": "Google moved AB_OTA_PARTITIONS from device.mk to boardconfig.mk in R.\ne.g. https://github.com/LineageOS/android_device_google_coral/commit/3f98708f8452c202cf2407da480d03212751e5b4",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 12
+      },
+      "revId": "d3af98f2c8d53ee0bf93e108e5a7c2ab84950bc0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c3b128a6_f226fdb7",
         "filename": "vendor.prop",
         "patchSetId": 4
