@@ -108,4 +108,4 @@ AB_OTA_PARTITIONS += \
     vendor \
 
 # Vendor Security Patch Level
-VENDOR_SECURITY_PATCH := "2020-12-05"
+VENDOR_SECURITY_PATCH := "2021-01-05"
