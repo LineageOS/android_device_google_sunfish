@@ -36,7 +36,8 @@ PRODUCT_SOONG_NAMESPACES += \
     vendor/qcom/sm8150/codeaurora/location \
     vendor/google/interfaces \
     vendor/google_devices/common/proprietary/confirmatioui_hal \
-    vendor/google_nos/host/android
+    vendor/google_nos/host/android \
+    vendor/google_nos/test/system-test-harness
 
 # Include sensors soong namespace
 PRODUCT_SOONG_NAMESPACES += \
