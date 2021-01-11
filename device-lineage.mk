@@ -18,6 +18,10 @@
 PRODUCT_PACKAGES += \
     Snap \
 
+# Display
+PRODUCT_SOONG_NAMESPACES += \
+    vendor/qcom/opensource/commonsys-intf/display \
+
 # LiveDisplay
 PRODUCT_PACKAGES += \
     vendor.lineage.livedisplay@2.0-service-sdm \
