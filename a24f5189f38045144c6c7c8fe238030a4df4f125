@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88bcf2a3_8880ddcc",
+        "filename": "parts/AndroidManifest.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 18205
+      },
+      "writtenOn": "2021-01-12T18:42:28Z",
+      "side": 1,
+      "message": "Whitespace",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 4
+      },
+      "revId": "a24f5189f38045144c6c7c8fe238030a4df4f125",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81ee4066_67b017d1",
+        "filename": "parts/AndroidManifest.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 18205
+      },
+      "writtenOn": "2021-01-12T18:42:28Z",
+      "side": 1,
+      "message": "Whitespace",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 4
+      },
+      "revId": "a24f5189f38045144c6c7c8fe238030a4df4f125",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0dc8674_d2d0f593",
+        "filename": "parts/src/org/lineageos/settings/EuiccDisabler.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 18205
+      },
+      "writtenOn": "2021-01-12T18:42:28Z",
+      "side": 1,
+      "message": "Whitespace",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 1
+      },
+      "revId": "a24f5189f38045144c6c7c8fe238030a4df4f125",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1bb6797_96a08221",
+        "filename": "parts/src/org/lineageos/settings/EuiccDisabler.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 18205
+      },
+      "writtenOn": "2021-01-12T18:42:28Z",
+      "side": 1,
+      "message": "Whitespace",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 4
+      },
+      "revId": "a24f5189f38045144c6c7c8fe238030a4df4f125",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a171991_692617fe",
+        "filename": "parts/src/org/lineageos/settings/EuiccDisabler.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 18205
+      },
+      "writtenOn": "2021-01-12T18:42:28Z",
+      "side": 1,
+      "message": "Whitespace",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 4
+      },
+      "revId": "a24f5189f38045144c6c7c8fe238030a4df4f125",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "889e796b_ae96384c",
+        "filename": "parts/src/org/lineageos/settings/EuiccDisabler.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 18205
+      },
+      "writtenOn": "2021-01-12T18:42:28Z",
+      "side": 1,
+      "message": "Whitespace",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 4
+      },
+      "revId": "a24f5189f38045144c6c7c8fe238030a4df4f125",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
