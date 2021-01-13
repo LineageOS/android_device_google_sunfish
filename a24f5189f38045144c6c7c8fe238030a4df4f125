@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "6b279ecf_70b25739",
+        "filename": "parts/Android.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 18205
+      },
+      "writtenOn": "2021-01-13T01:09:48Z",
+      "side": 1,
+      "message": "It doesn\u0027t seem like this is using private apis, so this line shall go.\nElse, it would need to be moved to system_ext",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 35
+      },
+      "revId": "a24f5189f38045144c6c7c8fe238030a4df4f125",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "88bcf2a3_8880ddcc",
         "filename": "parts/AndroidManifest.xml",
         "patchSetId": 6
