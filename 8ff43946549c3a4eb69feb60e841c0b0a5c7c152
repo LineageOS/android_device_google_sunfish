@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "644750e8_7b5f41e4",
+        "filename": "parts/AndroidManifest.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2021-01-18T07:34:53Z",
+      "side": 1,
+      "message": "Copyright header is kinda messed up.",
+      "revId": "8ff43946549c3a4eb69feb60e841c0b0a5c7c152",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21c4dace_8b247e53",
+        "filename": "parts/src/org/lineageos/settings/EuiccDisabler.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2021-01-18T07:34:53Z",
+      "side": 1,
+      "message": "Over 100 chars.",
+      "revId": "8ff43946549c3a4eb69feb60e841c0b0a5c7c152",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
