@@ -102,9 +102,6 @@
     <!-- The restoring is handled by modem if it is true -->
     <bool translatable="false" name="skip_restoring_network_selection">true</bool>
 
-    <!-- If device has a sensor that can wake-up the lock screen -->
-    <bool name="config_dozeWakeLockScreenSensorAvailable">true</bool>
-
     <!-- If device supports pickup/lift gesture -->
     <bool name="config_dozePulsePickup">true</bool>
 
