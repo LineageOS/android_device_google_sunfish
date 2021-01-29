@@ -20,4 +20,13 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.lineage.touch</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IGloveMode</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
 </compatibility-matrix>
