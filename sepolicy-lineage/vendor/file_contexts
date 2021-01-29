@@ -1,2 +1,5 @@
 # LiveDisplay HAL
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.livedisplay@2\.0-service-sdm      u:object_r:hal_lineage_livedisplay_qti_exec:s0
+
+# Pixel touch HAL
+/vendor/bin/hw/vendor\.lineage\.touch@1\.0-service\.pixel                         u:object_r:hal_lineage_touch_default_exec:s0
