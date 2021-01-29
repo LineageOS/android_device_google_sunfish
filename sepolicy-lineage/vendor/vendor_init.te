@@ -1,0 +1,2 @@
+get_prop(vendor_init, vendor_touch_prop)
+set_prop(vendor_init, vendor_touch_prop)

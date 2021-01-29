@@ -1,0 +1,2 @@
+get_prop(hal_lineage_touch_default, vendor_touch_prop)
+set_prop(hal_lineage_touch_default, vendor_touch_prop)
