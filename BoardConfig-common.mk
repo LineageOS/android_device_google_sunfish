@@ -218,6 +218,10 @@ BOARD_VENDOR_KERNEL_MODULES += \
 else ifeq (,$(filter-out sunfish_kernel_debug_memory, $(TARGET_PRODUCT)))
 BOARD_VENDOR_KERNEL_MODULES += \
     $(wildcard device/google/sunfish-kernel/debug_memory/*.ko)
+else ifeq (,$(filter-out sunfish_kernel_debug_memory_accounting, $(TARGET_PRODUCT)))
+BOARD_VENDOR_KERNEL_MODULES += \
+    $(wildcard device/google/sunfish-kernel/debug_memory_accounting/*.ko)
+BOARD_KERNEL_CMDLINE += page_owner=on
 else ifeq (,$(filter-out sunfish_kernel_debug_locking, $(TARGET_PRODUCT)))
 BOARD_VENDOR_KERNEL_MODULES += \
     $(wildcard device/google/sunfish-kernel/debug_locking/*.ko)
@@ -252,6 +256,8 @@ ifeq (,$(filter-out sunfish_kasan, $(TARGET_PRODUCT)))
 BOARD_PREBUILT_DTBIMAGE_DIR := device/google/sunfish-kernel/kasan
 else ifeq (,$(filter-out sunfish_kernel_debug_memory, $(TARGET_PRODUCT)))
 BOARD_PREBUILT_DTBIMAGE_DIR := device/google/sunfish-kernel/debug_memory
+else ifeq (,$(filter-out sunfish_kernel_debug_memory_accounting, $(TARGET_PRODUCT)))
+BOARD_PREBUILT_DTBIMAGE_DIR := device/google/sunfish-kernel/debug_memory_accounting
 else ifeq (,$(filter-out sunfish_kernel_debug_locking, $(TARGET_PRODUCT)))
 BOARD_PREBUILT_DTBIMAGE_DIR := device/google/sunfish-kernel/debug_locking
 else ifeq (,$(filter-out sunfish_kernel_debug_hang, $(TARGET_PRODUCT)))
