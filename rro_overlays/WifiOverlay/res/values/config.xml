@@ -113,7 +113,5 @@
          So STA + STA will not get enabled on all devices because of this overlay alone.
          Remove before Android 12 release! -->
     <bool translatable="false" name="config_wifiMultiStaLocalOnlyConcurrencyEnabled">true</bool>
-    <!-- Enable when MBB is fully ready
     <bool translatable="false" name="config_wifiMultiStaNetworkSwitchingMakeBeforeBreakEnabled">true</bool>
-    -->
 </resources>
