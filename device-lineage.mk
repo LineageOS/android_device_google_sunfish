@@ -108,4 +108,4 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.mapperextensions@1.1.vendor \
 
 # Vendor Security Patch Level
-VENDOR_SECURITY_PATCH := "2021-01-05"
+VENDOR_SECURITY_PATCH := "2021-02-05"
