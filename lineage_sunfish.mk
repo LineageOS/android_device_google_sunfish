@@ -35,8 +35,8 @@ TARGET_SCREEN_HEIGHT := 2340
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=sunfish \
-    PRIVATE_BUILD_DESC="sunfish-user 11 RQ1A.210105.002 6985033 release-keys" \
+    PRIVATE_BUILD_DESC="sunfish-user 11 RQ1A.210205.004 7038034 release-keys" \
 
-BUILD_FINGERPRINT := google/sunfish/sunfish:11/RQ1A.210105.002/6985033:user/release-keys
+BUILD_FINGERPRINT := google/sunfish/sunfish:11/RQ1A.210205.004/7038034:user/release-keys
 
 $(call inherit-product-if-exists, vendor/google/sunfish/sunfish-vendor.mk)
