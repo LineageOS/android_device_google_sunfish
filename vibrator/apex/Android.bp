@@ -5,6 +5,7 @@ apex {
     certificate: ":com.android.vibrator.sunfish.certificate",
     file_contexts: "file_contexts",
     use_vndk_as_stable: true,
+    updatable: false,
 
     // install the apex in /vendor/apex
     proprietary: true,
