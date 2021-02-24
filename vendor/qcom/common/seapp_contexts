@@ -1,7 +1,7 @@
 user=radio seinfo=platform name=.dataservices domain=dataservice_app type=radio_data_file levelFrom=user
 
 # Hardware Info Collection
-user=_app seinfo=platform name=com.google.android.hardwareinfo domain=hardware_info_app type=app_data_file levelFrom=user
+user=_app isPrivApp=true name=com.google.android.hardwareinfo domain=hardware_info_app type=app_data_file levelFrom=user
 
 user=radio isPrivApp=true seinfo=platform name=com.google.RilConfigService domain=ril_config_service_app type=app_data_file levelFrom=all
 
