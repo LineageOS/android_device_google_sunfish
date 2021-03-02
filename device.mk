@@ -151,6 +151,12 @@ else
       $(LOCAL_PATH)/init.hardware.mpssrfs.rc.user:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(PRODUCT_PLATFORM).mpssrfs.rc
 endif
 
+# Enable DIAG issue debug
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+  PRODUCT_COPY_FILES += \
+      $(LOCAL_PATH)/init.diagdebug.rc.userdebug:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.diagdebug.rc
+endif
+
 # A/B support
 PRODUCT_PACKAGES += \
     otapreopt_script \
@@ -865,7 +871,7 @@ PRODUCT_PACKAGES += $(HIDL_WRAPPER)
 
 # Increment the SVN for any official public releases
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.vendor.build.svn=18
+	ro.vendor.build.svn=20
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
