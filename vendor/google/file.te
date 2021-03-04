@@ -1,4 +1,3 @@
-type vendor_kernel_modules, vendor_file_type, file_type;
 type persist_battery_file, file_type, vendor_persist_type;
 type persist_haptics_file, file_type, vendor_persist_type;
 type modem_stat_data_file, file_type, data_file_type;
@@ -48,6 +47,5 @@ type debugfs_ipa_data_stall_detection, debugfs_type, fs_type;
 # Incremental file system driver
 type vendor_incremental_module, vendor_file_type, file_type;
 
-# Firmware mount
-type firmware_file, file_type, contextmount_type, vendor_file_type;
-allow firmware_file self:filesystem associate;
+# RamdumpFS
+allow ramdump_vendor_mnt_file self:filesystem associate;
