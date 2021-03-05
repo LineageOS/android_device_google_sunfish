@@ -505,8 +505,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.ims.mm_minqp=1
 
 PRODUCT_PACKAGES += \
-    android.hardware.camera.provider@2.6-impl-google \
-    android.hardware.camera.provider@2.6-service-google \
+    android.hardware.camera.provider@2.7-impl-google \
+    android.hardware.camera.provider@2.7-service-google \
     camera.sm6150 \
     libgooglecamerahwl_impl \
     libqomx_core \
