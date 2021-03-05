@@ -113,6 +113,12 @@
 /mnt/vendor/persist/audio(/.*)?                                                u:object_r:persist_audio_file:s0
 
 ###################################
+# ramdumpfs files
+#
+/mnt/vendor/ramdump(/.*)?                       u:object_r:ramdump_vendor_mnt_file:s0
+/ramdump(/.*)?                                  u:object_r:ramdump_vendor_mnt_file:s0
+
+###################################
 # adsp files
 #
 /(vendor|system/vendor)/dsp(/.*)?                                   u:object_r:adsprpcd_file:s0
@@ -262,6 +268,7 @@
 /data/vendor/modem_fdr(/.*)?           u:object_r:modem_fdr_file:s0
 /data/vendor/mediadrm(/.*)?            u:object_r:mediadrm_vendor_data_file:s0
 /data/vendor/nnhal(/.*)?               u:object_r:hal_neuralnetworks_data_file:s0
+/data/vendor/ramdump(/.*)?             u:object_r:ramdump_vendor_data_file:s0
 /data/vendor/ssrdump(/.*)?             u:object_r:ramdump_vendor_data_file:s0
 /data/vendor/ssrlog(/.*)?              u:object_r:ssr_log_file:s0
 /data/vendor/camera(/.*)?              u:object_r:camera_vendor_data_file:s0
