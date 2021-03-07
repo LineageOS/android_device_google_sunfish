@@ -43,6 +43,7 @@ firmware_directories /vendor/firmware_mnt/image/
 /dev/media*               0660   system     camera
 /dev/v4l-subdev*          0660   system     camera
 
+/dev/qce                  0660   system     drmrpc
 /dev/qseecom              0660   system     drmrpc
 /dev/qsee_ipc_irq_spss    0660   system     drmrpc
 /dev/seemplog             0660   system     system

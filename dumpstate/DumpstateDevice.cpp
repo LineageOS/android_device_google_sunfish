@@ -573,6 +573,9 @@ Return<DumpstateStatus> DumpstateDevice::dumpstateBoard_1_1(const hidl_handle& h
     DumpFileToFd(fd, "TCPM logs", "/d/tcpm/usbpd0");
     DumpFileToFd(fd, "PD Engine", "/d/logbuffer/usbpd");
     DumpFileToFd(fd, "ipc-local-ports", "/d/msm_ipc_router/dump_local_ports");
+    RunCommandToFd(fd, "TRICKLE-DEFEND Config", {"/vendor/bin/sh", "-c", " cd /sys/devices/platform/soc/soc:google,battery/power_supply/battery/; echo \"bd_trickle_enable: `cat bd_trickle_enable`\"; echo \"bd_trickle_cnt: `cat bd_trickle_cnt`\";  echo \"bd_trickle_recharge_soc: `cat bd_trickle_recharge_soc`\";  echo \"bd_trickle_dry_run: `cat bd_trickle_dry_run`\";  echo \"bd_trickle_reset_sec: `cat bd_trickle_reset_sec`\""});
+    RunCommandToFd(fd, "DWELL-DEFEND Config", {"/vendor/bin/sh", "-c", " cd /sys/devices/platform/soc/soc:google,charger/; for f in `ls charge_s*` ; do echo \"$f: `cat $f`\" ; done"});
+    RunCommandToFd(fd, "TEMP-DEFEND Config", {"/vendor/bin/sh", "-c", " cd /sys/devices/platform/soc/soc:google,charger/; for f in `ls bd_*` ; do echo \"$f: `cat $f`\" ; done"});
     RunCommandToFd(fd, "USB Device Descriptors", {"/vendor/bin/sh", "-c", "cd /sys/bus/usb/devices/1-1 && cat product && cat bcdDevice; cat descriptors | od -t x1 -w16 -N96"});
     RunCommandToFd(fd, "Power supply properties", {"/vendor/bin/sh", "-c", "for f in `ls /sys/class/power_supply/*/uevent` ; do echo \"------ $f\\n`cat $f`\\n\" ; done"});
     RunCommandToFd(fd, "PMIC Votables", {"/vendor/bin/sh", "-c", "cat /sys/kernel/debug/pmic-votable/*/status"});
