@@ -72,6 +72,7 @@ PRODUCT_PACKAGES += \
     libcodec2_vndk.vendor \
     libcppbor.vendor \
     libdisplayconfig \
+    libdisplayconfig.qti.vendor \
     libhidltransport.vendor \
     libhwbinder.vendor \
     libjson \
@@ -101,6 +102,7 @@ PRODUCT_PACKAGES += \
     pixelatoms-cpp \
     vendor.display.config@1.10.vendor \
     vendor.display.config@1.11.vendor \
+    vendor.display.config@2.0.vendor \
     vendor.qti.hardware.bluetooth_audio@2.0.vendor \
     vendor.qti.hardware.capabilityconfigstore@1.0.vendor \
     vendor.qti.hardware.cryptfshw@1.0.vendor \
@@ -109,6 +111,8 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.mapper@3.0.vendor \
     vendor.qti.hardware.display.mapperextensions@1.0.vendor \
     vendor.qti.hardware.display.mapperextensions@1.1.vendor \
+    vendor.qti.hardware.perf@1.0.vendor \
+    vendor.qti.hardware.perf@2.0.vendor
 
 # Vendor Security Patch Level
-VENDOR_SECURITY_PATCH := "2021-02-05"
+VENDOR_SECURITY_PATCH := "2021-03-05"
