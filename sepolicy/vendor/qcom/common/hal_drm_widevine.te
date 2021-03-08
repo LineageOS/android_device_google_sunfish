@@ -11,3 +11,5 @@ allow hal_drm_widevine hal_display_config_hwservice:hwservice_manager find;
 binder_call(hal_drm_widevine, hal_graphics_composer_default)
 
 allow hal_drm_widevine { appdomain -isolated_app }:fd use;
+
+allow hal_drm_widevine qce_device:chr_file rw_file_perms;

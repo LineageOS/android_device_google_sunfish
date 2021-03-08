@@ -85,6 +85,18 @@ genfscon debugfs /google_charger                                                
 genfscon debugfs /google_battery                                                u:object_r:debugfs_batteryinfo:s0
 genfscon sysfs /devices/platform/soc/soc:google,charger/charge_start_level      u:object_r:sysfs_chargelevel:s0
 genfscon sysfs /devices/platform/soc/soc:google,charger/charge_stop_level       u:object_r:sysfs_chargelevel:s0
+genfscon sysfs /devices/platform/soc/soc:google,charger/bd_drainto_soc          u:object_r:sysfs_chargelevel:s0
+genfscon sysfs /devices/platform/soc/soc:google,charger/bd_recharge_soc         u:object_r:sysfs_chargelevel:s0
+genfscon sysfs /devices/platform/soc/soc:google,charger/bd_recharge_voltage     u:object_r:sysfs_chargelevel:s0
+genfscon sysfs /devices/platform/soc/soc:google,charger/bd_resume_abs_temp      u:object_r:sysfs_chargelevel:s0
+genfscon sysfs /devices/platform/soc/soc:google,charger/bd_resume_soc           u:object_r:sysfs_chargelevel:s0
+genfscon sysfs /devices/platform/soc/soc:google,charger/bd_resume_temp          u:object_r:sysfs_chargelevel:s0
+genfscon sysfs /devices/platform/soc/soc:google,charger/bd_resume_time          u:object_r:sysfs_chargelevel:s0
+genfscon sysfs /devices/platform/soc/soc:google,charger/bd_trigger_temp         u:object_r:sysfs_chargelevel:s0
+genfscon sysfs /devices/platform/soc/soc:google,charger/bd_trigger_time         u:object_r:sysfs_chargelevel:s0
+genfscon sysfs /devices/platform/soc/soc:google,charger/bd_trigger_voltage      u:object_r:sysfs_chargelevel:s0
+genfscon sysfs /devices/platform/soc/soc:google,charger/bd_temp_enable          u:object_r:sysfs_chargelevel:s0
+genfscon sysfs /devices/platform/soc/soc:google,charger/bd_temp_dry_run         u:object_r:sysfs_chargelevel:s0
 
 # Pixelstats
 genfscon sysfs /devices/platform/soc/soc:google,overheat_mitigation               u:object_r:sysfs_pixelstats:s0
@@ -93,6 +105,9 @@ genfscon sysfs /devices/platform/codec_detect/resistance_left_right    u:object_
 genfscon sysfs /devices/platform/codec_detect/codec_state              u:object_r:sysfs_pixelstats:s0
 genfscon sysfs /devices/platform/codec_detect/wdsp_stat                u:object_r:sysfs_pixelstats:s0
 genfscon sysfs /devices/platform/codec_detect/headset_codec_state      u:object_r:sysfs_pixelstats:s0
+
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pm6150@0:qcom,usb-pdphy@1700/usbpd0/typec/port0/port0-partner/identity/id_header  u:object_r:sysfs_pixelstats:s0
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pm6150@0:qcom,usb-pdphy@1700/usbpd0/typec/port0/port0-partner/identity/product  u:object_r:sysfs_pixelstats:s0
 
 
 # Audio Dsp for HardwareInfo
