@@ -14,7 +14,6 @@ genfscon sysfs /devices/platform/soc/1d84000.ufshc/device_descriptor         u:o
 genfscon proc /sys/vm/swappiness		      u:object_r:proc_swappiness:s0
 genfscon proc /fs/f2fs                                u:object_r:proc_f2fs:s0
 genfscon proc /irq                                    u:object_r:proc_irq:s0
-genfscon sysfs /bus/iio/devices                       u:object_r:sysfs_iio_devices:s0
 
 # Touch
 genfscon sysfs /devices/platform/soc/a84000.i2c/i2c-1/1-0049			u:object_r:sysfs_touch:s0
