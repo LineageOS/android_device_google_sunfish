@@ -451,7 +451,7 @@ PRODUCT_COPY_FILES += \
     device/google/sunfish/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_PRODUCT)/etc/libnfc-nci.conf
 
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.2-service.sunfish
+    android.hardware.usb@1.3-service.sunfish
 
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl-sunfish \
