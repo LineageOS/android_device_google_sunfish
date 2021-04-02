@@ -1,3 +1,0 @@
-on init && property:vendor.skip.init=0
-    # Enable suspend clock reporting
-    write /sys/kernel/debug/clk/debug_suspend 1
