@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 The Android Open Source Project
+ * Copyright (C) 2018 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,8 +19,7 @@
 #include <android-base/file.h>
 #include <android-base/properties.h>
 #include <android-base/unique_fd.h>
-#include <android-base/strings.h>
-#include <android/hardware/usb/gadget/1.2/IUsbGadget.h>
+#include <android/hardware/usb/gadget/1.1/IUsbGadget.h>
 #include <hidl/MQDescriptor.h>
 #include <hidl/Status.h>
 #include <pixelusb/UsbGadgetCommon.h>
@@ -37,7 +36,7 @@ namespace android {
 namespace hardware {
 namespace usb {
 namespace gadget {
-namespace V1_2 {
+namespace V1_1 {
 namespace implementation {
 
 using ::android::sp;
@@ -45,8 +44,6 @@ using ::android::base::GetProperty;
 using ::android::base::SetProperty;
 using ::android::base::unique_fd;
 using ::android::base::WriteStringToFile;
-using ::android::base::ReadFileToString;
-using ::android::base::Trim;
 using ::android::hardware::hidl_array;
 using ::android::hardware::hidl_memory;
 using ::android::hardware::hidl_string;
@@ -63,17 +60,13 @@ using ::android::hardware::google::pixel::usb::MonitorFfs;
 using ::android::hardware::google::pixel::usb::resetGadget;
 using ::android::hardware::google::pixel::usb::setVidPid;
 using ::android::hardware::google::pixel::usb::unlinkFunctions;
+using ::android::hardware::usb::gadget::V1_0::GadgetFunction;
 using ::android::hardware::usb::gadget::V1_0::Status;
-using ::android::hardware::usb::gadget::V1_0::IUsbGadgetCallback;
-using ::android::hardware::usb::gadget::V1_2::IUsbGadget;
-using ::android::hardware::usb::gadget::V1_2::GadgetFunction;
+using ::android::hardware::usb::gadget::V1_1::IUsbGadget;
 using ::std::string;
 
 constexpr char kGadgetName[] = "a600000.dwc3";
 static MonitorFfs monitorFfs(kGadgetName);
-
-#define UDC_PATH "/sys/class/udc/a600000.dwc3/"
-#define SPEED_PATH UDC_PATH "current_speed"
 
 struct UsbGadget : public IUsbGadget {
     UsbGadget();
@@ -82,7 +75,6 @@ struct UsbGadget : public IUsbGadget {
     std::mutex mLockSetCurrentFunction;
     uint64_t mCurrentUsbFunctions;
     bool mCurrentUsbFunctionsApplied;
-    UsbSpeed mUsbSpeed;
 
     Return<void> setCurrentUsbFunctions(uint64_t functions,
                                         const sp<V1_0::IUsbGadgetCallback> &callback,
@@ -92,8 +84,6 @@ struct UsbGadget : public IUsbGadget {
 
     Return<Status> reset() override;
 
-    Return<void> getUsbSpeed(const sp<V1_2::IUsbGadgetCallback> &callback) override;
-
 private:
     Status tearDownGadget();
     Status setupFunctions(uint64_t functions, const sp<V1_0::IUsbGadgetCallback> &callback,
@@ -101,7 +91,7 @@ private:
 };
 
 }  // namespace implementation
-}  // namespace V1_2
+}  // namespace V1_1
 }  // namespace gadget
 }  // namespace usb
 }  // namespace hardware
