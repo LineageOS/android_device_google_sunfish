@@ -1,4 +1,4 @@
-type uv_exposure_reporter, domain;
+type uv_exposure_reporter, domain, coredomain;
 
 app_domain(uv_exposure_reporter)
 
@@ -7,4 +7,5 @@ allow uv_exposure_reporter fwk_stats_hwservice:hwservice_manager find;
 allow uv_exposure_reporter sysfs_msm_subsys:dir search;
 allow uv_exposure_reporter sysfs_msm_subsys:file r_file_perms;
 binder_call(uv_exposure_reporter, stats_service_server);
-
+allow uv_exposure_reporter fwk_stats_service:service_manager find;
+binder_use(uv_exposure_reporter)
