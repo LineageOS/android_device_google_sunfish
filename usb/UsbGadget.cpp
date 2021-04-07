@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 The Android Open Source Project
+ * Copyright (C) 2018 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "android.hardware.usb.gadget@1.2-service.sunfish"
+#define LOG_TAG "android.hardware.usb.gadget@1.1-service.sunfish"
 
 #include "UsbGadget.h"
 #include <dirent.h>
@@ -30,7 +30,7 @@ namespace android {
 namespace hardware {
 namespace usb {
 namespace gadget {
-namespace V1_2 {
+namespace V1_1 {
 namespace implementation {
 
 UsbGadget::UsbGadget() {
@@ -51,40 +51,6 @@ Return<void> UsbGadget::getCurrentUsbFunctions(const sp<V1_0::IUsbGadgetCallback
         mCurrentUsbFunctionsApplied ? Status::FUNCTIONS_APPLIED : Status::FUNCTIONS_NOT_APPLIED);
     if (!ret.isOk())
         ALOGE("Call to getCurrentUsbFunctionsCb failed %s", ret.description().c_str());
-
-    return Void();
-}
-
-Return<void> UsbGadget::getUsbSpeed(const sp<V1_2::IUsbGadgetCallback> &callback) {
-    std::string current_speed;
-    if (ReadFileToString(SPEED_PATH, &current_speed)) {
-        current_speed = Trim(current_speed);
-        ALOGI("current USB speed is %s", current_speed.c_str());
-        if (current_speed == "low-speed")
-            mUsbSpeed = UsbSpeed::LOWSPEED;
-        else if (current_speed == "full-speed")
-            mUsbSpeed = UsbSpeed::FULLSPEED;
-        else if (current_speed == "high-speed")
-            mUsbSpeed = UsbSpeed::HIGHSPEED;
-        else if (current_speed == "super-speed")
-            mUsbSpeed = UsbSpeed::SUPERSPEED;
-        else if (current_speed == "super-speed-plus")
-            mUsbSpeed = UsbSpeed::SUPERSPEED_10Gb;
-        else if (current_speed == "UNKNOWN")
-            mUsbSpeed = UsbSpeed::UNKNOWN;
-        else
-            mUsbSpeed = UsbSpeed::RESERVED_SPEED;
-    } else {
-        ALOGE("Fail to read current speed");
-        mUsbSpeed = UsbSpeed::UNKNOWN;
-    }
-
-    if (callback) {
-        Return<void> ret = callback->getUsbSpeedCb(mUsbSpeed);
-
-        if (!ret.isOk())
-            ALOGE("Call to getUsbSpeedCb failed %s", ret.description().c_str());
-    }
 
     return Void();
 }
@@ -391,7 +357,7 @@ error:
     return Void();
 }
 }  // namespace implementation
-}  // namespace V1_2
+}  // namespace V1_1
 }  // namespace gadget
 }  // namespace usb
 }  // namespace hardware
