@@ -13,7 +13,6 @@ allow hal_sensors_default sysfs_leds:dir search;
 allow hal_sensors_default sysfs_leds:file r_file_perms;
 
 # For Suez metrics collection
-allow hal_sensors_default fwk_stats_hwservice:hwservice_manager find;
 binder_call(hal_sensors_default, system_server);
 allow hal_sensors_default fwk_stats_service:service_manager find;
 binder_use(hal_sensors_default)
