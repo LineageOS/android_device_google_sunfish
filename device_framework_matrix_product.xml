@@ -32,6 +32,16 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <!-- iwlan -->
+    <hal format="hidl">
+        <name>vendor.qti.hardware.data.iwlan</name>
+        <version>1.0</version>
+        <interface>
+            <name>IIWlan</name>
+            <instance>slot1</instance>
+            <instance>slot2</instance>
+        </interface>
+    </hal>
     <hal format="hidl" optional="true">
         <name>android.hardware.media.c2</name>
         <version>1.0</version>
