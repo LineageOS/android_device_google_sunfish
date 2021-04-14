@@ -530,10 +530,6 @@ static void DumpSensorLog(int fd) {
 
 static void DumpF2FS(int fd) {
     DumpFileToFd(fd, "F2FS", "/sys/kernel/debug/f2fs/status");
-    RunCommandToFd(fd, "F2FS - fragmentation", {"/vendor/bin/sh", "-c",
-                       "for d in $(ls /proc/fs/f2fs/); do "
-                       "echo $d: /dev/block/mapper/`ls -l /dev/block/mapper | grep $d | awk '{print $8,$9,$10}'`; "
-                       "cat /proc/fs/f2fs/$d/segment_info; done"});
     RunCommandToFd(fd, "F2FS - fsck time (ms)", {"/vendor/bin/sh", "-c", "getprop ro.boottime.init.fsck.data"});
     RunCommandToFd(fd, "F2FS - checkpoint=disable time (ms)", {"/vendor/bin/sh", "-c", "getprop ro.boottime.init.mount.data"});
 }
