@@ -3,7 +3,7 @@ user=system seinfo=platform name=com.google.SSRestartDetector domain=ssr_detecto
 user=_app seinfo=platform name=com.android.ramdump domain=ramdump_app type=app_data_file levelFrom=all
 
 # Domain for grilservice
-user=_app isPrivApp=true seinfo=platform name=com.google.android.grilservice domain=grilservice_app levelFrom=all
+user=_app isPrivApp=true name=com.google.android.grilservice domain=grilservice_app levelFrom=all
 
 # Domain for Modem Diagnostic System
 user=_app seinfo=mds name=com.google.mds domain=modem_diagnostic_app type=app_data_file levelFrom=user
