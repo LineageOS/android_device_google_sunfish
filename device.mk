@@ -578,6 +578,8 @@ PRODUCT_PACKAGES += \
 
 ENABLE_VENDOR_RIL_SERVICE := true
 
+USE_QCRIL_OEMHOOK := true
+
 HOSTAPD := hostapd
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 HOSTAPD += hostapd_cli
