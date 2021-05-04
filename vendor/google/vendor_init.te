@@ -46,3 +46,6 @@ userdebug_or_eng(`
 ')
 
 set_prop(vendor_init, vendor_logging_prop)
+get_prop(vendor_init, test_harness_prop)
+get_prop(vendor_init, vendor_battery_profile_prop)
+set_prop(vendor_init, vendor_battery_defender_prop)
