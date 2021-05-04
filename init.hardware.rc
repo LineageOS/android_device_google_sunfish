@@ -683,6 +683,29 @@ on property:sys.retaildemo.enabled=1
     setprop persist.vendor.charge.stop.level 35
     setprop persist.vendor.charge.start.level 30
 
+# Test Harness Mode default battery profile. Restricted but not too restricted.
+on  property:persist.sys.test_harness=1 && property:persist.vendor.testing_battery_profile=0
+    setprop persist.vendor.charge.stop.level 70
+    setprop persist.vendor.charge.start.level 35
+    setprop vendor.battery.defender.disable 1
+
+# Extremely restricted battery profile.
+on  property:persist.sys.test_harness=1 && property:persist.vendor.testing_battery_profile=1
+    setprop persist.vendor.charge.stop.level 50
+    setprop persist.vendor.charge.start.level 35
+    setprop vendor.battery.defender.disable 1
+
+# Normal behavior (as if the device was a regular device)
+on  property:persist.sys.test_harness=1 && property:persist.vendor.testing_battery_profile=2
+    setprop persist.vendor.charge.stop.level 100
+    setprop persist.vendor.charge.start.level 0
+
+# Unrestricted, allows charging to 100%
+on  property:persist.sys.test_harness=1 && property:persist.vendor.testing_battery_profile=3
+    setprop persist.vendor.charge.stop.level 100
+    setprop persist.vendor.charge.start.level 0
+    setprop vendor.battery.defender.disable 1
+
 service insmod_sh /vendor/bin/init.insmod.sh /vendor/etc/init.insmod.${ro.hardware}.cfg
     class main
     user root
