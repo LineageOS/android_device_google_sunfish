@@ -71,6 +71,9 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PRODUCT_PROPERTIES += \
 	ro.charger.enable_suspend=true
 
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.vendor.testing_battery_profile=0
+
 # Modem loging file
 PRODUCT_COPY_FILES += \
     device/google/sunfish/init.logging.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(PRODUCT_PLATFORM).logging.rc
