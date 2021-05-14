@@ -6,7 +6,7 @@ init_daemon_domain(vendor_pd_mapper);
 allow vendor_pd_mapper self:qipcrtr_socket create_socket_perms_no_ioctl;
 
 userdebug_or_eng(`
-  allow vendor_pd_mapper kmsg_device:chr_file w_file_perms;
+  allow vendor_pd_mapper kmsg_device:chr_file rw_file_perms;
 ')
 
 dontaudit vendor_pd_mapper sysfs_esoc:dir search;
