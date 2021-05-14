@@ -7,6 +7,7 @@ add_hwservice(qtelephony, vnd_atcmdfwd_hwservice)
 allow qtelephony app_api_service:service_manager find;
 
 allow qtelephony hal_imsrtp_hwservice:hwservice_manager find;
+allow qtelephony hal_telephony_service:service_manager find;
 allow qtelephony radio_service:service_manager find;
 allow qtelephony sysfs_diag:dir search;
 allow qtelephony sysfs_timestamp_switch:file r_file_perms;
