@@ -54,7 +54,6 @@
         <permission name="android.permission.WRITE_CALL_LOG" fixed="false"/>
         <!-- SMS -->
         <permission name="android.permission.RECEIVE_SMS" fixed="false"/>
-        <permission name="android.permission.READ_PHONE_NUMBERS" fixed="false"/>
     </exception>
 
     <exception
