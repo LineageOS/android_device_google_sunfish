@@ -147,6 +147,7 @@ product/etc/security/fsverity/play_store_fsi_cert.der
 product/etc/sysconfig/GoogleCamera_6gb_or_more_ram.xml
 product/etc/sysconfig/adaptivecharging.xml
 product/etc/sysconfig/allowlist_com.android.omadm.service.xml
+product/etc/sysconfig/google-hiddenapi-package-whitelist.xml
 product/etc/sysconfig/nga.xml
 product/etc/sysconfig/pixel_experience_2017.xml
 product/etc/sysconfig/pixel_experience_2018.xml
