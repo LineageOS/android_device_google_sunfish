@@ -4,3 +4,4 @@ vendor.google.darwinn.service::IDarwinnService                  u:object_r:hal_d
 vendor.google.radioext::IRadioExt                               u:object_r:hal_radioext_hwservice:s0
 vendor.google.wifi_ext::IWifiExt                                u:object_r:hal_wifi_ext_hwservice:s0
 vendor.google.wireless_charger::IWirelessCharger                u:object_r:hal_wlc_hwservice:s0
+vendor.google.audiometricext::IAudioMetricExt                   u:object_r:hal_audiometricext_hwservice:s0
