@@ -122,6 +122,9 @@ PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.disable_rescue=true
 endif
 
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+    system/lib64/android.hardware.thermal@2.0.so \
+
 # Enable Incremental on the device via kernel module
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.incremental.enable=module:/vendor/lib/modules/incrementalfs.ko
