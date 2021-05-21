@@ -32,7 +32,6 @@ init_daemon_domain(init-qti-keymaster-sh)
 
 # Set vendor.keymaster.strongbox.version to 40 or 41
 set_prop(init-qti-keymaster-sh, vendor_km_strongbox_version_prop);
-set_prop(init-qti-keymaster-sh, vendor_disable_spu_prop)
 
 allow init-qti-keymaster-sh vendor_shell_exec:file rx_file_perms;
 allow init-qti-keymaster-sh vendor_toolbox_exec:file rx_file_perms;
