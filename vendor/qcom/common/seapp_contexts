@@ -32,3 +32,4 @@ user=_app seinfo=platform name=com.qualcomm.qti.devicestatisticsservice domain=q
 
 # QtiTelephonyService app
 user=_app seinfo=platform name=com.qualcomm.qti.telephonyservice domain=qtelephony type=app_data_file levelFrom=all
+
