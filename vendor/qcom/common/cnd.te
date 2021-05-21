@@ -20,6 +20,7 @@ allow cnd cnd_data_file:dir rw_dir_perms;
 wakelock_use(cnd)
 # To register cnd to hwbinder
 add_hwservice(cnd, hal_datafactory_hwservice)
+add_hwservice(cnd, hal_mwqemadapter_hwservice)
 userdebug_or_eng(`
   allow cnd diag_device:chr_file rw_file_perms;
 ')
