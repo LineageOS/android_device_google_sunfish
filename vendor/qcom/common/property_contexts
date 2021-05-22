@@ -86,3 +86,6 @@ persist.vendor.data.shsusr_load                 u:object_r:vendor_radio_prop:s0
 persist.vendor.data.perf_ko_load                u:object_r:vendor_radio_prop:s0
 persist.vendor.data.qmipriod_load               u:object_r:vendor_radio_prop:s0
 persist.vendor.data.offload_ko_load             u:object_r:vendor_radio_prop:s0
+
+#keymaster strongbox service
+vendor.keymaster.strongbox.version u:object_r:vendor_km_strongbox_version_prop:s0
