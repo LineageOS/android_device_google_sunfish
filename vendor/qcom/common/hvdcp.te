@@ -7,7 +7,7 @@ allow hvdcp sysfs_batteryinfo:dir r_dir_perms;
 allow hvdcp qg_device:chr_file rw_file_perms;
 allow hvdcp self:capability2 wake_alarm;
 allow hvdcp self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
-allow hvdcp kmsg_device:chr_file r_file_perms;
+allow hvdcp kmsg_device:chr_file rw_file_perms;
 allow hvdcp mnt_vendor_file:dir r_dir_perms;
 allow hvdcp persist_file:dir search;
 allow hvdcp persist_hvdcp_file:dir search;
