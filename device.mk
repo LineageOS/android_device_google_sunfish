@@ -33,6 +33,7 @@ PRODUCT_SOONG_NAMESPACES += \
     vendor/qcom/sm8150 \
     vendor/qcom/sm8150/proprietary/commonsys/telephony-apps/DataStatusNotification \
     vendor/qcom/sm8150/proprietary/gps \
+    vendor/qcom/sm8150/proprietary/qmi \
     vendor/qcom/sm8150/codeaurora/location \
     vendor/google/interfaces \
     vendor/google_devices/common/proprietary/confirmatioui_hal \
@@ -517,7 +518,7 @@ PRODUCT_PACKAGES += \
 # Google Camera HAL test libraries in debug builds
 PRODUCT_PACKAGES_DEBUG += \
     libgoogle_camera_hal_proprietary_tests \
-    libgoogle_camera_hal_tests
+    libgoogle_camera_hal_tests.vendor
 
 PRODUCT_PACKAGES += \
     sensors.$(PRODUCT_HARDWARE) \
