@@ -64,7 +64,7 @@ on init && property:vendor.skip.init=0
     # start qseecomd early as we mount system/ vendor/ early
     # vold needs keymaster that needs qseecomd
     start vendor.qseecomd
-    start keymaster-4-1
+    start keymaster-4-0
 
     start vendor.citadeld
     start vendor.keymaster-4-1-citadel
