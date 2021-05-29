@@ -72,7 +72,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
 	ro.charger.enable_suspend=true
 
 PRODUCT_PRODUCT_PROPERTIES += \
-    persist.vendor.testing_battery_profile=0
+    persist.vendor.testing_battery_profile=2
 
 # Modem loging file
 PRODUCT_COPY_FILES += \
