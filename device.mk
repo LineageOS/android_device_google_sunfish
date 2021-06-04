@@ -574,8 +574,8 @@ PRODUCT_PACKAGES += \
     liblocation_api \
     libbatching \
     libgeofencing \
-    android.hardware.gnss@2.0-impl-qti \
-    android.hardware.gnss@2.0-service-qti
+    android.hardware.gnss@2.1-impl-qti \
+    android.hardware.gnss@2.1-service-qti
 
 ENABLE_VENDOR_RIL_SERVICE := true
 
