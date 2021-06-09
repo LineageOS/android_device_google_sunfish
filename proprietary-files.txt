@@ -150,7 +150,7 @@ product/etc/permissions/com.google.omadm.trigger.xml
 product/etc/permissions/com.verizon.apn.xml
 product/etc/permissions/com.verizon.services.xml
 product/etc/permissions/features-verizon.xml
-product/etc/permissions/privapp-permissions-google-p.xml
+product/etc/permissions/privapp-permissions-google-p.xml:product/etc/permissions/privapp-permissions-google-p-lineage.xml
 product/etc/permissions/split-permissions-google.xml
 product/etc/res/images/charger/battery_fail.png
 product/etc/res/images/charger/battery_scale.png
@@ -215,7 +215,7 @@ system_ext/etc/permissions/google-ril.xml
 system_ext/etc/permissions/izat.xt.srv.xml
 system_ext/etc/permissions/obdm_permissions.xml
 system_ext/etc/permissions/org_codeaurora_ims.xml
-system_ext/etc/permissions/privapp-permissions-google-se.xml
+system_ext/etc/permissions/privapp-permissions-google-se.xml:system_ext/etc/permissions/privapp-permissions-google-se-lineage.xml
 system_ext/etc/permissions/qcrilhook.xml
 system_ext/etc/permissions/uimremoteclient.xml
 system_ext/etc/permissions/uimremoteserver.xml
