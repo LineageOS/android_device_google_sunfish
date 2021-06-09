@@ -141,7 +141,7 @@ product/etc/permissions/com.verizon.apn.xml
 product/etc/permissions/com.verizon.services.xml
 product/etc/permissions/features-verizon.xml
 product/etc/permissions/obdm_permissions.xml
-product/etc/permissions/privapp-permissions-google-p.xml
+product/etc/permissions/privapp-permissions-google-p.xml:product/etc/permissions/privapp-permissions-google-p-lineage.xml
 product/etc/permissions/split-permissions-google.xml
 product/etc/permissions/vendor.qti.hardware.data.connection-V1.0-java.xml
 product/etc/permissions/vendor.qti.hardware.data.connection-V1.1-java.xml
