@@ -1,3 +1,0 @@
-# b/189167816
-dontaudit rfs_access rfs_access:capability dac_read_search;
-dontaudit rfs_access rfs_access:capability dac_override;
