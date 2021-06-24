@@ -276,6 +276,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <transport>hwbinder</transport>
         <fqname>@1.1::IGnss/default</fqname>
         <fqname>@2.0::IGnss/default</fqname>
+        <fqname>@2.1::IGnss/default</fqname>
     </hal>
     <!-- qcrilhook -->
     <hal format="hidl">
