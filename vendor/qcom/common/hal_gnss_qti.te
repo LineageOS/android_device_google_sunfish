@@ -24,5 +24,7 @@ allow hal_gnss_qti location:unix_dgram_socket sendto;
 
 allow hal_gnss_qti self:qipcrtr_socket create_socket_perms_no_ioctl;
 
+allow hal_gnss_qti location_data_file:dir r_dir_perms;
+
 # Allow Gnss HAL to get updates from health hal
 hal_client_domain(hal_gnss_qti, hal_health)
