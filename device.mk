@@ -386,6 +386,7 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.4-service-sm8150 \
     gralloc.sm6150 \
     android.hardware.graphics.mapper@3.0-impl-qti-display \
+    android.hardware.graphics.mapper@4.0-impl-qti-display \
     vendor.qti.hardware.display.allocator-service
 
 # RenderScript HAL
