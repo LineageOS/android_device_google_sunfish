@@ -163,6 +163,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <transport>hwbinder</transport>
         <impl level="generic"></impl>
         <version>3.0</version>
+        <version>4.0</version>
         <interface>
             <name>IAllocator</name>
             <instance>default</instance>
@@ -173,6 +174,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <transport arch="32+64">passthrough</transport>
         <impl level="generic"></impl>
         <version>3.0</version>
+        <version>4.0</version>
         <interface>
             <name>IMapper</name>
             <instance>default</instance>
@@ -182,6 +184,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <name>vendor.qti.hardware.display.allocator</name>
         <transport>hwbinder</transport>
         <version>3.0</version>
+        <version>4.0</version>
         <interface>
             <name>IQtiAllocator</name>
             <instance>default</instance>
@@ -191,6 +194,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <name>vendor.qti.hardware.display.mapper</name>
         <transport arch="32+64">passthrough</transport>
         <version>3.0</version>
+        <version>4.0</version>
         <interface>
             <name>IQtiMapper</name>
             <instance>default</instance>
