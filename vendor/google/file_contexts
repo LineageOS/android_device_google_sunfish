@@ -114,3 +114,6 @@
 /vendor/lib/modules/ftm5\.ko                                                          u:object_r:vendor_kernel_modules:s0
 /vendor/lib/modules/drv2624\.ko                                                       u:object_r:vendor_kernel_modules:s0
 
+# Vendor libs that are exposed to apps (those listed in /vendor/etc/public.libraries.txt
+# and their dependencies)
+/vendor/lib(64)?/vendor\.qti\.hardware\.dsp@1\.0\.so                                  u:object_r:same_process_hal_file:s0
