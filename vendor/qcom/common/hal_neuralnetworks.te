@@ -17,3 +17,6 @@ r_dir_file(hal_neuralnetworks_default, sysfs_soc)
 r_dir_file(hal_neuralnetworks_default, adsprpcd_file)
 
 dontaudit hal_neuralnetworks_default vendor_display_prop:file read;
+
+# b/159570217 suppress warning related to zeroth.debuglog.logmask
+dontaudit hal_neuralnetworks_default default_prop:file { open read };
