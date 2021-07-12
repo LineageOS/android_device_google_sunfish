@@ -696,21 +696,6 @@ endif
 PRODUCT_PACKAGES += \
     android.hardware.dumpstate@1.1-service.sunfish
 
-# Citadel
-PRODUCT_PACKAGES += \
-    citadeld \
-    citadel_updater \
-    android.hardware.authsecret@1.0-service.citadel \
-    android.hardware.oemlock@1.0-service.citadel \
-    android.hardware.weaver@1.0-service.citadel \
-    android.hardware.keymaster@4.1-service.citadel \
-    android.hardware.identity@1.0-service.citadel \
-    wait_for_strongbox
-
-# Citadel debug stuff
-PRODUCT_PACKAGES_DEBUG += \
-    test_citadel
-
 # Storage: for factory reset protection feature
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.frp.pst=/dev/block/bootdevice/by-name/frp
@@ -852,10 +837,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.power.stats@1.0-service.pixel
 
-# Resume on Reboot support
-PRODUCT_PACKAGES += \
-    android.hardware.rebootescrow-service.citadel
-
 # Recovery
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.recovery.device.rc:recovery/root/init.recovery.sunfish.rc
@@ -916,6 +897,9 @@ include hardware/google/pixel/common/pixel-common-device.mk
 
 # Pixel Logger
 include hardware/google/pixel/PixelLogger/PixelLogger.mk
+
+# citadel
+include hardware/google/pixel/citadel/citadel.mk
 
 # enable retrofit virtual A/B
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota_retrofit.mk)
