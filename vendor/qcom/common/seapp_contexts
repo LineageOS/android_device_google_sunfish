@@ -29,3 +29,7 @@ user=_app seinfo=platform name=org.codeaurora.ims isPrivApp=true domain=qtelepho
 
 #Add DeviceInfoHidlClient to vendor_qtelephony
 user=_app seinfo=platform name=com.qualcomm.qti.devicestatisticsservice domain=qtelephony type=app_data_file levelFrom=all
+
+# QtiTelephonyService app
+user=_app seinfo=platform name=com.qualcomm.qti.telephonyservice domain=qtelephony type=app_data_file levelFrom=all
+
