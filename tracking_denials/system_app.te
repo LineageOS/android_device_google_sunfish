@@ -1,2 +1,0 @@
-# b/191214116
-dontaudit system_app vendor_aware_available_prop:file read;
