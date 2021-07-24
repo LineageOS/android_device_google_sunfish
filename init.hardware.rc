@@ -597,11 +597,6 @@ service vendor.ims_rtp_daemon /system/vendor/bin/ims_rtp_daemon
    user radio
    group radio inet log
 
-service cnd /vendor/bin/cnd
-   class main
-   user system
-   group system wifi inet radio wakelock net_admin
-
 service wait_for_strongbox /vendor/bin/hw/wait_for_strongbox
     user root
     group root system
