@@ -5,6 +5,7 @@ dump_hal(hal_power_stats)
 
 userdebug_or_eng(`
   allow dumpstate debugfs_dma_buf:file r_file_perms;
+  allow dumpstate media_rw_data_file:file append;
 ')
 
 # For collecting bugreports.
