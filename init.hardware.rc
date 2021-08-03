@@ -132,6 +132,7 @@ on init && property:vendor.skip.init=0
     chown system system /sys/devices/platform/soc/soc:google,battery/power_supply/battery/bd_trickle_cnt
     chown system system /sys/devices/platform/soc/soc:google,battery/power_supply/battery/bd_trickle_dry_run
     chown system system /sys/devices/platform/soc/soc:google,battery/power_supply/battery/bd_trickle_reset_sec
+    chown system system /sys/devices/platform/soc/soc:google,battery/power_supply/battery/bd_clear
     chown system system /sys/devices/platform/soc/soc:google,battery/power_supply/battery/health_safety_margin
 
     # Charge stats (write 0)
