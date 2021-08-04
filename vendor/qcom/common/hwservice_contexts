@@ -37,3 +37,5 @@ vendor.qti.hardware.display.allocator::IQtiAllocator                    u:object
 vendor.qti.ims.callinfo::IService                                       u:object_r:hal_imscallinfo_hwservice:s0
 vendor.qti.hardware.qseecom::IQSEECom                                   u:object_r:hal_qseecom_hwservice:s0
 vendor.qti.hardware.mwqemadapter::IMwqemAdapter                         u:object_r:hal_mwqemadapter_hwservice:s0
+vendor.qti.hardware.bluetooth_sar::IBluetoothSar                        u:object_r:hal_bluetooth_coexistence_hwservice:s0
+vendor.qti.hardware.bt_channel_avoidance::IBTChannelAvoidance           u:object_r:hal_bluetooth_coexistence_hwservice:s0
