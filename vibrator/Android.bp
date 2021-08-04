@@ -37,7 +37,7 @@ cc_defaults {
     name: "PixelVibratorBinaryDefaultsSunfish",
     defaults: ["PixelVibratorDefaultsSunfish"],
     shared_libs: [
-        "android.hardware.vibrator-ndk_platform",
+        "android.hardware.vibrator-V2-ndk",
     ],
 }
 
@@ -45,7 +45,7 @@ cc_defaults {
     name: "PixelVibratorTestDefaultsSunfish",
     defaults: ["PixelVibratorDefaultsSunfish"],
     static_libs: [
-        "android.hardware.vibrator-ndk_platform",
+        "android.hardware.vibrator-V2-ndk",
     ],
     test_suites: ["device-tests"],
     require_root: true,
