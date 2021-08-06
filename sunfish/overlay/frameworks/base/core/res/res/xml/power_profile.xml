@@ -159,4 +159,12 @@
     <!-- Operating voltage for wifi radio in mV.-->
     <item name="wifi.controller.voltage">3700</item>
 
+    <!-- Idle current for bluetooth in mA.-->
+    <item name="bluetooth.controller.idle">0.01</item>
+    <!-- Rx current for bluetooth in mA.-->
+    <item name="bluetooth.controller.rx">9</item>
+    <!-- Tx current for bluetooth in mA-->
+    <item name="bluetooth.controller.tx">7</item>
+    <!-- Operating voltage for bluetooth in mV.-->
+    <item name="bluetooth.controller.voltage">3300</item>
 </device>
