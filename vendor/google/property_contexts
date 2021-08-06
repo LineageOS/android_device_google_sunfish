@@ -70,3 +70,7 @@ ro.vendor.vibrator.hal.lptrigger                u:object_r:vendor_vibrator_prop:
 
 # Vendor verbose logging prop
 persist.vendor.verbose_logging_enabled          u:object_r:vendor_logging_prop:s0
+
+# Logger app
+vendor.pixellogger.                             u:object_r:vendor_logger_prop:s0
+persist.vendor.pixellogger.                     u:object_r:vendor_logger_prop:s0
