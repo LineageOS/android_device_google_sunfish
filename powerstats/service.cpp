@@ -109,8 +109,7 @@ int main(int /* argc */, char ** /* argv */) {
         std::make_pair("DDR", "RPM Mode:ddr"),
     };
 
-    sp<GenericStateResidencyDataProvider> socSdp =
-        new GenericStateResidencyDataProvider("/sys/power/system_sleep/stats");
+    auto socSdp = sp<GenericStateResidencyDataProvider>::make("/sys/power/system_sleep/stats");
 
     uint32_t socId = service->addPowerEntity("SoC", PowerEntityType::POWER_DOMAIN);
     socSdp->addEntity(socId,
@@ -120,20 +119,20 @@ int main(int /* argc */, char ** /* argv */) {
 
     // Add WLAN power entity
     uint32_t wlanId = service->addPowerEntity("WLAN", PowerEntityType::SUBSYSTEM);
-    sp<WlanStateResidencyDataProvider> wlanSdp =
-            new WlanStateResidencyDataProvider(wlanId, "/sys/kernel/wlan/power_stats");
+    auto wlanSdp = sp<WlanStateResidencyDataProvider>::make(wlanId, "/sys/kernel/wlan/power_stats");
     service->addStateResidencyDataProvider(wlanSdp);
 
     uint32_t displayId = service->addPowerEntity("Display", PowerEntityType::SUBSYSTEM);
-    sp<DisplayStateResidencyDataProvider> displaySdp =
-        new DisplayStateResidencyDataProvider(displayId,
-        "/sys/class/backlight/panel0-backlight/state", {"Off", "LP", "1080x2340@60"});
+    auto displaySdp = sp<DisplayStateResidencyDataProvider>::make(displayId,
+        "/sys/class/backlight/panel0-backlight/state",
+        std::vector<std::string>{"Off", "LP", "1080x2340@60"});
     service->addStateResidencyDataProvider(displaySdp);
 
     // Add Power Entities that require the Aidl data provider
-    sp<AidlStateResidencyDataProvider> aidlSdp = new AidlStateResidencyDataProvider();
+    auto aidlSdp = sp<AidlStateResidencyDataProvider>::make();
     uint32_t citadelId = service->addPowerEntity("Citadel", PowerEntityType::SUBSYSTEM);
-    aidlSdp->addEntity(citadelId, "Citadel", {"Last-Reset", "Active", "Deep-Sleep"});
+    aidlSdp->addEntity(citadelId, "Citadel",
+        std::vector<std::string>{"Last-Reset", "Active", "Deep-Sleep"});
 
     auto serviceStatus = android::defaultServiceManager()->addService(
         android::String16("power.stats-vendor"), aidlSdp);

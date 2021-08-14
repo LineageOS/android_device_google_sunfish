@@ -14,8 +14,12 @@
 # limitations under the License.
 #
 
-TARGET_BOOTLOADER_BOARD_NAME := sunfish
-TARGET_SCREEN_DENSITY := 440
-TARGET_RECOVERY_UI_MARGIN_HEIGHT := 165
+ifdef PHONE_CAR_BOARD_CONFIG
+  include $(PHONE_CAR_BOARD_CONFIG)
+else
+  TARGET_BOOTLOADER_BOARD_NAME := sunfish
+  TARGET_SCREEN_DENSITY := 440
+  TARGET_RECOVERY_UI_MARGIN_HEIGHT := 165
 
-include device/google/sunfish/BoardConfig-common.mk
+  include device/google/sunfish/BoardConfig-common.mk
+endif
