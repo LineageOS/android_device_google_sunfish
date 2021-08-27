@@ -15,7 +15,7 @@ type device_latency, dev_type;
 type  fm_radio_device, dev_type;
 type modem_efs_partition_device, dev_type;
 type ssd_device, dev_type;
-type rpmb_device, dev_type;
+type rpmb_device, dev_type, bdev_type;
 type sg_device, dev_type;
 type dip_device, dev_type;
 type sd_device, dev_type;
