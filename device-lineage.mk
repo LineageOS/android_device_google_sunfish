@@ -115,4 +115,4 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.perf@2.0.vendor
 
 # Vendor Security Patch Level
-VENDOR_SECURITY_PATCH := "2021-08-05"
+VENDOR_SECURITY_PATCH := "2021-09-05"
