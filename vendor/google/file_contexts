@@ -42,6 +42,7 @@
 /vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.2-service\.fpc           u:object_r:hal_fingerprint_default_exec:s0
 /vendor/bin/init\.qti\.chg_policy\.sh                                                 u:object_r:init_qti_chg_policy_exec:s0
 /vendor/bin/hw/android\.hardware\.graphics\.composer@2\.4-service-sm8150              u:object_r:hal_graphics_composer_default_exec:s0
+/vendor/bin/hw/android\.hardware\.contexthub-service\.generic                         u:object_r:hal_contexthub_default_exec:s0
 /vendor/bin/hw/android\.hardware\.contexthub@1\.[0-9]-service\.generic                u:object_r:hal_contexthub_default_exec:s0
 /vendor/bin/hw/android\.hardware\.usb@1\.[0-9]-service\.sunfish                       u:object_r:hal_usb_impl_exec:s0
 
