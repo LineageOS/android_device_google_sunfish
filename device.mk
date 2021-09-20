@@ -88,7 +88,7 @@ PRODUCT_COPY_FILES += \
 
 # Enforce privapp-permissions whitelist
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.control_privapp_permissions=enforce
+    ro.control_privapp_permissions?=enforce
 
 PRODUCT_PACKAGES += \
     messaging
@@ -738,7 +738,7 @@ PRODUCT_PACKAGES += \
 
 # Override heap growth limit due to high display density on device
 PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.heapgrowthlimit=256m
+    dalvik.vm.heapgrowthlimit?=256m
 
 # Use 64-bit dex2oat for better dexopt time.
 PRODUCT_PROPERTY_OVERRIDES += \
