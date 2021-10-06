@@ -1,8 +1,8 @@
 LIBJSON_ROOT := $(call my-dir)
 include $(CLEAR_VARS)
 LOCAL_MODULE := libjson
-LOCAL_LICENSE_KINDS := SPDX-license-identifier-MIT legacy_unencumbered
-LOCAL_LICENSE_CONDITIONS := notice unencumbered
+LOCAL_LICENSE_KINDS := legacy_notice
+LOCAL_LICENSE_CONDITIONS := notice
 LOCAL_PATH := $(LIBJSON_ROOT)
 LOCAL_NOTICE_FILE := $(LOCAL_PATH)/COPYING
 LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include

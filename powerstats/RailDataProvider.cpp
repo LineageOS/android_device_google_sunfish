@@ -226,7 +226,6 @@ Return<void> RailDataProvider::getEnergyData(const hidl_vec<uint32_t>& railIndic
   Status ret = parseIioEnergyNodes();
 
   if (ret != Status::SUCCESS) {
-    ALOGE("Failed to getEnergyData");
     _hidl_cb(eVal, ret);
     return Void();
   }

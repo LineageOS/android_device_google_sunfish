@@ -71,12 +71,18 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PRODUCT_PROPERTIES += \
 	ro.charger.enable_suspend=true
 
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.vendor.testing_battery_profile=2
+
 # Modem loging file
 PRODUCT_COPY_FILES += \
     device/google/sunfish/init.logging.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(PRODUCT_PLATFORM).logging.rc
 
 # Pixelstats broken mic detection
 PRODUCT_PROPERTY_OVERRIDES += vendor.audio.mic_break=true
+
+# Enable APK Verity, which depends on fs-verity support in kernel.
+PRODUCT_PROPERTY_OVERRIDES += ro.apk_verity.mode=2
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.use_color_management=true
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.has_wide_color_display=true
@@ -103,9 +109,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.pro.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.pro.xml
 
-PRODUCT_PACKAGES += \
-    dmabuf_dump
-
 # Set the default property of tcpdump_logger on userdebug/eng ROM.
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
     PRODUCT_PROPERTY_OVERRIDES += \
@@ -122,4 +125,9 @@ endif
 # Enable Incremental on the device via kernel module
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.incremental.enable=module:/vendor/lib/modules/incrementalfs.ko
+
+# Enable watchdog timeout loop breaker.
+PRODUCT_PROPERTY_OVERRIDES += \
+    framework_watchdog.fatal_window.second=600 \
+    framework_watchdog.fatal_count=3
 
