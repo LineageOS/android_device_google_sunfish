@@ -344,9 +344,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.usb.gadget-service.sunfish
 
+# Health
 PRODUCT_PACKAGES += \
-    android.hardware.health@2.1-impl-sunfish \
-    android.hardware.health@2.1-service
+    android.hardware.health-service.sunfish \
+    android.hardware.health-service.sunfish_recovery
 
 # Storage health HAL
 PRODUCT_PACKAGES += \

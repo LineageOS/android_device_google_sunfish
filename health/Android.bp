@@ -18,35 +18,41 @@ package {
     default_applicable_licenses: ["Android-Apache-2.0"],
 }
 
-cc_library_shared {
-    name: "android.hardware.health@2.1-impl-sunfish",
-    stem: "android.hardware.health@2.0-impl-2.1-sunfish",
-
-    proprietary: true,
+cc_defaults {
+    name: "android.hardware.health-service.sunfish-defaults",
+    defaults: [
+        "libhealth_aidl_impl_user",
+        "libhealth_aidl_charger_defaults",
+    ],
     relative_install_path: "hw",
+    vintf_fragments: ["android.hardware.health-service.sunfish.xml"],
     srcs: [
         "Health.cpp",
     ],
-
     cflags: [
         "-Wall",
         "-Werror",
     ],
-
     static_libs: [
-        "android.hardware.health@1.0-convert",
-        "libbatterymonitor",
-        "libhealth2impl",
-        "libhealthloop",
+        "libhealth_aidl_impl",
     ],
+}
 
+cc_binary {
+    name: "android.hardware.health-service.sunfish",
+    defaults: ["android.hardware.health-service.sunfish-defaults"],
+    proprietary: true,
+    init_rc: ["android.hardware.health-service.sunfish.rc"],
+    overrides: ["charger"],
     shared_libs: [
-        "libbase",
-        "libcutils",
-        "libhidlbase",
         "libpixelhealth",
-        "libutils",
-        "android.hardware.health@2.0",
-        "android.hardware.health@2.1",
     ],
+}
+
+cc_binary {
+    name: "android.hardware.health-service.sunfish_recovery",
+    defaults: ["android.hardware.health-service.sunfish-defaults"],
+    recovery: true,
+    init_rc: ["android.hardware.health-service.sunfish_recovery.rc"],
+    overrides: ["charger.recovery"],
 }
