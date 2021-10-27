@@ -107,7 +107,6 @@ system_ext/etc/permissions/privapp-permissions-google-se.xml:system_ext/etc/perm
 # Qualcomm misc
 system_ext/app/QtiTelephonyService/QtiTelephonyService.apk
 system_ext/app/atfwd/atfwd.apk
-system_ext/app/datastatusnotification/datastatusnotification.apk
 system_ext/app/uceShimService/uceShimService.apk
 system_ext/etc/permissions/com.qti.media.secureprocessor.xml
 system_ext/etc/permissions/com.qualcomm.qcrilmsgtunnel.xml
