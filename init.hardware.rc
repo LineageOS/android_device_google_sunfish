@@ -357,9 +357,6 @@ on early-boot
     # Wait for insmod_sh to finish all modules
     wait_for_prop vendor.all.modules.ready 1
 
-    # Update dm-verity state and set partition.*.verified properties
-    verity_update_state
-
     # Wait for insmod_sh to finish all boot devices
     wait_for_prop vendor.all.devices.ready 1
 
