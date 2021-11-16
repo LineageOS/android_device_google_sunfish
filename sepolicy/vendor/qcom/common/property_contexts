@@ -1,0 +1,91 @@
+# vendor_audio_prop
+vendor.audio.snd_card.open.retries              u:object_r:vendor_audio_prop:s0
+vendor.audio.adm.buffering.ms                   u:object_r:vendor_audio_prop:s0
+
+vendor.audio.volume.listener.dump               u:object_r:vendor_audio_prop:s0
+vendor.audio.volume.headset.gain.depcal         u:object_r:vendor_audio_prop:s0
+vendor.audio_hal.in_period_size                 u:object_r:vendor_audio_prop:s0
+vendor.audio_hal.period_multiplier              u:object_r:vendor_audio_prop:s0
+vendor.audio_hal.period_size                    u:object_r:vendor_audio_prop:s0
+persist.vendor.audio.dualmic.config             u:object_r:vendor_audio_prop:s0
+
+persist.vendor.audio.fluence.speaker            u:object_r:vendor_audio_prop:s0
+persist.vendor.audio.fluence.voicecall          u:object_r:vendor_audio_prop:s0
+persist.vendor.audio.fluence.voicerec           u:object_r:vendor_audio_prop:s0
+
+persist.camera.                                 u:object_r:camera_prop:s0
+vendor.debug.camera.                            u:object_r:camera_prop:s0
+persist.vendor.camera.                          u:object_r:camera_prop:s0
+persist.vendor.sys.cnd                          u:object_r:cnd_vendor_prop:s0
+persist.vendor.cnd.wqe                          u:object_r:cnd_vendor_prop:s0
+persist.vendor.cne.feature                      u:object_r:cnd_vendor_prop:s0
+persist.vendor.cne.logging.qxdm                 u:object_r:cnd_vendor_prop:s0
+persist.vendor.net.doxlat                       u:object_r:vendor_xlat_prop:s0
+persist.vendor.radio                            u:object_r:vendor_radio_prop:s0
+persist.vendor.sys.modem.diag.                  u:object_r:vendor_modem_diag_prop:s0
+
+# vendor_bluetooth_prop
+persist.vendor.bluetooth.a4wp                   u:object_r:vendor_bluetooth_prop:s0
+persist.vendor.bluetooth.csoc.cnt               u:object_r:vendor_bluetooth_prop:s0
+persist.vendor.bluetooth.diag_enabled           u:object_r:vendor_bluetooth_prop:s0
+persist.vendor.service.bdroid.fwsnoop           u:object_r:vendor_bluetooth_prop:s0
+persist.vendor.service.bdroid.sibs              u:object_r:vendor_bluetooth_prop:s0
+persist.vendor.service.bdroid.snooplog          u:object_r:vendor_bluetooth_prop:s0
+persist.vendor.service.bdroid.soclog            u:object_r:vendor_bluetooth_prop:s0
+persist.vendor.service.bdroid.ssrlvl            u:object_r:vendor_bluetooth_prop:s0
+ro.vendor.bluetooth.emb_wp_mode                 u:object_r:vendor_bluetooth_prop:s0
+ro.vendor.bluetooth.wipower                     u:object_r:vendor_bluetooth_prop:s0
+persist.vendor.bt.soc.scram_freqs               u:object_r:vendor_bluetooth_prop:s0
+
+ro.vendor.audio.sdk.fluencetype                 u:object_r:vendor_audio_prop:s0
+ro.vendor.ril.                                  u:object_r:vendor_radio_prop:s0
+
+# vendor display prop
+vendor.gralloc.disable_ahardware_buffer         u:object_r:vendor_display_prop:s0
+vendor.gralloc.use_system_heap_for_sensors      u:object_r:vendor_display_prop:s0
+vendor.gralloc.disable_ubwc                     u:object_r:vendor_display_prop:s0
+vendor.debug.egl.changepixelformat              u:object_r:vendor_display_prop:s0
+vendor.debug.egl.profiler                       u:object_r:vendor_display_prop:s0
+vendor.debug.prerotation.disable                u:object_r:vendor_display_prop:s0
+vendor.debug.egl.swapinterval                   u:object_r:vendor_display_prop:s0
+ro.vendor.graphics.memory                       u:object_r:vendor_display_prop:s0
+
+vendor.ims.                                     u:object_r:qcom_ims_prop:s0
+vendor.peripheral.                              u:object_r:vendor_per_mgr_state_prop:s0
+vendor.sys.listeners.registered                 u:object_r:vendor_tee_listener_prop:s0
+vendor.usb.                                     u:object_r:vendor_usb_prop:s0
+vendor.wlan.driver.version                      u:object_r:vendor_wifi_version:s0
+vendor.wlan.firmware.version                    u:object_r:vendor_wifi_version:s0
+vendor.radio                                    u:object_r:vendor_radio_prop:s0
+vendor.spcom.                                   u:object_r:spcomlib_prop:s0
+vendor.sys.modem.diag.                          u:object_r:vendor_modem_diag_prop:s0
+vendor.debug.ssrdump                            u:object_r:vendor_ssr_prop:s0
+
+persist.vendor.sys.cnss.                        u:object_r:vendor_cnss_diag_prop:s0
+persist.vendor.sys.crash_rcu                    u:object_r:vendor_ramdump_prop:s0
+persist.vendor.sys.ssr.                         u:object_r:vendor_ssr_prop:s0
+vendor.sys.ssr.                                 u:object_r:vendor_ssr_prop:s0
+
+ctl.vendor.rmt_storage                          u:object_r:ctl_vendor_rmt_storage_prop:s0
+
+vendor.sys.adsp.firmware.version                u:object_r:public_vendor_system_prop:s0
+
+vendor.media.ecoservice.log.                    u:object_r:ecoservice_prop:s0
+
+persist.vendor.data.netmgr.log_to_file          u:object_r:vendor_default_prop:s0
+persist.vendor.ims.                             u:object_r:qcom_ims_prop:s0
+persist.vendor.qti.telephony.vt_cam_interface   u:object_r:public_vendor_default_prop:s0
+
+# hvdcp_opti prop
+persist.vendor.hvdcp_opti.start                 u:object_r:vendor_hvdcp_opti_prop:s0
+persist.vendor.hvdcp_opti.version               u:object_r:vendor_hvdcp_opti_prop:s0
+
+# vendor_radio_prop
+persist.vendor.data.shs_ko_load                 u:object_r:vendor_radio_prop:s0
+persist.vendor.data.shsusr_load                 u:object_r:vendor_radio_prop:s0
+persist.vendor.data.perf_ko_load                u:object_r:vendor_radio_prop:s0
+persist.vendor.data.qmipriod_load               u:object_r:vendor_radio_prop:s0
+persist.vendor.data.offload_ko_load             u:object_r:vendor_radio_prop:s0
+
+#keymaster strongbox service
+vendor.keymaster.strongbox.version u:object_r:vendor_km_strongbox_version_prop:s0

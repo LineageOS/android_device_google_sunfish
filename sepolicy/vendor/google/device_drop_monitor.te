@@ -1,0 +1,15 @@
+type device_drop_monitor, domain, coredomain;
+
+userdebug_or_eng(`
+  app_domain(device_drop_monitor)
+
+  allow device_drop_monitor app_api_service:service_manager find;
+  allow device_drop_monitor fwk_stats_hwservice:hwservice_manager find;
+  allow device_drop_monitor sysfs_msm_subsys:dir search;
+  allow device_drop_monitor sysfs_msm_subsys:file r_file_perms;
+  allow device_drop_monitor fwk_stats_service:service_manager find;
+  binder_call(device_drop_monitor, gpuservice);
+  binder_call(device_drop_monitor, stats_service_server);
+  binder_use(device_drop_monitor)
+')
+

@@ -1,0 +1,17 @@
+type hvdcp, domain;
+type hvdcp_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hvdcp)
+
+allow hvdcp sysfs_batteryinfo:file rw_file_perms;
+allow hvdcp sysfs_batteryinfo:dir r_dir_perms;
+allow hvdcp qg_device:chr_file rw_file_perms;
+allow hvdcp self:capability2 wake_alarm;
+allow hvdcp self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
+allow hvdcp kmsg_device:chr_file rw_file_perms;
+allow hvdcp mnt_vendor_file:dir r_dir_perms;
+allow hvdcp persist_file:dir search;
+allow hvdcp persist_hvdcp_file:dir search;
+allow hvdcp persist_hvdcp_file:file rw_file_perms;
+
+set_prop(hvdcp, vendor_hvdcp_opti_prop)
+wakelock_use(hvdcp)

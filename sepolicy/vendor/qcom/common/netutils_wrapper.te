@@ -1,0 +1,3 @@
+allow netutils_wrapper netmgrd:fd use;
+allow netutils_wrapper netmgrd:fifo_file rw_file_perms;
+allowxperm netutils_wrapper netmgrd:fifo_file ioctl { TCGETS };

@@ -1,0 +1,13 @@
+type hal_display_color_default, domain;
+type hal_display_color_default_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_display_color_default)
+
+# Allow hal_display_color_default access hw service
+add_hwservice(hal_display_color_default, hal_display_color_hwservice)
+add_hwservice(hal_display_color_default, hal_display_postproc_hwservice)
+vndbinder_use(hal_display_color_default);
+get_prop(hal_display_color_default, hwservicemanager_prop)
+hwbinder_use(hal_display_color_default);
+
+# Rule for display color to access graphics composer process
+unix_socket_connect(hal_display_color, pps, hal_graphics_composer_default);

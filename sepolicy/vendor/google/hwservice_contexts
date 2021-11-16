@@ -1,0 +1,9 @@
+hardware.google.pixelstats::IPixelStats                                 u:object_r:hal_pixelstats_hwservice:s0
+hardware.google.light::ILight                                           u:object_r:hal_light_hwservice:s0
+hardware.google.bluetooth.bt_channel_avoidance::IBTChannelAvoidance     u:object_r:hal_bluetooth_coexistence_hwservice:s0
+hardware.google.bluetooth.sar::IBluetoothSar                            u:object_r:hal_bluetooth_coexistence_hwservice:s0
+vendor.google.darwinn.service::IDarwinnService                          u:object_r:hal_darwinn_hwservice:s0
+vendor.google.radioext::IRadioExt                                       u:object_r:hal_radioext_hwservice:s0
+vendor.google.wifi_ext::IWifiExt                                        u:object_r:hal_wifi_ext_hwservice:s0
+vendor.google.wireless_charger::IWirelessCharger                        u:object_r:hal_wlc_hwservice:s0
+vendor.google.audiometricext::IAudioMetricExt                           u:object_r:hal_audiometricext_hwservice:s0
