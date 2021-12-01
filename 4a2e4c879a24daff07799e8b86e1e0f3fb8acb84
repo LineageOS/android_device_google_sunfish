@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f7154ea_0a12a5f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2195
+      },
+      "writtenOn": "2021-12-01T21:58:04Z",
+      "side": 1,
+      "message": "A better way to achieve this might be to do it on the SuW SIM selection page.\n\nIf eSIM is found, enable DSDS.\n\nStock SuW does this.\n\nI feel like we might be able to do it with AOSP APIs / code as well - surely just seeing if the device has an eSIM provisioned should be possible, and if so, enable dsds somehow. (hoping there\u0027s a telephony API rather than having to resort to setprop)",
+      "revId": "4a2e4c879a24daff07799e8b86e1e0f3fb8acb84",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
