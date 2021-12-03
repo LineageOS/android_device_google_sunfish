@@ -251,6 +251,13 @@ BOARD_GOOGLE_DYNAMIC_PARTITIONS_SIZE := 4873781248
 # Set error limit to BOARD_SUPER_PARTITON_SIZE - 500MB
 BOARD_SUPER_PARTITION_ERROR_LIMIT := 9231663104
 
+# Note as of b/208358685, our sunfish_tuscany builds are
+# exceeding the super partition limit, causing all builds
+# to fail. Here we increase it by 200 MB to keep building.
+ifeq (,$(filter-out sunfish_tuscany, $(TARGET_PRODUCT)))
+BOARD_SUPER_PARTITION_ERROR_LIMIT := 9431663104
+endif
+
 # DTB
 ifeq (,$(filter-out sunfish_kasan, $(TARGET_PRODUCT)))
 BOARD_PREBUILT_DTBIMAGE_DIR := device/google/sunfish-kernel/kasan
