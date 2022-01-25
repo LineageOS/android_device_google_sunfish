@@ -93,3 +93,5 @@ persist.data.mode=concurrent
 persist.bluetooth.bqr.event_mask=14
 # BQR minimum report interval configuration
 persist.bluetooth.bqr.min_interval_ms=500
+# Hearing Aid Audio Support Using Bluetooth LE
+bluetooth.profile.asha.central=true
