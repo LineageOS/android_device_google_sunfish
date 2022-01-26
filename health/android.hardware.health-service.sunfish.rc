@@ -5,7 +5,7 @@ service vendor.health-sunfish /vendor/bin/hw/android.hardware.health-service.sun
     capabilities WAKE_ALARM BLOCK_SUSPEND
     file /dev/kmsg w
 
-service vendor.charger-sunfish /vendor/bin/hw/android.hardware.health-service.sunfish --charger
+service vendor.charger /vendor/bin/hw/android.hardware.health-service.sunfish --charger
     class charger
     seclabel u:r:charger_vendor:s0
     user system
