@@ -275,8 +275,8 @@
         <device name="SND_DEVICE_IN_VOICE_REC_DMIC_FLUENCE" backend="handset-mic" interface="TERT_TDM_TX_0"/>
         <device name="SND_DEVICE_IN_AANC_HANDSET_MIC" backend="handset-mic" interface="TERT_TDM_TX_0"/>
         <device name="SND_DEVICE_IN_QUAD_MIC" backend="handset-mic" interface="TERT_TDM_TX_0"/>
-        <device name="SND_DEVICE_IN_HANDSET_STEREO_DMIC" backend="handset-mic" interface="TERT_TDM_TX_0"/>
-        <device name="SND_DEVICE_IN_SPEAKER_STEREO_DMIC" backend="speaker-mic" interface="TERT_TDM_TX_0"/>
+        <device name="SND_DEVICE_IN_HANDSET_DMIC_STEREO" backend="handset-mic" interface="TERT_TDM_TX_0"/>
+        <device name="SND_DEVICE_IN_SPEAKER_DMIC_STEREO" backend="speaker-mic" interface="TERT_TDM_TX_0"/>
         <device name="SND_DEVICE_IN_CAPTURE_VI_FEEDBACK" backend="vi-feedback" interface="SEC_TDM_TX_0"/>
         <device name="SND_DEVICE_IN_CAPTURE_VI_FEEDBACK_MONO_1" backend="vi-feedback" interface="SEC_TDM_TX_0"/>
         <device name="SND_DEVICE_IN_CAPTURE_VI_FEEDBACK_MONO_2" backend="vi-feedback" interface="SEC_TDM_TX_0"/>
