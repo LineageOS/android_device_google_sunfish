@@ -73,7 +73,7 @@
     </hal>
     <hal format="hidl" optional="true">
         <name>vendor.google.google_battery</name>
-        <version>1.1</version>
+        <version>1.2</version>
         <interface>
             <name>IGoogleBattery</name>
             <instance>default</instance>
