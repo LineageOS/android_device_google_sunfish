@@ -18,19 +18,14 @@ package {
 }
 
 cc_binary {
-    name: "android.hardware.usb@1.3-service.sunfish",
+    name: "android.hardware.usb.gadget-service.sunfish",
     relative_install_path: "hw",
-    init_rc: ["android.hardware.usb@1.3-service.sunfish.rc"],
+    init_rc: ["android.hardware.usb.gadget-service.sunfish.rc"],
     vintf_fragments: [
-        "android.hardware.usb@1.3-service.sunfish.xml",
         "android.hardware.usb.gadget@1.1-service.sunfish.xml",
     ],
-    srcs: ["service.cpp", "Usb.cpp", "UsbGadget.cpp"],
+    srcs: ["service_gadget.cpp", "UsbGadget.cpp"],
     shared_libs: [
-        "android.hardware.usb@1.0",
-        "android.hardware.usb@1.1",
-        "android.hardware.usb@1.2",
-        "android.hardware.usb@1.3",
         "android.hardware.usb.gadget@1.0",
         "android.hardware.usb.gadget@1.1",
         "libbase",
