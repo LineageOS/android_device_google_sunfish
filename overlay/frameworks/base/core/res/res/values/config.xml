@@ -50,7 +50,7 @@
 
     <!-- Enable Night display, which requires HWC 2.0. -->
     <bool name="config_nightDisplayAvailable">true</bool>
-  
+
     <!-- Default color temperature, in Kelvin, to tint the screen when night display is
          activated. -->
     <integer name="config_nightDisplayColorTemperatureDefault">3339</integer>
@@ -117,9 +117,6 @@
     <!--  Maximum number of supported users -->
     <integer name="config_multiuserMaximumUsers">4</integer>
 
-    <!-- Whether Hearing Aid profile is supported -->
-    <bool name="config_hearing_aid_profile_supported">true</bool>
-
     <!-- List of regexpressions describing the interface (if any) that represent tetherable
          USB interfaces.  If the device doesn't want to support tething over USB this should
          be empty.  An example would be "usb.*" -->
@@ -148,9 +145,6 @@
     <string-array translatable="false" name="config_tether_bluetooth_regexs">
            <item>"bt-pan"</item>
     </string-array>
-
-    <!-- Boolean indicating if current platform supports HFP inband ringing -->
-    <bool name="config_bluetooth_hfp_inband_ringing_support">true</bool>
 
     <bool translatable="false" name="config_tether_upstream_automatic">true</bool>
 
@@ -292,7 +286,6 @@
         <item>"/system/framework/services.jar"</item>
         <item>"/apex/com.android.art/javalib/core-oj.jar"</item>
         <item>"/apex/com.android.art/javalib/core-libart.jar"</item>
-        <item>"/apex/com.android.media/javalib/updatable-media.jar"</item>
         <item>"/system/bin/surfaceflinger"</item>
         <item>"/system_ext/priv-app/SystemUIGoogle/SystemUIGoogle.apk"</item>
     </string-array>
@@ -405,4 +398,18 @@
     <string-array name="config_biometric_sensors" translatable="false">
         <item>0:2:15</item> <!-- ID0:Fingerprint:Strong -->
     </string-array>
+    <!-- Configure tcp buffer sizes in the form:
+         rmem_min,rmem_def,rmem_max,wmem_min,wmem_def,wmem_max
+         If this is configured as an empty string, the system default will be applied.
+
+         For now this config is used by mobile data only. In the future it should be
+         used by Wi-Fi as well.
+
+         Note that starting from Android 13, the TCP buffer size is fixed after boot up, and should
+         never be changed based on carriers or the network types. The value should be configured
+         appropriately based on the device's memory and performance. It is recommended to use lower
+         values if the device has low memory or doesn't support high-speed network such like LTE,
+         NR, or Wifi.
+    -->
+    <string name="config_tcp_buffers" translatable="false">2097152,6291456,16777216,512000,2097152,8388608</string>
 </resources>
