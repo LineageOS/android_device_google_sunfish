@@ -80,6 +80,9 @@ genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.q
 genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pm6150@0:qcom,usb-pdphy@1700/usbpd0/power_supply  u:object_r:sysfs_batteryinfo:s0
 genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pm6150@0:google,bms/power_supply                  u:object_r:sysfs_batteryinfo:s0
 genfscon sysfs /devices/platform/soc/a8c000.i2c/i2c-2/2-0050/                                                                                   u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pm6150@0:qcom,usb-pdphy@1700/usbpd0/usb_limit_sink_current   u:object_r:sysfs_limit_power_transfer:s0
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pm6150@0:qcom,usb-pdphy@1700/usbpd0/usb_limit_sink_enable    u:object_r:sysfs_limit_power_transfer:s0
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pm6150@0:qcom,usb-pdphy@1700/usbpd0/usb_limit_source_enable  u:object_r:sysfs_limit_power_transfer:s0
 genfscon sysfs /class/qcom-battery                                              u:object_r:sysfs_batteryinfo:s0
 genfscon debugfs /logbuffer/ssoc                                                u:object_r:debugfs_batteryinfo:s0
 genfscon debugfs /logbuffer/ttf                                                 u:object_r:debugfs_batteryinfo:s0
