@@ -49,6 +49,11 @@ constexpr char kGadgetName[] = "a600000.dwc3";
 #define USB_DATA_PATH SOC_PATH "usb_data_enabled"
 #define VBUS_PATH SOC_PATH "b_sess"
 
+#define USB_POWER_LIMIT_PATH "/sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pm6150@0:qcom,usb-pdphy@1700/usbpd0/"
+#define SINK_CURRENT_LIMIT_PATH USB_POWER_LIMIT_PATH "usb_limit_sink_current"
+#define SINK_LIMIT_ENABLE_PATH USB_POWER_LIMIT_PATH "usb_limit_sink_enable"
+#define SOURCE_LIMIT_ENABLE_PATH USB_POWER_LIMIT_PATH "usb_limit_source_enable"
+
 struct Usb : public BnUsb {
     Usb();
 
