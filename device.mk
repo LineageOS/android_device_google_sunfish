@@ -634,11 +634,9 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     audio.primary.sm6150 \
-    audio.a2dp.default \
     audio.usb.default \
     audio.r_submix.default \
     libaudio-resampler \
-    audio.hearing_aid.default \
     audio.bluetooth.default
 
 PRODUCT_PACKAGES += \
