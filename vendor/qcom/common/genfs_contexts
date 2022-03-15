@@ -26,3 +26,5 @@ genfscon sysfs /devices/platform/soc/soc:qcom,ipa_fws@1e08000                   
 genfscon sysfs /devices/virtual/xt_hardidletimer/timers                                                                                u:object_r:sysfs_data:s0
 genfscon sysfs /devices/virtual/xt_idletimer/timers                                                                                    u:object_r:sysfs_data:s0
 genfscon sysfs /module/subsystem_restart/parameters/enable_ramdumps                                                                    u:object_r:sysfs_ssr:s0
+genfscon sysfs /devices/virtual/fastrpc/adsprpc-smd/wakeup                                                                             u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/fastrpc/adsprpc-smd-secure/wakeup                                                                      u:object_r:sysfs_wakeup:s0
