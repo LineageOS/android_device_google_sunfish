@@ -47,6 +47,7 @@
     <ctl name="Voip Dtx Mode" value="0" />
     <ctl name="TTY Mode" value="OFF" />
     <ctl name="SLIMBUS_7_RX Audio Mixer MultiMedia1" value="0" />
+    <ctl name="SLIMBUS_7_RX Audio Mixer MultiMedia2" value="0" />
     <ctl name="SLIMBUS_7_RX Audio Mixer MultiMedia4" value="0" />
     <ctl name="SLIMBUS_7_RX Audio Mixer MultiMedia5" value="0" />
     <ctl name="SLIMBUS_7_RX Audio Mixer MultiMedia7" value="0" />
@@ -58,6 +59,7 @@
     <ctl name="SLIMBUS_7_RX Audio Mixer MultiMedia14" value="0" />
     <ctl name="SLIMBUS_7_RX Audio Mixer MultiMedia15" value="0" />
     <ctl name="SLIMBUS_7_RX Audio Mixer MultiMedia16" value="0" />
+    <ctl name="MultiMedia2 Mixer TX_CDC_DMA_TX_3" value="0" />
     <ctl name="MultiMedia5 Mixer AFE_PCM_TX" value="0" />
     <ctl name="MultiMedia5 Mixer TX_CDC_DMA_TX_3" value="0" />
     <ctl name="MultiMedia1 Mixer TX_CDC_DMA_TX_3" value="0" />
@@ -160,6 +162,7 @@
     <ctl name="AFE_PCM_RX Audio Mixer MultiMedia2" value="0" />
     <ctl name="AFE_PCM_RX Audio Mixer MultiMedia4" value="0" />
     <ctl name="AFE_PCM_RX Audio Mixer MultiMedia7" value="0" />
+    <ctl name="AFE_PCM_RX Audio Mixer MultiMedia8" value="0" />
     <ctl name="AFE_PCM_RX Audio Mixer MultiMedia10" value="0" />
     <ctl name="AFE_PCM_RX Audio Mixer MultiMedia11" value="0" />
     <ctl name="AFE_PCM_RX Audio Mixer MultiMedia12" value="0" />
@@ -239,6 +242,7 @@
     <!-- Incall Music -->
     <ctl name="Incall_Music Audio Mixer MultiMedia2" value="0" />
     <ctl name="Incall_Music Audio Mixer MultiMedia9" value="0" />
+    <ctl name="Incall_Music_2 Audio Mixer MultiMedia9" value="0" />
     <!-- Incall Music End -->
 
     <!-- compress-voip-call start -->
@@ -486,6 +490,21 @@
     <ctl name="R DSP RX2 Source" value="ASPRX1" />
     <!-- CS35L41 dsp(firmware) source end-->
     <!-- CS35L41 config end-->
+
+    <!-- add initial value-->
+    <ctl name="HDMI Mixer MultiMedia1" value="0" />
+    <ctl name="HDMI Mixer MultiMedia4" value="0" />
+    <ctl name="HDMI Mixer MultiMedia5" value="0" />
+    <ctl name="HDMI Mixer MultiMedia8" value="0" />
+    <ctl name="HDMI Mixer MultiMedia9" value="0" />
+    <ctl name="HDMI Mixer MultiMedia16" value="0" />
+    <ctl name="SLIMBUS_DL_HL Switch" value="0" />
+    <ctl name="SEC_TDM_RX_0 Port Mixer SLIM_7_TX" value="0" />
+    <ctl name="SEC_TDM_RX_DL_HL Switch" value="0" />
+    <ctl name="RX INT0 MIX2 INP" value="0" />
+    <ctl name="RX INT1 MIX2 INP" value="0" />
+    <ctl name="RX INT2 MIX2 INP" value="0" />
+    <!-- add initial value end-->
 
     <!-- These are audio route (FE to BE) specific mixer settings -->
     <path name="gsm-mode">
