@@ -1,0 +1,36 @@
+allow tee mnt_vendor_file:dir search;
+allow tee persist_file:dir search;
+allow tee persist_file:lnk_file read;
+allow tee persist_drm_file:dir create_dir_perms;
+allow tee persist_drm_file:file create_file_perms;
+allow tee vendor_tui_data_file:dir r_dir_perms;
+allow tee vendor_tui_data_file:file rw_file_perms;
+
+allow tee self:capability { chown setgid setuid sys_rawio sys_admin};
+
+allow tee device:dir r_dir_perms;
+allow tee sg_device:chr_file { rw_file_perms setattr };
+
+allow tee block_device:dir r_dir_perms;
+allow tee ssd_block_device:blk_file rw_file_perms;
+
+set_prop(tee, vendor_tee_listener_prop)
+vndbinder_use(tee)
+
+wakelock_use(tee);
+
+hwbinder_use(tee)
+get_prop(tee, hwservicemanager_prop)
+
+binder_call(tee, hal_tui_comm_qti)
+allow tee hal_tui_comm_hwservice:hwservice_manager find;
+
+binder_call(tee, hal_graphics_composer_default)
+allow tee hal_display_config_hwservice:hwservice_manager find;
+allow tee hal_graphics_allocator_default:fd use;
+
+allow tee sysfs_wake_lock:file append;
+allow tee time_daemon:unix_stream_socket connectto;
+
+# allow tee access for secure UI to work
+allow tee graphics_device:chr_file rw_file_perms;

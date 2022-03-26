@@ -1,0 +1,14 @@
+binder_call(radio, hal_rcsservice)
+binder_call(radio, hal_imsrtp)
+allow radio hal_imsrtp_hwservice:hwservice_manager find;
+
+allow radio hal_imsrcsd_hwservice:hwservice_manager find;
+userdebug_or_eng(`
+  allow radio diag_device:chr_file rw_file_perms;
+')
+
+get_prop(radio, vendor_radio_prop)
+get_prop(radio, public_vendor_default_prop)
+get_prop(radio, qcom_ims_prop)
+
+allow radio mediaextractor_service:service_manager find;

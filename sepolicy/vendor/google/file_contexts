@@ -1,0 +1,119 @@
+# dev nodes
+/dev/abc-pcie-tpu_0                                                                   u:object_r:abc_tpu_device:s0
+/dev/access-metadata                                                                  u:object_r:ramoops_device:s0
+/dev/access-ramoops                                                                   u:object_r:ramoops_device:s0
+/dev/block/zram0                                                                      u:object_r:swap_block_device:s0
+/dev/ipu                                                                              u:object_r:ipu_device:s0
+/dev/maxfg_history                                                                    u:object_r:maxfg_device:s0
+/dev/iaxxx-module-celldrv                                                             u:object_r:pwrstats_device:s0
+/dev/qg                                                                               u:object_r:qg_device:s0
+/dev/qg_battery                                                                       u:object_r:qg_device:s0
+
+# system binaries
+/system/bin/hw/hardware\.google\.pixelstats@1\.0-service                              u:object_r:pixelstats_system_exec:s0
+/vendor/bin/easelmanagerd                                                             u:object_r:easel_exec:s0
+/vendor/bin/pixelstats-vendor                                                         u:object_r:pixelstats_vendor_exec:s0
+/dev/battery_history                                                                  u:object_r:battery_history_device:s0
+
+# vendor binaries
+/vendor/bin/hw/android\.hardware\.camera\.provider@2\.7-service-google                u:object_r:hal_camera_default_exec:s0
+/vendor/bin/hw/android\.hardware\.contexthub@1\.2-service\.generic                    u:object_r:hal_contexthub_default_exec:s0
+/vendor/bin/hw/android\.hardware\.dumpstate@1\.1-service\.sunfish                     u:object_r:hal_dumpstate_impl_exec:s0
+/vendor/bin/hw/android\.hardware\.neuralnetworks@1\.0-service-paintbox                u:object_r:hal_neuralnetworks_paintbox_exec:s0
+/vendor/bin/hw/android\.hardware\.neuralnetworks@1\.2-service-noronha                 u:object_r:hal_neuralnetworks_darwinn_exec:s0
+/vendor/bin/hw/android\.hardware\.power\.stats@1\.0-service\.pixel                    u:object_r:hal_power_stats_default_exec:s0
+/vendor/bin/hw/android\.hardware\.usb@1\.3-service\.sunfish                           u:object_r:hal_usb_impl_exec:s0
+/vendor/bin/hw/android\.hardware\.vibrator@1\.3-service\.sunfish                      u:object_r:hal_vibrator_default_exec:s0
+/vendor/bin/hw/hardware\.google\.light@1\.1-service                                   u:object_r:hal_light_default_exec:s0
+/vendor/bin/hw/vendor\.google\.radioext@1\.0-service                                  u:object_r:hal_radioext_default_exec:s0
+/vendor/bin/color_init                                                                u:object_r:color_init_exec:s0
+/vendor/bin/init\.ramoops\.sh                                                         u:object_r:ramoops_exec:s0
+/vendor/bin/modem_svc                                                                 u:object_r:modem_svc_exec:s0
+/vendor/bin/ramoops                                                                   u:object_r:ramoops_exec:s0
+/vendor/bin/init\.radio\.sh                                                           u:object_r:init_radio_exec:s0
+/vendor/bin/init\.insmod\.sh                                                          u:object_r:init-insmod-sh_exec:s0
+/vendor/bin/hw/vendor\.google\.wifi_ext@1\.0-service-vendor                           u:object_r:hal_wifi_ext_exec:s0
+/vendor/bin/hw/vendor\.google\.wifi_ext@1\.0-service-vendor-lazy                      u:object_r:hal_wifi_ext_exec:s0
+/vendor/bin/tcpdump_logger                                                            u:object_r:tcpdump_logger_exec:s0
+/vendor/bin/hw/vendor\.google\.wireless_charger@1\.0-service-vendor                   u:object_r:hal_wlc_exec:s0
+/vendor/bin/hw/android.hardware.graphics.composer@2.1-service                         u:object_r:hal_graphics_composer_default_exec:s0
+/vendor/bin/hw/vendor.qti.hardware.display.composer-service                           u:object_r:hal_graphics_composer_default_exec:s0
+/vendor/bin/hw/init_dp.sh                                                             u:object_r:init_dp_exec:s0
+/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.2-service\.fpc           u:object_r:hal_fingerprint_default_exec:s0
+/vendor/bin/init\.qti\.chg_policy\.sh                                                 u:object_r:init_qti_chg_policy_exec:s0
+/vendor/bin/hw/android\.hardware\.graphics\.composer@2\.4-service-sm8150              u:object_r:hal_graphics_composer_default_exec:s0
+
+# Vendor firmware
+/vendor/firmware_mnt(/.*)?                                                            u:object_r:firmware_file:s0
+
+/mnt/vendor/persist/battery(/.*)?                                                     u:object_r:persist_battery_file:s0
+/mnt/vendor/persist/haptics(/.*)?                                                     u:object_r:persist_haptics_file:s0
+
+# Incremental file system driver
+/vendor/lib/modules/incrementalfs\.ko               u:object_r:vendor_incremental_module:s0
+
+# data files
+/data/vendor/modem_stat/debug\.txt                                                    u:object_r:modem_stat_data_file:s0
+/data/vendor/modem_dump(/.*)?                                                         u:object_r:modem_dump_file:s0
+/data/vendor/tcpdump_logger(/.*)?                                                     u:object_r:tcpdump_vendor_data_file:s0
+/data/vendor_ce/[0-9]+/ramoops(/.*)?                                                  u:object_r:ramoops_vendor_data_file:s0
+/data/vendor/hal_neuralnetworks_darwinn/hal_camera(/.*)?                              u:object_r:hal_neuralnetworks_darwinn_hal_camera_data_file:s0
+/data/per_boot(/.*)?                                                                  u:object_r:per_boot_file:s0
+
+# dev socket node
+/dev/socket/diag_router                                                               u:object_r:diag_socket:s0
+
+# vendor_kernel_modules
+/vendor/lib/modules/adsp_loader_dlkm\.ko                                              u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/apr_dlkm\.ko                                                      u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/atomic64_test\.ko                                                 u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/bolero_cdc_dlkm\.ko                                               u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/br_netfilter\.ko                                                  u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/gspca_main\.ko                                                    u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/hdmi_dlkm\.ko                                                     u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/lcd\.ko                                                           u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/lkdtm\.ko                                                         u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/llcc_perfmon\.ko                                                  u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/machine_dlkm\.ko                                                  u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/mbhc_dlkm\.ko                                                     u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/mmc_test\.ko                                                      u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/mpq-adapter\.ko                                                   u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/mpq-dmx-hw-plugin\.ko                                             u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/msm_11ad_proxy\.ko                                                u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/msm-geni-ir\.ko                                                   u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/native_dlkm\.ko                                                   u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/pinctrl_lpi_dlkm\.ko                                              u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/pinctrl_wcd_dlkm\.ko                                              u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/platform_dlkm\.ko                                                 u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/q6_dlkm\.ko                                                       u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/q6_notifier_dlkm\.ko                                              u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/q6_pdr_dlkm\.ko                                                   u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/rdbg\.ko                                                          u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/rx_macro_dlkm\.ko                                                 u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/snd_event_dlkm\.ko                                                u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/stub_dlkm\.ko                                                     u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/swr_ctrl_dlkm\.ko                                                 u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/swr_dlkm\.ko                                                      u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/test_user_copy\.ko                                                u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/torture\.ko                                                       u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/tx_macro_dlkm\.ko                                                 u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/usf_dlkm\.ko                                                      u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/va_macro_dlkm\.ko                                                 u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/wcd934x_dlkm\.ko                                                  u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/wcd937x_dlkm\.ko                                                  u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/wcd937x_slave_dlkm\.ko                                            u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/wcd9xxx_dlkm\.ko                                                  u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/wcd_core_dlkm\.ko                                                 u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/wcd_spi_dlkm\.ko                                                  u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/wglink_dlkm\.ko                                                   u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/wil6210\.ko                                                       u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/wlan\.ko                                                          u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/wsa881x_dlkm\.ko                                                  u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/wsa_macro_dlkm\.ko                                                u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/heatmap\.ko                                                       u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/ftm5\.ko                                                          u:object_r:vendor_kernel_modules:s0
+/vendor/lib/modules/drv2624\.ko                                                       u:object_r:vendor_kernel_modules:s0
+
+# Vendor libs that are exposed to apps (those listed in /vendor/etc/public.libraries.txt
+# and their dependencies)
+/vendor/lib(64)?/vendor\.qti\.hardware\.dsp@1\.0\.so                                  u:object_r:same_process_hal_file:s0

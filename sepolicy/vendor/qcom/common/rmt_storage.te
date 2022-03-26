@@ -1,0 +1,22 @@
+type rmt_storage, domain;
+type rmt_storage_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(rmt_storage)
+
+wakelock_use(rmt_storage)
+
+r_dir_file(rmt_storage, sysfs_uio)
+
+get_prop(rmt_storage, radio_control_prop)
+set_prop(rmt_storage, vendor_modem_prop)
+
+allow rmt_storage kmsg_device:chr_file w_file_perms;
+allow rmt_storage modem_block_device:blk_file rw_file_perms;
+allow rmt_storage uio_device:chr_file rw_file_perms;
+allow rmt_storage block_device:dir search;
+allow rmt_storage sysfs_rmtfs:dir search;
+allow rmt_storage sysfs_rmtfs:file r_file_perms;
+allow rmt_storage sysfs_msm_subsys:dir r_dir_perms;
+r_dir_file(rmt_storage, sysfs_esoc);
+
+allow rmt_storage self:qipcrtr_socket create_socket_perms;
+allowxperm rmt_storage self:qipcrtr_socket ioctl msm_sock_ipc_ioctls;

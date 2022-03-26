@@ -1,0 +1,4 @@
+get_prop(surfaceflinger, vendor_display_prop)
+
+dontaudit surfaceflinger sysfs_msm_subsys:dir search;
+dontaudit surfaceflinger sysfs_msm_subsys:file r_file_perms;

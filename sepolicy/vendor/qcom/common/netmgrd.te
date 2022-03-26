@@ -1,0 +1,74 @@
+type netmgrd, domain;
+type netmgrd_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(netmgrd)
+
+net_domain(netmgrd)
+
+#Allow netmgrd operations
+#TODO(b/125060737): Remove netmgrd net_admin/net_raw privilege
+allow netmgrd netmgrd:capability {
+    net_raw
+    net_admin
+    setgid
+    setuid
+    setpcap
+};
+
+#Allow operations on different types of sockets
+allow netmgrd netmgrd:netlink_route_socket nlmsg_write;
+allow netmgrd self:netlink_generic_socket create_socket_perms_no_ioctl;
+allow netmgrd self:qipcrtr_socket create_socket_perms_no_ioctl;
+
+#Allow writing of ipv6 network properties
+allow netmgrd proc_net:file rw_file_perms;
+
+#Allow nemtgrd to use esoc api's to determine target
+allow netmgrd sysfs_esoc:dir r_dir_perms;
+allow netmgrd sysfs_esoc:lnk_file r_file_perms;
+
+r_dir_file(netmgrd, sysfs_ssr);
+
+#Allow netmgrd to create netmgrd socket
+allow netmgrd netmgrd_socket:dir create_dir_perms;
+allow netmgrd netmgrd_socket:sock_file create_file_perms;
+
+#Allow netmgrd to use wakelock
+wakelock_use(netmgrd)
+
+allowxperm netmgrd self:udp_socket ioctl priv_sock_ioctls;
+
+#Allow netmgrd to use netd HAL via HIDL
+allow netmgrd system_net_netd_hwservice:hwservice_manager find;
+binder_call(netmgrd, netd)
+
+allow netmgrd sysfs_net:dir r_dir_perms;
+allow netmgrd sysfs_net:file rw_file_perms;
+
+allow netmgrd sysfs_soc:dir search;
+allow netmgrd sysfs_soc:file r_file_perms;
+
+allow netmgrd sysfs_msm_subsys:dir r_dir_perms;
+allow netmgrd sysfs_msm_subsys:file r_file_perms;
+
+#Ignore if device loading for private IOCTL failed
+dontaudit netmgrd kernel:system module_request;
+
+# Allow netmgrd logging mechanism
+allow netmgrd netmgrd_data_file:dir rw_dir_perms;
+allow netmgrd netmgrd_data_file:file create_file_perms;
+
+userdebug_or_eng(`
+  allow netmgrd diag_device:chr_file rw_file_perms;
+  #Allow diag logging
+  allow netmgrd sysfs_timestamp_switch:file r_file_perms;
+  r_dir_file(netmgrd, sysfs_diag)
+')
+allow netmgrd self:netlink_xfrm_socket create_socket_perms_no_ioctl;
+
+#Allow set persist.vendor.data.shs_ko_load
+#Allow set persist.vendor.data.shsusr_load
+#Allow set persist.vendor.data.perf_ko_load
+#Allow set persist.vendor.data.qmipriod_load
+#Allow set persist.vendor.data.offload_ko_load
+set_prop(netmgrd, vendor_radio_prop)
+

@@ -1,0 +1,18 @@
+type sensors, domain;
+type sensors_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(sensors)
+
+# For QCOM diag port access
+userdebug_or_eng(`
+  allow sensors diag_device:chr_file rw_file_perms;
+')
+allow sensors persist_file:dir search;
+allow sensors mnt_vendor_file:dir search;
+allow sensors self:qipcrtr_socket create;
+allow sensors sensors_persist_file:dir rw_dir_perms;
+r_dir_file(sensors, sysfs_msm_subsys)
+allow sensors sysfs_ssr:file r_file_perms;
+allow sensors sensors_vendor_data_file:dir rw_dir_perms;
+allow sensors sensors_vendor_data_file:file create_file_perms;
+
+dontaudit sensors sysfs_esoc:dir r_dir_perms;

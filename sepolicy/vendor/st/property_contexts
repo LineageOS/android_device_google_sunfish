@@ -1,0 +1,6 @@
+# SecureElement
+persist.vendor.se.                              u:object_r:vendor_secure_element_prop:s0
+
+# NFC
+persist.vendor.nfc.                             u:object_r:vendor_nfc_prop:s0
+

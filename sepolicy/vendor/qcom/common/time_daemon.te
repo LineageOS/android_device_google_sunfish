@@ -1,0 +1,24 @@
+type time_daemon, domain, mlstrustedsubject;
+type time_daemon_exec, exec_type, vendor_file_type, file_type;
+type time_data_file, file_type, data_file_type;
+
+init_daemon_domain(time_daemon)
+
+allow time_daemon mnt_vendor_file:dir r_dir_perms;
+allow time_daemon persist_file:dir r_dir_perms;
+allow time_daemon persist_time_file:dir rw_dir_perms;
+allow time_daemon persist_time_file:file create_file_perms;
+allow time_daemon rtc_device:chr_file r_file_perms;
+allow time_daemon self:qipcrtr_socket create_socket_perms_no_ioctl;
+allow time_daemon sysfs_esoc:dir r_dir_perms;
+allow time_daemon sysfs_msm_subsys:dir r_dir_perms;
+allow time_daemon sysfs_soc:dir r_dir_perms;
+allow time_daemon sysfs_soc:file r_file_perms;
+allow time_daemon sysfs_ssr:file r_file_perms;
+allow time_daemon time_data_file:dir rw_dir_perms;
+allow time_daemon time_data_file:file create_file_perms;
+
+allow time_daemon self:capability sys_time;
+
+# b/68864350
+dontaudit time_daemon unlabeled:dir search;

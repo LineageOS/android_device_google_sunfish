@@ -1,0 +1,21 @@
+vendor_internal_prop(ecoservice_prop)
+vendor_internal_prop(vendor_battery_defender_prop)
+vendor_internal_prop(vendor_battery_profile_prop)
+vendor_internal_prop(vendor_build_type_prop)
+vendor_internal_prop(vendor_modem_prop)
+vendor_internal_prop(vendor_ramoops_prop)
+vendor_internal_prop(vendor_shutdown_prop)
+vendor_internal_prop(vendor_tcpdump_log_prop)
+vendor_internal_prop(vendor_vibrator_prop)
+vendor_internal_prop(vendor_device_prop)
+
+# vendor verbose logging property
+vendor_internal_prop(vendor_logging_prop)
+
+vendor_restricted_prop(camera_ro_prop)
+
+# Vendor aware available type
+vendor_restricted_prop(vendor_aware_available_prop)
+
+# Logger
+vendor_internal_prop(vendor_logger_prop)

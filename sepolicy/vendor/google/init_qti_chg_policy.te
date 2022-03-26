@@ -1,0 +1,18 @@
+type init_qti_chg_policy, domain;
+type init_qti_chg_policy_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(init_qti_chg_policy)
+
+allow init_qti_chg_policy self:capability chown;
+allow init_qti_chg_policy vendor_toolbox_exec:file rx_file_perms;
+allow init_qti_chg_policy sysfs_batteryinfo:file create_file_perms;
+allow init_qti_chg_policy sysfs_batteryinfo:dir r_dir_perms;
+allow init_qti_chg_policy sysfs_contaminant:file create_file_perms;
+allow init_qti_chg_policy sysfs_wakeup:dir r_dir_perms;
+allow init_qti_chg_policy sysfs_wakeup:file getattr;
+allow init_qti_chg_policy sysfs_iio_devices:dir search;
+allow init_qti_chg_policy sysfs_power_stats_ignore:dir search;
+allow init_qti_chg_policy sysfs_power_stats_ignore:file r_file_perms;
+allow init_qti_chg_policy sysfs_power_stats:dir search;
+allow init_qti_chg_policy sysfs_power_stats:file r_file_perms;
+
+set_prop(init_qti_chg_policy, vendor_hvdcp_opti_prop)

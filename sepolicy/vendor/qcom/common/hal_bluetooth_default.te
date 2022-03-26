@@ -1,0 +1,15 @@
+allow hal_bluetooth_default hci_attach_dev:chr_file rw_file_perms;
+allow hal_bluetooth_default self:qipcrtr_socket create_socket_perms_no_ioctl;
+allow hal_bluetooth_default hal_bluetooth_coexistence_hwservice:hwservice_manager { add find };
+
+userdebug_or_eng(`
+  allow hal_bluetooth_default diag_device:chr_file rw_file_perms;
+  allow hal_bluetooth_default ramdump_vendor_data_file:dir rw_dir_perms;
+  allow hal_bluetooth_default ramdump_vendor_data_file:file { create rw_file_perms };
+  r_dir_file(hal_bluetooth_default, debugfs_ipc)
+  set_prop(hal_bluetooth_default, vendor_ssr_prop)
+')
+
+set_prop(hal_bluetooth_default, vendor_bluetooth_prop)
+
+dontaudit hal_bluetooth_default kernel:system module_request;

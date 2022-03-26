@@ -1,0 +1,76 @@
+persist.vendor.radio.RATE_ADAPT_ENABLE          u:object_r:vendor_radio_prop:s0
+persist.vendor.radio.ROTATION_ENABLE            u:object_r:vendor_radio_prop:s0
+persist.vendor.radio.VT_ENABLE                  u:object_r:vendor_radio_prop:s0
+persist.vendor.radio.VT_HYBRID_ENABLE           u:object_r:vendor_radio_prop:s0
+persist.vendor.radio.videopause.mode            u:object_r:vendor_radio_prop:s0
+persist.vendor.radio.smlog_switch               u:object_r:vendor_radio_prop:s0
+
+ro.vendor.radio.log_loc                         u:object_r:vendor_radio_prop:s0
+ro.vendor.radio.log_prefix                      u:object_r:vendor_radio_prop:s0
+
+persist.vendor.audio.fluence.voicecomm          u:object_r:vendor_audio_prop:s0
+
+ro.boot.usbcontroller                           u:object_r:vendor_usb_prop:s0
+
+ro.boot.hardware.platform                       u:object_r:public_vendor_default_prop:s0
+
+vendor.display.primary_red                      u:object_r:vendor_display_prop:s0
+vendor.display.primary_green                    u:object_r:vendor_display_prop:s0
+vendor.display.primary_blue                     u:object_r:vendor_display_prop:s0
+vendor.display.primary_white                    u:object_r:vendor_display_prop:s0
+vendor.display.native_display_primaries_ready   u:object_r:vendor_display_prop:s0
+
+vendor.all.modules.ready                        u:object_r:vendor_device_prop:s0
+vendor.all.devices.ready                        u:object_r:vendor_device_prop:s0
+
+# battery
+vendor.battery.defender.                        u:object_r:vendor_battery_defender_prop:s0
+
+# test battery profile
+persist.vendor.testing_battery_profile          u:object_r:vendor_battery_profile_prop:s0
+
+# Tcpdump_logger
+persist.vendor.tcpdump.log.alwayson             u:object_r:vendor_tcpdump_log_prop:s0
+vendor.tcpdump.log.ondemand                     u:object_r:vendor_tcpdump_log_prop:s0
+vendor.tcpdump.log.alwayson                     u:object_r:vendor_tcpdump_log_prop:s0
+vendor.tcpdump.output.dir                       u:object_r:vendor_tcpdump_log_prop:s0
+
+persist.vendor.shutdown.                        u:object_r:vendor_shutdown_prop:s0
+
+# Google camera hal read only props
+ro.vendor.camera.                               u:object_r:camera_ro_prop:s0
+ro.vendor.camera.res.fmq.size                   u:object_r:camera_ro_prop:s0
+ro.vendor.camera.req.fmq.size                   u:object_r:camera_ro_prop:s0
+
+ro.vendor.build.type                            u:object_r:vendor_build_type_prop:s0
+
+ro.vendor.aware_available                       u:object_r:vendor_aware_available_prop:s0
+
+persist.vendor.modem.                           u:object_r:vendor_modem_prop:s0
+persist.vendor.mdm.                             u:object_r:vendor_modem_prop:s0
+
+# ramoops
+vendor.ramoops.                                 u:object_r:vendor_ramoops_prop:s0
+
+# FP HAL kpi
+vendor.fpc_kpi                                  u:object_r:vendor_default_prop:s0
+
+# Haptics HAL properties
+ro.vendor.vibrator.hal.config.dynamic           u:object_r:vendor_vibrator_prop:s0
+ro.vendor.vibrator.hal.click.duration           u:object_r:vendor_vibrator_prop:s0
+ro.vendor.vibrator.hal.tick.duration            u:object_r:vendor_vibrator_prop:s0
+ro.vendor.vibrator.hal.heavyclick.duration      u:object_r:vendor_vibrator_prop:s0
+ro.vendor.vibrator.hal.long.voltage             u:object_r:vendor_vibrator_prop:s0
+ro.vendor.vibrator.hal.long.frequency.shift     u:object_r:vendor_vibrator_prop:s0
+ro.vendor.vibrator.hal.steady.shape             u:object_r:vendor_vibrator_prop:s0
+ro.vendor.vibrator.hal.closeloop.threshold      u:object_r:vendor_vibrator_prop:s0
+ro.vendor.vibrator.hal.short.voltage            u:object_r:vendor_vibrator_prop:s0
+ro.vendor.vibrator.hal.effect.shape             u:object_r:vendor_vibrator_prop:s0
+ro.vendor.vibrator.hal.lptrigger                u:object_r:vendor_vibrator_prop:s0
+
+# Vendor verbose logging prop
+persist.vendor.verbose_logging_enabled          u:object_r:vendor_logging_prop:s0
+
+# Logger app
+vendor.pixellogger.                             u:object_r:vendor_logger_prop:s0
+persist.vendor.pixellogger.                     u:object_r:vendor_logger_prop:s0
