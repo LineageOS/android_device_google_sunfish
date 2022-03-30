@@ -706,9 +706,11 @@ Return<DumpstateStatus> DumpstateDevice::dumpstateBoard_1_1(const hidl_handle& h
     DumpFileToFd(fd, "TTF", "/d/logbuffer/ttf");
     DumpFileToFd(fd, "TTF details", "/sys/class/power_supply/battery/ttf_details");
     DumpFileToFd(fd, "TTF stats", "/sys/class/power_supply/battery/ttf_stats");
+    DumpFileToFd(fd, "aacr_state", "/sys/class/power_supply/battery/aacr_state");
 
     DumpFileToFd(fd, "Modem Stat", "/data/vendor/modem_stat/debug.txt");
     DumpFileToFd(fd, "Pixel trace", "/d/tracing/instances/pixel-trace/trace");
+    DumpFileToFd(fd, "Charging table dump", "/d/google_battery/chg_raw_profile");
 
     // Slower dump put later in case stuck the rest of dump
     // Timeout after 3s as TZ log missing EOF
