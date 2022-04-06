@@ -58,7 +58,8 @@ ifeq ($(DEVICE_USES_SM7250_QCRIL_TELEPHONY), true)
       vendor/qcom/sm7250/proprietary/commonsys/telephony-apps/xdivert \
       vendor/qcom/sm7250/proprietary/qcril-data-hal \
       vendor/qcom/sm7250/proprietary/qcril-hal \
-      vendor/qcom/sm7250/proprietary/data
+      vendor/qcom/sm7250/proprietary/data \
+      vendor/qcom/sm7250/proprietary/qcril-hal/android_hal_utils
   else
   $(warning DEVICE_USES_SM7250_QCRIL_TELEPHONY is disabled)
 
@@ -632,11 +633,9 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     audio.primary.sm6150 \
-    audio.a2dp.default \
     audio.usb.default \
     audio.r_submix.default \
     libaudio-resampler \
-    audio.hearing_aid.default \
     audio.bluetooth.default
 
 PRODUCT_PACKAGES += \
@@ -884,7 +883,7 @@ PRODUCT_PACKAGES += $(HIDL_WRAPPER)
 
 # Increment the SVN for any official public releases
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.vendor.build.svn=41
+	ro.vendor.build.svn=42
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
