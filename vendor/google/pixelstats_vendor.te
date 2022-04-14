@@ -21,3 +21,4 @@ allow pixelstats_vendor battery_history_device:chr_file r_file_perms;
 
 # UeventListener
 r_dir_file(pixelstats_vendor, sysfs_pixelstats)
+r_dir_file(pixelstats_vendor, sysfs_typec_info)
