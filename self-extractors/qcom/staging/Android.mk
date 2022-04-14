@@ -1,5 +1,7 @@
 LOCAL_PATH := $(call my-dir)
 
+$(call declare-license-metadata,$(LOCAL_PATH)/vendor.img,legacy_proprietary,proprietary,$(LOCAL_PATH)/../LICENSE,"Vendor Image",vendor)
+
 $(eval $(call declare-copy-files-license-metadata,vendor/qcom/sunfish,:qcom,legacy_proprietary,proprietary,vendor/qcom/sunfish/LICENSE,))
 $(eval $(call declare-copy-files-license-metadata,vendor/qcom/sunfish,.jar,legacy_proprietary,proprietary,vendor/qcom/sunfish/LICENSE,))
 $(eval $(call declare-copy-files-license-metadata,vendor/qcom/sunfish,.xml,legacy_proprietary,proprietary,vendor/qcom/sunfish/LICENSE,))
