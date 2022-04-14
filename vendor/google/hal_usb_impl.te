@@ -12,3 +12,6 @@ allow hal_usb_impl sysfs_contaminant:file rw_file_perms;
 allow hal_usb_impl sysfs_limit_power_transfer:file rw_file_perms;
 set_prop(hal_usb_impl, vendor_usb_prop)
 allow hal_usb_impl sysfs_extcon:dir search;
+
+r_dir_file(hal_usb_impl, sysfs_typec_info)
+allow hal_usb_impl sysfs_typec_info:file rw_file_perms;
