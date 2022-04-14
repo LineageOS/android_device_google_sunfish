@@ -127,6 +127,7 @@ genfscon debugfs /tcpm/usbpd0                         u:object_r:debugfs_usb:s0
 genfscon debugfs /logbuffer/usbpd                     u:object_r:debugfs_usb:s0
 genfscon debugfs /logbuffer/smblib                    u:object_r:debugfs_usb:s0
 genfscon debugfs /logbuffer/pps			      u:object_r:debugfs_usb:s0
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pm6150@0:qcom,usb-pdphy@1700/usbpd0/typec  u:object_r:sysfs_typec_info:s0
 
 # Dumpstate hal
 genfscon debugfs /dma_buf/bufinfo                     u:object_r:debugfs_dma_buf:s0
