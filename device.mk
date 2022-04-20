@@ -58,8 +58,7 @@ ifeq ($(DEVICE_USES_SM7250_QCRIL_TELEPHONY), true)
       vendor/qcom/sm7250/proprietary/commonsys/telephony-apps/xdivert \
       vendor/qcom/sm7250/proprietary/qcril-data-hal \
       vendor/qcom/sm7250/proprietary/qcril-hal \
-      vendor/qcom/sm7250/proprietary/data \
-      vendor/qcom/sm7250/proprietary/qcril-hal/android_hal_utils
+      vendor/qcom/sm7250/proprietary/data
   else
   $(warning DEVICE_USES_SM7250_QCRIL_TELEPHONY is disabled)
 
