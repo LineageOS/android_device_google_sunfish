@@ -71,8 +71,6 @@
      -->
     <string name="config_rounded_mask" translatable="false">M146,0 C100,2 60,0 30,30 C0,60 2,100 0,146</string>
 
-    <bool name="config_roundedCornerMultipleRadius">true</bool>
-
     <!-- Configure 11px of extra protection around the front-facing camera -->
     <string translatable="false" name="config_frontBuiltInDisplayCutoutProtection">
         M 30,83
