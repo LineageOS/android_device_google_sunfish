@@ -28,6 +28,10 @@ PRODUCT_COPY_FILES += \
 # Google Assistant
 PRODUCT_PRODUCT_PROPERTIES += ro.opa.eligible_device=true
 
+# HBM
+PRODUCT_PACKAGES += \
+    HbmSVManagerOverlay
+
 # LiveDisplay
 PRODUCT_PACKAGES += \
     vendor.lineage.livedisplay@2.0-service-sdm
