@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.android.hbmsvmanager.overlay">
+
+    <overlay
+        android:isStatic="true"
+        android:priority="0"
+        android:targetPackage="com.android.hbmsvmanager" />
+</manifest>
