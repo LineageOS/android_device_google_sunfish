@@ -541,7 +541,7 @@ system_ext/priv-app/CarrierSetup/CarrierSetup.apk;PRESIGNED
 system_ext/priv-app/EuiccSupportPixel/EuiccSupportPixel.apk;PRESIGNED
 system_ext/priv-app/EuiccSupportPixelPermissions/EuiccSupportPixelPermissions.apk;PRESIGNED
 system_ext/priv-app/RilConfigService/RilConfigService.apk
-system_ext/priv-app/grilservice/grilservice.apk
+system_ext/priv-app/grilservice/grilservice.apk;PRESIGNED
 
 # SecureUI
 system_ext/app/com.qualcomm.qti.services.secureui/com.qualcomm.qti.services.secureui.apk
