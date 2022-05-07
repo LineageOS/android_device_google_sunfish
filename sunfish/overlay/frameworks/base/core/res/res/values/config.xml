@@ -203,7 +203,7 @@
     <!-- Height of the status bar.
          Do not read this dimen directly. Use {@link SystemBarUtils#getStatusBarHeight} instead.
          -->
-    <dimen name="status_bar_height">28dp</dimen>
+    <dimen name="status_bar_height">136px</dimen>
 
     <!-- the number of the max cached processes in the system. -->
     <integer name="config_customizedMaxCachedProcesses">64</integer>
