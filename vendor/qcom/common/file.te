@@ -106,6 +106,7 @@ type nfc_vendor_data_file, file_type, data_file_type;
 type sysfs_kgsl, sysfs_type, fs_type;
 type sysfs_kgsl_proc, sysfs_type, fs_type;
 type sysfs_kgsl_snapshot, sysfs_type, fs_type;
+type sysfs_kgsl_shell, sysfs_type, fs_type;
 type sysfs_securetouch, fs_type, sysfs_type;
 type sysfs_data, fs_type, sysfs_type;
 type sysfs_diag, fs_type, sysfs_type;
