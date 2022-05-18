@@ -136,4 +136,9 @@
         <!-- Notifications -->
         <permission name="android.permission.POST_NOTIFICATIONS" fixed="false"/>
     </exception>
+    <exception
+        package="com.google.android.apps.work.oobconfig">
+        <!-- Notifications -->
+        <permission name="android.permission.POST_NOTIFICATIONS" fixed="true"/>
+    </exception>
 </exceptions>
