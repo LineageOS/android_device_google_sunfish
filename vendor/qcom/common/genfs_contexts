@@ -6,6 +6,7 @@ genfscon sysfs /class/uio                                                       
 genfscon sysfs /devices/virtual/kgsl/kgsl/proc                                                                                         u:object_r:sysfs_kgsl_proc:s0
 genfscon sysfs /devices/platform/soc/0.qcom,rmtfs_sharedmem                                                                            u:object_r:sysfs_rmtfs:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,kgsl-hyp                                                                                 u:object_r:sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/5000000.qcom,kgsl-3d0/kgsl/kgsl-3d0/perfcounter                                                   u:object_r:sysfs_kgsl_shell:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,spss_utils                                                                               u:object_r:sysfs_spss:s0
 genfscon sysfs /bus/esoc                                                                                                               u:object_r:sysfs_esoc:s0
 genfscon sysfs /bus/msm_subsys                                                                                                         u:object_r:sysfs_msm_subsys:s0
