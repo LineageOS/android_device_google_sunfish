@@ -43,11 +43,9 @@ using ::std::shared_ptr;
 using ::std::string;
 
 constexpr char kGadgetName[] = "a600000.dwc3";
-#define ID_PATH SOC_PATH "id"
 #define PULLUP_PATH "/config/usb_gadget/g1/UDC"
 #define SOC_PATH "/sys/devices/platform/soc/a600000.ssusb/"
 #define USB_DATA_PATH SOC_PATH "usb_data_enabled"
-#define VBUS_PATH SOC_PATH "b_sess"
 
 #define USB_POWER_LIMIT_PATH "/sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pm6150@0:qcom,usb-pdphy@1700/usbpd0/"
 #define SINK_CURRENT_LIMIT_PATH USB_POWER_LIMIT_PATH "usb_limit_sink_current"
