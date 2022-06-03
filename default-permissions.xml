@@ -143,4 +143,9 @@
         <!-- Notifications -->
         <permission name="android.permission.POST_NOTIFICATIONS" fixed="true"/>
     </exception>
+    <exception
+        package="com.google.android.apps.turbo">
+        <!-- Notifications -->
+        <permission name="android.permission.POST_NOTIFICATIONS" fixed="false"/>
+    </exception>
 </exceptions>
