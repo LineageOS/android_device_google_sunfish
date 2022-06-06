@@ -288,6 +288,7 @@ VENDOR_SKIP_FILES=(
     "etc/bluetooth_hearing_aid_audio_policy_configuration.xml"
     "etc/bluetooth_power_limits.csv"
     "etc/crus_sp_cal_mixer_paths.xml"
+    "etc/default-permissions/default-permissions_talkback.xml"
     "etc/default_volume_tables.xml"
     "etc/displayconfig/display_id_4630946475097398401.xml"
     "etc/fs_config_dirs"
