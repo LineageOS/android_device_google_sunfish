@@ -1,2 +1,0 @@
-# b/183070459
-dontaudit netmgrd vendor_default_prop:property_service set;
