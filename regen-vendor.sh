@@ -291,6 +291,7 @@ VENDOR_SKIP_FILES=(
     "etc/default-permissions/default-permissions_talkback.xml"
     "etc/default_volume_tables.xml"
     "etc/displayconfig/display_id_4630946475097398401.xml"
+    "etc/flp.conf"
     "etc/fs_config_dirs"
     "etc/fs_config_files"
     "etc/fstab.persist"
