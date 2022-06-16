@@ -90,6 +90,10 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.mapper@1.1.vendor \
     vendor.qti.hardware.display.mapper@2.0.vendor
 
+# GPS
+PRODUCT_PACKAGES += \
+    flp.conf
+
 # HIDL
 PRODUCT_PACKAGES += \
     libhwbinder.vendor
