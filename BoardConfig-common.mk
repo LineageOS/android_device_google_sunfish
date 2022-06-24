@@ -37,6 +37,8 @@ TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a76
 
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
+# GOOGLE: workaround for https://android-review.googlesource.com/c/platform/system/sepolicy/+/1532995
+BUILD_BROKEN_VENDOR_PROPERTY_NAMESPACE := true
 
 TARGET_BOARD_COMMON_PATH := device/google/sunfish/sm7150
 
