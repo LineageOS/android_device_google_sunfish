@@ -13,5 +13,4 @@ BOARD_SEPOLICY_DIRS += device/google/sunfish-sepolicy/vendor/verizon
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += device/google/sunfish-sepolicy/system_ext/private
 
 # Pixel-wide sepolicy
-BOARD_SEPOLICY_DIRS += hardware/google/pixel-sepolicy/wifi_sniffer
 BOARD_VENDOR_SEPOLICY_DIRS += hardware/google/pixel-sepolicy/powerstats
