@@ -59,9 +59,6 @@
         <item>0</item> <!-- 4: SUN -->
     </integer-array>
 
-    <!-- Padding around the status bar -->
-    <dimen name="rounded_corner_content_padding">30px</dimen>
-
     <!-- Height of the status bar header bar when on Keyguard (match status_bar_height) -->
     <dimen name="status_bar_header_height_keyguard">@*android:dimen/status_bar_height</dimen>
 
@@ -73,8 +70,6 @@
          corner edges), this pulls out just the curve.
      -->
     <string name="config_rounded_mask" translatable="false">M146,0 C100,2 60,0 30,30 C0,60 2,100 0,146</string>
-
-    <bool name="config_roundedCornerMultipleRadius">true</bool>
 
     <!-- Configure 11px of extra protection around the front-facing camera -->
     <string translatable="false" name="config_frontBuiltInDisplayCutoutProtection">

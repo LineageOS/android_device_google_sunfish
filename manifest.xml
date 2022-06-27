@@ -214,7 +214,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <hal format="hidl">
       <name>vendor.google.google_battery</name>
       <transport>hwbinder</transport>
-      <version>1.1</version>
+      <version>1.2</version>
       <interface>
         <name>IGoogleBattery</name>
         <instance>default</instance>
@@ -424,24 +424,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <name>IFactory</name>
             <instance>default</instance>
         </interface>
-    </hal>
-    <hal format="hidl">
-        <name>android.hardware.drm</name>
-        <transport>hwbinder</transport>
-        <impl level="generic"></impl>
-        <version>1.0</version>
-        <interface>
-            <name>ICryptoFactory</name>
-            <instance>widevine</instance>
-            <instance>default</instance>
-        </interface>
-        <interface>
-            <name>IDrmFactory</name>
-            <instance>widevine</instance>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.2::ICryptoFactory/clearkey</fqname>
-        <fqname>@1.2::IDrmFactory/clearkey</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.radio</name>

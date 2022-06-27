@@ -111,36 +111,6 @@ on init && property:vendor.skip.init=0
     # Allow PAI targeting per hardware SKU
     setprop ro.oem.key1 ${ro.boot.hardware.sku}
 
-    # Battery Defender
-    chown system system /sys/devices/platform/soc/soc:google,charger/charge_stop_level
-    chown system system /sys/devices/platform/soc/soc:google,charger/charge_start_level
-    chown system system /sys/devices/platform/soc/soc:google,charger/bd_drainto_soc
-    chown system system /sys/devices/platform/soc/soc:google,charger/bd_recharge_soc
-    chown system system /sys/devices/platform/soc/soc:google,charger/bd_recharge_voltage
-    chown system system /sys/devices/platform/soc/soc:google,charger/bd_resume_abs_temp
-    chown system system /sys/devices/platform/soc/soc:google,charger/bd_resume_soc
-    chown system system /sys/devices/platform/soc/soc:google,charger/bd_resume_temp
-    chown system system /sys/devices/platform/soc/soc:google,charger/bd_resume_time
-    chown system system /sys/devices/platform/soc/soc:google,charger/bd_trigger_temp
-    chown system system /sys/devices/platform/soc/soc:google,charger/bd_trigger_time
-    chown system system /sys/devices/platform/soc/soc:google,charger/bd_trigger_voltage
-    chown system system /sys/devices/platform/soc/soc:google,charger/bd_temp_enable
-    chown system system /sys/devices/platform/soc/soc:google,charger/bd_temp_dry_run
-    chown system system /sys/devices/platform/soc/soc:google,charger/bd_clear
-    chown system system /sys/devices/platform/soc/soc:google,battery/power_supply/battery/aacr_state
-    chown system system /sys/devices/platform/soc/soc:google,battery/power_supply/battery/aacr_cycle_max
-    chown system system /sys/devices/platform/soc/soc:google,battery/power_supply/battery/aacr_cycle_grace
-    chown system system /sys/devices/platform/soc/soc:google,battery/power_supply/battery/bd_trickle_enable
-    chown system system /sys/devices/platform/soc/soc:google,battery/power_supply/battery/bd_trickle_recharge_soc
-    chown system system /sys/devices/platform/soc/soc:google,battery/power_supply/battery/bd_trickle_cnt
-    chown system system /sys/devices/platform/soc/soc:google,battery/power_supply/battery/bd_trickle_dry_run
-    chown system system /sys/devices/platform/soc/soc:google,battery/power_supply/battery/bd_trickle_reset_sec
-    chown system system /sys/devices/platform/soc/soc:google,battery/power_supply/battery/bd_clear
-    chown system system /sys/devices/platform/soc/soc:google,battery/power_supply/battery/health_safety_margin
-
-    # Charge stats (write 0)
-    chown system system /sys/class/power_supply/battery/charge_stats
-
     # Report max frequency to unity tasks.
     write /proc/sys/kernel/sched_lib_name "UnityMain,libunity.so"
     write /proc/sys/kernel/sched_lib_mask_force 255
@@ -400,6 +370,15 @@ on early-boot
     # FG cycle count read from dumpstate + backup restore from health HAL (and pixelstats)
     chown system system /sys/class/power_supply/maxfg/cycle_counts_bins
 
+    # Battery Defender
+    chown system system /sys/devices/platform/soc/soc:google,charger/charge_stop_level
+    chown system system /sys/devices/platform/soc/soc:google,charger/charge_start_level
+    chown system system /sys/devices/platform/soc/soc:google,charger/bd_clear
+    chown system system /sys/devices/platform/soc/soc:google,battery/power_supply/battery/bd_clear
+
+    # Charge stats (write 0)
+    chown system system /sys/class/power_supply/battery/charge_stats
+
     # Permission for battery eeprom
     chown system system /sys/devices/platform/soc/a8c000.i2c/i2c-2/2-0050/2-00500/nvmem
     chmod 0640 /sys/devices/platform/soc/a8c000.i2c/i2c-2/2-0050/2-00500/nvmem
@@ -463,10 +442,6 @@ on property:init.svc.vendor.charger=running
 
 on property:sys.boot_completed=1
     setprop vendor.setup.power 1
-
-    # Block layer tuning: discard chunk size up to 128MB
-    # Otherwise, contiguous discards can be merged
-    write /sys/block/sda/queue/discard_max_bytes 134217728
 
     # Back to default VM settings
     write /proc/sys/vm/dirty_expire_centisecs 3000
@@ -661,9 +636,7 @@ service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
     #   after setting up the capabilities required for WEXT
     #   user wifi
     #   group wifi inet keystore
-    interface android.hardware.wifi.supplicant@1.0::ISupplicant default
-    interface android.hardware.wifi.supplicant@1.1::ISupplicant default
-    interface android.hardware.wifi.supplicant@1.2::ISupplicant default
+    interface aidl android.hardware.wifi.supplicant.ISupplicant/default
     class main
     socket wpa_wlan0 dgram 660 wifi wifi
     disabled
