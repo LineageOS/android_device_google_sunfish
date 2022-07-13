@@ -3,3 +3,5 @@ hal_drm_widevine default_prop file b/238263762
 hal_googlebattery dumpstate fd b/238263413
 dumpstate incident process b/238571326
 dumpstate incident process b/238571326
+shell qemu_sf_lcd_density_prop file b/238837292
+su firmware_file filesystem b/238837404
