@@ -5,3 +5,4 @@ dumpstate incident process b/238571326
 dumpstate incident process b/238571326
 shell qemu_sf_lcd_density_prop file b/238837292
 su firmware_file filesystem b/238837404
+untrusted_app app_data_file dir b/238954121
