@@ -10,3 +10,7 @@ wakelock_use(chre)
 
 # To communicate with ST HAL
 hal_client_domain(chre, hal_audio)
+
+# Allow CHRE host to talk to the stats service
+allow chre fwk_stats_service:service_manager find;
+binder_call(chre, stats_service_server)
