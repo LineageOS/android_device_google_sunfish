@@ -64,7 +64,7 @@ persist.vendor.bt.aac_frm_ctl.enabled=true
 
 # Set lmkd options
 PRODUCT_PRODUCT_PROPERTIES += \
-	ro.config.low_ram = false \
+	ro.config.low_ram ?= false \
 	ro.lmk.log_stats = true \
 
 # charger
@@ -131,3 +131,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     framework_watchdog.fatal_window.second=600 \
     framework_watchdog.fatal_count=3
 
+# Enable zygote critical window.
+PRODUCT_PROPERTY_OVERRIDES += \
+    zygote.critical_window.minute=10

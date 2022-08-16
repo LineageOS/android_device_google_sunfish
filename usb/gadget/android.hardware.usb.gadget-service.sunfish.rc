@@ -1,7 +1,7 @@
 service vendor.usb-gadget-hal-1-1 /vendor/bin/hw/android.hardware.usb.gadget-service.sunfish
     class hal
-    user root
-    group root system shell mtp
+    user system
+    group system shell mtp
 
 on boot
     chown root system /sys/class/typec/port0/power_role
