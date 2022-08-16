@@ -6,3 +6,5 @@ get_prop(cameraserver, vendor_display_prop)
 # are not essential, and access denial to it won't break any gralloc mapper
 # functionality.
 dontaudit cameraserver gpu_device:chr_file rw_file_perms;
+
+dontaudit cameraserver sysfs_msm_subsys:dir search;
