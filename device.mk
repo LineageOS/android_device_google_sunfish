@@ -912,9 +912,6 @@ include hardware/google/pixel/common/pixel-common-device.mk
 # Citadel
 include hardware/google/pixel/citadel/citadel.mk
 
-# Factory OTA
--include vendor/google/factoryota/client/factoryota.mk
-
 -include vendor/qcom/sm8150/proprietary/securemsm/config/cpz_vendor_proprietary_board.mk
 -include vendor/qcom/sm8150/proprietary/securemsm/config/cpz_vendor_proprietary_product.mk
 -include vendor/qcom/sm8150/proprietary/securemsm/config/smcinvoke_vendor_proprietary_product.mk
