@@ -530,6 +530,7 @@ static void DumpSensorLog(int fd) {
 
 static void DumpF2FS(int fd) {
     DumpFileToFd(fd, "F2FS", "/sys/kernel/debug/f2fs/status");
+    DumpFileToFd(fd, "F2FS", "/dev/fscklogs/fsck");
     RunCommandToFd(fd, "F2FS - fsck time (ms)", {"/vendor/bin/sh", "-c", "getprop ro.boottime.init.fsck.data"});
     RunCommandToFd(fd, "F2FS - checkpoint=disable time (ms)", {"/vendor/bin/sh", "-c", "getprop ro.boottime.init.mount.data"});
 }
