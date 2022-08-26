@@ -1,0 +1,4 @@
+recovery_only(`
+ allow recovery sg_device:chr_file rw_file_perms;
+ allow recovery sysfs_scsi_devices_0000:dir r_dir_perms;
+')

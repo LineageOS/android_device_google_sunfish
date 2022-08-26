@@ -1,0 +1,7 @@
+add_service(mediacodec, eco_service)
+get_prop(mediacodec, ecoservice_prop)
+allow mediacodec hal_camera_default:binder call;
+
+get_prop(mediacodec, vendor_display_prop)
+
+dontaudit mediacodec sysfs_msm_subsys:dir search;

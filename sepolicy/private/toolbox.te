@@ -1,0 +1,6 @@
+# b/191834767
+dontaudit toolbox virtualizationservice_data_file:dir getattr;
+# b/193365943
+dontaudit toolbox toolbox:capability dac_read_search;
+dontaudit toolbox toolbox:capability dac_override;
+dontaudit toolbox toolbox:capability fowner;

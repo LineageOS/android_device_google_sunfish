@@ -1,0 +1,7 @@
+type wbc_service,                 service_manager_type;
+type dun_service,                 service_manager_type;
+type imsrcs_service,              service_manager_type;
+type improve_touch_service,       service_manager_type;
+type gba_auth_service,            service_manager_type;
+type qtitetherservice_service,    service_manager_type;
+type hal_telephony_service,       service_manager_type, vendor_service, protected_service;

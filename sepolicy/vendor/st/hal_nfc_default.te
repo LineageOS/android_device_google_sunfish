@@ -1,0 +1,9 @@
+# NFC property
+get_prop(hal_nfc_default, vendor_nfc_prop)
+
+# SecureElement property
+set_prop(hal_nfc_default, vendor_secure_element_prop)
+
+# Modem property
+set_prop(hal_nfc_default, vendor_modem_prop)
+

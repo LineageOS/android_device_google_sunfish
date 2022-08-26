@@ -1,0 +1,32 @@
+vndbinder_use(hal_graphics_composer_default)
+allow hal_graphics_composer_default fwk_sensor_hwservice:hwservice_manager find;
+binder_call(hal_graphics_composer, sensor_service_server)
+allow hal_graphics_composer_default qdisplay_service:service_manager { add find };
+allow hal_graphics_composer_default self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
+hal_client_domain(hal_graphics_composer_default, hal_graphics_allocator);
+
+#allow composer to register display config
+add_hwservice(hal_graphics_composer_default, hal_display_config_hwservice);
+
+#allow composer to access /mnt/vendor/persist/display/
+allow hal_graphics_composer_default mnt_vendor_file:dir search;
+allow hal_graphics_composer_default persist_file:dir search;
+r_dir_file(hal_graphics_composer_default, persist_display_file);
+
+allow hal_graphics_composer_default sysfs_msm_subsys:dir search;
+allow hal_graphics_composer_default sysfs_msm_subsys:file r_file_perms;
+allow hal_graphics_composer_default video_device:chr_file rw_file_perms;
+allow hal_graphics_composer_default sysfs_leds:dir r_dir_perms;
+allow hal_graphics_composer_default sysfs_leds:file rw_file_perms;
+
+#allow composer access hal_light
+hal_client_domain(hal_graphics_composer_default, hal_light);
+
+# Allow dir search in '/oem'
+allow hal_graphics_composer_default oemfs:dir r_dir_perms;
+
+get_prop(hal_graphics_composer_default, vendor_display_prop)
+
+# Allow r/w to data partition for writeback dumps
+allow hal_graphics_composer_default display_vendor_data_file:dir create_dir_perms;
+allow hal_graphics_composer_default display_vendor_data_file:file create_file_perms;

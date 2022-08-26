@@ -1,0 +1,2 @@
+get_prop(mediaswcodec, vendor_display_prop)
+allow mediaswcodec gpu_device:chr_file { ioctl open read write };

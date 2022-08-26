@@ -1,0 +1,3 @@
+add_service(radio, qchook_service)
+
+allow radio uce_service:service_manager find;

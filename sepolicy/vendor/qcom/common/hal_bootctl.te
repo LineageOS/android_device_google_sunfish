@@ -1,0 +1,24 @@
+# These are the permissions required to use the boot_control HAL implemented
+# here: hardware/qcom/bootctrl/boot_control.c
+
+# Getting and setting GPT attributes for the bootloader iterates over all the
+# partition names in the block_device directory /dev/block/.../by-name
+allow hal_bootctl_default block_device:dir r_dir_perms;
+
+# Edit the attributes stored in the GPT.
+allow hal_bootctl_default boot_block_device:blk_file rw_file_perms;
+allow hal_bootctl_default gpt_block_device:blk_file rw_file_perms;
+allow hal_bootctl_default custom_ab_block_device:blk_file getattr;
+allow hal_bootctl_default modem_block_device:blk_file getattr;
+allow hal_bootctl_default dp_block_device:blk_file getattr;
+allow hal_bootctl_default system_block_device:blk_file getattr;
+
+# Access /dev/sgN devices (generic SCSI) to write the
+# A/B slot selection for the XBL partition. Allow also to issue a
+# UFS_IOCTL_QUERY ioctl.
+allow hal_bootctl_default sg_device:chr_file rw_file_perms;
+
+allow hal_bootctl_default sysfs_scsi_devices_0000:dir r_dir_perms;
+
+# Write to the XBL devices.
+allow hal_bootctl_default xbl_block_device:blk_file rw_file_perms;

@@ -1,0 +1,23 @@
+allow hal_sensors_default sensors_vendor_data_file:dir w_dir_perms;
+allow hal_sensors_default sensors_vendor_data_file:file create_file_perms;
+
+#For MAGCC
+allow hal_sensors_default sysfs_batteryinfo:dir search;
+allow hal_sensors_default sysfs_batteryinfo:file r_file_perms;
+
+allow hal_sensors_default qdsp_device:chr_file r_file_perms;
+
+get_prop(hal_sensors_default, vendor_display_prop)
+
+allow hal_sensors_default sysfs_leds:dir search;
+allow hal_sensors_default sysfs_leds:file r_file_perms;
+
+# For Suez metrics collection
+allow hal_sensors_default fwk_stats_hwservice:hwservice_manager find;
+binder_call(hal_sensors_default, system_server);
+allow hal_sensors_default fwk_stats_service:service_manager find;
+binder_use(hal_sensors_default)
+
+# Allow Suez nanoapp clients to connect to CHRE.
+allow hal_sensors_default chre_socket:sock_file write;
+allow hal_sensors_default chre:unix_stream_socket connectto;

@@ -1,0 +1,16 @@
+allow thermal-engine sysfs_thermal:dir r_dir_perms;
+allow thermal-engine sysfs_thermal:file rw_file_perms;
+allow thermal-engine sysfs_msm_subsys:dir r_dir_perms;
+allow thermal-engine sysfs_msm_subsys:file r_file_perms;
+
+# reboot/shutdown for thermal limits exceeded
+set_prop(thermal-engine, powerctl_prop)
+
+dontaudit thermal-engine sysfs_esoc:dir r_dir_perms;
+dontaudit thermal-engine sysfs_batteryinfo:dir search;
+dontaudit thermal-engine sysfs_leds:dir search;
+dontaudit thermal-engine sysfs_soc:dir search;
+dontaudit thermal-engine sysfs_soc:file r_file_perms;
+dontaudit thermal-engine sysfs_ssr:file r_file_perms;
+dontaudit thermal-engine self:capability sys_admin;
+dontaudit thermal-engine socket_device:dir write;

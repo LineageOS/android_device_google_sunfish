@@ -1,0 +1,16 @@
+binder_call(hal_health_default, hal_gnss_qti)
+
+r_dir_file(hal_health_default, sysfs_scsi_devices_0000)
+set_prop(hal_health_default, vendor_shutdown_prop)
+set_prop(hal_health_default, vendor_battery_defender_prop)
+
+allow hal_health_default fwk_stats_service:service_manager find;
+binder_use(hal_health_default)
+
+allow hal_health_default persist_file:dir search;
+allow hal_health_default persist_battery_file:file create_file_perms;
+allow hal_health_default persist_battery_file:dir rw_dir_perms;
+allow hal_health_default mnt_vendor_file:dir search;
+allow hal_health_default sysfs_chargelevel:file rw_file_perms;
+
+r_dir_file(hal_health_default, sysfs_typec_info)

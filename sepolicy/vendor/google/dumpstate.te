@@ -1,0 +1,16 @@
+dump_hal(hal_telephony)
+dump_hal(hal_thermal)
+dump_hal(hal_power)
+dump_hal(hal_power_stats)
+
+userdebug_or_eng(`
+  allow dumpstate debugfs_dma_buf:file r_file_perms;
+  allow dumpstate media_rw_data_file:file append;
+')
+
+# For collecting bugreports.
+allow dumpstate sysfs_scsi_devices_0000:file r_file_perms;
+allow dumpstate firmware_file:dir r_dir_perms;
+allow dumpstate firmware_file:filesystem getattr;
+
+dontaudit dumpstate debugfs_dma_buf:file r_file_perms;

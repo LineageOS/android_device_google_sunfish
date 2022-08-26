@@ -1,0 +1,37 @@
+type hal_wifi_ext, domain;
+hal_server_domain(hal_wifi_ext, hal_wifi)
+
+type hal_wifi_ext_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_wifi_ext)
+
+# Allow to start the IWifi:wifi_ext service
+add_hwservice(hal_wifi_ext, hal_wifi_ext_hwservice);
+
+# Allow wifi hal access to LOWI
+allow hal_wifi_ext location:unix_stream_socket connectto;
+
+# write to files owned by location daemon
+allow hal_wifi_ext location_socket:dir search;
+allow hal_wifi_ext location_socket:sock_file write;
+allow hal_wifi_ext location:unix_dgram_socket sendto;
+
+allow hal_wifi_ext wifihal_socket:dir rw_dir_perms;
+allow hal_wifi_ext wifihal_socket:sock_file create_file_perms;
+
+# Write wlan driver/fw version into property
+set_prop(hal_wifi_ext, vendor_wifi_version)
+
+# Fetch debug info from the wifi driver.
+r_dir_file(hal_wifi_ext, proc_wifi_dbg)
+
+# Allow wifi_ext to report callbacks to gril-service app
+binder_call(hal_wifi_ext, grilservice_app)
+
+allow hal_wifi_ext wlan_device:chr_file rw_file_perms;
+
+userdebug_or_eng(`
+# debugfs entries are only needed in user-debug or eng builds
+
+# Allow wifi hal to access wlan debugfs directories
+allow hal_wifi_ext debugfs_wlan:dir r_dir_perms;
+')

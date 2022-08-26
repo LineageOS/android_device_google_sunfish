@@ -1,0 +1,47 @@
+type cnd, domain, mlstrustedsubject;
+type cnd_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(cnd)
+allow cnd self:qipcrtr_socket create_socket_perms_no_ioctl;
+
+r_dir_file(cnd, sysfs_msm_subsys)
+
+r_dir_file(cnd, sysfs_soc)
+r_dir_file(cnd, sysfs_ssr)
+r_dir_file(cnd, sysfs_esoc)
+allow cnd proc_meminfo:file r_file_perms;
+
+set_prop(cnd, cnd_vendor_prop)
+
+# allow cnd to access cnd_data_file
+allow cnd cnd_data_file:file create_file_perms;
+allow cnd cnd_data_file:dir rw_dir_perms;
+
+# allow cnd to obtain wakelock
+wakelock_use(cnd)
+# To register cnd to hwbinder
+add_hwservice(cnd, hal_datafactory_hwservice)
+add_hwservice(cnd, hal_mwqemadapter_hwservice)
+userdebug_or_eng(`
+  allow cnd diag_device:chr_file rw_file_perms;
+')
+
+# For WFC call(RAT change into IWLAN)
+binder_call(cnd, qtidataservices_app)
+
+#for video call
+binder_call(cnd, ims)
+
+#communicating with QTI wlan driver for WFC/ VTiWLAN quality
+unix_socket_send(cnd, wpa, hal_wifi_supplicant)
+allow cnd wpa_data_file:dir w_dir_perms;
+allow cnd wpa_data_file:sock_file create_file_perms;
+
+allow cnd self:udp_socket create_socket_perms;
+allow cnd self:{
+    # Allow receiving NETLINK responses from WLAN driver.
+    netlink_socket
+    netlink_generic_socket
+    qipcrtr_socket
+} create_socket_perms_no_ioctl;
+
+dontaudit cnd wifi_hal_prop:file r_file_perms;

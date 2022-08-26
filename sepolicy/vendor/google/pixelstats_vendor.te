@@ -1,0 +1,18 @@
+unix_socket_connect(pixelstats_vendor, chre, chre)
+
+get_prop(pixelstats_vendor, hwservicemanager_prop)
+hwbinder_use(pixelstats_vendor)
+allow pixelstats_vendor hal_pixelstats_hwservice:hwservice_manager find;
+binder_call(pixelstats_vendor, pixelstats_system)
+
+allow pixelstats_vendor fwk_stats_hwservice:hwservice_manager find;
+
+binder_use(pixelstats_vendor)
+allow pixelstats_vendor fwk_stats_service:service_manager find;
+
+allow pixelstats_vendor sysfs_scsi_devices_0000:file rw_file_perms;
+allow pixelstats_vendor battery_history_device:chr_file r_file_perms;
+
+# UeventListener
+r_dir_file(pixelstats_vendor, sysfs_pixelstats)
+r_dir_file(pixelstats_vendor, sysfs_typec_info)

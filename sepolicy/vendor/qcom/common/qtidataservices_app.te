@@ -1,0 +1,23 @@
+type qtidataservices_app, domain;
+app_domain(qtidataservices_app)
+net_domain(qtidataservices_app)
+
+add_hwservice(qtidataservices_app, hal_cacert_hwservice)
+
+allow qtidataservices_app hal_datafactory_hwservice:hwservice_manager find;
+allow qtidataservices_app radio_service:service_manager find;
+
+allow qtidataservices_app self:qipcrtr_socket create_socket_perms_no_ioctl;
+allow qtidataservices_app radio_data_file:dir r_dir_perms;
+allow qtidataservices_app app_api_service:service_manager find;
+
+allow qtidataservices_app sysfs_esoc:dir r_dir_perms;
+allow qtidataservices_app sysfs_msm_subsys:dir r_dir_perms;
+allow qtidataservices_app sysfs_soc:dir search;
+allow qtidataservices_app sysfs_soc:file r_file_perms;
+allow qtidataservices_app sysfs_ssr:file r_file_perms;
+
+get_prop(qtidataservices_app, vendor_default_prop)
+set_prop(qtidataservices_app, telephony_status_prop)
+
+binder_call(qtidataservices_app, cnd)

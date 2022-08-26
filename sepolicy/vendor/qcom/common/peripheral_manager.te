@@ -1,0 +1,26 @@
+# Policy for peripheral_manager
+# per_mgr - peripheral_manager domain
+type vendor_per_mgr, domain;
+
+type vendor_per_mgr_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(vendor_per_mgr);
+
+vndbinder_use(vendor_per_mgr)
+binder_call(vendor_per_mgr, vendor_per_mgr)
+binder_call(vendor_per_mgr, wcnss_service)
+binder_call(vendor_per_mgr, rild)
+set_prop(vendor_per_mgr, vendor_per_mgr_state_prop)
+
+allow vendor_per_mgr self:qipcrtr_socket create_socket_perms_no_ioctl;
+allow vendor_per_mgr modem_ssr_device:chr_file r_file_perms;
+add_service(vendor_per_mgr, vendor_per_mgr_service)
+
+allow vendor_per_mgr sysfs_msm_subsys:dir r_dir_perms;
+allow vendor_per_mgr sysfs_ssr:file r_file_perms;
+allow vendor_per_mgr sysfs_esoc:dir r_dir_perms;
+
+userdebug_or_eng(`
+  allow vendor_per_mgr debugfs_ipc:dir search;
+')
+
+dontaudit vendor_per_mgr debugfs_ipc:dir search;

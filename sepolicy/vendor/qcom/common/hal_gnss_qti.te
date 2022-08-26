@@ -1,0 +1,30 @@
+# hal_gnss_qti - binerized gnss hal
+type hal_gnss_qti, domain;
+hal_server_domain(hal_gnss_qti, hal_gnss)
+
+type hal_gnss_qti_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_gnss_qti)
+vndbinder_use(hal_gnss_qti)
+
+#files in /sys
+r_dir_file(hal_gnss_qti, sysfs_soc)
+r_dir_file(hal_gnss_qti, sysfs_esoc)
+r_dir_file(hal_gnss_qti, sysfs_msm_subsys)
+r_dir_file(hal_gnss_qti, sysfs_ssr)
+
+binder_call(hal_gnss_qti, vendor_per_mgr)
+allow hal_gnss_qti vendor_per_mgr_service:service_manager find;
+
+# /dev/socket/location
+allow hal_gnss_qti location_socket:sock_file create_file_perms;
+allow hal_gnss_qti location_socket:dir rw_dir_perms;
+
+# xtra/socket_xtra
+allow hal_gnss_qti location:unix_dgram_socket sendto;
+
+allow hal_gnss_qti self:qipcrtr_socket create_socket_perms_no_ioctl;
+
+allow hal_gnss_qti location_data_file:dir r_dir_perms;
+
+# Allow Gnss HAL to get updates from health hal
+hal_client_domain(hal_gnss_qti, hal_health)
