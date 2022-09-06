@@ -265,6 +265,7 @@ VENDOR_SKIP_FILES=(
     "bin/zcat"
     "build.prop"
     "etc/IPACM_cfg.xml"
+    "etc/NOTICE.xml.gz"
     "etc/a2dp_audio_policy_configuration_7_0.xml"
     "etc/a2dp_in_audio_policy_configuration_7_0.xml"
     "etc/acdbdata/Bluetooth_cal.acdb"
