@@ -211,14 +211,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="aidl">
-        <name>vendor.google.google_battery</name>
-        <version>1</version>
-        <interface>
-            <name>IGoogleBattery</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
     <hal format="hidl">
         <name>vendor.google.radioext</name>
         <transport>hwbinder</transport>
