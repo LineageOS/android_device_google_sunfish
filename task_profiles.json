@@ -1,0 +1,128 @@
+{
+  "Profiles": [
+    {
+      "Name": "LowIoPriority",
+      "Actions": [
+        {
+          "Name": "JoinCgroup",
+          "Params":
+          {
+            "Controller": "blkio",
+            "Path": "background"
+	  }
+        },
+        {
+          "Name": "SetAttribute",
+          "Params":
+          {
+            "Name": "CfqGroupIdle",
+            "Value": "0",
+            "Optional": "true"
+          }
+        },
+        {
+          "Name": "SetAttribute",
+          "Params":
+          {
+            "Name": "CfqWeight",
+            "Value": "200",
+            "Optional": "true"
+          }
+        }
+      ]
+    },
+    {
+      "Name": "NormalIoPriority",
+      "Actions": [
+        {
+          "Name": "JoinCgroup",
+          "Params":
+          {
+            "Controller": "blkio",
+            "Path": ""
+	  }
+        },
+        {
+          "Name": "SetAttribute",
+          "Params":
+          {
+            "Name": "CfqGroupIdle",
+            "Value": "2000",
+            "Optional": "true"
+          }
+        },
+        {
+          "Name": "SetAttribute",
+          "Params":
+          {
+            "Name": "CfqWeight",
+            "Value": "1000",
+            "Optional": "true"
+          }
+        }
+      ]
+    },
+    {
+      "Name": "HighIoPriority",
+      "Actions": [
+        {
+          "Name": "JoinCgroup",
+          "Params":
+          {
+            "Controller": "blkio",
+            "Path": ""
+	  }
+        },
+        {
+          "Name": "SetAttribute",
+          "Params":
+          {
+            "Name": "CfqGroupIdle",
+            "Value": "2000",
+            "Optional": "true"
+          }
+        },
+        {
+          "Name": "SetAttribute",
+          "Params":
+          {
+            "Name": "CfqWeight",
+            "Value": "1000",
+            "Optional": "true"
+          }
+        }
+      ]
+    },
+    {
+      "Name": "MaxIoPriority",
+      "Actions": [
+        {
+          "Name": "JoinCgroup",
+          "Params":
+          {
+            "Controller": "blkio",
+            "Path": ""
+	  }
+        },
+        {
+          "Name": "SetAttribute",
+          "Params":
+          {
+            "Name": "CfqGroupIdle",
+            "Value": "2000",
+            "Optional": "true"
+          }
+        },
+        {
+          "Name": "SetAttribute",
+          "Params":
+          {
+            "Name": "CfqWeight",
+            "Value": "1000",
+            "Optional": "true"
+          }
+        }
+      ]
+    }
+  ]
+}
