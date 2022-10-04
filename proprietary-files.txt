@@ -110,6 +110,7 @@ product/etc/CarrierSettings/h3_ie.pb
 product/etc/CarrierSettings/h3_se.pb
 product/etc/CarrierSettings/halebop_se.pb
 product/etc/CarrierSettings/homobile_it.pb
+product/etc/CarrierSettings/ice_no.pb
 product/etc/CarrierSettings/idea_in.pb
 product/etc/CarrierSettings/idmobile_gb.pb
 product/etc/CarrierSettings/iliad_it.pb
