@@ -71,9 +71,9 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="aidl" optional="true">
         <name>vendor.google.google_battery</name>
-        <version>1.2</version>
+        <version>1</version>
         <interface>
             <name>IGoogleBattery</name>
             <instance>default</instance>
