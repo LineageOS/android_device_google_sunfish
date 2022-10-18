@@ -1137,6 +1137,8 @@ vendor/lib64/libgooglecamera.proto_message.converter.gabc.so
 vendor/lib64/libgooglecamera.proto_message.converter.ghawb.so
 vendor/lib64/libgooglecamera.proto_message.converter.so
 vendor/lib64/libgooglecamera.proto_message.protos.so
+vendor/lib64/libgooglecamerahal.so
+vendor/lib64/libgooglecamerahalutils.so
 vendor/lib64/libgooglecamerahwl_impl.so
 vendor/lib64/libgpudataproducer.so
 vendor/lib64/libgsl.so
