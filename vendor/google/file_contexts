@@ -34,6 +34,8 @@
 /vendor/bin/init\.insmod\.sh                                                          u:object_r:init-insmod-sh_exec:s0
 /vendor/bin/hw/vendor\.google\.wifi_ext@1\.0-service-vendor                           u:object_r:hal_wifi_ext_exec:s0
 /vendor/bin/hw/vendor\.google\.wifi_ext@1\.0-service-vendor-lazy                      u:object_r:hal_wifi_ext_exec:s0
+/vendor/bin/hw/vendor\.google\.wifi_ext-service-vendor                                u:object_r:hal_wifi_ext_exec:s0
+/vendor/bin/hw/vendor\.google\.wifi_ext-service-vendor-lazy                           u:object_r:hal_wifi_ext_exec:s0
 /vendor/bin/tcpdump_logger                                                            u:object_r:tcpdump_logger_exec:s0
 /vendor/bin/hw/vendor\.google\.wireless_charger@1\.0-service-vendor                   u:object_r:hal_wlc_exec:s0
 /vendor/bin/hw/android.hardware.graphics.composer@2.1-service                         u:object_r:hal_graphics_composer_default_exec:s0
