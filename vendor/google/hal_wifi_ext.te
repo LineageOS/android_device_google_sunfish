@@ -6,6 +6,7 @@ init_daemon_domain(hal_wifi_ext)
 
 # Allow to start the IWifi:wifi_ext service
 add_hwservice(hal_wifi_ext, hal_wifi_ext_hwservice);
+add_service(hal_wifi_ext, hal_wifi_ext_service)
 
 # Allow wifi hal access to LOWI
 allow hal_wifi_ext location:unix_stream_socket connectto;
