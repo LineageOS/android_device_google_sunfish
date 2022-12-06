@@ -211,14 +211,13 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl">
-      <name>vendor.google.google_battery</name>
-      <transport>hwbinder</transport>
-      <version>1.2</version>
-      <interface>
-        <name>IGoogleBattery</name>
-        <instance>default</instance>
-      </interface>
+    <hal format="aidl">
+        <name>vendor.google.google_battery</name>
+        <version>1</version>
+        <interface>
+            <name>IGoogleBattery</name>
+            <instance>default</instance>
+        </interface>
     </hal>
     <hal format="hidl">
         <name>vendor.google.radioext</name>
@@ -441,15 +440,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <name>IRadioConfig</name>
         <instance>default</instance>
       </interface>
-    </hal>
-   <hal format="hidl">
-       <name>android.hardware.nfc</name>
-       <transport>hwbinder</transport>
-       <version>1.2</version>
-       <interface>
-           <name>INfc</name>
-           <instance>default</instance>
-       </interface>
     </hal>
     <!-- Neural Network HAL -->
     <hal format="hidl">
