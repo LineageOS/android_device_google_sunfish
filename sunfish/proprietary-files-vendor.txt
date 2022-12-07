@@ -36,7 +36,6 @@ vendor/bin/hw/citadel_updater
 vendor/bin/hw/citadeld
 vendor/bin/hw/init_citadel
 vendor/bin/hw/qcrild
-vendor/bin/hw/vendor.google.google_battery-service
 vendor/bin/hw/vendor.google.radioext@1.0-service
 vendor/bin/hw/vendor.qti.hardware.qseecom@1.0-service
 vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service
@@ -265,7 +264,6 @@ vendor/etc/init/port-bridge.rc
 vendor/etc/init/qcrild.rc
 vendor/etc/init/rebootescrow-citadel.rc
 vendor/etc/init/ssgtzd.rc
-vendor/etc/init/vendor.google.google_battery-default.rc
 vendor/etc/init/vendor.google.radioext@1.0-service.rc
 vendor/etc/init/vendor.qti.adsprpc-sscrpc-service.rc
 vendor/etc/init/vendor.qti.cdsprpc-service.rc
@@ -339,7 +337,6 @@ vendor/etc/vintf/manifest/android.hardware.weaver@1.0-service.citadel.xml
 vendor/etc/vintf/manifest/manifest_android.hardware.drm-service.widevine.xml
 vendor/etc/vintf/manifest/manifest_input.processor-service.xml
 vendor/etc/vintf/manifest/rebootescrow-citadel.xml
-vendor/etc/vintf/manifest/vendor.google.google_battery-default.xml
 vendor/etc/xtra_root_cert.pem
 vendor/etc/xtwifi.conf
 vendor/firmware/CAMERA_ICP.elf
@@ -1244,7 +1241,6 @@ vendor/lib64/vendor.display.color@1.0.so
 vendor/lib64/vendor.display.color@1.1.so
 vendor/lib64/vendor.display.color@1.2.so
 vendor/lib64/vendor.display.postproc@1.0.so
-vendor/lib64/vendor.google.google_battery-V2-ndk.so
 vendor/lib64/vendor.google.radioext@1.0.so
 vendor/lib64/vendor.google.radioext@1.1.so
 vendor/lib64/vendor.google.radioext@1.2.so
