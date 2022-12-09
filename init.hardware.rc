@@ -443,6 +443,10 @@ on property:init.svc.vendor.charger=running
 on property:sys.boot_completed=1
     setprop vendor.setup.power 1
 
+    # Permission for Pixelstats
+    chown system system /dev/sys/fs/by-name/userdata/gc_segment_mode
+    chown system system /dev/sys/fs/by-name/userdata/gc_reclaimed_segments
+
     # Back to default VM settings
     write /proc/sys/vm/dirty_expire_centisecs 3000
     write /proc/sys/vm/dirty_background_ratio 10
