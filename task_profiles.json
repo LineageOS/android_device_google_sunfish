@@ -7,7 +7,8 @@
           "Name": "JoinCgroup",
           "Params":
           {
-            "Controller": "io"
+            "Controller": "blkio",
+            "Path": "background"
 	  }
         },
         {
@@ -37,7 +38,8 @@
           "Name": "JoinCgroup",
           "Params":
           {
-            "Controller": "io"
+            "Controller": "blkio",
+            "Path": ""
 	  }
         },
         {
@@ -67,7 +69,8 @@
           "Name": "JoinCgroup",
           "Params":
           {
-            "Controller": "io"
+            "Controller": "blkio",
+            "Path": ""
 	  }
         },
         {
@@ -97,7 +100,8 @@
           "Name": "JoinCgroup",
           "Params":
           {
-            "Controller": "io"
+            "Controller": "blkio",
+            "Path": ""
 	  }
         },
         {
