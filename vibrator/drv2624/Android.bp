@@ -21,7 +21,7 @@ cc_defaults {
     name: "android.hardware.vibrator-defaults.sunfish",
     cflags: [
         "-DATRACE_TAG=(ATRACE_TAG_VIBRATOR | ATRACE_TAG_HAL)",
-        "-DLOG_TAG=\"android.hardware.vibrator-sunfish\"",
+        "-DLOG_TAG=\"Vibrator\"",
     ],
 }
 
