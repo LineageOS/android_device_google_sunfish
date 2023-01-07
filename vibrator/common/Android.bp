@@ -30,7 +30,7 @@ cc_library {
     ],
     cflags: [
         "-DATRACE_TAG=(ATRACE_TAG_VIBRATOR | ATRACE_TAG_HAL)",
-        "-DLOG_TAG=\"android.hardware.vibrator@1.x-common\"",
+        "-DLOG_TAG=\"VibratorCommon\"",
     ],
     export_include_dirs: ["."],
     vendor_available: true,
