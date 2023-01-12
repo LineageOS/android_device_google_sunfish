@@ -81,6 +81,7 @@
 /(vendor|system/vendor)/bin/hw/vendor\.qti\.media\.c2@1\.0-service u:object_r:mediacodec_exec:s0
 /(vendor|system/vendor)/bin/qti                 u:object_r:qti_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.qti.hardware\.memtrack-service   u:object_r:hal_memtrack_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.boot-service\.qti     u:object_r:hal_bootctl_default_exec:s0
 
 # dev socket nodes
 /dev/socket/chre                                u:object_r:chre_socket:s0
