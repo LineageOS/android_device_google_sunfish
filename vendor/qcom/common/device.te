@@ -48,7 +48,6 @@ type system_health_monitor_device, dev_type;
 type qbt1000_device, dev_type;
 type avtimer_device, dev_type;
 type at_device, dev_type;
-type bt_device, dev_type;
 type wlan_device, dev_type;
 type rawdump_block_device, dev_type;
 type custom_ab_block_device, dev_type;
