@@ -48,6 +48,7 @@ BOARD_KERNEL_CMDLINE += androidboot.memcg=1 cgroup.memory=nokmem
 BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1 #STOPSHIP
 BOARD_KERNEL_CMDLINE += usbcore.autosuspend=7
 BOARD_KERNEL_CMDLINE += loop.max_part=7
+BOARD_KERNEL_CMDLINE += loop.hw_queue_depth=31
 BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=a600000.dwc3 swiotlb=1
 BOARD_KERNEL_CMDLINE += androidboot.boot_devices=soc/1d84000.ufshc
 BOARD_KERNEL_CMDLINE += cgroup_disable=pressure
