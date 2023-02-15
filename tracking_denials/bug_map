@@ -1,5 +1,4 @@
 dumpstate app_zygote process b/238263561
-dumpstate incident process b/238571326
 hal_drm_widevine default_prop file b/238263762
 netutils_wrapper netutils_wrapper capability b/239887215
 shell qemu_sf_lcd_density_prop file b/238837292
