@@ -56,14 +56,19 @@ product/framework/uimremoteserverlibrary.jar
 product/framework/uimservicelibrary.jar
 
 # Radio
+product/etc/CarrierSettings/1and1_de.pb
 product/etc/CarrierSettings/a1_at.pb
 product/etc/CarrierSettings/ahamo_jp.pb
 product/etc/CarrierSettings/airtel_in.pb
+product/etc/CarrierSettings/ais_th.pb
 product/etc/CarrierSettings/apt_tw.pb
 product/etc/CarrierSettings/assurance_us.pb
+product/etc/CarrierSettings/astca_as.pb
 product/etc/CarrierSettings/att5g_us.pb
 product/etc/CarrierSettings/att5gsa_us.pb
+product/etc/CarrierSettings/attmvnos_us.pb
 product/etc/CarrierSettings/att_us.pb
+product/etc/CarrierSettings/base_be.pb
 product/etc/CarrierSettings/bell_ca.pb
 product/etc/CarrierSettings/bluegrass_us.pb
 product/etc/CarrierSettings/boost_us.pb
@@ -71,6 +76,7 @@ product/etc/CarrierSettings/boosttmo_us.pb
 product/etc/CarrierSettings/bouygues_fr.pb
 product/etc/CarrierSettings/btb_gb.pb
 product/etc/CarrierSettings/btc_gb.pb
+product/etc/CarrierSettings/carolinawest_us.pb
 product/etc/CarrierSettings/carrier_list.pb
 product/etc/CarrierSettings/celcom_my.pb
 product/etc/CarrierSettings/cellcom_us.pb
@@ -105,6 +111,8 @@ product/etc/CarrierSettings/fizz_ca.pb
 product/etc/CarrierSettings/free_fr.pb
 product/etc/CarrierSettings/freedommobile_ca.pb
 product/etc/CarrierSettings/gamma_gb.pb
+product/etc/CarrierSettings/gci_us.pb
+product/etc/CarrierSettings/gibtel_gi.pb
 product/etc/CarrierSettings/giga_sg.pb
 product/etc/CarrierSettings/h3_at.pb
 product/etc/CarrierSettings/h3_gb.pb
@@ -127,22 +135,31 @@ product/etc/CarrierSettings/linemo_jp.pb
 product/etc/CarrierSettings/luckymobile_ca.pb
 product/etc/CarrierSettings/m1_sg.pb
 product/etc/CarrierSettings/maxis_my.pb
+product/etc/CarrierSettings/meo_pt.pb
 product/etc/CarrierSettings/metropcs_us.pb
 product/etc/CarrierSettings/movistar_es.pb
+product/etc/CarrierSettings/nextech_us.pb
+product/etc/CarrierSettings/nos_pt.pb
 product/etc/CarrierSettings/o2_de.pb
 product/etc/CarrierSettings/o2postpaid_gb.pb
 product/etc/CarrierSettings/o2prepaid_de.pb
 product/etc/CarrierSettings/o2prepaid_gb.pb
 product/etc/CarrierSettings/onecall_no.pb
 product/etc/CarrierSettings/optus_au.pb
+product/etc/CarrierSettings/orange_be.pb
 product/etc/CarrierSettings/orange_es.pb
 product/etc/CarrierSettings/orange_fr.pb
+product/etc/CarrierSettings/orange_re.pb
 product/etc/CarrierSettings/others.pb
+product/etc/CarrierSettings/partner_il.pb
 product/etc/CarrierSettings/pcmobilebell_ca.pb
+product/etc/CarrierSettings/pelephone_il.pb
 product/etc/CarrierSettings/play_pl.pb
+product/etc/CarrierSettings/post_lu.pb
 product/etc/CarrierSettings/povo_jp.pb
 product/etc/CarrierSettings/publicmobile_ca.pb
 product/etc/CarrierSettings/rakuten_jp.pb
+product/etc/CarrierSettings/redpocketatt_us.pb
 product/etc/CarrierSettings/redpockettmo_us.pb
 product/etc/CarrierSettings/rjio_in.pb
 product/etc/CarrierSettings/rogers5g_ca.pb
@@ -152,6 +169,7 @@ product/etc/CarrierSettings/shaw_ca.pb
 product/etc/CarrierSettings/simba_sg.pb
 product/etc/CarrierSettings/simple_us.pb
 product/etc/CarrierSettings/singtel_sg.pb
+product/etc/CarrierSettings/skinny_nz.pb
 product/etc/CarrierSettings/smarty_gb.pb
 product/etc/CarrierSettings/softbank_jp.pb
 product/etc/CarrierSettings/solomobile_ca.pb
@@ -162,21 +180,30 @@ product/etc/CarrierSettings/sprintprepaid_us.pb
 product/etc/CarrierSettings/sprintwholesale_us.pb
 product/etc/CarrierSettings/starhub_sg.pb
 product/etc/CarrierSettings/stc_sa.pb
+product/etc/CarrierSettings/strata_us.pb
 product/etc/CarrierSettings/sunrise_ch.pb
 product/etc/CarrierSettings/swisscom_ch.pb
 product/etc/CarrierSettings/swisscom_li.pb
 product/etc/CarrierSettings/talkmobile_gb.pb
+product/etc/CarrierSettings/tango_us.pb
 product/etc/CarrierSettings/tbaytel_ca.pb
+product/etc/CarrierSettings/tchibo_de.pb
 product/etc/CarrierSettings/tdc_dk.pb
 product/etc/CarrierSettings/tele2_se.pb
 product/etc/CarrierSettings/telekom_de.pb
+product/etc/CarrierSettings/telekom_gr.pb
+product/etc/CarrierSettings/telekom_hr.pb
 product/etc/CarrierSettings/telekom_hu.pb
 product/etc/CarrierSettings/telekom_pl.pb
 product/etc/CarrierSettings/telekom_sk.pb
+product/etc/CarrierSettings/telenet_be.pb
 product/etc/CarrierSettings/telenor_dk.pb
 product/etc/CarrierSettings/telenor_no.pb
 product/etc/CarrierSettings/telenor_se.pb
 product/etc/CarrierSettings/telia_dk.pb
+product/etc/CarrierSettings/telia_ee.pb
+product/etc/CarrierSettings/telia_fi.pb
+product/etc/CarrierSettings/telia_lt.pb
 product/etc/CarrierSettings/telia_no.pb
 product/etc/CarrierSettings/telia_se.pb
 product/etc/CarrierSettings/telstra_au.pb
@@ -199,7 +226,9 @@ product/etc/CarrierSettings/uqmobile_jp.pb
 product/etc/CarrierSettings/uscc_us.pb
 product/etc/CarrierSettings/verizon_us.pb
 product/etc/CarrierSettings/verymobile_it.pb
+product/etc/CarrierSettings/viaero_us.pb
 product/etc/CarrierSettings/videotron_ca.pb
+product/etc/CarrierSettings/vimla_se.pb
 product/etc/CarrierSettings/virgin_ca.pb
 product/etc/CarrierSettings/virgin_gb.pb
 product/etc/CarrierSettings/virgin_us.pb
@@ -210,15 +239,20 @@ product/etc/CarrierSettings/vodafone_cz.pb
 product/etc/CarrierSettings/vodafone_de.pb
 product/etc/CarrierSettings/vodafone_es.pb
 product/etc/CarrierSettings/vodafone_gb.pb
+product/etc/CarrierSettings/vodafone_hu.pb
 product/etc/CarrierSettings/vodafone_ie.pb
 product/etc/CarrierSettings/vodafone_in.pb
 product/etc/CarrierSettings/vodafone_it.pb
 product/etc/CarrierSettings/vodafone_nl.pb
+product/etc/CarrierSettings/vodafone_nz.pb
+product/etc/CarrierSettings/vodafone_pt.pb
 product/etc/CarrierSettings/vodafone_tr.pb
 product/etc/CarrierSettings/windtre_it.pb
 product/etc/CarrierSettings/xfinity_us.pb
 product/etc/CarrierSettings/yes_my.pb
+product/etc/CarrierSettings/yettel_hu.pb
 product/etc/CarrierSettings/yoigo_es.pb
+product/etc/CarrierSettings/zain_kw.pb
 product/etc/permissions/com.android.sdm.plugins.connmo.xml
 product/etc/permissions/com.android.sdm.plugins.dcmo.xml
 product/etc/permissions/com.android.sdm.plugins.diagmon.xml
@@ -255,10 +289,6 @@ product/priv-app/OemDmTrigger/OemDmTrigger.apk
 product/priv-app/WfcActivation/WfcActivation.apk;PRESIGNED
 
 # system_ext partition
-
-# AptX
-system_ext/lib64/libaptXHD_encoder.so
-system_ext/lib64/libaptX_encoder.so
 
 # Camera extensions
 system_ext/etc/permissions/com.google.android.camera.extensions.xml
