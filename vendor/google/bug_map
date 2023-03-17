@@ -10,6 +10,3 @@ shell debugfs file b/175106535
 shell device_config_runtime_native_boot_prop file b/175106535
 shell sysfs file b/175106535
 tee tee capability2 b/156045688
-mediaswcodec gpu_device chr_file b/194313013
-mediaswcodec sysfs_msm_subsys dir b/194313013
-mediaserver sysfs_msm_subsys dir b/194313013
