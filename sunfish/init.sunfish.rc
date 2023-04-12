@@ -37,3 +37,4 @@ on property:debug.touch_sensitivity_mode=1
 service vendor.mdm_helper /vendor/bin/mdm_helper
     class core
     group system wakelock
+    user root
