@@ -51,3 +51,5 @@ userdebug_or_eng(`
   allow location diag_device:chr_file rw_file_perms;
 ')
 
+# xtra-daemon control
+get_prop(location, xtra_control_prop)
