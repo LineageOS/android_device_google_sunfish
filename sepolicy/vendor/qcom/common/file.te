@@ -10,6 +10,7 @@ type chre_socket, file_type;
 type sysfs_hsic_modem_wait, sysfs_type, fs_type;
 type sysfs_smd_open_timeout, sysfs_type, fs_type;
 type sysfs_soc, sysfs_type, fs_type;
+type sysfs_soc_sensitive, sysfs_type, fs_type;
 type sysfs_msm_subsys, sysfs_type, fs_type;
 type sysfs_spss, sysfs_type, fs_type;
 type netmgrd_data_file, file_type, data_file_type;
