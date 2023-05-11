@@ -654,7 +654,6 @@ Return<DumpstateStatus> DumpstateDevice::dumpstateBoard_1_1(const hidl_handle& h
     }
 
     RunCommandToFd(fd, "VENDOR PROPERTIES", {"/vendor/bin/getprop"});
-    DumpFileToFd(fd, "SoC serial number", "/sys/devices/soc0/serial_number");
     DumpFileToFd(fd, "CPU present", "/sys/devices/system/cpu/present");
     DumpFileToFd(fd, "CPU online", "/sys/devices/system/cpu/online");
     DumpFileToFd(fd, "Bootloader Log", "/proc/bldrlog");
