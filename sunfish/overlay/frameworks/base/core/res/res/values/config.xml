@@ -210,9 +210,6 @@
     <dimen name="status_bar_height_portrait">136px</dimen>
     <dimen name="status_bar_height_landscape">28dp</dimen>
 
-    <!-- the number of the max cached processes in the system. -->
-    <integer name="config_customizedMaxCachedProcesses">64</integer>
-
     <!-- A string config in svg path format for the main display shape.
          (@see https://www.w3.org/TR/SVG/paths.html#PathData).
 
