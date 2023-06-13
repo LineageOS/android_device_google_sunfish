@@ -1298,7 +1298,7 @@ vendor/lib64/vendor.display.color@1.0.so
 vendor/lib64/vendor.display.color@1.1.so
 vendor/lib64/vendor.display.color@1.2.so
 vendor/lib64/vendor.display.postproc@1.0.so
-vendor/lib64/vendor.google.google_battery-V1-ndk.so
+vendor/lib64/vendor.google.google_battery-V2-ndk.so
 vendor/lib64/vendor.google.radioext@1.0.so
 vendor/lib64/vendor.google.radioext@1.1.so
 vendor/lib64/vendor.google.radioext@1.2.so
@@ -1397,6 +1397,7 @@ vendor/radio/qcril_database/upgrade/14_add_fr_normal_ecc.sql
 vendor/radio/qcril_database/upgrade/15_fr_normal_ecc_on_wifi.sql
 vendor/radio/qcril_database/upgrade/16_ch_normal_ecc.sql
 vendor/radio/qcril_database/upgrade/17_in_normal_ecc.sql
+vendor/radio/qcril_database/upgrade/18_add_re_and_gp_normal_ecc.sql
 vendor/radio/qcril_database/upgrade/1_version_intro.sql
 vendor/radio/qcril_database/upgrade/2_version_add_wps_config.sql
 vendor/radio/qcril_database/upgrade/3_version_update_wps_config.sql
