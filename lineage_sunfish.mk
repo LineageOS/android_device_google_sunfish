@@ -24,8 +24,8 @@ TARGET_SCREEN_WIDTH := 1080
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     TARGET_PRODUCT=sunfish \
-    PRIVATE_BUILD_DESC="sunfish-user 13 TQ3A.230605.011 10161073 release-keys"
+    PRIVATE_BUILD_DESC="sunfish-user 13 TQ3A.230705.001 10216780 release-keys"
 
-BUILD_FINGERPRINT := google/sunfish/sunfish:13/TQ3A.230605.011/10161073:user/release-keys
+BUILD_FINGERPRINT := google/sunfish/sunfish:13/TQ3A.230705.001/10216780:user/release-keys
 
 $(call inherit-product, vendor/google/sunfish/sunfish-vendor.mk)
