@@ -604,7 +604,7 @@ endif
 
 # Wifi
 PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.0-service \
+    android.hardware.wifi-service \
     wificond \
     libwpa_client \
     WifiOverlay
@@ -887,7 +887,7 @@ PRODUCT_PACKAGES += $(HIDL_WRAPPER)
 
 # Increment the SVN for any official public releases
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.vendor.build.svn=61
+	ro.vendor.build.svn=63
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
@@ -912,9 +912,6 @@ include hardware/google/pixel/common/pixel-common-device.mk
 
 # Citadel
 include hardware/google/pixel/citadel/citadel.mk
-
-# Factory OTA
--include vendor/google/factoryota/client/factoryota.mk
 
 -include vendor/qcom/sm8150/proprietary/securemsm/config/cpz_vendor_proprietary_board.mk
 -include vendor/qcom/sm8150/proprietary/securemsm/config/cpz_vendor_proprietary_product.mk
