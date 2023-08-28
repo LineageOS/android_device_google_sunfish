@@ -931,7 +931,7 @@ include hardware/google/pixel/citadel/citadel.mk
 -include hardware/google/pixel/mm/device_legacy.mk
 
 # thermal
--include hardware/google/pixel/thermal/device.mk
+include device/google/gs-common/thermal/thermal_hal/device.mk
 
 # Pixel Logger
 include hardware/google/pixel/PixelLogger/PixelLogger.mk
