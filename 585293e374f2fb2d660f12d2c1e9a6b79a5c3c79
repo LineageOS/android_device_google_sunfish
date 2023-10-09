@@ -16,6 +16,23 @@
       "message": "lets stop the lie from getting any bigger. ha",
       "revId": "585293e374f2fb2d660f12d2c1e9a6b79a5c3c79",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a4d1d6c_7b0945c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2023-10-09T12:21:52Z",
+      "side": 1,
+      "message": "Actually would there be a problem if we set an older date just for vendor?",
+      "revId": "585293e374f2fb2d660f12d2c1e9a6b79a5c3c79",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": []
