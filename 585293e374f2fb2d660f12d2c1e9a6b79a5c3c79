@@ -50,6 +50,24 @@
       "message": "We also need to freeze all the other pixels, which would also be wrong (2023-09-01 stock vs 2023-09-05 lineage)",
       "revId": "585293e374f2fb2d660f12d2c1e9a6b79a5c3c79",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48639541_e4fb55f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 7118
+      },
+      "writtenOn": "2023-10-10T05:36:52Z",
+      "side": 1,
+      "message": "i know on b1c1 you can\u0027t downgrade vendor spl, unless you wipe data.",
+      "parentUuid": "1a4d1d6c_7b0945c0",
+      "revId": "585293e374f2fb2d660f12d2c1e9a6b79a5c3c79",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": []
