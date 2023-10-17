@@ -887,7 +887,7 @@ PRODUCT_PACKAGES += $(HIDL_WRAPPER)
 
 # Increment the SVN for any official public releases
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.vendor.build.svn=64
+	ro.vendor.build.svn=65
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
@@ -909,6 +909,9 @@ endif
 
 # Project
 include hardware/google/pixel/common/pixel-common-device.mk
+
+# gs-common
+include device/google/gs-common/misc_writer/misc_writer.mk
 
 # Citadel
 include hardware/google/pixel/citadel/citadel.mk
