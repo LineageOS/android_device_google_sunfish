@@ -112,6 +112,7 @@ PRODUCT_PACKAGES += \
 
 # Identity credential
 PRODUCT_PACKAGES += \
+    android.hardware.identity-V4-ndk.vendor:64 \
     android.hardware.identity-support-lib.vendor:64 \
     android.hardware.identity_credential.xml
 
@@ -168,6 +169,7 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0.vendor \
     android.hardware.input.common-V1-ndk.vendor:64 \
     android.hardware.input.processor-V1-ndk.vendor:64 \
+    android.hardware.keymaster-V3-ndk.vendor:64 \
     android.hardware.keymaster@3.0.vendor \
     android.hardware.keymaster@4.0.vendor \
     android.hardware.keymaster@4.1.vendor \
@@ -185,6 +187,7 @@ PRODUCT_PACKAGES += \
     android.hardware.radio@1.3.vendor:64 \
     android.hardware.radio@1.4.vendor:64 \
     android.hardware.radio@1.5.vendor:64 \
+    android.hardware.rebootescrow-V1-ndk.vendor:64 \
     android.hardware.secure_element@1.1.vendor:64 \
     android.hardware.secure_element@1.2.vendor:64 \
     android.hardware.sensors@1.0.vendor \
