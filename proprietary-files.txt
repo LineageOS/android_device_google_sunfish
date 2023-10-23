@@ -98,7 +98,7 @@ system_ext/etc/permissions/com.google.android.camera.extensions.xml
 system_ext/framework/com.google.android.camera.extensions.jar
 
 # HBM
-system_ext/priv-app/HbmSVManager/HbmSVManager.apk
+system_ext/priv-app/HbmSVManager/HbmSVManager.apk|fe735c4ba34ce45b704c30bef0aaf37d23b33cd6
 
 # Hotword
 system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml
