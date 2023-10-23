@@ -1058,18 +1058,6 @@ VENDOR_SKIP_FILES=(
     "lib64/libstagefrighthw.so"
     "lib64/vendor.qti.hardware.capabilityconfigstore@1.0.so"
 
-    # Nos
-    "lib64/libnos.so"
-    "lib64/libnos_client_citadel.so"
-    "lib64/libnos_datagram.so"
-    "lib64/libnos_datagram_citadel.so"
-    "lib64/libnos_transport.so"
-    "lib64/libnosprotos.so"
-    "lib64/nos_app_avb.so"
-    "lib64/nos_app_identity.so"
-    "lib64/nos_app_keymaster.so"
-    "lib64/nos_app_weaver.so"
-
     # Power
     "lib/android.hardware.power@1.0.so"
     "lib/android.hardware.power@1.1.so"
