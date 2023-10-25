@@ -1,0 +1,2 @@
+# Ignore access to firmware_file (may be triggered by tradefed).
+dontaudit su firmware_file:filesystem *;
