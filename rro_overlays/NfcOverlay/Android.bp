@@ -1,0 +1,9 @@
+package {
+    default_applicable_licenses: ["device_google_sunfish_license"],
+}
+
+runtime_resource_overlay {
+    name: "NfcOverlaySunfish",
+    sdk_version: "current",
+    product_specific: true
+}
