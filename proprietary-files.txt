@@ -82,7 +82,7 @@ product/priv-app/USCCDM/USCCDM.apk
 # VZW
 product/app/VZWAPNLib/VZWAPNLib.apk;PRESIGNED
 product/etc/permissions/com.android.omadm.service.xml
-product/etc/permissions/com.google.omadm.trigger.xml
+product/etc/permissions/com.google.omadm.trigger.xml|553974a25930a819ddc50764715a8299d07febd5
 product/etc/permissions/com.verizon.apn.xml
 product/etc/permissions/com.verizon.services.xml
 product/etc/permissions/features-verizon.xml
