@@ -13,4 +13,5 @@ BOARD_SEPOLICY_DIRS += device/google/sunfish/sepolicy/vendor/verizon
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += device/google/sunfish/sepolicy/system_ext/private
 
 # Pixel-wide sepolicy
+BOARD_VENDOR_SEPOLICY_DIRS += hardware/google/pixel-sepolicy/confirmationui_hal
 BOARD_VENDOR_SEPOLICY_DIRS += hardware/google/pixel-sepolicy/powerstats
