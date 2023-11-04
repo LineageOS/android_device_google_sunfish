@@ -11,3 +11,4 @@ allow dataservice_app app_api_service:service_manager find;
 allow dataservice_app radio_service:service_manager find;
 
 allow dataservice_app radio_data_file:dir create_dir_perms;
+allow dataservice_app radio_data_file:file create_file_perms;

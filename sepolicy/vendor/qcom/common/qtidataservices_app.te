@@ -5,6 +5,7 @@ net_domain(qtidataservices_app)
 add_hwservice(qtidataservices_app, hal_cacert_hwservice)
 
 allow qtidataservices_app hal_datafactory_hwservice:hwservice_manager find;
+allow qtidataservices_app hal_iwlan_hwservice:hwservice_manager find;
 allow qtidataservices_app radio_service:service_manager find;
 
 allow qtidataservices_app self:qipcrtr_socket create_socket_perms_no_ioctl;
