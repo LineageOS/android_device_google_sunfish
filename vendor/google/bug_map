@@ -1,3 +1,4 @@
+audioserver vendor_file file b/310991726
 cnd wifi_hal_prop file b/162700455
 google_camera_app selinuxfs file b/175910397
 hal_health_default unlabeled file b/156200409
