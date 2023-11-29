@@ -15,12 +15,6 @@ product/priv-app/AmbientSensePrebuilt/AmbientSensePrebuilt.apk;PRESIGNED
 # Camera extensions
 product/app/PixelCameraServicesSunfish/PixelCameraServicesSunfish.apk;PRESIGNED
 
-# Charger
-product/etc/res/images/charger/battery_fail.png
-product/etc/res/images/charger/battery_scale.png
-product/etc/res/images/charger/main_font.png
-product/etc/res/values/charger/animation.txt
-
 # Felica
 product/etc/felica/common.cfg
 product/etc/felica/mfm.cfg
