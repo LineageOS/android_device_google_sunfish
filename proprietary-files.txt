@@ -140,7 +140,7 @@ system_ext/priv-app/EuiccGoogleOverlay/EuiccGoogleOverlay.apk
 system_ext/priv-app/EuiccSupportPixel/EuiccSupportPixel.apk;PRESIGNED
 system_ext/priv-app/EuiccSupportPixelPermissions/EuiccSupportPixelPermissions.apk;PRESIGNED
 system_ext/priv-app/RilConfigService/RilConfigService.apk
-system_ext/priv-app/grilservice/grilservice.apk;PRESIGNED
+system_ext/priv-app/grilservice/grilservice.apk;PRESIGNED|edc0bce55d0ce69b17cb26de3a7ec95a21d204e6
 
 # SecureUI
 system_ext/app/com.qualcomm.qti.services.secureui/com.qualcomm.qti.services.secureui.apk
