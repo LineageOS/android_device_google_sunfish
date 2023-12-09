@@ -181,6 +181,7 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@2.0-ScopedWakelock.vendor \
     android.hardware.sensors@2.0.vendor \
     android.hardware.sensors@2.1.vendor \
+    android.hardware.thermal@2.0.vendor:64 \
     android.hardware.weaver@1.0.vendor:64 \
     android.hardware.wifi@1.1.vendor:64 \
     android.hardware.wifi@1.2.vendor:64 \
