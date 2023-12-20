@@ -1154,6 +1154,10 @@ VENDOR_SKIP_FILES=(
     # Secure element
     "lib/ese_spi_st.so"
     "lib/libstpreprocess.so"
+
+    # Wi-Fi
+    "lib/libqsap_sdk.so"
+    "lib64/libqsap_sdk.so"
 )
 
 # Initialize the helper
