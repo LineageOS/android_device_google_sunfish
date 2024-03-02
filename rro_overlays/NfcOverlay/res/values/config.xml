@@ -23,4 +23,5 @@
     <item>G025N</item>
     <item>G025M</item>
   </string-array>
+  <bool name="nfc_observe_mode_supported">true</bool>
 </resources>
