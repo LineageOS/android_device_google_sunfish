@@ -32,6 +32,7 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/qcom/wlan/legacy \
     system/chre/host/hal_generic \
     vendor/google/camera \
+    vendor/google/tools/power-anomaly-qcril \
     vendor/qcom/sm8150 \
     vendor/qcom/sm8150/proprietary/commonsys/telephony-apps/DataStatusNotification \
     vendor/qcom/sm8150/proprietary/gps \
@@ -943,3 +944,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota_retrofit.mk)
 # Set system properties identifying the chipset
 PRODUCT_VENDOR_PROPERTIES += ro.soc.manufacturer=Qualcomm
 PRODUCT_VENDOR_PROPERTIES += ro.soc.model=SM7150
+
+# Update soong config namespace
+-include vendor/google/build/soong/soong_config_namespace/qcril_oemhook.mk
