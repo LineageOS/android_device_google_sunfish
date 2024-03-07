@@ -77,6 +77,11 @@ PRODUCT_PACKAGES += \
     hardware.google.bluetooth.sar@1.0.vendor \
     vendor.qti.hardware.bluetooth_audio@2.0.vendor
 
+# Camera
+PRODUCT_PACKAGES += \
+    android.hardware.camera.device-V1-ndk.vendor:64 \
+    android.hardware.camera.provider-V1-ndk.vendor:64
+
 # CHRE
 PRODUCT_PACKAGES += \
     chre

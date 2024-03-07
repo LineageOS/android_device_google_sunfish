@@ -18,6 +18,7 @@ vendor/bin/diag_uart_log
 vendor/bin/hvdcp_opti
 vendor/bin/hw/android.hardware.biometrics.fingerprint@2.2-service.fpc
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
+vendor/bin/hw/android.hardware.camera.provider@2.7-service-google
 vendor/bin/hw/android.hardware.confirmationui@1.0-service-google
 vendor/bin/hw/android.hardware.drm-service.widevine
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
