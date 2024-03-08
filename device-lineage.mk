@@ -144,6 +144,8 @@ PRODUCT_PACKAGES += \
 
 # Wi-Fi
 PRODUCT_PACKAGES += \
+    android.hardware.wifi-V2-ndk.vendor:64 \
+    android.hardware.wifi@1.0.vendor:64 \
     libwifi-hal:64 \
     libwifi-hal-ctrl:64 \
     libwifi-hal-qcom
@@ -189,12 +191,6 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@2.1.vendor \
     android.hardware.thermal@2.0.vendor:64 \
     android.hardware.weaver@1.0.vendor:64 \
-    android.hardware.wifi@1.1.vendor:64 \
-    android.hardware.wifi@1.2.vendor:64 \
-    android.hardware.wifi@1.3.vendor:64 \
-    android.hardware.wifi@1.4.vendor:64 \
-    android.hardware.wifi@1.5.vendor:64 \
-    android.hardware.wifi@1.6.vendor:64 \
     android.system.net.netd@1.1.vendor:64
 
 # Properties
