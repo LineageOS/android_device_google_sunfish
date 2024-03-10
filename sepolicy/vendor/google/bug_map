@@ -1,3 +1,4 @@
+audioserver vendor_file file b/310991726
 cnd wifi_hal_prop file b/162700455
 google_camera_app selinuxfs file b/175910397
 hal_health_default unlabeled file b/156200409
@@ -9,4 +10,5 @@ platform_app default_android_hwservice hwservice_manager b/156059972
 shell debugfs file b/175106535
 shell device_config_runtime_native_boot_prop file b/175106535
 shell sysfs file b/175106535
+system_server sysfs_batteryinfo file b/311220612
 tee tee capability2 b/156045688
