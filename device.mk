@@ -413,7 +413,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Tag \
     android.hardware.nfc-service.st \
-    android.hardware.secure_element@1.0-service.st
+    android.hardware.secure_element@1.0-service.st \
+    NfcOverlaySunfish
 
 PRODUCT_COPY_FILES += \
     device/google/sunfish/nfc/libnfc-hal-st.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-hal-st.conf \
@@ -836,6 +837,9 @@ endif
 # Project
 include hardware/google/pixel/common/pixel-common-device.mk
 
+# gs-common
+include device/google/gs-common/misc_writer/misc_writer.mk
+
 # Citadel
 include hardware/google/pixel/citadel/citadel.mk
 
@@ -854,7 +858,7 @@ include hardware/google/pixel/citadel/citadel.mk
 -include hardware/google/pixel/mm/device_legacy.mk
 
 # thermal
--include hardware/google/pixel/thermal/device.mk
+include device/google/gs-common/thermal/thermal_hal/device.mk
 
 # Pixel Logger
 include hardware/google/pixel/PixelLogger/PixelLogger.mk
