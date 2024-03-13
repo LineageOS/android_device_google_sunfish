@@ -1,0 +1,68 @@
+LOCAL_PATH := $(call my-dir)
+
+$(call declare-license-metadata,$(LOCAL_PATH)/vendor.img,legacy_proprietary,proprietary,$(LOCAL_PATH)/../LICENSE,"Vendor Image",vendor)
+
+$(eval $(call declare-copy-files-license-metadata,vendor/qcom/sunfish,:qcom,legacy_proprietary,proprietary,vendor/qcom/sunfish/LICENSE,))
+$(eval $(call declare-copy-files-license-metadata,vendor/qcom/sunfish,.jar,legacy_proprietary,proprietary,vendor/qcom/sunfish/LICENSE,))
+$(eval $(call declare-copy-files-license-metadata,vendor/qcom/sunfish,.xml,legacy_proprietary,proprietary,vendor/qcom/sunfish/LICENSE,))
+
+ifneq ($(filter sunfish, $(TARGET_DEVICE)),)
+include $(CLEAR_VARS)
+LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
+LOCAL_MODULE := ims
+LOCAL_LICENSE_KINDS := SPDX-license-identifier-Apache-2.0
+LOCAL_LICENSE_CONDITIONS := notice
+LOCAL_NOTICE_FILE := $(LOCAL_PATH)/../COPYRIGHT $(LOCAL_PATH)/../LICENSE
+LOCAL_MODULE_TAGS := optional
+LOCAL_BUILT_MODULE_STEM := package.apk
+LOCAL_SYSTEM_EXT_MODULE := true
+LOCAL_PRIVILEGED_MODULE := true
+LOCAL_MODULE_OWNER := qcom
+LOCAL_MODULE_CLASS := APPS
+LOCAL_SRC_FILES := $(LOCAL_MODULE).apk
+LOCAL_CERTIFICATE := platform
+# Disable dexpreopt and <uses-library> check because the APK depends on
+# libraries that are not present as modules in the build system.
+LOCAL_ENFORCE_USES_LIBRARIES := false
+LOCAL_DEX_PREOPT := false
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
+LOCAL_MODULE := qcrilmsgtunnel
+LOCAL_LICENSE_KINDS := SPDX-license-identifier-Apache-2.0
+LOCAL_LICENSE_CONDITIONS := notice
+LOCAL_NOTICE_FILE := $(LOCAL_PATH)/../COPYRIGHT $(LOCAL_PATH)/../LICENSE
+LOCAL_MODULE_TAGS := optional
+LOCAL_BUILT_MODULE_STEM := package.apk
+LOCAL_SYSTEM_EXT_MODULE := true
+LOCAL_PRIVILEGED_MODULE := true
+LOCAL_MODULE_OWNER := qcom
+LOCAL_MODULE_CLASS := APPS
+LOCAL_SRC_FILES := $(LOCAL_MODULE).apk
+LOCAL_CERTIFICATE := platform
+# Disable dexpreopt and <uses-library> check because the APK depends on
+# libraries that are not present as modules in the build system.
+LOCAL_ENFORCE_USES_LIBRARIES := false
+LOCAL_DEX_PREOPT := false
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
+LOCAL_MODULE := QtiTelephonyService
+LOCAL_LICENSE_KINDS := SPDX-license-identifier-Apache-2.0
+LOCAL_LICENSE_CONDITIONS := notice
+LOCAL_NOTICE_FILE := $(LOCAL_PATH)/../COPYRIGHT $(LOCAL_PATH)/../LICENSE
+LOCAL_MODULE_TAGS := optional
+LOCAL_BUILT_MODULE_STEM := package.apk
+LOCAL_SYSTEM_EXT_MODULE := true
+LOCAL_MODULE_OWNER := qcom
+LOCAL_MODULE_CLASS := APPS
+LOCAL_SRC_FILES := $(LOCAL_MODULE).apk
+LOCAL_CERTIFICATE := platform
+# Disable dexpreopt and <uses-library> check because the APK depends on
+# libraries that are not present as modules in the build system.
+LOCAL_ENFORCE_USES_LIBRARIES := false
+LOCAL_DEX_PREOPT := false
+include $(BUILD_PREBUILT)
+endif
