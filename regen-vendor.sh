@@ -1176,6 +1176,10 @@ function presign() {
     sed -i "s|vendor/${1}$|vendor/${1};PRESIGNED|g" "${_output_file}"
 }
 
+function symlink() {
+    sed -i "s|vendor/${1}$|vendor/${1};SYMLINK=${2}|g" "${_output_file}"
+}
+
 function as_module() {
     sed -i "s|vendor/${1}$|-vendor/${1}|g" "${_output_file}"
 }
@@ -1185,6 +1189,14 @@ function header() {
 }
 
 presign "app/adreno_graphics_driver/adreno_graphics_driver.apk"
+
+symlink "lib/egl/libEGL_adreno.so" "vendor/lib/libEGL_adreno.so"
+symlink "lib/egl/libGLESv2_adreno.so" "vendor/lib/libGLESv2_adreno.so"
+symlink "lib/egl/libq3dtools_adreno.so" "vendor/lib/libq3dtools_adreno.so"
+symlink "lib64/egl/libEGL_adreno.so" "vendor/lib64/libEGL_adreno.so"
+symlink "lib64/egl/libGLESv2_adreno.so" "vendor/lib64/libGLESv2_adreno.so"
+symlink "lib64/egl/libq3dtools_adreno.so" "vendor/lib64/libq3dtools_adreno.so"
+
 as_module "lib/libadsprpc.so"
 as_module "lib/libMpeg4SwEncoder.so"
 as_module "lib64/libadsprpc.so"
