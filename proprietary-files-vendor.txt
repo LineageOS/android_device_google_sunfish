@@ -1,6 +1,6 @@
 # All blobs are extracted from Google factory images for each new ASB
 vendor/app/CACertService/CACertService.apk
-vendor/app/CneApp/CneApp.apk
+vendor/app/CneApp/CneApp.apk;REQUIRED=CneApp.libvndfwk_detect_jni.qti_symlink
 vendor/app/IWlanService/IWlanService.apk
 vendor/app/TimeService/TimeService.apk
 vendor/app/adreno_graphics_driver/adreno_graphics_driver.apk;PRESIGNED

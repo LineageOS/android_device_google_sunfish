@@ -36,14 +36,6 @@ ifeq ($(USES_DEVICE_GOOGLE_SUNFISH),true)
   subdir_makefiles=$(call first-makefiles-under,$(LOCAL_PATH))
   $(foreach mk,$(subdir_makefiles),$(info including $(mk) ...)$(eval include $(mk)))
 
-CNE_LIBS := libvndfwk_detect_jni.qti.so
-CNE_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/app/CneApp/lib/arm64/,$(notdir $(CNE_LIBS)))
-$(CNE_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "CneApp lib link: $@"
-	@mkdir -p $(dir $@)
-	@rm -rf $@
-	$(hide) ln -sf /vendor/lib64/$(notdir $@) $@
-
 SECUREUI_LIBS := libsecureuisvc_jni.so
 SECUREUI_SYMLINKS := $(addprefix $(TARGET_OUT_SYSTEM_EXT)/app/com.qualcomm.qti.services.secureui/lib/arm64/,$(notdir $(SECUREUI_LIBS)))
 $(SECUREUI_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
@@ -60,5 +52,5 @@ $(DM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@rm -rf $@
 	$(hide) ln -sf /product/lib/$(notdir $@) $@
 
-ALL_DEFAULT_INSTALLED_MODULES += $(CNE_SYMLINKS) $(SECUREUI_SYMLINKS) $(DM_SYMLINKS)
+ALL_DEFAULT_INSTALLED_MODULES += $(SECUREUI_SYMLINKS) $(DM_SYMLINKS)
 endif
