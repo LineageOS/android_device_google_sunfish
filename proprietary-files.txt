@@ -31,6 +31,7 @@ product/priv-app/HotwordEnrollmentXGoogleRT5514P/HotwordEnrollmentXGoogleRT5514P
 
 # Permissions
 product/etc/permissions/privapp-permissions-google-p.xml:product/etc/permissions/privapp-permissions-google-p-lineage.xml
+product/etc/sysconfig/GoogleCamera_6gb_or_more_ram.xml
 product/etc/sysconfig/google-hiddenapi-package-whitelist.xml
 product/etc/sysconfig/nexus.xml
 product/etc/sysconfig/pixel_experience_2017.xml
