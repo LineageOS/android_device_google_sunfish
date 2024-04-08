@@ -15,3 +15,4 @@ SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += device/google/sunfish/sepolicy/system_ext/pr
 # Pixel-wide sepolicy
 BOARD_VENDOR_SEPOLICY_DIRS += hardware/google/pixel-sepolicy/confirmationui_hal
 BOARD_VENDOR_SEPOLICY_DIRS += hardware/google/pixel-sepolicy/powerstats
+BOARD_VENDOR_SEPOLICY_DIRS += hardware/google/pixel-sepolicy/ramdump/common
