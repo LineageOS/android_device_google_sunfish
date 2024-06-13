@@ -700,6 +700,7 @@ vendor/lib/libmaxxaudio.so
 vendor/lib/libmaxxaudioqdsp.so
 vendor/lib/libmdmdetect.so
 vendor/lib/libmdsprpc.so
+vendor/lib/libmedia_ecoservice.so
 vendor/lib/libminkdescriptor.so
 vendor/lib/libminksocket.so
 vendor/lib/libmm-color-convertor.so
@@ -1165,6 +1166,7 @@ vendor/lib64/liblqe.so
 vendor/lib64/libmaxxaudio.so
 vendor/lib64/libmdmdetect.so
 vendor/lib64/libmdsprpc.so
+vendor/lib64/libmedia_ecoservice.so
 vendor/lib64/libminkdescriptor.so
 vendor/lib64/libminksocket.so
 vendor/lib64/libmm-color-convertor.so

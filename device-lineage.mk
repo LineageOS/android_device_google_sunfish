@@ -92,7 +92,6 @@ PRODUCT_PACKAGES += \
     libavservices_minijail.vendor \
     libcodec2_hidl@1.0.vendor \
     libcodec2_vndk.vendor \
-    libmedia_ecoservice.vendor \
     libstagefright_bufferpool@2.0.1.vendor
 
 # Configstore
