@@ -1,2 +1,0 @@
-hal_attribute(pixelstats)type pixelstats_system, domain, coredomain;
-init_daemon_domain(pixelstats_system)type pixelstats_system_exec, exec_type, file_type, system_file_type;
