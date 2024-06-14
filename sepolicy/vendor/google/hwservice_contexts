@@ -1,4 +1,3 @@
-hardware.google.pixelstats::IPixelStats                                 u:object_r:hal_pixelstats_hwservice:s0
 hardware.google.light::ILight                                           u:object_r:hal_light_hwservice:s0
 hardware.google.bluetooth.bt_channel_avoidance::IBTChannelAvoidance     u:object_r:hal_bluetooth_coexistence_hwservice:s0
 hardware.google.bluetooth.sar::IBluetoothSar                            u:object_r:hal_bluetooth_coexistence_hwservice:s0
