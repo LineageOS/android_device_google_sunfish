@@ -1,7 +1,6 @@
 type vendor_init_exec, exec_type, vendor_file_type, file_type;
 
 userdebug_or_eng(`
-  allow vendor_init debugfs_clk:file w_file_perms;
   # Allow vendor_init to write vendor_tcpdump_log_prop on userdebug or eng ROM
   set_prop(vendor_init, vendor_tcpdump_log_prop)
 ')
@@ -30,7 +29,6 @@ userdebug_or_eng(`
   set_prop(vendor_init, logpersistd_logging_prop)
 ')
 
-dontaudit vendor_init debugfs:file write;
 allow vendor_init proc_sched_energy_aware:file w_file_perms;
 allow vendor_init proc_sched_updown_migrate:file w_file_perms;
 allow vendor_init proc_swappiness:file w_file_perms;
@@ -39,11 +37,6 @@ allow vendor_init proc_sched_lib_mask_cpuinfo:file w_file_perms;
 
 allow vendor_init self:global_capability2_class_set block_suspend;
 allow vendor_init sysfs_wake_lock:file rw_file_perms;
-
-# IPA Data Stall Detection
-userdebug_or_eng(`
-  allow vendor_init debugfs_ipa_data_stall_detection:file w_file_perms;
-')
 
 set_prop(vendor_init, vendor_logging_prop)
 get_prop(vendor_init, test_harness_prop)

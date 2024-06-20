@@ -1,5 +1,0 @@
-userdebug_or_eng(`
-  allow citadeld debugfs_ipc:dir search;
-')
-
-dontaudit citadeld debugfs_ipc:dir search;

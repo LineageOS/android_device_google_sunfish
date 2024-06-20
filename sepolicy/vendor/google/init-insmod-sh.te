@@ -9,14 +9,7 @@ allow init-insmod-sh vendor_kernel_modules:system module_load;
 allow init-insmod-sh vendor_toolbox_exec:file execute_no_trans;
 allow init-insmod-sh sysfs_msm_boot:file w_file_perms;
 
-userdebug_or_eng(`
-  allow init-insmod-sh debugfs_ipc:dir search;
-  allow init-insmod-sh debugfs_wlan:dir search;
-')
-
 set_prop(init-insmod-sh, vendor_device_prop)
 
-dontaudit init-insmod-sh debugfs_ipc:dir search;
-dontaudit init-insmod-sh debugfs_wlan:dir search;
 dontaudit init-insmod-sh self:capability sys_admin;
 dontaudit init-insmod-sh proc_cmdline:file r_file_perms;
