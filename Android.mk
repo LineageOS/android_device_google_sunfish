@@ -35,14 +35,4 @@ $(eval $(call declare-1p-copy-files,device/google/sunfish,audio_policy_configura
 ifeq ($(USES_DEVICE_GOOGLE_SUNFISH),true)
   subdir_makefiles=$(call first-makefiles-under,$(LOCAL_PATH))
   $(foreach mk,$(subdir_makefiles),$(info including $(mk) ...)$(eval include $(mk)))
-
-DM_LIBS := libdmengine.so libdmjavaplugin.so
-DM_SYMLINKS := $(addprefix $(TARGET_OUT_PRODUCT)/priv-app/DMService/lib/arm/,$(notdir $(DM_LIBS)))
-$(DM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "DMService lib link: $@"
-	@mkdir -p $(dir $@)
-	@rm -rf $@
-	$(hide) ln -sf /product/lib/$(notdir $@) $@
-
-ALL_DEFAULT_INSTALLED_MODULES += $(DM_SYMLINKS)
 endif

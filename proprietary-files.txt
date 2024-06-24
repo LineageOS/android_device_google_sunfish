@@ -53,8 +53,8 @@ product/framework/uimservicelibrary.jar
 product/etc/permissions/com.android.sdm.plugins.connmo.xml
 product/etc/permissions/com.android.sdm.plugins.dcmo.xml
 product/etc/permissions/com.android.sdm.plugins.diagmon.xml
-product/lib/libdmengine.so
-product/lib/libdmjavaplugin.so
+product/lib/libdmengine.so;SYMLINK=product/priv-app/DMService/lib/arm/libdmengine.so
+product/lib/libdmjavaplugin.so;SYMLINK=product/priv-app/DMService/lib/arm/libdmjavaplugin.so
 product/priv-app/CarrierServices/CarrierServices.apk;PRESIGNED
 product/priv-app/CarrierSettings/CarrierSettings.apk;PRESIGNED
 product/priv-app/CarrierWifi/CarrierWifi.apk;PRESIGNED
