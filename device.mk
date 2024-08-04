@@ -318,10 +318,6 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@4.0-impl-qti-display \
     vendor.qti.hardware.display.allocator-service
 
-# RenderScript HAL
-PRODUCT_PACKAGES += \
-    android.hardware.renderscript@1.0-impl
-
 # Light HAL
 PRODUCT_PACKAGES += \
     lights.sm6150 \
