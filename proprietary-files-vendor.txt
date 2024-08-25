@@ -566,7 +566,7 @@ vendor/lib/libGPTEE_vendor.so
 vendor/lib/libGPreqcancel.so
 vendor/lib/libGPreqcancel_svc.so
 vendor/lib/libI420colorconvert.so
--vendor/lib/libMpeg4SwEncoder.so
+vendor/lib/libMpeg4SwEncoder.so
 vendor/lib/libOmxAacDec.so
 vendor/lib/libOmxAlacDec.so
 vendor/lib/libOmxAlacDecSw.so
@@ -597,7 +597,7 @@ vendor/lib/libadm.so
 vendor/lib/libadpcmdec.so
 vendor/lib/libadreno_utils.so
 vendor/lib/libadsp_default_listener.so
--vendor/lib/libadsprpc.so
+vendor/lib/libadsprpc.so
 vendor/lib/libaoa.so
 vendor/lib/libash.so
 vendor/lib/libasn1cper.so
@@ -1011,7 +1011,7 @@ vendor/lib64/libGPTEE_vendor.so
 vendor/lib64/libGPreqcancel.so
 vendor/lib64/libGPreqcancel_svc.so
 vendor/lib64/libI420colorconvert.so
--vendor/lib64/libMpeg4SwEncoder.so
+vendor/lib64/libMpeg4SwEncoder.so
 vendor/lib64/libOmxAacDec.so
 vendor/lib64/libOmxAlacDec.so
 vendor/lib64/libOmxAlacDecSw.so
@@ -1043,7 +1043,7 @@ vendor/lib64/libacdbrtac.so
 vendor/lib64/libadiertac.so
 vendor/lib64/libadreno_utils.so
 vendor/lib64/libadsp_default_listener.so
--vendor/lib64/libadsprpc.so
+vendor/lib64/libadsprpc.so
 vendor/lib64/libaoa.so
 vendor/lib64/libash.so
 vendor/lib64/libasn1cper.so
