@@ -1,4 +1,4 @@
-# All blobs are extracted from Google factory images for each new ASB
+# All blobs below are extracted from the release mentioned in proprietary-files.txt
 product/etc/CarrierSettings/1and1_de.pb
 product/etc/CarrierSettings/2degrees_nz.pb
 product/etc/CarrierSettings/a1_at.pb

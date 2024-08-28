@@ -1,4 +1,4 @@
-# All blobs are extracted from Google factory images for each new ASB
+# All blobs below are extracted from the release mentioned in proprietary-files.txt
 vendor/app/CACertService/CACertService.apk
 vendor/app/CneApp/CneApp.apk;REQUIRED=CneApp.libvndfwk_detect_jni.qti_symlink
 vendor/app/IWlanService/IWlanService.apk
