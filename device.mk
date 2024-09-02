@@ -22,8 +22,6 @@ MSMSTEPPE := sm6150
 
 PRODUCT_SOONG_NAMESPACES += \
     device/google/sunfish \
-    hardware/google/av \
-    hardware/google/camera \
     hardware/google/interfaces \
     hardware/google/pixel \
     hardware/qcom/sm8150/display \

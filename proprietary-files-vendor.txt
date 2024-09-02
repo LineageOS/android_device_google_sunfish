@@ -240,6 +240,7 @@ vendor/etc/data/netmgr_config.xml
 vendor/etc/default_snd.mps
 vendor/etc/init/android.hardware.biometrics.fingerprint@2.2-service.fpc.rc
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
+vendor/etc/init/android.hardware.camera.provider@2.7-service-google.rc
 vendor/etc/init/android.hardware.confirmationui@1.0-service-google.rc
 vendor/etc/init/android.hardware.drm-service.widevine.rc
 vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
@@ -347,6 +348,7 @@ vendor/etc/sensors/sns_reg_config
 vendor/etc/st54j_aram.txt
 vendor/etc/st54j_aram_cts.txt
 vendor/etc/thermal-engine.conf
+vendor/etc/vintf/manifest/android.hardware.camera.provider@2.7-service-google.xml
 vendor/etc/vintf/manifest/android.hardware.confirmationui@1.0-service-google.xml
 vendor/etc/vintf/manifest/android.hardware.identity.strongbox.xml
 vendor/etc/vintf/manifest/android.hardware.keymaster@4.1-service.citadel.xml
@@ -1042,6 +1044,8 @@ vendor/lib64/lib_aion_buffer.so
 vendor/lib64/lib_goog_chi_node_utils.so
 vendor/lib64/lib_goog_fatp_utils.so
 vendor/lib64/lib_goog_metadata_utils.so
+vendor/lib64/lib_profiler.so
+vendor/lib64/lib_sensor_listener.so
 vendor/lib64/liba2dpoffload.so
 vendor/lib64/libacdb-fts.so
 vendor/lib64/libacdbloader.so
