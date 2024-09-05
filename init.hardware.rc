@@ -467,6 +467,14 @@ on property:sys.boot_completed=1
     chown root log /proc/bldrlog
     chmod 0444 /proc/bldrlog
 
+    # Permissions for fingerprint sensor
+    chown system system /sys/devices/platform/soc/soc:fp_fpc1020/wakeup_enable
+    chmod 0200 /sys/devices/platform/soc/soc:fp_fpc1020/wakeup_enable
+    chown system system /sys/devices/platform/soc/soc:fp_fpc1020/irq
+    chmod 0600 /sys/devices/platform/soc/soc:fp_fpc1020/irq
+    chown system system /sys/devices/platform/soc/soc:fp_fpc1020/hw_reset
+    chmod 0600 /sys/devices/platform/soc/soc:fp_fpc1020/hw_reset
+
 service vendor.per_mgr /vendor/bin/pm-service
     class core
     user system
