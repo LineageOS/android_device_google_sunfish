@@ -16,6 +16,23 @@
       "message": "Does this fix anything?",
       "revId": "460c06787233e43fcc35661b8e4d7c7b53268a95",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41d5b9d7_7df30dfe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 34106
+      },
+      "writtenOn": "2024-09-06T01:05:19Z",
+      "side": 1,
+      "message": "Yes, after doing this fixes fingerprint sensor on my Pixel 4a. I got sometimes \"fingerprint hardware not available\" errors then checked permission is missing. This issue appears only QPR3 August patches later. in QPR3 July patches was fine.",
+      "revId": "460c06787233e43fcc35661b8e4d7c7b53268a95",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
