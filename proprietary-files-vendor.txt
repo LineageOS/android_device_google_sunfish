@@ -514,7 +514,7 @@ vendor/firmware/widevine.b07
 vendor/firmware/widevine.mdt
 vendor/firmware/wlanmdsp.mbn
 vendor/framework/com.google.android.camera.experimental2020_midyear.jar
-vendor/lib/adsp_camera/libhalide_hexagon_remote_skel.so
+vendor/lib/adsp_camera/libhalide_hexagon_remote_skel.so;DISABLE_DEPS
 vendor/lib/btaudio_offload_if.so
 vendor/lib/com.qualcomm.qti.dpm.api@1.0.so
 vendor/lib/com.qualcomm.qti.imscmservice@1.0.so
