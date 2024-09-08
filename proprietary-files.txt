@@ -74,10 +74,12 @@ product/priv-app/SprintDM/SprintDM.apk
 product/etc/permissions/com.android.sdm.plugins.usccdm.xml
 product/priv-app/USCCDM/USCCDM.apk
 
+# VZW - from barbet AP2A.240805.005
+product/etc/permissions/com.google.omadm.trigger.xml|553974a25930a819ddc50764715a8299d07febd5
+
 # VZW
 product/app/VZWAPNLib/VZWAPNLib.apk;PRESIGNED
 product/etc/permissions/com.android.omadm.service.xml
-product/etc/permissions/com.google.omadm.trigger.xml|553974a25930a819ddc50764715a8299d07febd5
 product/etc/permissions/com.verizon.apn.xml
 product/etc/permissions/com.verizon.services.xml
 product/etc/permissions/features-verizon.xml
@@ -92,8 +94,8 @@ product/priv-app/WfcActivation/WfcActivation.apk;PRESIGNED
 system_ext/etc/permissions/com.google.android.camera.extensions.xml
 system_ext/framework/com.google.android.camera.extensions.jar
 
-# HBM
-system_ext/priv-app/HbmSVManager/HbmSVManager.apk|c1a7aa6051cc79b98e2241711953d148f391eb63
+# HBM - from barbet AP2A.240805.005
+system_ext/priv-app/HbmSVManager/HbmSVManager.apk|602c2ad1a963379d7e45dd7dee97bf5d916eabd6
 
 # Hotword
 system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml
@@ -126,6 +128,9 @@ system_ext/etc/vintf/manifest/vendor.qti.hardware.radio.atcmdfwd@1.0.xml
 system_ext/framework/qcrilhook.jar
 system_ext/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 
+# Radio - from barbet AP2A.240805.005
+system_ext/priv-app/grilservice/grilservice.apk;PRESIGNED|e43cc8d8df6adeea20c0071412001cb755f801c7
+
 # Radio
 system_ext/etc/permissions/com.android.omadm.radioconfig.xml
 system_ext/etc/permissions/com.google.euiccpixel.permissions.xml
@@ -138,12 +143,13 @@ system_ext/priv-app/EuiccGoogleOverlay/EuiccGoogleOverlay.apk
 system_ext/priv-app/EuiccSupportPixel/EuiccSupportPixel.apk;PRESIGNED
 system_ext/priv-app/EuiccSupportPixelPermissions/EuiccSupportPixelPermissions.apk;PRESIGNED
 system_ext/priv-app/RilConfigService/RilConfigService.apk
-system_ext/priv-app/grilservice/grilservice.apk;PRESIGNED|edc0bce55d0ce69b17cb26de3a7ec95a21d204e6
+
+# SecureUI - from barbet AP2A.240805.005
+system_ext/lib64/libsecureuisvc_jni.so;SYMLINK=system_ext/app/com.qualcomm.qti.services.secureui/lib/arm64/libsecureuisvc_jni.so|f90a20ddbf58c75d811f2637bd43662aab653653
 
 # SecureUI
 system_ext/app/com.qualcomm.qti.services.secureui/com.qualcomm.qti.services.secureui.apk
 system_ext/lib64/libsecureui_svcsock_system.so
-system_ext/lib64/libsecureuisvc_jni.so;SYMLINK=system_ext/app/com.qualcomm.qti.services.secureui/lib/arm64/libsecureuisvc_jni.so|a8f9dd9e459a8037386156169201e4c04ddc1343
 system_ext/lib64/vendor.qti.hardware.tui_comm@1.0.so
 
 # VZW
@@ -155,7 +161,7 @@ system_ext/priv-app/obdm_stub/obdm_stub.apk;PRESIGNED
 
 # vendor partition
 
-# Wi-Fi service
+# Wi-Fi service - from barbet AP2A.240805.005
 vendor/bin/hw/vendor.google.wifi_ext-service-vendor|2f00a17b75612cbf8fb3685fe0d183148a70dd03
 vendor/etc/init/vendor.google.wifi_ext-service.rc|8565ca57da131819441d6fb87abfcae134ed2ef9
 vendor/etc/vintf/manifest/manifest_wifi_ext_aidl.xml|f273a6ab68268f73935c36bdecea0aad97cbe70f
