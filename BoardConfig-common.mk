@@ -35,9 +35,6 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a76
 
-# GOOGLE: workaround for https://android-review.googlesource.com/c/platform/system/sepolicy/+/1532995
-BUILD_BROKEN_VENDOR_PROPERTY_NAMESPACE := true
-
 TARGET_BOARD_COMMON_PATH := device/google/sunfish/sm7150
 
 BOARD_KERNEL_CMDLINE += console=ttyMSM0,115200n8 androidboot.console=ttyMSM0 printk.devkmsg=on
