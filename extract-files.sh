@@ -73,6 +73,11 @@ function blob_fixup() {
         product/etc/sysconfig/nexus.xml)
             sed -i 's/qulacomm/qualcomm/' "${2}"
             ;;
+        vendor/bin/hw/android.hardware.rebootescrow-service.citadel | \
+            vendor/lib64/android.hardware.keymaster@4.1-impl.nos.so)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF}" --add-needed "libcrypto_shim.so" "${2}"
+            ;;
         *)
             return 1
             ;;
