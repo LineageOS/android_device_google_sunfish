@@ -1,0 +1,67 @@
+--- a/smali/com/android/hbmsvmanager/filter/AmbientFilterFactory.smali
++++ b/smali/com/android/hbmsvmanager/filter/AmbientFilterFactory.smali
+@@ -35,14 +35,22 @@
+ .method public static createBrightnessFilter(Ljava/lang/String;Landroid/content/res/Resources;)Lcom/android/hbmsvmanager/filter/AmbientFilter;
+     .locals 2
+ 
+-    const v0, 0x10e005c
++    const v0, 0
++
++    invoke-static {p1}, Lcom/android/hbmsvmanager/filter/AmbientFilterFactory;->getFilterHorizonIdentifier(Landroid/content/res/Resources;)I
++
++    move-result v0
+ 
+     .line 53
+     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getInteger(I)I
+ 
+     move-result v0
+ 
+-    const v1, 0x10500af
++    const v1, 0
++
++    invoke-static {p1}, Lcom/android/hbmsvmanager/filter/AmbientFilterFactory;->getFilterInterceptIdentifier(Landroid/content/res/Resources;)I
++
++    move-result v1
+ 
+     .line 60
+     invoke-static {p1, v1}, Lcom/android/hbmsvmanager/filter/AmbientFilterFactory;->getFloat(Landroid/content/res/Resources;I)F
+@@ -89,3 +97,39 @@
+ 
+     return p0
+ .end method
++
++.method private static getFilterHorizonIdentifier(Landroid/content/res/Resources;)I
++    .registers 4
++    .param p0, "resources"    # Landroid/content/res/Resources;
++
++    .line 7
++    const-string v0, "integer"
++
++    const-string v1, "android"
++
++    const-string v2, "config_displayWhiteBalanceBrightnessFilterHorizon"
++
++    invoke-virtual {p0, v2, v0, v1}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
++
++    move-result v0
++
++    return v0
++.end method
++
++.method private static getFilterInterceptIdentifier(Landroid/content/res/Resources;)I
++    .registers 4
++    .param p0, "resources"    # Landroid/content/res/Resources;
++
++    .line 11
++    const-string v0, "dimen"
++
++    const-string v1, "android"
++
++    const-string v2, "config_displayWhiteBalanceBrightnessFilterIntercept"
++
++    invoke-virtual {p0, v2, v0, v1}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
++
++    move-result v0
++
++    return v0
++.end method

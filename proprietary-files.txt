@@ -94,8 +94,8 @@ product/priv-app/WfcActivation/WfcActivation.apk;PRESIGNED
 system_ext/etc/permissions/com.google.android.camera.extensions.xml
 system_ext/framework/com.google.android.camera.extensions.jar
 
-# HBM - from barbet AP2A.240805.005
-system_ext/priv-app/HbmSVManager/HbmSVManager.apk|602c2ad1a963379d7e45dd7dee97bf5d916eabd6
+# HBM
+system_ext/priv-app/HbmSVManager/HbmSVManager.apk
 
 # Hotword
 system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml

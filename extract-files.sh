@@ -73,6 +73,10 @@ function blob_fixup() {
         product/etc/sysconfig/nexus.xml)
             sed -i 's/qulacomm/qualcomm/' "${2}"
             ;;
+        system_ext/priv-app/HbmSVManager/HbmSVManager.apk)
+            [ "$2" = "" ] && return 0
+            apktool_patch "${2}" "${MY_DIR}/blob-patches/HbmSVManager.patch" -r
+            ;;
         vendor/bin/hw/android.hardware.rebootescrow-service.citadel | \
             vendor/lib64/android.hardware.keymaster@4.1-impl.nos.so)
             [ "$2" = "" ] && return 0
