@@ -78,6 +78,10 @@ function blob_fixup() {
             [ "$2" = "" ] && return 0
             "${PATCHELF}" --add-needed "libcrypto_shim.so" "${2}"
             ;;
+        vendor/lib64/libgooglecamerahal.so)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF}" --add-needed "libmeminfo_shim.so" "${2}"
+            ;;
         *)
             return 1
             ;;
