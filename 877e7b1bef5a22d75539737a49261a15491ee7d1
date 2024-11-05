@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a361cb5_83393eee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 34106
+      },
+      "writtenOn": "2024-11-05T08:47:20Z",
+      "side": 1,
+      "message": "Could you please merge this for fingerprint sensor fixes , thanks",
+      "revId": "877e7b1bef5a22d75539737a49261a15491ee7d1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
