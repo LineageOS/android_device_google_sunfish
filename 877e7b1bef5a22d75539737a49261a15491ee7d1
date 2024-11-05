@@ -16,6 +16,23 @@
       "message": "Could you please merge this for fingerprint sensor fixes , thanks",
       "revId": "877e7b1bef5a22d75539737a49261a15491ee7d1",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37fe6050_29872287",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 34297
+      },
+      "writtenOn": "2024-11-05T09:03:10Z",
+      "side": 1,
+      "message": "# Permissions for fingerprint sensor\n    chown system system /sys/devices/platform/soc/soc:fp_fpc1020/wakeup_enable\n    chmod 0200 /sys/devices/platform/soc/soc:fp_fpc1020/wakeup_enable\n    chown system system /sys/devices/platform/soc/soc:fp_fpc1020/irq\n    chmod 0600 /sys/devices/platform/soc/soc:fp_fpc1020/irq\n    chown system system /sys/devices/platform/soc/soc:fp_fpc1020/hw_reset\n    chmod 0600 /sys/devices/platform/soc/soc:fp_fpc1020/hw_reset\n    \n    add this to 470 for fingerprint sensor.",
+      "revId": "877e7b1bef5a22d75539737a49261a15491ee7d1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
