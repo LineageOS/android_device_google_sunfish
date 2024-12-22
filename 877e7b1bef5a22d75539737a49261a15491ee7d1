@@ -33,6 +33,24 @@
       "message": "# Permissions for fingerprint sensor\n    chown system system /sys/devices/platform/soc/soc:fp_fpc1020/wakeup_enable\n    chmod 0200 /sys/devices/platform/soc/soc:fp_fpc1020/wakeup_enable\n    chown system system /sys/devices/platform/soc/soc:fp_fpc1020/irq\n    chmod 0600 /sys/devices/platform/soc/soc:fp_fpc1020/irq\n    chown system system /sys/devices/platform/soc/soc:fp_fpc1020/hw_reset\n    chmod 0600 /sys/devices/platform/soc/soc:fp_fpc1020/hw_reset\n    \n    add this to 470 for fingerprint sensor.",
       "revId": "877e7b1bef5a22d75539737a49261a15491ee7d1",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1fdad7e_d7b86ab9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2024-12-22T18:51:42Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5a361cb5_83393eee",
+      "revId": "877e7b1bef5a22d75539737a49261a15491ee7d1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
