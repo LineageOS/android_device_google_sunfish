@@ -77,6 +77,8 @@ PRODUCT_PACKAGES += \
     disable_configstore
 
 # Display
+$(call soong_config_set,qtidisplay,drmpp,true)
+$(call soong_config_set,qtidisplay,gralloc4,true)
 $(call soong_config_set,qtidisplay,gralloc_handle_has_reserved_size,true)
 
 # GPS

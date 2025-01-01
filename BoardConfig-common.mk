@@ -181,16 +181,6 @@ AUDIO_FEATURE_ENABLED_INSTANCE_ID := true
 AUDIO_FEATURE_ENABLED_CS35L41 := true
 AUDIO_FEATURE_ENABLED_CS35L41_CALIBRATION_TOOL := true
 
-# Graphics
-TARGET_USES_GRALLOC1 := true
-TARGET_USES_HWC2 := true
-TARGET_USES_NV21_CAMERA_PREVIEW := true
-
-# Display
-TARGET_USES_DISPLAY_RENDER_INTENTS := true
-TARGET_USES_COLOR_METADATA := true
-TARGET_USES_DRM_PP := true
-
 # Vendor Interface Manifest
 DEVICE_MANIFEST_FILE := device/google/sunfish/manifest.xml
 DEVICE_MATRIX_FILE := device/google/sunfish/compatibility_matrix.xml
