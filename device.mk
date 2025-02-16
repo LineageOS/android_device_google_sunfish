@@ -357,7 +357,7 @@ PRODUCT_PACKAGES += \
 
 # Storage health HAL
 PRODUCT_PACKAGES += \
-    android.hardware.health.storage@1.0-service
+    android.hardware.health.storage-service.default
 
 # Create input surface on the framework side
 PRODUCT_PROPERTY_OVERRIDES += \
