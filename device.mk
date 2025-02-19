@@ -27,6 +27,7 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/qcom/sm8150/display \
     hardware/qcom/sm8150/gps \
     hardware/qcom/wlan/legacy \
+    hardware/qcom-caf/bootctrl \
     system/chre/host/hal_generic \
     vendor/qcom/opensource/data-ipa-cfg-mgr-legacy-um
 
@@ -122,10 +123,6 @@ PRODUCT_PACKAGES += \
 # Use Sdcardfs
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.sys.sdcardfs=1
-
-PRODUCT_PACKAGES += \
-    bootctrl.sm6150 \
-    bootctrl.sm6150.recovery
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.cp_system_other_odex=1
@@ -430,9 +427,8 @@ endif
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.2-impl-pixel-legacy \
-    android.hardware.boot@1.2-impl-pixel-legacy.recovery \
-    android.hardware.boot@1.2-service \
+    android.hardware.boot-service.qti \
+    android.hardware.boot-service.qti.recovery
 
 # Vibrator HAL
 PRODUCT_PACKAGES += \
