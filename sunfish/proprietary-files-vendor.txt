@@ -1,7 +1,5 @@
 # All blobs below are extracted from the release mentioned in proprietary-files.txt
 
-# lowi-server, libcne, libwqe depend on libwpa_client, which is a gnu makefile target
-
 vendor/app/CACertService/CACertService.apk
 vendor/app/CneApp/CneApp.apk;REQUIRED=CneApp.libvndfwk_detect_jni.qti_symlink
 vendor/app/IWlanService/IWlanService.apk
@@ -52,7 +50,7 @@ vendor/bin/init.qti.chg_policy.sh
 vendor/bin/irsc_util
 vendor/bin/ks
 vendor/bin/loc_launcher
-vendor/bin/lowi-server;DISABLE_CHECKELF
+vendor/bin/lowi-server
 vendor/bin/modem_svc
 vendor/bin/msm_irqbalance
 vendor/bin/netmgrd
@@ -590,7 +588,7 @@ vendor/lib/libcdfw_remote_api.so
 vendor/lib/libcdsp_default_listener.so
 vendor/lib/libcdsprpc.so
 vendor/lib/libcirrusspkrprot.so
-vendor/lib/libcne.so;DISABLE_CHECKELF
+vendor/lib/libcne.so
 vendor/lib/libcneapiclient.so
 vendor/lib/libcneoplookup.so
 vendor/lib/libcneqmiutils.so
@@ -760,7 +758,7 @@ vendor/lib/libvpphvx.so
 vendor/lib/libvppimmotion.so
 vendor/lib/libvsc.so
 vendor/lib/libwms.so
-vendor/lib/libwqe.so;DISABLE_CHECKELF
+vendor/lib/libwqe.so
 vendor/lib/libxml.so
 vendor/lib/libxtadapter.so
 vendor/lib/qcrild_librilutils.so
@@ -1019,7 +1017,7 @@ vendor/lib64/libcdfw_remote_api.so
 vendor/lib64/libcdsp_default_listener.so
 vendor/lib64/libcdsprpc.so
 vendor/lib64/libcirrusspkrprot.so
-vendor/lib64/libcne.so;DISABLE_CHECKELF
+vendor/lib64/libcne.so
 vendor/lib64/libcneapiclient.so
 vendor/lib64/libcneoplookup.so
 vendor/lib64/libcneqmiutils.so
@@ -1217,7 +1215,7 @@ vendor/lib64/libvpphvx.so
 vendor/lib64/libvppimmotion.so
 vendor/lib64/libvsc.so
 vendor/lib64/libwms.so
-vendor/lib64/libwqe.so;DISABLE_CHECKELF
+vendor/lib64/libwqe.so
 vendor/lib64/libwvaidl.so
 vendor/lib64/libxml.so
 vendor/lib64/libxtadapter.so
