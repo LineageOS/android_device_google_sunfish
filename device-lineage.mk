@@ -64,7 +64,7 @@ include hardware/google/pixel/touch/device.mk
 
 # CHRE
 PRODUCT_PACKAGES += \
-    chre
+    chre_daemon_msm
 
 # Configstore
 PRODUCT_PACKAGES += \
