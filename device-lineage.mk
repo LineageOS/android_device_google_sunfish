@@ -70,6 +70,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     disable_configstore
 
+# Display
+$(call soong_config_set,qtidisplay,gralloc_handle_has_reserved_size,true)
+
 # GPS
 PRODUCT_PACKAGES += \
     flp.conf
