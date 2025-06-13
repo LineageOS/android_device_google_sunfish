@@ -596,10 +596,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml
 
-# Reliability reporting
-PRODUCT_PACKAGES += \
-    pixelstats-vendor
-
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # insmod files
@@ -666,9 +662,6 @@ include hardware/google/pixel/citadel/citadel.mk
 -include vendor/qcom/sm8150/proprietary/securemsm/config/cpz_vendor_proprietary_product.mk
 -include vendor/qcom/sm8150/proprietary/securemsm/config/smcinvoke_vendor_proprietary_product.mk
 -include vendor/qcom/sm8150/proprietary/commonsys/securemsm/securemsm_system_product.mk
-
-# storage
--include hardware/google/pixel/pixelstats/device.mk
 
 # power HAL
 -include hardware/google/pixel/power-libperfmgr/aidl/device.mk
