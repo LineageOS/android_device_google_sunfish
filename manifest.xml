@@ -397,15 +397,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
        <transport>hwbinder</transport>
        <fqname>@4.0::IKeymasterDevice/default</fqname>
      </hal>
-     <hal format="hidl">
-        <name>android.hardware.power.stats</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IPowerStats</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
     <!-- light HAL -->
     <hal format="hidl">
         <name>android.hardware.light</name>
