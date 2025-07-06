@@ -52,7 +52,7 @@ blob_fixups: blob_fixups_user_type = {
     'product/etc/sysconfig/nexus.xml': blob_fixup()
         .regex_replace('qulacomm', 'qualcomm'),
     'system_ext/priv-app/HbmSVManager/HbmSVManager.apk': blob_fixup()
-        .apktool_patch('HbmSVManager.patch', '-r'),
+        .apktool_patch('HbmSVManager.patch'),
     (
         'vendor/bin/hw/android.hardware.rebootescrow-service.citadel',
         'vendor/lib64/android.hardware.keymaster@4.1-impl.nos.so',
