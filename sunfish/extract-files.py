@@ -51,6 +51,8 @@ blob_fixups: blob_fixups_user_type = {
         .patch_file('osaifu-keitai.patch'),
     'product/etc/sysconfig/nexus.xml': blob_fixup()
         .regex_replace('qulacomm', 'qualcomm'),
+    'system_ext/lib64/libsecureuisvc_jni.so': blob_fixup()
+        .add_needed('libgui_shim.so'),
     'system_ext/priv-app/HbmSVManager/HbmSVManager.apk': blob_fixup()
         .apktool_patch('HbmSVManager.patch'),
     (
