@@ -26,6 +26,7 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/pixel \
     hardware/qcom/sm8150/display \
     hardware/qcom/sm8150/gps \
+    hardware/qcom/wlan \
     hardware/qcom/wlan/legacy \
     hardware/qcom-caf/bootctrl \
     system/chre/host/hal_generic \
