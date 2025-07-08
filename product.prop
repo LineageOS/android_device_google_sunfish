@@ -119,3 +119,6 @@ bluetooth.profile.pan.nap.enabled?=true
 bluetooth.profile.pan.panu.enabled?=true
 bluetooth.profile.pbap.server.enabled?=true
 bluetooth.profile.sap.server.enabled?=true
+
+# eBPF
+ro.bpf.kver_override=5.4.186
