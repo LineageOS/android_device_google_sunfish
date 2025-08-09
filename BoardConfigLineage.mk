@@ -13,7 +13,6 @@ TARGET_NEEDS_DTBOIMAGE := true
 
 # Manifests
 DEVICE_MANIFEST_FILE += device/google/sunfish/lineage_manifest.xml
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += vendor/lineage/config/device_framework_matrix.xml
 
 # Partitions
 AB_OTA_PARTITIONS += \
