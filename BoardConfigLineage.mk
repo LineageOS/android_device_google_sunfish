@@ -11,10 +11,13 @@ TARGET_KERNEL_CONFIG := sunfish_defconfig
 TARGET_KERNEL_SOURCE := kernel/google/msm-4.14
 TARGET_NEEDS_DTBOIMAGE := true
 
+<<<<<<< PATCH SET (125678 sunfish: Migrate to AIDL LiveDisplay HAL)
+=======
 # Manifests
 DEVICE_MANIFEST_FILE += device/google/sunfish/lineage_manifest.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += vendor/lineage/config/device_framework_matrix.xml
 
+>>>>>>> BASE      (4f1c4c sunfish: apktool_patch() no longer takes custom arguments)
 # Partitions
 AB_OTA_PARTITIONS += \
     vendor
