@@ -78,10 +78,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/cs35l41/EVT1.1/cs35l41-revB2-dsp1-spk-prot.wmfw:$(TARGET_COPY_OUT_VENDOR)/firmware/cs35l41-revB2-dsp1-spk-prot.wmfw \
     $(LOCAL_PATH)/audio/cs35l41/EVT1.1/R-cs35l41-revB2-dsp1-spk-prot.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/R-cs35l41-revB2-dsp1-spk-prot.bin \
 
-# Audio CS35L41 speaker calibration tool
-PRODUCT_PACKAGES_DEBUG += \
-    crus_sp_cal
-
 # Audio effects
 PRODUCT_PACKAGES += \
     libqcomvoiceprocessingdescriptors
@@ -98,12 +94,6 @@ PRODUCT_COPY_FILES += \
      $(LOCAL_PATH)/audio/acdbdata/Headset_cal.acdb:$(TARGET_COPY_OUT_VENDOR)/etc/acdbdata/Headset_cal.acdb \
      $(LOCAL_PATH)/audio/acdbdata/Speaker_cal.acdb:$(TARGET_COPY_OUT_VENDOR)/etc/acdbdata/Speaker_cal.acdb \
      $(LOCAL_PATH)/audio/acdbdata/adsp_avs_config.acdb:$(TARGET_COPY_OUT_VENDOR)/etc/acdbdata/adsp_avs_config.acdb
-
-# Audio ACDB workspace files for QACT
-ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
-PRODUCT_COPY_FILES += \
-     $(LOCAL_PATH)/audio/acdbdata/workspaceFile.qwsp:$(TARGET_COPY_OUT_VENDOR)/etc/acdbdata/workspaceFile.qwsp
-endif
 endif
 
 # Settings overlay packages for regulatory_info
