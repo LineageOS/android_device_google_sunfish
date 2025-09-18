@@ -14,5 +14,6 @@ r_dir_file(sensors, sysfs_msm_subsys)
 allow sensors sysfs_ssr:file r_file_perms;
 allow sensors sensors_vendor_data_file:dir rw_dir_perms;
 allow sensors sensors_vendor_data_file:file create_file_perms;
+allow sensors sensors_vendor_data_file:fifo_file create_file_perms;
 
 dontaudit sensors sysfs_esoc:dir r_dir_perms;
