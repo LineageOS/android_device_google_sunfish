@@ -1,5 +1,7 @@
 # Camera service uses gralloc, gralloc mapper wants to talk to the GPU
 # and use debug properties
+get_prop(cameraserver, camera_prop)
+get_prop(cameraserver, camera_ro_prop)
 get_prop(cameraserver, vendor_display_prop)
 
 # It's confirmed that all attempts of access gpu_device by the gralloc mapper
