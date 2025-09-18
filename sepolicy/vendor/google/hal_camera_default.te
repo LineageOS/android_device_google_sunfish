@@ -23,6 +23,11 @@ allow hal_camera_default mnt_vendor_file:dir search;
 allow hal_camera_default persist_camera_file:dir search;
 allow hal_camera_default persist_camera_file:file r_file_perms;
 
+# For camera hal to talk with statsd
+allow hal_camera_default statsdw_socket:sock_file write;
+# Silence annoying spam from Google Camera
+dontaudit hal_camera_default statsd:unix_dgram_socket sendto;
+
 # For camera hal to use system property
 set_prop(hal_camera_default, camera_prop)
 get_prop(hal_camera_default, camera_ro_prop)
