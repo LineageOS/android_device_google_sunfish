@@ -24,6 +24,8 @@ BOARD_SEPOLICY_DIRS += device/google/sunfish/sepolicy-lineage/dynamic
 BOARD_SEPOLICY_DIRS += device/google/sunfish/sepolicy-lineage/vendor
 
 # Verified Boot
+ifneq ($(WITH_AVB),true)
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
+endif
 
 include vendor/google/sunfish/BoardConfigVendor.mk
