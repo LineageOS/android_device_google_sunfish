@@ -1,0 +1,7 @@
+pixel_bugreport(dump_thermal)
+
+allow dump_thermal sysfs_thermal:dir r_dir_perms;
+allow dump_thermal sysfs_thermal:file r_file_perms;
+allow dump_thermal sysfs_thermal:lnk_file r_file_perms;
+allow dump_thermal vendor_toolbox_exec:file execute_no_trans;
+

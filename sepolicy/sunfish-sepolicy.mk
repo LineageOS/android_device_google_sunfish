@@ -16,3 +16,9 @@ SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += device/google/sunfish/sepolicy/system_ext/pr
 BOARD_VENDOR_SEPOLICY_DIRS += hardware/google/pixel-sepolicy/confirmationui_hal
 BOARD_VENDOR_SEPOLICY_DIRS += hardware/google/pixel-sepolicy/powerstats
 BOARD_VENDOR_SEPOLICY_DIRS += hardware/google/pixel-sepolicy/ramdump/common
+
+# misc_writer
+BOARD_VENDOR_SEPOLICY_DIRS += device/google/sunfish/sepolicy/vendor/google/misc_writer
+
+# thermal
+BOARD_VENDOR_SEPOLICY_DIRS += device/google/sunfish/sepolicy/vendor/google/thermal

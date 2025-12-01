@@ -1,0 +1,2 @@
+type thermal_link_device, dev_type;
+type debugfs_thermal, debugfs_type, fs_type;

@@ -1,0 +1,13 @@
+type pixel-thermal-control-sh, domain;
+type pixel-thermal-control-sh_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(pixel-thermal-control-sh)
+
+userdebug_or_eng(`
+  allow pixel-thermal-control-sh vendor_toolbox_exec:file execute_no_trans;
+  allow pixel-thermal-control-sh sysfs_thermal:dir r_dir_perms;
+  allow pixel-thermal-control-sh sysfs_thermal:file rw_file_perms;
+  allow pixel-thermal-control-sh sysfs_thermal:lnk_file r_file_perms;
+  allow pixel-thermal-control-sh thermal_link_device:dir r_dir_perms;
+  set_prop(pixel-thermal-control-sh, vendor_thermal_prop)
+')

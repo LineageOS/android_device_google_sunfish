@@ -648,8 +648,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Project
 include hardware/google/pixel/common/pixel-common-device.mk
 
-# gs-common
-include device/google/gs-common/misc_writer/misc_writer.mk
+# Misc Writer
+PRODUCT_PACKAGES += \
+    misc_writer
 
 # Citadel
 include hardware/google/pixel/citadel/citadel.mk
@@ -665,8 +666,10 @@ include hardware/google/pixel/citadel/citadel.mk
 # mm_event
 -include hardware/google/pixel/mm/device_legacy.mk
 
-# thermal
-include device/google/gs-common/thermal/thermal_hal/device.mk
+# Thermal
+PRODUCT_PACKAGES += \
+    android.hardware.thermal-service.pixel \
+    thermal_symlinks
 
 # Pixel Logger
 include hardware/google/pixel/PixelLogger/PixelLogger.mk
