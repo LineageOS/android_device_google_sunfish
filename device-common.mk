@@ -124,3 +124,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Enable zygote critical window.
 PRODUCT_PROPERTY_OVERRIDES += \
     zygote.critical_window.minute=10
+
+# ECO Service
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+    system/lib/libcodec2_hidl@1.0.so \
+    system/lib/libcodec2_hidl_plugin_stub.so \
+    system/lib64/libcodec2_hidl@1.0.so \
+    system/lib64/libcodec2_hidl_plugin_stub.so
