@@ -525,8 +525,8 @@ PRODUCT_PROPERTY_OVERRIDES += ro.telephony.default_network=10
 # Set display color mode to Adaptive by default
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.sf.color_saturation=1.0 \
-    persist.sys.sf.native_mode=2 \
-    persist.sys.sf.color_mode=9
+    persist.sys.sf.native_mode=0 \
+    persist.sys.sf.color_mode=0
 
 # Keymaster configuration
 PRODUCT_COPY_FILES += \
