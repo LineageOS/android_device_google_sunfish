@@ -95,10 +95,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.identity_credential.xml
 
-# VNDK FWK detect
-PRODUCT_PACKAGES += \
-    libvndfwk_detect_jni.qti.vendor
-
 # Wi-Fi
 PRODUCT_PACKAGES += \
     libwifi-hal-ctrl:64
