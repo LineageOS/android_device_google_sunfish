@@ -24,6 +24,11 @@ PRODUCT_SOONG_NAMESPACES += \
     device/google/sunfish \
     hardware/google/interfaces \
     hardware/google/pixel \
+    hardware/google/pixel/health \
+    hardware/google/pixel/pixelstats \
+    hardware/google/pixel/power-libperfmgr \
+    hardware/google/pixel/thermal \
+    hardware/google/pixel/usb \
     hardware/qcom/sm8150/display \
     hardware/qcom/sm8150/gps \
     hardware/qcom/wlan \
