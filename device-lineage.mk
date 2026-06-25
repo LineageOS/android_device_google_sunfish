@@ -79,10 +79,6 @@ include hardware/google/pixel/touch/device.mk
 PRODUCT_PACKAGES += \
     chre_daemon_msm
 
-# Configstore
-PRODUCT_PACKAGES += \
-    disable_configstore
-
 # Display
 $(call soong_config_set,qtidisplay,drmpp,true)
 $(call soong_config_set,qtidisplay,gralloc4,true)
