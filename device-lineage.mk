@@ -79,6 +79,8 @@ include hardware/google/pixel/touch/device.mk
 PRODUCT_PACKAGES += \
     chre_daemon_msm
 
+$(call soong_config_set_bool,chre,chre_daemon_load_into_sensorspd,true)
+
 # Display
 $(call soong_config_set,qtidisplay,drmpp,true)
 $(call soong_config_set,qtidisplay,gralloc4,true)
