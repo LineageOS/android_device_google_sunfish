@@ -22,3 +22,6 @@ BOARD_VENDOR_SEPOLICY_DIRS += device/google/sunfish/sepolicy/vendor/google/misc_
 
 # thermal
 BOARD_VENDOR_SEPOLICY_DIRS += device/google/sunfish/sepolicy/vendor/google/thermal
+
+# Lineage-specific
+include device/lineage/sepolicy/libion/sepolicy.mk

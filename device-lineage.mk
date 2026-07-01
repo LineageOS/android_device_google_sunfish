@@ -94,6 +94,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.identity_credential.xml
 
+# ION
+$(call soong_config_set_bool,libion,legacy_impl,true)
+
 # Wi-Fi
 PRODUCT_PACKAGES += \
     libwifi-hal-ctrl:64
