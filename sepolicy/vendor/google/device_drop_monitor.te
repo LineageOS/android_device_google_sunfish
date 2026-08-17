@@ -1,4 +1,4 @@
-type device_drop_monitor, domain, coredomain;
+type device_drop_monitor, domain;
 
 userdebug_or_eng(`
   app_domain(device_drop_monitor)

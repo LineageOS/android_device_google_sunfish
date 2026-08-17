@@ -1,0 +1,8 @@
+app_domain(hardware_info_app)
+
+userdebug_or_eng(`
+    typeattribute hardware_info_app treble_labeling_violators;
+')
+
+# Services
+allow hardware_info_app app_api_service:service_manager find;

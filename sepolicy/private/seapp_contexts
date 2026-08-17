@@ -15,3 +15,15 @@ user=_app isPrivApp=true seinfo=platform name=com.android.sdm.plugins.diagmon do
 
 # Domain for uscc omadm
 user=_app isPrivApp=true seinfo=platform name=com.android.sdm.plugins.usccdm domain=uscc_omadm type=app_data_file levelFrom=all
+
+# For atfwd service
+user=_app seinfo=platform name=com.qualcomm.telephony domain=qtelephony type=app_data_file levelFrom=all
+
+# Use a custom domain for GoogleCamera, to allow for Hexagon DSP / Easel access
+user=_app seinfo=google name=com.google.android.GoogleCamera domain=google_camera_app type=app_data_file levelFrom=all
+
+# Also allow GoogleCameraNext, the dogfood beta version, the same access as GoogleCamera
+user=_app seinfo=googlepulse name=com.google.android.apps.googlecamera.fishfood domain=google_camera_app type=app_data_file levelFrom=all
+
+# Hardware Info Collection
+user=_app isPrivApp=true name=com.google.android.hardwareinfo domain=hardware_info_app type=app_data_file levelFrom=user
