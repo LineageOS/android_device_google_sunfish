@@ -1,0 +1,5 @@
+app_domain(ril_config_service_app)
+
+typeattribute ril_config_service_app system_writes_vendor_properties_violators;
+
+allow ril_config_service_app app_api_service:service_manager find;

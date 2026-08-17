@@ -1,12 +1,3 @@
-type hardware_info_app, domain;
-
-app_domain(hardware_info_app)
-
-##
-## Sepolicy requseted by libhwinfo.jar and HardwareInfoService
-##
-allow hardware_info_app app_api_service:service_manager find;
-
 # putStorageHealthInfo
 dontaudit hardware_info_app sysfs:file r_file_perms;
 
