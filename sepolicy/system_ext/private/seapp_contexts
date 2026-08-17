@@ -1,0 +1,31 @@
+user=_app seinfo=platform name=com.qualcomm.qti.services.secureui* domain=secure_ui_service_app levelFrom=all
+
+#Add new domain for ims app
+user=_app seinfo=platform name=org.codeaurora.ims isPrivApp=true domain=qtelephony type=app_data_file levelFrom=all
+
+#Add DeviceInfoHidlClient to vendor_qtelephony
+user=_app seinfo=platform name=com.qualcomm.qti.devicestatisticsservice domain=qtelephony type=app_data_file levelFrom=all
+
+# QtiTelephonyService app
+user=_app seinfo=platform name=com.qualcomm.qti.telephonyservice domain=qtelephony type=app_data_file levelFrom=all
+
+#Add ExtTelephonyService to vendor_qtelephony
+user=_app seinfo=platform name=com.qti.phone domain=qtelephony type=app_data_file levelFrom=all
+
+# Verizon for OBDM tool
+user=_app seinfo=verizon name=com.verizon.obdm domain=obdm_app type=app_data_file levelFrom=all
+user=_app seinfo=verizon name=com.verizon.obdm:background domain=obdm_app type=app_data_file levelFrom=all
+
+# Domain for grilservice
+user=_app isPrivApp=true name=com.google.android.grilservice domain=grilservice_app levelFrom=all
+
+# Domain for Display
+user=_app seinfo=platform name=com.android.hbmsvmanager domain=hbmsvmanager_app type=app_data_file levelFrom=all
+
+# Domain for UvExposureReporter service
+user=_app isPrivApp=true name=com.google.android.uvexposurereporter domain=uv_exposure_reporter type=app_data_file levelFrom=all
+
+user=radio isPrivApp=true seinfo=platform name=com.google.RilConfigService domain=ril_config_service_app type=app_data_file levelFrom=all
+
+# Domain for connectivity monitor
+user=_app isPrivApp=true seinfo=platform name=com.google.android.connectivitymonitor domain=con_monitor_app type=app_data_file levelFrom=all

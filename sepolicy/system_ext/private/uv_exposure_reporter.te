@@ -1,0 +1,5 @@
+app_domain(uv_exposure_reporter)
+binder_use(uv_exposure_reporter)
+
+allow uv_exposure_reporter app_api_service:service_manager find;
+allow uv_exposure_reporter fwk_stats_service:service_manager find;

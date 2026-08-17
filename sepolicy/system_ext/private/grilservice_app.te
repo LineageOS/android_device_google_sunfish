@@ -1,0 +1,3 @@
+app_domain(grilservice_app)
+
+allow grilservice_app app_api_service:service_manager find;

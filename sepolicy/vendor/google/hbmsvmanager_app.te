@@ -1,12 +1,5 @@
-type hbmsvmanager_app, domain, coredomain;
-
-app_domain(hbmsvmanager_app);
 hal_client_domain(hbmsvmanager_app, hal_light)
-
-# Standard system services
-allow hbmsvmanager_app app_api_service:service_manager find;
 
 allow hbmsvmanager_app hal_pixel_display_service:service_manager find;
 
 binder_call(hbmsvmanager_app, hal_graphics_composer_default)
-allow hbmsvmanager_app cameraserver_service:service_manager find;
