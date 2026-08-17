@@ -10,6 +10,7 @@ BOARD_SEPOLICY_DIRS += device/google/sunfish/sepolicy/vendor/st
 BOARD_SEPOLICY_DIRS += device/google/sunfish/sepolicy/vendor/verizon
 
 # system_ext
+SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += device/google/sunfish/sepolicy/system_ext/public
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += device/google/sunfish/sepolicy/system_ext/private
 
 # Pixel-wide sepolicy

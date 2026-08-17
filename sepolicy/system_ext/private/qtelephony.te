@@ -1,0 +1,11 @@
+app_domain(qtelephony)
+
+typeattribute qtelephony system_writes_vendor_properties_violators;
+
+allow qtelephony app_api_service:service_manager find;
+allow qtelephony audioserver_service:service_manager find;
+allow qtelephony cameraserver_service:service_manager find;
+allow qtelephony mediaextractor_service:service_manager find;
+allow qtelephony mediametrics_service:service_manager find;
+allow qtelephony mediaserver_service:service_manager find;
+allow qtelephony radio_service:service_manager find;

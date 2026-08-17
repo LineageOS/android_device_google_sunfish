@@ -1,0 +1,1 @@
+/system/rfs.*                                   u:object_r:rfs_system_file:s0
