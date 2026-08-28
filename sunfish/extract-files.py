@@ -57,6 +57,8 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libgui_shim.so'),
     'system_ext/priv-app/HbmSVManager/HbmSVManager.apk': blob_fixup()
         .apktool_patch('HbmSVManager.patch'),
+    'vendor/bin/hw/android.hardware.biometrics.fingerprint@2.2-service.fpc': blob_fixup()
+        .replace_needed('android.frameworks.stats@1.0.so', 'lineage.frameworks.stats@1.0.so'),
     (
         'vendor/bin/hw/android.hardware.rebootescrow-service.citadel',
         'vendor/lib64/android.hardware.keymaster@4.1-impl.nos.so',
